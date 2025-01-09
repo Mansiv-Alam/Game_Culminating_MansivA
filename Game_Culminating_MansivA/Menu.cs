@@ -25,7 +25,7 @@ namespace Game_Culminating_MansivA
 
         private void btnTutorialStart_Click(object sender, EventArgs e)
         {
-            // Makes a instance of the Tutorial
+            // Makes a instance of the Tutorial Part 1 Form
             TutorialPart1 TutorialPart1 = new TutorialPart1();
             // Hides this form
             this.Hide();
