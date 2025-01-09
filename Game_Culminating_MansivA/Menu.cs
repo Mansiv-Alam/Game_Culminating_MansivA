@@ -16,5 +16,21 @@ namespace Game_Culminating_MansivA
         {
             InitializeComponent();
         }
+
+        private void btnQuit_Click(object sender, EventArgs e)
+        {
+            // Closes the Game
+            Close();
+        }
+
+        private void btnTutorialStart_Click(object sender, EventArgs e)
+        {
+            // Makes a instance of the Tutorial
+            TutorialPart1 TutorialPart1 = new TutorialPart1();
+            // Hides this form
+            this.Hide();
+            // Shows/Opens the tutorial
+            TutorialPart1.Show();
+        }
     }
 }
