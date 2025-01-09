@@ -20,7 +20,7 @@ namespace Game_Culminating_MansivA
         private void btnQuit_Click(object sender, EventArgs e)
         {
             // Closes the Game
-            Close();
+            this.Close();
         }
 
         private void btnTutorialStart_Click(object sender, EventArgs e)
