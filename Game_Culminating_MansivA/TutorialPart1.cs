@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Game_Culminating_MansivA
 {
-    public partial class Form1 : Form
+    public partial class TutorialPart1 : Form
     {
-        public Form1()
+        public TutorialPart1()
         {
             InitializeComponent();
         }
