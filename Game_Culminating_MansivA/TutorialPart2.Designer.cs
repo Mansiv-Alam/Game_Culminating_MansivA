@@ -32,6 +32,7 @@
             this.btnSettings = new System.Windows.Forms.Button();
             this.pcbPlayer = new System.Windows.Forms.PictureBox();
             this.tmrPlayerMovement = new System.Windows.Forms.Timer(this.components);
+            this.lblTutorial1Text = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlayer)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,21 +61,34 @@
             this.tmrPlayerMovement.Interval = 10;
             this.tmrPlayerMovement.Tick += new System.EventHandler(this.tmrPlayerMovement_Tick);
             // 
+            // lblTutorial1Text
+            // 
+            this.lblTutorial1Text.AutoSize = true;
+            this.lblTutorial1Text.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblTutorial1Text.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            this.lblTutorial1Text.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTutorial1Text.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lblTutorial1Text.Location = new System.Drawing.Point(225, 97);
+            this.lblTutorial1Text.Name = "lblTutorial1Text";
+            this.lblTutorial1Text.Size = new System.Drawing.Size(0, 55);
+            this.lblTutorial1Text.TabIndex = 3;
+            // 
             // TutorialPart2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 911);
+            this.Controls.Add(this.lblTutorial1Text);
             this.Controls.Add(this.pcbPlayer);
             this.Controls.Add(this.btnSettings);
             this.KeyPreview = true;
             this.Name = "TutorialPart2";
             this.Text = "TutorialPart2";
-            this.UseWaitCursor = true;
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TutorialPart2_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TutorialPart2_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlayer)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -83,5 +97,6 @@
         private System.Windows.Forms.Button btnSettings;
         private System.Windows.Forms.PictureBox pcbPlayer;
         private System.Windows.Forms.Timer tmrPlayerMovement;
+        private System.Windows.Forms.Label lblTutorial1Text;
     }
 }

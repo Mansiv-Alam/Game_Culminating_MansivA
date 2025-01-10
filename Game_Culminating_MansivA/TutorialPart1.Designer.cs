@@ -39,25 +39,23 @@
             // 
             // btnSettings
             // 
-            this.btnSettings.Location = new System.Drawing.Point(1097, 12);
+            this.btnSettings.Location = new System.Drawing.Point(391, 542);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Size = new System.Drawing.Size(75, 75);
             this.btnSettings.TabIndex = 0;
             this.btnSettings.TabStop = false;
             this.btnSettings.Text = "Settings";
             this.btnSettings.UseVisualStyleBackColor = true;
-            this.btnSettings.UseWaitCursor = true;
             this.btnSettings.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnSettings_Click);
             // 
             // pcbPlayer
             // 
             this.pcbPlayer.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pcbPlayer.Location = new System.Drawing.Point(12, 765);
+            this.pcbPlayer.Location = new System.Drawing.Point(649, 433);
             this.pcbPlayer.Name = "pcbPlayer";
             this.pcbPlayer.Size = new System.Drawing.Size(93, 134);
             this.pcbPlayer.TabIndex = 1;
             this.pcbPlayer.TabStop = false;
-            this.pcbPlayer.UseWaitCursor = true;
             // 
             // tmrPlayerMovement
             // 
@@ -75,7 +73,7 @@
             // 
             this.lblTutorial1Text.AutoSize = true;
             this.lblTutorial1Text.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblTutorial1Text.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            this.lblTutorial1Text.Cursor = System.Windows.Forms.Cursors.Default;
             this.lblTutorial1Text.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTutorial1Text.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.lblTutorial1Text.Location = new System.Drawing.Point(283, 228);
@@ -83,7 +81,6 @@
             this.lblTutorial1Text.Size = new System.Drawing.Size(568, 55);
             this.lblTutorial1Text.TabIndex = 2;
             this.lblTutorial1Text.Text = "Welcome To the Tutorial";
-            this.lblTutorial1Text.UseWaitCursor = true;
             // 
             // TutorialPart1
             // 
@@ -93,11 +90,10 @@
             this.Controls.Add(this.lblTutorial1Text);
             this.Controls.Add(this.pcbPlayer);
             this.Controls.Add(this.btnSettings);
-            this.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            this.Cursor = System.Windows.Forms.Cursors.Default;
             this.KeyPreview = true;
             this.Name = "TutorialPart1";
             this.Text = "TutorialPart1";
-            this.UseWaitCursor = true;
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TutorialPart1_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TutorialPart1_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlayer)).EndInit();

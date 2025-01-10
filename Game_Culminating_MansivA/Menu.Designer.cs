@@ -34,6 +34,7 @@
             this.btnCredits = new System.Windows.Forms.Button();
             this.btnQuit = new System.Windows.Forms.Button();
             this.lblGameText = new System.Windows.Forms.Label();
+            this.lblTutorial1Text = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnGameStart
@@ -104,11 +105,24 @@
             this.lblGameText.TabIndex = 5;
             this.lblGameText.Text = "The Ruins";
             // 
+            // lblTutorial1Text
+            // 
+            this.lblTutorial1Text.AutoSize = true;
+            this.lblTutorial1Text.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblTutorial1Text.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            this.lblTutorial1Text.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTutorial1Text.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lblTutorial1Text.Location = new System.Drawing.Point(72, 202);
+            this.lblTutorial1Text.Name = "lblTutorial1Text";
+            this.lblTutorial1Text.Size = new System.Drawing.Size(0, 55);
+            this.lblTutorial1Text.TabIndex = 6;
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 911);
+            this.Controls.Add(this.lblTutorial1Text);
             this.Controls.Add(this.lblGameText);
             this.Controls.Add(this.btnQuit);
             this.Controls.Add(this.btnCredits);
@@ -130,5 +144,6 @@
         private System.Windows.Forms.Button btnCredits;
         private System.Windows.Forms.Button btnQuit;
         private System.Windows.Forms.Label lblGameText;
+        private System.Windows.Forms.Label lblTutorial1Text;
     }
 }
