@@ -96,6 +96,7 @@ namespace Game_Culminating_MansivA
                 this.Hide();
                 // Shows/Opens the tutorial
                 TutorialPart3.Show();
+                this.Close();
             }
         }
     }

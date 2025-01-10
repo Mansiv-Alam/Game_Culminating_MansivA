@@ -36,6 +36,7 @@ namespace Game_Culminating_MansivA
             {
                 blnIsJumping = true;
             }
+            Console.WriteLine(e.KeyCode);
         }
         // Keys getting released
         private void TutorialPart3_KeyUp(object sender, KeyEventArgs e)

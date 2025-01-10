@@ -108,11 +108,12 @@ namespace Game_Culminating_MansivA
             {
                 TutorialPart2 TutorialPart2 = new TutorialPart2();
                 // Hides this form
-                this.tmrGameTick.Enabled = false;
-                this.tmrPlayerMovement.Enabled = false;
                 this.Hide();
                 // Shows/Opens the tutorial
                 TutorialPart2.Show();
+                this.tmrGameTick.Enabled = false;
+                this.tmrPlayerMovement.Enabled = false;
+                this.Close();
             }
         }
     }
