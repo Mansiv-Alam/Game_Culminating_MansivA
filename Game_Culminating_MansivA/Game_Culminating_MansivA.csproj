@@ -76,6 +76,36 @@
     <Compile Include="MainGamePt1.Designer.cs">
       <DependentUpon>MainGamePt1.cs</DependentUpon>
     </Compile>
+    <Compile Include="MainGamePt2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainGamePt2.Designer.cs">
+      <DependentUpon>MainGamePt2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainGamePt3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainGamePt3.Designer.cs">
+      <DependentUpon>MainGamePt3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainGamePt4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainGamePt4.Designer.cs">
+      <DependentUpon>MainGamePt4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainGamePt5.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainGamePt5.Designer.cs">
+      <DependentUpon>MainGamePt5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainGamePt6.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainGamePt6.Designer.cs">
+      <DependentUpon>MainGamePt6.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +137,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainGamePt1.resx">
       <DependentUpon>MainGamePt1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainGamePt2.resx">
+      <DependentUpon>MainGamePt2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainGamePt3.resx">
+      <DependentUpon>MainGamePt3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainGamePt4.resx">
+      <DependentUpon>MainGamePt4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainGamePt5.resx">
+      <DependentUpon>MainGamePt5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainGamePt6.resx">
+      <DependentUpon>MainGamePt6.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>

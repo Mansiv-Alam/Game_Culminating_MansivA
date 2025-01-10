@@ -1,0 +1,159 @@
+﻿namespace Game_Culminating_MansivA
+{
+    partial class MainGamePt3
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.lblScore = new System.Windows.Forms.Label();
+            this.btnSettings = new System.Windows.Forms.Button();
+            this.pcbPlayer = new System.Windows.Forms.PictureBox();
+            this.pcbPlatform1 = new System.Windows.Forms.PictureBox();
+            this.pcbPlatform2 = new System.Windows.Forms.PictureBox();
+            this.pcbPlatform3 = new System.Windows.Forms.PictureBox();
+            this.pcbLavaPlatform = new System.Windows.Forms.PictureBox();
+            this.pcbPlatform = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbPlayer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbLavaPlatform)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // lblScore
+            // 
+            this.lblScore.AutoSize = true;
+            this.lblScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblScore.Location = new System.Drawing.Point(12, 9);
+            this.lblScore.Name = "lblScore";
+            this.lblScore.Size = new System.Drawing.Size(118, 39);
+            this.lblScore.TabIndex = 11;
+            this.lblScore.Text = "Score:";
+            // 
+            // btnSettings
+            // 
+            this.btnSettings.Location = new System.Drawing.Point(1097, 12);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Size = new System.Drawing.Size(75, 75);
+            this.btnSettings.TabIndex = 12;
+            this.btnSettings.TabStop = false;
+            this.btnSettings.Text = "Settings";
+            this.btnSettings.UseVisualStyleBackColor = true;
+            // 
+            // pcbPlayer
+            // 
+            this.pcbPlayer.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pcbPlayer.Location = new System.Drawing.Point(68, 712);
+            this.pcbPlayer.Name = "pcbPlayer";
+            this.pcbPlayer.Size = new System.Drawing.Size(93, 134);
+            this.pcbPlayer.TabIndex = 13;
+            this.pcbPlayer.TabStop = false;
+            // 
+            // pcbPlatform1
+            // 
+            this.pcbPlatform1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pcbPlatform1.Location = new System.Drawing.Point(255, 606);
+            this.pcbPlatform1.Name = "pcbPlatform1";
+            this.pcbPlatform1.Size = new System.Drawing.Size(179, 54);
+            this.pcbPlatform1.TabIndex = 14;
+            this.pcbPlatform1.TabStop = false;
+            // 
+            // pcbPlatform2
+            // 
+            this.pcbPlatform2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pcbPlatform2.Location = new System.Drawing.Point(45, 459);
+            this.pcbPlatform2.Name = "pcbPlatform2";
+            this.pcbPlatform2.Size = new System.Drawing.Size(179, 54);
+            this.pcbPlatform2.TabIndex = 15;
+            this.pcbPlatform2.TabStop = false;
+            // 
+            // pcbPlatform3
+            // 
+            this.pcbPlatform3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pcbPlatform3.Location = new System.Drawing.Point(405, 347);
+            this.pcbPlatform3.Name = "pcbPlatform3";
+            this.pcbPlatform3.Size = new System.Drawing.Size(200, 54);
+            this.pcbPlatform3.TabIndex = 16;
+            this.pcbPlatform3.TabStop = false;
+            // 
+            // pcbLavaPlatform
+            // 
+            this.pcbLavaPlatform.BackColor = System.Drawing.Color.Firebrick;
+            this.pcbLavaPlatform.Location = new System.Drawing.Point(601, 347);
+            this.pcbLavaPlatform.Name = "pcbLavaPlatform";
+            this.pcbLavaPlatform.Size = new System.Drawing.Size(179, 54);
+            this.pcbLavaPlatform.TabIndex = 17;
+            this.pcbLavaPlatform.TabStop = false;
+            // 
+            // pcbPlatform
+            // 
+            this.pcbPlatform.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pcbPlatform.Location = new System.Drawing.Point(775, 347);
+            this.pcbPlatform.Name = "pcbPlatform";
+            this.pcbPlatform.Size = new System.Drawing.Size(179, 54);
+            this.pcbPlatform.TabIndex = 18;
+            this.pcbPlatform.TabStop = false;
+            // 
+            // MainGamePt3
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1184, 911);
+            this.Controls.Add(this.pcbPlatform);
+            this.Controls.Add(this.pcbLavaPlatform);
+            this.Controls.Add(this.pcbPlatform3);
+            this.Controls.Add(this.pcbPlatform2);
+            this.Controls.Add(this.pcbPlatform1);
+            this.Controls.Add(this.pcbPlayer);
+            this.Controls.Add(this.btnSettings);
+            this.Controls.Add(this.lblScore);
+            this.KeyPreview = true;
+            this.Name = "MainGamePt3";
+            this.Text = "MainGamePt3";
+            ((System.ComponentModel.ISupportInitialize)(this.pcbPlayer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbLavaPlatform)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Label lblScore;
+        private System.Windows.Forms.Button btnSettings;
+        private System.Windows.Forms.PictureBox pcbPlayer;
+        private System.Windows.Forms.PictureBox pcbPlatform1;
+        private System.Windows.Forms.PictureBox pcbPlatform2;
+        private System.Windows.Forms.PictureBox pcbPlatform3;
+        private System.Windows.Forms.PictureBox pcbLavaPlatform;
+        private System.Windows.Forms.PictureBox pcbPlatform;
+    }
+}

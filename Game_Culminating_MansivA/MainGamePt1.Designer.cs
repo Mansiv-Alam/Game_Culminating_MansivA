@@ -31,6 +31,7 @@
             this.btnSettings = new System.Windows.Forms.Button();
             this.pcbPlayer = new System.Windows.Forms.PictureBox();
             this.pcbPlatform1 = new System.Windows.Forms.PictureBox();
+            this.lblScore = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform1)).BeginInit();
             this.SuspendLayout();
@@ -63,11 +64,22 @@
             this.pcbPlatform1.TabIndex = 8;
             this.pcbPlatform1.TabStop = false;
             // 
+            // lblScore
+            // 
+            this.lblScore.AutoSize = true;
+            this.lblScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblScore.Location = new System.Drawing.Point(28, 22);
+            this.lblScore.Name = "lblScore";
+            this.lblScore.Size = new System.Drawing.Size(118, 39);
+            this.lblScore.TabIndex = 9;
+            this.lblScore.Text = "Score:";
+            // 
             // MainGamePt1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 911);
+            this.Controls.Add(this.lblScore);
             this.Controls.Add(this.pcbPlatform1);
             this.Controls.Add(this.pcbPlayer);
             this.Controls.Add(this.btnSettings);
@@ -77,6 +89,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlayer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -85,5 +98,6 @@
         private System.Windows.Forms.Button btnSettings;
         private System.Windows.Forms.PictureBox pcbPlayer;
         private System.Windows.Forms.PictureBox pcbPlatform1;
+        private System.Windows.Forms.Label lblScore;
     }
 }
