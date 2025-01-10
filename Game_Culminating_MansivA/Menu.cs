@@ -28,23 +28,31 @@ namespace Game_Culminating_MansivA
         private void btnTutorialStart_Click(object sender, EventArgs e)
         {
             // Makes a instance of the Tutorial Part 1 Form
-            TutorialPart3 TutorialPart3 = new TutorialPart3();
+            TutorialPart1 TutorialPart1 = new TutorialPart1();
             // Hides this form
             this.Hide();
             // Shows/Opens the tutorial
-            TutorialPart3.Show();
-            this.Close();
+            TutorialPart1.Show();
         }
 
         private void btnGameStart_Click(object sender, EventArgs e)
         {
-            // Makes a instance of the Tutorial Part 1 Form
-            TutorialPart3 TutorialPart3 = new TutorialPart3();
+            // Makes a instance of the Main Game 1 Form
+            MainGamePt1 MainGamePt1 = new MainGamePt1();
+            // Hides this form
+            this.Hide();
+            // Shows/Opens the Main Game
+            MainGamePt1.Show();
+        }
+
+        private void btnCredits_Click(object sender, EventArgs e)
+        {
+            // Makes a instance of the Credits Form
+            Credits Credits = new Credits();
             // Hides this form
             this.Hide();
             // Shows/Opens the tutorial
-            TutorialPart3.Show();
-            this.Close();
+            Credits.Show();
         }
     }
 }

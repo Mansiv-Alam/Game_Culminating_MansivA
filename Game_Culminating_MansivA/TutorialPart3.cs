@@ -26,11 +26,11 @@ namespace Game_Culminating_MansivA
         {
             if (e.KeyCode == Keys.A)
             {
-                blnMovingLeft = false;
+                blnMovingLeft = true;
             }
             if (e.KeyCode == Keys.D)
             {
-                blnMovingRight = false;
+                blnMovingRight = true;
             }
             if (e.KeyCode == Keys.Space && blnIsJumping == false)
             {

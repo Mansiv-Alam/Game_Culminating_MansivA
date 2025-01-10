@@ -82,6 +82,7 @@
             this.btnCredits.TabIndex = 3;
             this.btnCredits.Text = "Credits";
             this.btnCredits.UseVisualStyleBackColor = true;
+            this.btnCredits.Click += new System.EventHandler(this.btnCredits_Click);
             // 
             // btnQuit
             // 

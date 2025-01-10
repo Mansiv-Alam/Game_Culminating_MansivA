@@ -64,6 +64,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Credits.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Credits.Designer.cs">
+      <DependentUpon>Credits.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainGamePt1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainGamePt1.Designer.cs">
+      <DependentUpon>MainGamePt1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +102,12 @@
     <Compile Include="TutorialPart3.Designer.cs">
       <DependentUpon>TutorialPart3.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Credits.resx">
+      <DependentUpon>Credits.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainGamePt1.resx">
+      <DependentUpon>MainGamePt1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
