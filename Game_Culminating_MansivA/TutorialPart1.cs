@@ -100,7 +100,7 @@ namespace Game_Culminating_MansivA
             }
             return -1;
         }
-        // timer for the Game
+        // Timer for the Game
         private void tmrGameTick_Tick(object sender, EventArgs e)
         {
             // Checks if the player went beyond the left side width and switches to tutorial level part 2
@@ -108,9 +108,9 @@ namespace Game_Culminating_MansivA
             {
                 TutorialPart2 TutorialPart2 = new TutorialPart2();
                 // Hides this form
-                this.Hide();
                 this.tmrGameTick.Enabled = false;
                 this.tmrPlayerMovement.Enabled = false;
+                this.Hide();
                 // Shows/Opens the tutorial
                 TutorialPart2.Show();
             }

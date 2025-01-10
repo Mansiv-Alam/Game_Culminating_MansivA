@@ -10,32 +10,19 @@ using System.Windows.Forms;
 
 namespace Game_Culminating_MansivA
 {
-    public partial class TutorialPart2 : Form
+    public partial class TutorialPart3 : Form
     {
         bool blnMovingLeft = false;
         bool blnMovingRight = false;
         bool blnIsJumping = false;
         int intPlayerSpeed = 8;
         int intJumpPower = 18;
-        public TutorialPart2()
+        public TutorialPart3()
         {
             InitializeComponent();
         }
-        // Keys getting pressed
-        private void TutorialPart2_KeyDown(object sender, KeyEventArgs e)
-        {
-            // Movement keys for the player
-            if (e.KeyCode == Keys.A)
-            {
-                blnMovingLeft = true;
-            }
-            if (e.KeyCode == Keys.D)
-            {
-                blnMovingRight = true;
-            }
-        }
         // Keys getting released
-        private void TutorialPart2_KeyUp(object sender, KeyEventArgs e)
+        private void TutorialPart3_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.A)
             {
@@ -50,7 +37,19 @@ namespace Game_Culminating_MansivA
                 blnIsJumping = true;
             }
         }
-        // Player Movement
+        // Keys getting released
+        private void TutorialPart3_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.A)
+            {
+                blnMovingLeft = false;
+            }
+            if (e.KeyCode == Keys.D)
+            {
+                blnMovingRight = false;
+            }
+        }
+        // Smooth Player Movement
         private void tmrPlayerMovement_Tick(object sender, EventArgs e)
         {
             if (blnIsJumping == true)
@@ -62,7 +61,7 @@ namespace Game_Culminating_MansivA
             {
                 this.pcbPlayer.Left -= intPlayerSpeed;
             }
-            if (blnMovingRight == true)
+            else if (blnMovingRight == true)
             {
                 this.pcbPlayer.Left += intPlayerSpeed;
             }
@@ -83,20 +82,6 @@ namespace Game_Culminating_MansivA
                 blnIsJumping = false;
                 return;
             }
-        }
-        private void tmrGameTick_Tick(object sender, EventArgs e)
-        {
-            // Checks if the player went beyond the left side width and switches to tutorial level part 2
-            if (pcbPlayer.Left > 1200)
-            {
-                TutorialPart3 TutorialPart3 = new TutorialPart3();
-                // Hides this form
-                this.tmrGameTick.Enabled = false;
-                this.tmrPlayerMovement.Enabled = false;
-                this.Hide();
-                // Shows/Opens the tutorial
-                TutorialPart3.Show();
-            }
-        }
+        }      
     }
 }

@@ -33,6 +33,8 @@
             this.pcbPlayer = new System.Windows.Forms.PictureBox();
             this.tmrPlayerMovement = new System.Windows.Forms.Timer(this.components);
             this.lblTutorial1Text = new System.Windows.Forms.Label();
+            this.lblTutorialPart2Text = new System.Windows.Forms.Label();
+            this.tmrGameTick = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlayer)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,11 +75,31 @@
             this.lblTutorial1Text.Size = new System.Drawing.Size(0, 55);
             this.lblTutorial1Text.TabIndex = 3;
             // 
+            // lblTutorialPart2Text
+            // 
+            this.lblTutorialPart2Text.AutoSize = true;
+            this.lblTutorialPart2Text.BackColor = System.Drawing.SystemColors.Control;
+            this.lblTutorialPart2Text.Cursor = System.Windows.Forms.Cursors.Default;
+            this.lblTutorialPart2Text.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTutorialPart2Text.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblTutorialPart2Text.Location = new System.Drawing.Point(61, 152);
+            this.lblTutorialPart2Text.Name = "lblTutorialPart2Text";
+            this.lblTutorialPart2Text.Size = new System.Drawing.Size(1046, 55);
+            this.lblTutorialPart2Text.TabIndex = 4;
+            this.lblTutorialPart2Text.Text = "This is where you will learn about Key Objects";
+            // 
+            // tmrGameTick
+            // 
+            this.tmrGameTick.Enabled = true;
+            this.tmrGameTick.Interval = 20;
+            this.tmrGameTick.Tick += new System.EventHandler(this.tmrGameTick_Tick);
+            // 
             // TutorialPart2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 911);
+            this.Controls.Add(this.lblTutorialPart2Text);
             this.Controls.Add(this.lblTutorial1Text);
             this.Controls.Add(this.pcbPlayer);
             this.Controls.Add(this.btnSettings);
@@ -98,5 +120,7 @@
         private System.Windows.Forms.PictureBox pcbPlayer;
         private System.Windows.Forms.Timer tmrPlayerMovement;
         private System.Windows.Forms.Label lblTutorial1Text;
+        private System.Windows.Forms.Label lblTutorialPart2Text;
+        private System.Windows.Forms.Timer tmrGameTick;
     }
 }

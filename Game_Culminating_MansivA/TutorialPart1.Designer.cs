@@ -39,7 +39,7 @@
             // 
             // btnSettings
             // 
-            this.btnSettings.Location = new System.Drawing.Point(391, 542);
+            this.btnSettings.Location = new System.Drawing.Point(1097, 12);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Size = new System.Drawing.Size(75, 75);
             this.btnSettings.TabIndex = 0;
@@ -51,7 +51,7 @@
             // pcbPlayer
             // 
             this.pcbPlayer.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pcbPlayer.Location = new System.Drawing.Point(649, 433);
+            this.pcbPlayer.Location = new System.Drawing.Point(43, 734);
             this.pcbPlayer.Name = "pcbPlayer";
             this.pcbPlayer.Size = new System.Drawing.Size(93, 134);
             this.pcbPlayer.TabIndex = 1;
@@ -72,11 +72,11 @@
             // lblTutorial1Text
             // 
             this.lblTutorial1Text.AutoSize = true;
-            this.lblTutorial1Text.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblTutorial1Text.BackColor = System.Drawing.SystemColors.Control;
             this.lblTutorial1Text.Cursor = System.Windows.Forms.Cursors.Default;
             this.lblTutorial1Text.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTutorial1Text.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.lblTutorial1Text.Location = new System.Drawing.Point(283, 228);
+            this.lblTutorial1Text.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblTutorial1Text.Location = new System.Drawing.Point(270, 94);
             this.lblTutorial1Text.Name = "lblTutorial1Text";
             this.lblTutorial1Text.Size = new System.Drawing.Size(568, 55);
             this.lblTutorial1Text.TabIndex = 2;
