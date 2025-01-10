@@ -33,6 +33,7 @@
             this.btnTutorialStart = new System.Windows.Forms.Button();
             this.btnCredits = new System.Windows.Forms.Button();
             this.btnQuit = new System.Windows.Forms.Button();
+            this.lblGameText = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnGameStart
@@ -92,11 +93,23 @@
             this.btnQuit.UseVisualStyleBackColor = true;
             this.btnQuit.Click += new System.EventHandler(this.btnQuit_Click);
             // 
+            // lblGameText
+            // 
+            this.lblGameText.AutoSize = true;
+            this.lblGameText.Font = new System.Drawing.Font("Courier New", 72F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGameText.ForeColor = System.Drawing.Color.SlateGray;
+            this.lblGameText.Location = new System.Drawing.Point(318, 55);
+            this.lblGameText.Name = "lblGameText";
+            this.lblGameText.Size = new System.Drawing.Size(569, 111);
+            this.lblGameText.TabIndex = 5;
+            this.lblGameText.Text = "The Ruins";
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 911);
+            this.Controls.Add(this.lblGameText);
             this.Controls.Add(this.btnQuit);
             this.Controls.Add(this.btnCredits);
             this.Controls.Add(this.btnTutorialStart);
@@ -105,6 +118,7 @@
             this.Name = "Menu";
             this.Text = "Menu";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -115,5 +129,6 @@
         private System.Windows.Forms.Button btnTutorialStart;
         private System.Windows.Forms.Button btnCredits;
         private System.Windows.Forms.Button btnQuit;
+        private System.Windows.Forms.Label lblGameText;
     }
 }

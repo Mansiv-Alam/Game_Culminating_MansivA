@@ -79,6 +79,12 @@
     <Compile Include="TutorialPart1.Designer.cs">
       <DependentUpon>TutorialPart1.cs</DependentUpon>
     </Compile>
+    <Compile Include="TutorialPart2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TutorialPart2.Designer.cs">
+      <DependentUpon>TutorialPart2.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
@@ -93,6 +99,9 @@
     </Compile>
     <EmbeddedResource Include="TutorialPart1.resx">
       <DependentUpon>TutorialPart1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TutorialPart2.resx">
+      <DependentUpon>TutorialPart2.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
