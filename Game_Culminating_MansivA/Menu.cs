@@ -1,4 +1,6 @@
-﻿using System;
+﻿// Mansiv Alam
+// January 8th 2025
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,13 +18,13 @@ namespace Game_Culminating_MansivA
         {
             InitializeComponent();
         }
-
+        // Occurs when the Quit button is clicked
         private void btnQuit_Click(object sender, EventArgs e)
         {
             // Closes the Game
             this.Close();
         }
-
+        // Occurs when the tutorial button is clicked
         private void btnTutorialStart_Click(object sender, EventArgs e)
         {
             // Makes a instance of the Tutorial Part 1 Form
