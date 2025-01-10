@@ -15,6 +15,8 @@ namespace Game_Culminating_MansivA
         bool blnMovingLeft = false;
         bool blnMovingRight = false;
         bool blnIsJumping = false;
+        int intPlayerSpeed = 8;
+        int intJumpPower = 18;
         public TutorialPart1()
         {
             InitializeComponent();
@@ -35,9 +37,12 @@ namespace Game_Culminating_MansivA
             if (e.KeyCode == Keys.D)
             {
                 blnMovingRight = true;
-            }          
+            }
+            if (e.KeyCode == Keys.Space && blnIsJumping == false) {
+                blnIsJumping = true;
+            }
         }
-        // Finds when the key is not pressed so the player doesn't infinitely slide one direction after clicking a key
+        // Finds when the key is lifted so the player doesn't infinitely slide one direction after clicking a key
         private void TutorialPart1_KeysUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.A)
@@ -48,17 +53,35 @@ namespace Game_Culminating_MansivA
             {
                 blnMovingRight = false;
             }
+            Console.WriteLine(Math.Sign(intJumpPower));
         }
         // A player timer for smooth movement of the player
         private void tmrPlayerMovementTick(object sender, EventArgs e)
         {
+            if (blnIsJumping == true) {
+                jumpingMechanics();
+            }
             // moves the player depending on if the player is moving left or right
             if (blnMovingLeft == true)
             {
-                this.pcbPlayer.Left -= 3;
+                this.pcbPlayer.Left -= intPlayerSpeed;
             }
             else if (blnMovingRight == true) {
-                this.pcbPlayer.Left += 3;
+                this.pcbPlayer.Left += intPlayerSpeed;
+            }
+        }
+        private void jumpingMechanics() {
+            // makes the player jump by using a function for a parabola and Math.Sign for falling down
+            if (intJumpPower >= -18)
+            {
+                pcbPlayer.Top -= (int)((0.15 * Math.Pow((double)intJumpPower, 2.0)) *  Math.Sign(intJumpPower));
+                intJumpPower--;
+            }
+            else
+            {
+                intJumpPower = 18;
+                blnIsJumping = false;
+                return;
             }
         }
     }
