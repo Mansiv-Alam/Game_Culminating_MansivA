@@ -18,10 +18,11 @@ namespace Game_Culminating_MansivA
         bool blnMovingLeft = false;
         bool blnMovingRight = false;
         bool blnIsJumping = false;
+        bool blnIsDashing = false;
         int intPlayerSpeed = 8;
         int intJumpPower = 18;
         int intDashSpeed = 15;
-        bool blnIsDashing = false;
+        int intDashCounter = 0;
         bool blnGrounded = true;
         int intGravity = 1;
         public TutorialPart1()
@@ -49,7 +50,7 @@ namespace Game_Culminating_MansivA
             {
                 blnIsDashing = true;
             }
-            if (e.KeyCode == Keys.Space && blnIsJumping == false)
+            if (e.KeyCode == Keys.Space && blnIsJumping == false && blnGrounded == true)
             {
                 blnIsJumping = true;
             }
@@ -69,12 +70,11 @@ namespace Game_Culminating_MansivA
         // A player timer for smooth movement of the player, Also controls player physics
         private void tmrPlayerMovementTick(object sender, EventArgs e)
         {
-            Console.WriteLine(intGravity);
+            Console.WriteLine(blnGrounded);
+            checkGrounded();
             // Moves the player if they clicked q to dash
             if (blnIsDashing == true) {
                 playerDash();
-                blnIsJumping = false;
-                intJumpPower = 18;
                 return;
             }
             // Moves the player if they pressed the spacebar
@@ -89,7 +89,6 @@ namespace Game_Culminating_MansivA
             else if (blnMovingRight == true) {
                 this.pcbPlayer.Left += intPlayerSpeed;
             }
-            checkGrounded();
             // Gravity
             if (blnGrounded == false && blnIsJumping == false && blnIsDashing == false) {
                 Gravity();
@@ -119,16 +118,20 @@ namespace Game_Culminating_MansivA
                 this.pcbPlayer.Left -= intDashSpeed;
                 intDashSpeed--;
             }
+            // Works in the other direction as well
             else if (intDashSpeed >= 0 && blnMovingRight == true)
             {
                 this.pcbPlayer.Left += intDashSpeed;
                 intDashSpeed--;
             }
             else {
+                // resets all values after the dashes are done
                 blnIsDashing = false;
                 intDashSpeed = 15;
+                intDashCounter++;
+                blnIsJumping = false;
+                intJumpPower = 18;
             }
-
         }
         // Finds and returns the index value of a specified value in a Array (Helps with inventory searches)
         private int IndexFind(int[] intArrayX, int intValue) {
@@ -166,12 +169,15 @@ namespace Game_Culminating_MansivA
             }
         }
         // Moves the player using gravity
-        private void Gravity() 
+        private void Gravity()
         {
-            if (pcbPlayer.Location.Y + intGravity > 700)
+            // Sets the player's location to 700 if in the next interval they will hit the ground so they dont glitch through the floor
+            if (pcbPlayer.Location.Y + intGravity > 701)
             {
-                pcbPlayer.Top = 700;
-                intGravity = 0;
+                pcbPlayer.Top = 701;
+                // changes the gravity back to 1 so the gravity doesnt keep constantly increase
+                intGravity = 1;
+                intDashCounter = 0;
             }
             else {
                 pcbPlayer.Top += intGravity;
