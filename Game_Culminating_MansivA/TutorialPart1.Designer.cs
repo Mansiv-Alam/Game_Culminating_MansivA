@@ -36,8 +36,10 @@
             this.lblTutorial1Text = new System.Windows.Forms.Label();
             this.pcbGround = new System.Windows.Forms.PictureBox();
             this.lblScore = new System.Windows.Forms.Label();
+            this.pcbPlatform1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbGround)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSettings
@@ -69,7 +71,7 @@
             // tmrGameTick
             // 
             this.tmrGameTick.Enabled = true;
-            this.tmrGameTick.Interval = 20;
+            this.tmrGameTick.Interval = 10;
             this.tmrGameTick.Tick += new System.EventHandler(this.tmrGameTick_Tick);
             // 
             // lblTutorial1Text
@@ -104,11 +106,21 @@
             this.lblScore.TabIndex = 10;
             this.lblScore.Text = "Score:";
             // 
+            // pcbPlatform1
+            // 
+            this.pcbPlatform1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pcbPlatform1.Location = new System.Drawing.Point(420, 536);
+            this.pcbPlatform1.Name = "pcbPlatform1";
+            this.pcbPlatform1.Size = new System.Drawing.Size(325, 50);
+            this.pcbPlatform1.TabIndex = 11;
+            this.pcbPlatform1.TabStop = false;
+            // 
             // TutorialPart1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 911);
+            this.Controls.Add(this.pcbPlatform1);
             this.Controls.Add(this.lblScore);
             this.Controls.Add(this.pcbPlayer);
             this.Controls.Add(this.pcbGround);
@@ -122,6 +134,7 @@
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TutorialPart1_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlayer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbGround)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -136,5 +149,6 @@
         private System.Windows.Forms.Label lblTutorial1Text;
         private System.Windows.Forms.PictureBox pcbGround;
         private System.Windows.Forms.Label lblScore;
+        private System.Windows.Forms.PictureBox pcbPlatform1;
     }
 }
