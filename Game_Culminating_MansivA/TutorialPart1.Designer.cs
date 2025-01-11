@@ -35,6 +35,7 @@
             this.tmrGameTick = new System.Windows.Forms.Timer(this.components);
             this.lblTutorial1Text = new System.Windows.Forms.Label();
             this.pcbGround = new System.Windows.Forms.PictureBox();
+            this.lblScore = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbGround)).BeginInit();
             this.SuspendLayout();
@@ -53,7 +54,7 @@
             // pcbPlayer
             // 
             this.pcbPlayer.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pcbPlayer.Location = new System.Drawing.Point(61, 28);
+            this.pcbPlayer.Location = new System.Drawing.Point(25, 701);
             this.pcbPlayer.Name = "pcbPlayer";
             this.pcbPlayer.Size = new System.Drawing.Size(93, 134);
             this.pcbPlayer.TabIndex = 1;
@@ -78,7 +79,7 @@
             this.lblTutorial1Text.Cursor = System.Windows.Forms.Cursors.Default;
             this.lblTutorial1Text.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTutorial1Text.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblTutorial1Text.Location = new System.Drawing.Point(270, 94);
+            this.lblTutorial1Text.Location = new System.Drawing.Point(307, 173);
             this.lblTutorial1Text.Name = "lblTutorial1Text";
             this.lblTutorial1Text.Size = new System.Drawing.Size(568, 55);
             this.lblTutorial1Text.TabIndex = 2;
@@ -93,11 +94,22 @@
             this.pcbGround.TabIndex = 5;
             this.pcbGround.TabStop = false;
             // 
+            // lblScore
+            // 
+            this.lblScore.AutoSize = true;
+            this.lblScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblScore.Location = new System.Drawing.Point(12, 9);
+            this.lblScore.Name = "lblScore";
+            this.lblScore.Size = new System.Drawing.Size(118, 39);
+            this.lblScore.TabIndex = 10;
+            this.lblScore.Text = "Score:";
+            // 
             // TutorialPart1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 911);
+            this.Controls.Add(this.lblScore);
             this.Controls.Add(this.pcbPlayer);
             this.Controls.Add(this.pcbGround);
             this.Controls.Add(this.lblTutorial1Text);
@@ -123,5 +135,6 @@
         private System.Windows.Forms.Timer tmrGameTick;
         private System.Windows.Forms.Label lblTutorial1Text;
         private System.Windows.Forms.PictureBox pcbGround;
+        private System.Windows.Forms.Label lblScore;
     }
 }

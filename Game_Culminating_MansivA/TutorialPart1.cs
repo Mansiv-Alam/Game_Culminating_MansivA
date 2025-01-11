@@ -15,6 +15,7 @@ namespace Game_Culminating_MansivA
 {
     public partial class TutorialPart1 : Form
     {
+        // Player Movement Variables 
         bool blnMovingLeft = false;
         bool blnMovingRight = false;
         bool blnIsJumping = false;
@@ -25,6 +26,11 @@ namespace Game_Culminating_MansivA
         int intDashCounter = 0;
         bool blnGrounded = true;
         int intGravity = 1;
+        // Player UI
+        int[] intInventoryValues = new int[9];
+        int intPlayerHealth = 100;
+        int intPlayerScore = 0;
+
         public TutorialPart1()
         {
             InitializeComponent();
@@ -46,10 +52,12 @@ namespace Game_Culminating_MansivA
             {
                 blnMovingRight = true;
             }
-            if (e.KeyCode == Keys.Q)
+            // Restrict the number of dashes to 2 mid air
+            if (e.KeyCode == Keys.Q && intDashCounter < 2)
             {
                 blnIsDashing = true;
             }
+            // Makes sure the player can't jump multiple times mid air
             if (e.KeyCode == Keys.Space && blnIsJumping == false && blnGrounded == true)
             {
                 blnIsJumping = true;
@@ -70,7 +78,6 @@ namespace Game_Culminating_MansivA
         // A player timer for smooth movement of the player, Also controls player physics
         private void tmrPlayerMovementTick(object sender, EventArgs e)
         {
-            Console.WriteLine(blnGrounded);
             checkGrounded();
             // Moves the player if they clicked q to dash
             if (blnIsDashing == true) {
@@ -128,7 +135,9 @@ namespace Game_Culminating_MansivA
                 // resets all values after the dashes are done
                 blnIsDashing = false;
                 intDashSpeed = 15;
+                // Increases the jump counter
                 intDashCounter++;
+                // Cuts the jump mid way 
                 blnIsJumping = false;
                 intJumpPower = 18;
             }
@@ -157,12 +166,19 @@ namespace Game_Culminating_MansivA
                 TutorialPart2.Show();
                 this.Close();
             }
+            // makes a boundary for the left wall using the speed of the player and how many pixels they could move beyond the window
+            else if (pcbPlayer.Left - 3 <= 0) {
+                pcbPlayer.Left = 0;
+                blnMovingLeft = false;
+            }
         }
         // Checks if the player is grounded
         private void checkGrounded(){
             if (pcbPlayer.Bounds.IntersectsWith(pcbGround.Bounds))
             {
                 blnGrounded = true;
+                // keeps the dash counter 0 if the player is on the ground
+                intDashCounter = 0;
             }
             else {
                 blnGrounded = false;
@@ -177,9 +193,11 @@ namespace Game_Culminating_MansivA
                 pcbPlayer.Top = 701;
                 // changes the gravity back to 1 so the gravity doesnt keep constantly increase
                 intGravity = 1;
+                // changes the dash counter back to 0 after landing
                 intDashCounter = 0;
             }
             else {
+                // Changes the players position using velocity and changes that velocity by 1 every interval
                 pcbPlayer.Top += intGravity;
                 intGravity++;
             }
