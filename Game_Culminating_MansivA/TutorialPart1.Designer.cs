@@ -34,7 +34,9 @@
             this.tmrPlayerMovement = new System.Windows.Forms.Timer(this.components);
             this.tmrGameTick = new System.Windows.Forms.Timer(this.components);
             this.lblTutorial1Text = new System.Windows.Forms.Label();
+            this.pcbGround = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlayer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbGround)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSettings
@@ -51,7 +53,7 @@
             // pcbPlayer
             // 
             this.pcbPlayer.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pcbPlayer.Location = new System.Drawing.Point(43, 734);
+            this.pcbPlayer.Location = new System.Drawing.Point(61, 28);
             this.pcbPlayer.Name = "pcbPlayer";
             this.pcbPlayer.Size = new System.Drawing.Size(93, 134);
             this.pcbPlayer.TabIndex = 1;
@@ -82,13 +84,23 @@
             this.lblTutorial1Text.TabIndex = 2;
             this.lblTutorial1Text.Text = "Welcome To the Tutorial";
             // 
+            // pcbGround
+            // 
+            this.pcbGround.BackColor = System.Drawing.Color.Gray;
+            this.pcbGround.Location = new System.Drawing.Point(0, 834);
+            this.pcbGround.Name = "pcbGround";
+            this.pcbGround.Size = new System.Drawing.Size(1185, 80);
+            this.pcbGround.TabIndex = 5;
+            this.pcbGround.TabStop = false;
+            // 
             // TutorialPart1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 911);
-            this.Controls.Add(this.lblTutorial1Text);
             this.Controls.Add(this.pcbPlayer);
+            this.Controls.Add(this.pcbGround);
+            this.Controls.Add(this.lblTutorial1Text);
             this.Controls.Add(this.btnSettings);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.KeyPreview = true;
@@ -97,6 +109,7 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TutorialPart1_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TutorialPart1_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlayer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbGround)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -109,5 +122,6 @@
         private System.Windows.Forms.Timer tmrPlayerMovement;
         private System.Windows.Forms.Timer tmrGameTick;
         private System.Windows.Forms.Label lblTutorial1Text;
+        private System.Windows.Forms.PictureBox pcbGround;
     }
 }

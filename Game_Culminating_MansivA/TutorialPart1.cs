@@ -22,6 +22,8 @@ namespace Game_Culminating_MansivA
         int intJumpPower = 18;
         int intDashSpeed = 15;
         bool blnIsDashing = false;
+        bool blnGrounded = true;
+        int intGravity = 1;
         public TutorialPart1()
         {
             InitializeComponent();
@@ -29,7 +31,7 @@ namespace Game_Culminating_MansivA
         // Occurs when the Settings Button is clicked
         private void btnSettings_Click(object sender, MouseEventArgs e)
         {
-            
+
         }
         // Gets the keys that are pressed
         private void TutorialPart1_KeyDown(object sender, KeyEventArgs e)
@@ -64,12 +66,15 @@ namespace Game_Culminating_MansivA
                 blnMovingRight = false;
             }
         }
-        // A player timer for smooth movement of the player
+        // A player timer for smooth movement of the player, Also controls player physics
         private void tmrPlayerMovementTick(object sender, EventArgs e)
         {
+            Console.WriteLine(intGravity);
             // Moves the player if they clicked q to dash
             if (blnIsDashing == true) {
                 playerDash();
+                blnIsJumping = false;
+                intJumpPower = 18;
                 return;
             }
             // Moves the player if they pressed the spacebar
@@ -84,13 +89,18 @@ namespace Game_Culminating_MansivA
             else if (blnMovingRight == true) {
                 this.pcbPlayer.Left += intPlayerSpeed;
             }
+            checkGrounded();
+            // Gravity
+            if (blnGrounded == false && blnIsJumping == false && blnIsDashing == false) {
+                Gravity();
+            }
         }
         private void playerJump() {
             // makes the player jump by using a quadratic function for a parabola, Math.Sign for falling down, and a coefficent to have the player "float" near the top
             // of their jump
             if (intJumpPower >= -18)
             {
-                pcbPlayer.Top -= (int)((0.15 * Math.Pow((double)intJumpPower, 2.0)) *  Math.Sign(intJumpPower));
+                pcbPlayer.Top -= (int)((0.15 * Math.Pow((double)intJumpPower, 2.0)) * Math.Sign(intJumpPower));
                 intJumpPower--;
             }
             else
@@ -104,7 +114,7 @@ namespace Game_Culminating_MansivA
         // Manages the player dash
         private void playerDash()
         {
-            // moves the player with 
+            // moves the player with a dash power and decreases it over the intervals to simulate deceleration
             if (intDashSpeed >= 0 && blnMovingLeft == true) {
                 this.pcbPlayer.Left -= intDashSpeed;
                 intDashSpeed--;
@@ -143,6 +153,29 @@ namespace Game_Culminating_MansivA
                 // Shows/Opens the tutorial
                 TutorialPart2.Show();
                 this.Close();
+            }
+        }
+        // Checks if the player is grounded
+        private void checkGrounded(){
+            if (pcbPlayer.Bounds.IntersectsWith(pcbGround.Bounds))
+            {
+                blnGrounded = true;
+            }
+            else {
+                blnGrounded = false;
+            }
+        }
+        // Moves the player using gravity
+        private void Gravity() 
+        {
+            if (pcbPlayer.Location.Y + intGravity > 700)
+            {
+                pcbPlayer.Top = 700;
+                intGravity = 0;
+            }
+            else {
+                pcbPlayer.Top += intGravity;
+                intGravity++;
             }
         }
     }
