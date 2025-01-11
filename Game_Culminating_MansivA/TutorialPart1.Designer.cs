@@ -60,7 +60,7 @@
             // tmrPlayerMovement
             // 
             this.tmrPlayerMovement.Enabled = true;
-            this.tmrPlayerMovement.Interval = 10;
+            this.tmrPlayerMovement.Interval = 5;
             this.tmrPlayerMovement.Tick += new System.EventHandler(this.tmrPlayerMovementTick);
             // 
             // tmrGameTick

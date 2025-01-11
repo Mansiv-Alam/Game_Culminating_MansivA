@@ -20,6 +20,8 @@ namespace Game_Culminating_MansivA
         bool blnIsJumping = false;
         int intPlayerSpeed = 8;
         int intJumpPower = 18;
+        int intDashSpeed = 15;
+        bool blnIsDashing = false;
         public TutorialPart1()
         {
             InitializeComponent();
@@ -41,6 +43,10 @@ namespace Game_Culminating_MansivA
             {
                 blnMovingRight = true;
             }
+            if (e.KeyCode == Keys.Q)
+            {
+                blnIsDashing = true;
+            }
             if (e.KeyCode == Keys.Space && blnIsJumping == false)
             {
                 blnIsJumping = true;
@@ -61,6 +67,12 @@ namespace Game_Culminating_MansivA
         // A player timer for smooth movement of the player
         private void tmrPlayerMovementTick(object sender, EventArgs e)
         {
+            // Moves the player if they clicked q to dash
+            if (blnIsDashing == true) {
+                playerDash();
+                return;
+            }
+            // Moves the player if they pressed the spacebar
             if (blnIsJumping == true) {
                 playerJump();
             }
@@ -89,6 +101,25 @@ namespace Game_Culminating_MansivA
                 return;
             }
         }
+        // Manages the player dash
+        private void playerDash()
+        {
+            // moves the player with 
+            if (intDashSpeed >= 0 && blnMovingLeft == true) {
+                this.pcbPlayer.Left -= intDashSpeed;
+                intDashSpeed--;
+            }
+            else if (intDashSpeed >= 0 && blnMovingRight == true)
+            {
+                this.pcbPlayer.Left += intDashSpeed;
+                intDashSpeed--;
+            }
+            else {
+                blnIsDashing = false;
+                intDashSpeed = 15;
+            }
+
+        }
         // Finds and returns the index value of a specified value in a Array (Helps with inventory searches)
         private int IndexFind(int[] intArrayX, int intValue) {
             for (int i = 0; i < intArrayX.Length; i++)
@@ -111,8 +142,6 @@ namespace Game_Culminating_MansivA
                 this.Hide();
                 // Shows/Opens the tutorial
                 TutorialPart2.Show();
-                this.tmrGameTick.Enabled = false;
-                this.tmrPlayerMovement.Enabled = false;
                 this.Close();
             }
         }

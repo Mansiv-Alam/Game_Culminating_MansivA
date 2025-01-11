@@ -33,6 +33,10 @@ namespace Game_Culminating_MansivA
             {
                 blnMovingRight = true;
             }
+            if (e.KeyCode == Keys.Space && blnIsJumping == false)
+            {
+                blnIsJumping = true;
+            }
         }
         // Keys getting released
         private void TutorialPart2_KeyUp(object sender, KeyEventArgs e)
@@ -44,10 +48,6 @@ namespace Game_Culminating_MansivA
             if (e.KeyCode == Keys.D)
             {
                 blnMovingRight = false;
-            }
-            if (e.KeyCode == Keys.Space && blnIsJumping == false)
-            {
-                blnIsJumping = true;
             }
         }
         // Player Movement
