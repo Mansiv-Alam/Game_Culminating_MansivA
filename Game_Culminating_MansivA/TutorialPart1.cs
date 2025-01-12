@@ -80,7 +80,7 @@ namespace Game_Culminating_MansivA
         // A player timer for smooth movement of the player, Also controls player physics
         private void tmrPlayerMovementTick(object sender, EventArgs e)
         {
-            //Console.WriteLine(intGravity + "," + intJumpVelocity + "," + intJumpPower);
+            Console.WriteLine(intGravity + "," + intJumpVelocity + "," + intJumpPower);
             checkGrounded();
             platformHitBoxBottom();
             // Moves the player if they clicked q to dash
@@ -120,7 +120,7 @@ namespace Game_Culminating_MansivA
                 // Resets the jump values after the jump is done
                 stopJump();
                 // makes the player drop with gravity after a jump is done instead of gravity being zero after the jump is done
-                intGravity = 30;
+                intGravity = 25;
                 return;
             }
         }
@@ -217,10 +217,12 @@ namespace Game_Culminating_MansivA
         }
         // Manages the top hitbox for the platform
         private bool platformHitboxTop(){
-            // Checks if the player jumps to the top of the platform 
-            if (pcbPlayer.Bounds.IntersectsWith(pcbPlatform1.Bounds) && pcbPlayer.Bottom + intJumpVelocity <= (pcbPlatform1.Location.Y + 30))
+            // Checks if the player jumps to the top of the platform or is falling on top of the platform
+            if (pcbPlayer.Bounds.IntersectsWith(pcbPlatform1.Bounds) && (intJumpVelocity <= 0 || intGravity > 0) && pcbPlayer.Bottom > pcbPlatform1.Top)
             {
                 // Location of the platform and the player height
+                intJumpVelocity = 0;
+                pcbPlayer.Top -= intGravity;
                 pcbPlayer.Top = pcbPlatform1.Location.Y + 1 - pcbPlayer.Height;
                 return true;
             }
@@ -228,8 +230,9 @@ namespace Game_Culminating_MansivA
         }
         private void platformHitBoxBottom(){
             // Checks if the player jumps and hits the bottom of the platform
-            if (pcbPlayer.Bounds.IntersectsWith(pcbPlatform1.Bounds) && pcbPlayer.Top > (pcbPlatform1.Location.Y + 20))
+            if (pcbPlayer.Bounds.IntersectsWith(pcbPlatform1.Bounds) && pcbPlayer.Top > (pcbPlatform1.Location.Y + 30))
             {
+                // Makes the player's position right under the platform
                 pcbPlayer.Top = pcbPlatform1.Bottom + 1;
                 // stops the jump
                 stopJump();
