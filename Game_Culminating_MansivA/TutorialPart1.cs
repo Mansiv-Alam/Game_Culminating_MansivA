@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Text;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -22,6 +23,7 @@ namespace Game_Culminating_MansivA
         bool blnIsDashing = false;
         int intPlayerSpeed = 8;
         int intJumpPower = 18;
+        int intJumpVelocity = 0;
         int intDashSpeed = 15;
         int intDashCounter = 0;
         bool blnGrounded = true;
@@ -78,8 +80,9 @@ namespace Game_Culminating_MansivA
         // A player timer for smooth movement of the player, Also controls player physics
         private void tmrPlayerMovementTick(object sender, EventArgs e)
         {
-            Console.WriteLine(intGravity + "," + blnGrounded + "," + blnIsJumping + "," + intJumpPower);
+            Console.WriteLine(intGravity + "," + intJumpVelocity + "," + intJumpPower);
             checkGrounded();
+            //platformHitBoxBottom();
             // Moves the player if they clicked q to dash
             if (blnIsDashing == true) {
                 playerDash();
@@ -102,21 +105,27 @@ namespace Game_Culminating_MansivA
                 Gravity();
             }
         }
-        private void playerJump() {
+        private void playerJump()
+        {
             // makes the player jump by using a quadratic function for a parabola, Math.Sign for falling down, and a coefficent to have the player "float" near the top
             // of their jump
             if (intJumpPower >= -18)
             {
-                pcbPlayer.Top -= (int)((0.15 * Math.Pow((double)intJumpPower, 2.0)) * Math.Sign(intJumpPower));
+                calculateJumpVelocity();
+                pcbPlayer.Top -= intJumpVelocity;
                 intJumpPower--;
             }
             else
             {
                 // Resets the jump values after the jump is done
-                intJumpPower = 18;
-                blnIsJumping = false;
+                stopJump();
                 return;
             }
+        }
+        // Calculates the jump velocity.
+        private void calculateJumpVelocity()
+        {
+            intJumpVelocity = (int)(0.15 * Math.Pow((double)intJumpPower, 2.0) * Math.Sign(intJumpPower));
         }
         // Manages the player dash
         private void playerDash()
@@ -139,8 +148,7 @@ namespace Game_Culminating_MansivA
                 // Increases the jump counter
                 intDashCounter++;
                 // Cuts the jump mid way 
-                blnIsJumping = false;
-                intJumpPower = 18;
+                stopJump();
             }
         }
         // Finds and returns the index value of a specified value in a Array (Helps with inventory searches)
@@ -207,20 +215,28 @@ namespace Game_Culminating_MansivA
         // Manages the top hitbox for the platform
         private bool platformHitboxTop(){
             // Checks if the player jumps to the top of the platform 
-            if (pcbPlayer.Bounds.IntersectsWith(pcbPlatform1.Bounds) && pcbPlayer.Bottom + 1 > pcbPlatform1.Location.Y)
+            if (pcbPlayer.Bounds.IntersectsWith(pcbPlatform1.Bounds) && pcbPlayer.Bottom <= (pcbPlatform1.Location.Y + pcbPlatform1.Height/2))
             {
                 // Location of the platform and the player height
-                pcbPlayer.Top = 535 - pcbPlayer.Height;
+                pcbPlayer.Top = pcbPlatform1.Location.Y + 1 - pcbPlayer.Height;
                 return true;
             }
             else { return false; }
         }
         private void platformHitBoxBottom(){
             // Checks if the player jumps and hits the bottom of the platform
-            if (pcbPlayer.Bounds.IntersectsWith(pcbPlatform1.Bounds) && blnIsJumping == true && pcbPlayer.Location.Y < pcbPlatform1.Location.Y)
+            if (pcbPlayer.Bounds.IntersectsWith(pcbPlatform1.Bounds) && pcbPlayer.Top - intJumpVelocity < (pcbPlatform1.Location.Y + pcbPlatform1.Height / 2))
             {
-                pcbPlayer.Top = pcbPlatform1.Bottom - 1;
+                Console.WriteLine(pcbPlayer.Top - intJumpVelocity + "," + (pcbPlatform1.Location.Y + (pcbPlatform1.Height / 2)));
+                pcbPlayer.Top = pcbPlatform1.Bottom + 1;
+                // stops the jump
+                stopJump();
             }
+        }
+        // Stops the jump (helps for stopping an active jump)
+        private void stopJump() {
+            intJumpPower = 18;
+            blnIsJumping = false;
         }
     }
 }
