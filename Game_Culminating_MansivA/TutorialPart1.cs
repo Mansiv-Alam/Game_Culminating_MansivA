@@ -80,9 +80,9 @@ namespace Game_Culminating_MansivA
         // A player timer for smooth movement of the player, Also controls player physics
         private void tmrPlayerMovementTick(object sender, EventArgs e)
         {
-            Console.WriteLine(intGravity + "," + intJumpVelocity + "," + intJumpPower);
+            //Console.WriteLine(intGravity + "," + intJumpVelocity + "," + intJumpPower);
             checkGrounded();
-            //platformHitBoxBottom();
+            platformHitBoxBottom();
             // Moves the player if they clicked q to dash
             if (blnIsDashing == true) {
                 playerDash();
@@ -119,6 +119,8 @@ namespace Game_Culminating_MansivA
             {
                 // Resets the jump values after the jump is done
                 stopJump();
+                // makes the player drop with gravity after a jump is done instead of gravity being zero after the jump is done
+                intGravity = 30;
                 return;
             }
         }
@@ -187,6 +189,7 @@ namespace Game_Culminating_MansivA
             if (pcbPlayer.Bounds.IntersectsWith(pcbGround.Bounds) || platformHitboxTop() == true)
             {
                 blnGrounded = true;
+                intGravity = 0;
                 // keeps the dash counter 0 if the player is on the ground
                 intDashCounter = 0;
             }
@@ -215,7 +218,7 @@ namespace Game_Culminating_MansivA
         // Manages the top hitbox for the platform
         private bool platformHitboxTop(){
             // Checks if the player jumps to the top of the platform 
-            if (pcbPlayer.Bounds.IntersectsWith(pcbPlatform1.Bounds) && pcbPlayer.Bottom <= (pcbPlatform1.Location.Y + pcbPlatform1.Height/2))
+            if (pcbPlayer.Bounds.IntersectsWith(pcbPlatform1.Bounds) && pcbPlayer.Bottom + intJumpVelocity <= (pcbPlatform1.Location.Y + 30))
             {
                 // Location of the platform and the player height
                 pcbPlayer.Top = pcbPlatform1.Location.Y + 1 - pcbPlayer.Height;
@@ -225,9 +228,8 @@ namespace Game_Culminating_MansivA
         }
         private void platformHitBoxBottom(){
             // Checks if the player jumps and hits the bottom of the platform
-            if (pcbPlayer.Bounds.IntersectsWith(pcbPlatform1.Bounds) && pcbPlayer.Top - intJumpVelocity < (pcbPlatform1.Location.Y + pcbPlatform1.Height / 2))
+            if (pcbPlayer.Bounds.IntersectsWith(pcbPlatform1.Bounds) && pcbPlayer.Top > (pcbPlatform1.Location.Y + 20))
             {
-                Console.WriteLine(pcbPlayer.Top - intJumpVelocity + "," + (pcbPlatform1.Location.Y + (pcbPlatform1.Height / 2)));
                 pcbPlayer.Top = pcbPlatform1.Bottom + 1;
                 // stops the jump
                 stopJump();
