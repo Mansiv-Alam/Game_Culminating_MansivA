@@ -151,13 +151,7 @@ namespace Game_Culminating_MansivA
                 intDashSpeed--;
             }
             else {
-                // resets all values after the dashes are done
-                blnIsDashing = false;
-                intDashSpeed = 15;
-                // Increases the jump counter
-                intDashCounter++;
-                // Cuts the jump mid way 
-                stopJump();
+                stopDash();
             }
         }
         // Finds and returns the index value of a specified value in a Array (Helps with inventory searches)
@@ -195,10 +189,7 @@ namespace Game_Culminating_MansivA
         private void checkGrounded() {
             if (pcbPlayer.Bounds.IntersectsWith(pcbGround.Bounds))
             {
-                blnGrounded = true;
-                intGravity = 0;
-                // keeps the dash counter 0 if the player is on the ground
-                intDashCounter = 0;
+                isGrounded();
             }
             else {
                 blnGrounded = false;
@@ -229,21 +220,21 @@ namespace Game_Culminating_MansivA
                 if ((intJumpVelocity <= 0 || intGravity > 0) && (pcbPlayer.Bottom > pcbPlatform1.Top)){
                     // Location of the platform and the player height
                     pcbPlayer.Top = pcbPlatform1.Location.Y + 1 - pcbPlayer.Height;
-                    // Makes the grounded variable true and resets gravity and the dash counter to 0
-                    blnGrounded = true;
-                    intGravity = 0;
-                    // keeps the dash counter 0 if the player is on the ground
-                    intDashCounter = 0;
+                    isGrounded();
                 } 
                 else {
                     blnGrounded = false;
                 }
                 // Checks if the player's head is below a the y position of the hitbox
-                if (pcbPlayer.Top > pcbPlatform1.Location.Y) {
+                if (pcbPlayer.Top > pcbPlatform1.Location.Y)
+                {
                     // Makes the player's position right under the platform
                     pcbPlayer.Top = pcbPlatform1.Bottom + 1;
                     // stops the jump
                     stopJump();
+                }
+                else if (blnMovingLeft == true) {
+                    
                 }
             }
         }
@@ -252,6 +243,25 @@ namespace Game_Culminating_MansivA
             intJumpPower = 18;
             intJumpVelocity = 0;
             blnIsJumping = false;
+        }
+        // Stops the dash (helps cancelling an active dash)
+        private void stopDash() {
+            // resets all values after the dashes are done
+            blnIsDashing = false;
+            intDashSpeed = 15;
+            // Increases the jump counter
+            intDashCounter++;
+            // Cuts the jump mid way 
+            stopJump();
+        }
+        // Changes variables back to as if the player was grounded
+        private void isGrounded()
+        {
+            // Makes the grounded variable true 
+            blnGrounded = true;
+            // resets gravity and the dash counter to 0 because the player is on the ground
+            intGravity = 0;
+            intDashCounter = 0;
         }
     }
 }
