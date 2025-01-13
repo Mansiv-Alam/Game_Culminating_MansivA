@@ -81,7 +81,7 @@
             this.lblTutorial1Text.Cursor = System.Windows.Forms.Cursors.Default;
             this.lblTutorial1Text.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTutorial1Text.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblTutorial1Text.Location = new System.Drawing.Point(307, 173);
+            this.lblTutorial1Text.Location = new System.Drawing.Point(299, 91);
             this.lblTutorial1Text.Name = "lblTutorial1Text";
             this.lblTutorial1Text.Size = new System.Drawing.Size(568, 55);
             this.lblTutorial1Text.TabIndex = 2;
@@ -121,11 +121,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 911);
             this.Controls.Add(this.lblScore);
-            this.Controls.Add(this.pcbPlayer);
             this.Controls.Add(this.pcbGround);
             this.Controls.Add(this.lblTutorial1Text);
             this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.pcbPlatform1);
+            this.Controls.Add(this.pcbPlayer);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.KeyPreview = true;
             this.Name = "TutorialPart1";

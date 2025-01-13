@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Drawing.Text;
 using System.Linq;
@@ -80,17 +81,13 @@ namespace Game_Culminating_MansivA
         // A player timer for smooth movement of the player, Also controls player physics
         private void tmrPlayerMovementTick(object sender, EventArgs e)
         {
-            Console.WriteLine(intGravity + "," + intJumpVelocity + "," + intJumpPower);
+            Console.WriteLine(intJumpPower + "," + intJumpVelocity + "," + blnGrounded);
             checkGrounded();
-            platformHitBoxBottom();
+            hitboxPlatform1();
             // Moves the player if they clicked q to dash
             if (blnIsDashing == true) {
                 playerDash();
                 return;
-            }
-            // Moves the player if they pressed the spacebar
-            if (blnIsJumping == true) {
-                playerJump();
             }
             // moves the player depending on if the player is moving left or right
             if (blnMovingLeft == true)
@@ -99,6 +96,16 @@ namespace Game_Culminating_MansivA
             }
             else if (blnMovingRight == true) {
                 this.pcbPlayer.Left += intPlayerSpeed;
+            }
+            // Stops a jump affecting how the player lands on a platform
+            if (blnGrounded == true && intJumpPower < 0) {
+                stopJump();
+                return;
+            }
+            // Moves the player if they pressed the spacebar
+            if (blnIsJumping == true)
+            {
+                playerJump();
             }
             // Gravity
             if (blnGrounded == false && blnIsJumping == false && blnIsDashing == false) {
@@ -167,7 +174,7 @@ namespace Game_Culminating_MansivA
         // Timer for the Game (Enemy Ai, hitboxes)
         private void tmrGameTick_Tick(object sender, EventArgs e)
         {
-            
+
             // Checks if the player went beyond the left side width and switches to tutorial level part 2
             if (pcbPlayer.Left > 1200)
             {
@@ -185,8 +192,8 @@ namespace Game_Culminating_MansivA
             }
         }
         // Checks if the player is grounded
-        private void checkGrounded(){
-            if (pcbPlayer.Bounds.IntersectsWith(pcbGround.Bounds) || platformHitboxTop() == true)
+        private void checkGrounded() {
+            if (pcbPlayer.Bounds.IntersectsWith(pcbGround.Bounds))
             {
                 blnGrounded = true;
                 intGravity = 0;
@@ -215,32 +222,35 @@ namespace Game_Culminating_MansivA
                 intGravity++;
             }
         }
-        // Manages the top hitbox for the platform
-        private bool platformHitboxTop(){
-            // Checks if the player jumps to the top of the platform or is falling on top of the platform
-            if (pcbPlayer.Bounds.IntersectsWith(pcbPlatform1.Bounds) && (intJumpVelocity <= 0 || intGravity > 0) && pcbPlayer.Bottom > pcbPlatform1.Top)
-            {
-                // Location of the platform and the player height
-                intJumpVelocity = 0;
-                pcbPlayer.Top -= intGravity;
-                pcbPlayer.Top = pcbPlatform1.Location.Y + 1 - pcbPlayer.Height;
-                return true;
-            }
-            else { return false; }
-        }
-        private void platformHitBoxBottom(){
-            // Checks if the player jumps and hits the bottom of the platform
-            if (pcbPlayer.Bounds.IntersectsWith(pcbPlatform1.Bounds) && pcbPlayer.Top > (pcbPlatform1.Location.Y + 30))
-            {
-                // Makes the player's position right under the platform
-                pcbPlayer.Top = pcbPlatform1.Bottom + 1;
-                // stops the jump
-                stopJump();
+        // Manages the hitbox for the platform 
+        private void hitboxPlatform1(){
+            if (pcbPlayer.Bounds.IntersectsWith(pcbPlatform1.Bounds)){
+                // Checks if the player is moving or falling down and the players head is above the platform
+                if ((intJumpVelocity <= 0 || intGravity > 0) && (pcbPlayer.Bottom > pcbPlatform1.Top)){
+                    // Location of the platform and the player height
+                    pcbPlayer.Top = pcbPlatform1.Location.Y + 1 - pcbPlayer.Height;
+                    // Makes the grounded variable true and resets gravity and the dash counter to 0
+                    blnGrounded = true;
+                    intGravity = 0;
+                    // keeps the dash counter 0 if the player is on the ground
+                    intDashCounter = 0;
+                } 
+                else {
+                    blnGrounded = false;
+                }
+                // Checks if the player's head is below a the y position of the hitbox
+                if (pcbPlayer.Top > pcbPlatform1.Location.Y) {
+                    // Makes the player's position right under the platform
+                    pcbPlayer.Top = pcbPlatform1.Bottom + 1;
+                    // stops the jump
+                    stopJump();
+                }
             }
         }
         // Stops the jump (helps for stopping an active jump)
         private void stopJump() {
             intJumpPower = 18;
+            intJumpVelocity = 0;
             blnIsJumping = false;
         }
     }
