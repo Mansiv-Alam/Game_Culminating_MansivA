@@ -122,10 +122,10 @@
             this.ClientSize = new System.Drawing.Size(1184, 911);
             this.Controls.Add(this.lblScore);
             this.Controls.Add(this.pcbGround);
-            this.Controls.Add(this.lblTutorial1Text);
             this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.pcbPlatform1);
             this.Controls.Add(this.pcbPlayer);
+            this.Controls.Add(this.lblTutorial1Text);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.KeyPreview = true;
             this.Name = "TutorialPart1";

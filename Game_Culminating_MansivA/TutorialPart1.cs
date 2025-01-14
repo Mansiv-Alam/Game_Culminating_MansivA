@@ -151,6 +151,7 @@ namespace Game_Culminating_MansivA
                 intDashSpeed--;
             }
             else {
+                // Stops the dash and resets its values after the dash is done
                 stopDash();
             }
         }
@@ -189,6 +190,7 @@ namespace Game_Culminating_MansivA
         private void checkGrounded() {
             if (pcbPlayer.Bounds.IntersectsWith(pcbGround.Bounds))
             {
+                // Resets Variable values back to as they were when the player is grounded
                 isGrounded();
             }
             else {
@@ -233,8 +235,33 @@ namespace Game_Culminating_MansivA
                     // stops the jump
                     stopJump();
                 }
-                else if (blnMovingLeft == true) {
-                    
+                // Stops a dash from clipping into the platform
+                else if (blnMovingLeft == true && blnIsDashing == true)
+                {
+                    stopDash();
+                    pcbPlayer.Left = pcbPlatform1.Right;
+                }
+                else if (blnMovingRight == true && blnIsDashing == true)
+                {
+                    stopDash();
+                    pcbPlayer.Left = pcbPlatform1.Left - pcbPlayer.Width;
+                }
+                else if (pcbPlayer.Top < pcbPlatform1.Bottom && pcbPlayer.Bottom > pcbPlatform1.Top )
+                {
+                    // Checks which part is inside of the platform (right side or lefts)
+                    if (pcbPlayer.Right > pcbPlatform1.Left && pcbPlayer.Left < pcbPlatform1.Right)
+                    {
+                        // Checks if the left side is Outside the platform
+                        if (pcbPlayer.Left < pcbPlatform1.Left)
+                        {
+                            pcbPlayer.Left = pcbPlatform1.Left - pcbPlayer.Width;
+                        }
+                        // Checks if the right side is Outside the platform
+                        else if (pcbPlayer.Right > pcbPlatform1.Right)
+                        {
+                            pcbPlayer.Left = pcbPlatform1.Right;
+                        }
+                    }
                 }
             }
         }
