@@ -81,7 +81,8 @@ namespace Game_Culminating_MansivA
         // A player timer for smooth movement of the player, Also controls player physics
         private void tmrPlayerMovementTick(object sender, EventArgs e)
         {
-            Console.WriteLine(intJumpPower + "," + intJumpVelocity + "," + blnGrounded);
+            //Console.WriteLine(intJumpPower + "," + intJumpVelocity + "," + blnGrounded);
+            Console.WriteLine("Player Position: Left = " + pcbPlayer.Left + ", Right = " + pcbPlayer.Right + ", Top = " + pcbPlayer.Top + ", Bottom = " + pcbPlayer.Bottom + " Is grounded: " + blnGrounded);
             checkGrounded();
             hitboxPlatform1();
             // Moves the player if they clicked q to dash
@@ -218,8 +219,26 @@ namespace Game_Culminating_MansivA
         // Manages the hitbox for the platform 
         private void hitboxPlatform1(){
             if (pcbPlayer.Bounds.IntersectsWith(pcbPlatform1.Bounds)){
-                // Checks if the player is moving or falling down and the players head is above the platform
-                if ((intJumpVelocity <= 0 || intGravity > 0) && (pcbPlayer.Bottom > pcbPlatform1.Top)){
+                // Handles Horizontal Collision
+                if (pcbPlayer.Bottom > pcbPlatform1.Top + 1 && pcbPlayer.Top < pcbPlatform1.Bottom && blnGrounded == false)
+                {
+                    // Checks which part is inside of the platform (right side or lefts)
+                    if (pcbPlayer.Right > pcbPlatform1.Left && pcbPlayer.Left < pcbPlatform1.Right)
+                    {
+                        // Checks if the left side is Outside the platform
+                        if (pcbPlayer.Left < pcbPlatform1.Left)
+                        {
+                            pcbPlayer.Left = pcbPlatform1.Left - pcbPlayer.Width;
+                        }
+                        // Checks if the right side is Outside the platform
+                        else if (pcbPlayer.Right > pcbPlatform1.Right)
+                        {
+                            pcbPlayer.Left = pcbPlatform1.Right;
+                        }
+                    }
+                }
+                // Checks if the player is moving or falling down and the players head is above the platform && (pcbPlayer.Bottom > pcbPlatform1.Top)
+                if ((intJumpVelocity <= 0 || intGravity > 0)){
                     // Location of the platform and the player height
                     pcbPlayer.Top = pcbPlatform1.Location.Y + 1 - pcbPlayer.Height;
                     isGrounded();
@@ -236,32 +255,15 @@ namespace Game_Culminating_MansivA
                     stopJump();
                 }
                 // Stops a dash from clipping into the platform
-                else if (blnMovingLeft == true && blnIsDashing == true)
+                else if (blnMovingLeft == true && blnIsDashing == true && blnGrounded == false)
                 {
                     stopDash();
                     pcbPlayer.Left = pcbPlatform1.Right;
                 }
-                else if (blnMovingRight == true && blnIsDashing == true)
+                else if (blnMovingRight == true && blnIsDashing == true && blnGrounded == false)
                 {
                     stopDash();
                     pcbPlayer.Left = pcbPlatform1.Left - pcbPlayer.Width;
-                }
-                else if (pcbPlayer.Top < pcbPlatform1.Bottom && pcbPlayer.Bottom > pcbPlatform1.Top )
-                {
-                    // Checks which part is inside of the platform (right side or lefts)
-                    if (pcbPlayer.Right > pcbPlatform1.Left && pcbPlayer.Left < pcbPlatform1.Right)
-                    {
-                        // Checks if the left side is Outside the platform
-                        if (pcbPlayer.Left < pcbPlatform1.Left)
-                        {
-                            pcbPlayer.Left = pcbPlatform1.Left - pcbPlayer.Width;
-                        }
-                        // Checks if the right side is Outside the platform
-                        else if (pcbPlayer.Right > pcbPlatform1.Right)
-                        {
-                            pcbPlayer.Left = pcbPlatform1.Right;
-                        }
-                    }
                 }
             }
         }
