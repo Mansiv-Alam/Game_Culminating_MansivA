@@ -12,11 +12,22 @@ namespace Game_Culminating_MansivA
 {
     public partial class TutorialPart2 : Form
     {
+        // Player Movement Variables 
         bool blnMovingLeft = false;
         bool blnMovingRight = false;
         bool blnIsJumping = false;
+        bool blnIsDashing = false;
         int intPlayerSpeed = 8;
         int intJumpPower = 18;
+        int intJumpVelocity = 0;
+        int intDashSpeed = 15;
+        int intDashCounter = 0;
+        bool blnGrounded = true;
+        int intGravity = 1;
+        // Player UI
+        int[] intInventoryValues = new int[9];
+        int intPlayerHealth = 100;
+        int intPlayerScore = 0;
         public TutorialPart2()
         {
             InitializeComponent();
@@ -53,6 +64,7 @@ namespace Game_Culminating_MansivA
         // Player Movement
         private void tmrPlayerMovement_Tick(object sender, EventArgs e)
         {
+            checkGrounded();
             if (blnIsJumping == true)
             {
                 playerJump();
@@ -98,6 +110,65 @@ namespace Game_Culminating_MansivA
                 TutorialPart3.Show();
                 this.Close();
             }
+        }
+        // Checks if the player is grounded
+        private void checkGrounded()
+        {
+            if (pcbPlayer.Bounds.IntersectsWith(pcbGround.Bounds))
+            {
+                // Resets Variable values back to as they were when the player is grounded
+                isGrounded();
+            }
+            else
+            {
+                blnGrounded = false;
+            }
+        }
+        // Moves the player using gravity
+        private void Gravity()
+        {
+            // Sets the player's location to 700 if in the next interval they will hit the ground so they dont glitch through the floor
+            if (pcbPlayer.Location.Y + intGravity > 701)
+            {
+                pcbPlayer.Top = 701;
+                // changes the gravity back to 1 so the gravity doesnt keep constantly increase
+                intGravity = 1;
+                // changes the dash counter back to 0 after landing
+                intDashCounter = 0;
+            }
+            else
+            {
+                // Changes the players position using velocity and changes that velocity by 1 every interval
+                pcbPlayer.Top += intGravity;
+                intGravity++;
+            }
+        }
+        // Stops the jump (helps for stopping an active jump)
+        private void stopJump()
+        {
+            intJumpPower = 18;
+            intJumpVelocity = 0;
+            blnIsJumping = false;
+        }
+        // Stops the dash (helps cancelling an active dash)
+        private void stopDash()
+        {
+            // resets all values after the dashes are done
+            blnIsDashing = false;
+            intDashSpeed = 15;
+            // Increases the jump counter
+            intDashCounter++;
+            // Cuts the jump mid way 
+            stopJump();
+        }
+        // Changes variables back to as if the player was grounded
+        private void isGrounded()
+        {
+            // Makes the grounded variable true 
+            blnGrounded = true;
+            // resets gravity and the dash counter to 0 because the player is on the ground
+            intGravity = 0;
+            intDashCounter = 0;
         }
     }
 }

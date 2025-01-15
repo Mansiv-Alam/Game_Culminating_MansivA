@@ -35,7 +35,9 @@
             this.lblTutorial1Text = new System.Windows.Forms.Label();
             this.lblTutorialPart2Text = new System.Windows.Forms.Label();
             this.tmrGameTick = new System.Windows.Forms.Timer(this.components);
+            this.pcbGround = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlayer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbGround)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSettings
@@ -51,7 +53,7 @@
             // pcbPlayer
             // 
             this.pcbPlayer.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pcbPlayer.Location = new System.Drawing.Point(44, 735);
+            this.pcbPlayer.Location = new System.Drawing.Point(25, 701);
             this.pcbPlayer.Name = "pcbPlayer";
             this.pcbPlayer.Size = new System.Drawing.Size(93, 134);
             this.pcbPlayer.TabIndex = 2;
@@ -94,11 +96,21 @@
             this.tmrGameTick.Interval = 20;
             this.tmrGameTick.Tick += new System.EventHandler(this.tmrGameTick_Tick);
             // 
+            // pcbGround
+            // 
+            this.pcbGround.BackColor = System.Drawing.Color.Gray;
+            this.pcbGround.Location = new System.Drawing.Point(-1, 831);
+            this.pcbGround.Name = "pcbGround";
+            this.pcbGround.Size = new System.Drawing.Size(1185, 80);
+            this.pcbGround.TabIndex = 6;
+            this.pcbGround.TabStop = false;
+            // 
             // TutorialPart2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 911);
+            this.Controls.Add(this.pcbGround);
             this.Controls.Add(this.lblTutorialPart2Text);
             this.Controls.Add(this.lblTutorial1Text);
             this.Controls.Add(this.pcbPlayer);
@@ -109,6 +121,7 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TutorialPart2_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TutorialPart2_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlayer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbGround)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -122,5 +135,6 @@
         private System.Windows.Forms.Label lblTutorial1Text;
         private System.Windows.Forms.Label lblTutorialPart2Text;
         private System.Windows.Forms.Timer tmrGameTick;
+        private System.Windows.Forms.PictureBox pcbGround;
     }
 }
