@@ -25,7 +25,7 @@ namespace Game_Culminating_MansivA
         int intPlayerSpeed = 8;
         int intJumpPower = 18;
         int intJumpVelocity = 0;
-        int intDashSpeed = 15;
+        int intDashSpeed = 10;
         int intDashCounter = 0;
         bool blnGrounded = true;
         int intGravity = 1;
@@ -78,17 +78,36 @@ namespace Game_Culminating_MansivA
                 blnMovingRight = false;
             }
         }
+        // Timer for the Game (Enemy Ai, hitboxes)
+        private void tmrGameTick_Tick(object sender, EventArgs e)
+        {
+
+            // Checks if the player went beyond the left side width and switches to tutorial level part 2
+            if (pcbPlayer.Left > 1200)
+            {
+                TutorialPart2 TutorialPart2 = new TutorialPart2();
+                // Hides this form
+                this.Hide();
+                // Shows/Opens the tutorial
+                TutorialPart2.Show();
+                this.Close();
+            }
+            // makes a boundary for the left wall using the speed of the player and how many pixels they could move beyond the window
+            else if (pcbPlayer.Left - 3 <= 0)
+            {
+                pcbPlayer.Left = 0;
+                blnMovingLeft = false;
+            }
+        }
         // A player timer for smooth movement of the player, Also controls player physics
         private void tmrPlayerMovementTick(object sender, EventArgs e)
         {
-            //Console.WriteLine(intGravity + "," + intJumpVelocity + "," + blnGrounded);
-            //Console.WriteLine("Player Position: Left = " + pcbPlayer.Left + ", Right = " + pcbPlayer.Right + ", Top = " + pcbPlayer.Top + ", Bottom = " + pcbPlayer.Bottom + " Is grounded: " + blnGrounded);
             checkGrounded();
             hitboxPlatform1();
             // Moves the player if they clicked q to dash
             if (blnIsDashing == true) {
                 playerDash();
-                return;
+                //return;
             }
             // moves the player depending on if the player is moving left or right
             if (blnMovingLeft == true)
@@ -167,26 +186,6 @@ namespace Game_Culminating_MansivA
             }
             return -1;
         }
-        // Timer for the Game (Enemy Ai, hitboxes)
-        private void tmrGameTick_Tick(object sender, EventArgs e)
-        {
-
-            // Checks if the player went beyond the left side width and switches to tutorial level part 2
-            if (pcbPlayer.Left > 1200)
-            {
-                TutorialPart2 TutorialPart2 = new TutorialPart2();
-                // Hides this form
-                this.Hide();
-                // Shows/Opens the tutorial
-                TutorialPart2.Show();
-                this.Close();
-            }
-            // makes a boundary for the left wall using the speed of the player and how many pixels they could move beyond the window
-            else if (pcbPlayer.Left - 3 <= 0) {
-                pcbPlayer.Left = 0;
-                blnMovingLeft = false;
-            }
-        }
         // Checks if the player is grounded
         private void checkGrounded() {
             if (pcbPlayer.Bounds.IntersectsWith(pcbGround.Bounds))
@@ -222,7 +221,7 @@ namespace Game_Culminating_MansivA
             if (pcbPlayer.Bounds.IntersectsWith(pcbPlatform1.Bounds)){
                 // Checks if the player is moving or falling down, and the player's feet is below/touching the platform and if the player's feet is above a certain point to stop clipping onto the top of the platform\
                 // Careful of the falling velocity of the player because thats what determines if the + 30 needs to increase or not
-                if ((intJumpVelocity <= 0 || intGravity > 0) && pcbPlayer.Bottom > pcbPlatform1.Top && pcbPlayer.Bottom < pcbPlatform1.Top + 30)
+                if ((intJumpVelocity <= 0 || intGravity > 0) && (pcbPlayer.Bottom > pcbPlatform1.Top && pcbPlayer.Bottom < pcbPlatform1.Top + 30))
                 {
                     // Location of the platform and the player height
                     pcbPlayer.Top = pcbPlatform1.Location.Y + 1 - pcbPlayer.Height;
@@ -280,7 +279,7 @@ namespace Game_Culminating_MansivA
         private void stopDash() {
             // resets all values after the dashes are done
             blnIsDashing = false;
-            intDashSpeed = 15;
+            intDashSpeed = 10;
             // Increases the jump counter
             intDashCounter++;
             // Cuts the jump mid way 

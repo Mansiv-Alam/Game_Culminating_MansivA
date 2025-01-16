@@ -35,7 +35,7 @@ namespace Game_Culminating_MansivA
         // Keys getting pressed
         private void TutorialPart2_KeyDown(object sender, KeyEventArgs e)
         {
-            // Movement keys for the player
+            // Movement Keys for the player
             if (e.KeyCode == Keys.A)
             {
                 blnMovingLeft = true;
@@ -44,7 +44,13 @@ namespace Game_Culminating_MansivA
             {
                 blnMovingRight = true;
             }
-            if (e.KeyCode == Keys.Space && blnIsJumping == false)
+            // Restrict the number of dashes to 2 mid air
+            if (e.KeyCode == Keys.Q && intDashCounter < 2)
+            {
+                blnIsDashing = true;
+            }
+            // Makes sure the player can't jump multiple times mid air
+            if (e.KeyCode == Keys.Space && blnIsJumping == false && blnGrounded == true)
             {
                 blnIsJumping = true;
             }
@@ -61,41 +67,6 @@ namespace Game_Culminating_MansivA
                 blnMovingRight = false;
             }
         }
-        // Player Movement
-        private void tmrPlayerMovement_Tick(object sender, EventArgs e)
-        {
-            checkGrounded();
-            if (blnIsJumping == true)
-            {
-                playerJump();
-            }
-            // moves the player depending on if the player is moving left or right
-            if (blnMovingLeft == true)
-            {
-                this.pcbPlayer.Left -= intPlayerSpeed;
-            }
-            if (blnMovingRight == true)
-            {
-                this.pcbPlayer.Left += intPlayerSpeed;
-            }
-        }
-        // Handles the players jump
-        private void playerJump()
-        {
-            // makes the player jump by using a quadratic function for a parabola, Math.Sign for falling down, and a coefficent to have the player "float" near the top of their jump
-            if (intJumpPower >= -18)
-            {
-                pcbPlayer.Top -= (int)((0.15 * Math.Pow((double)intJumpPower, 2.0)) * Math.Sign(intJumpPower));
-                intJumpPower--;
-            }
-            else
-            {
-                // Resets the jump values after the jump is done
-                intJumpPower = 18;
-                blnIsJumping = false;
-                return;
-            }
-        }
         private void tmrGameTick_Tick(object sender, EventArgs e)
         {
             // Checks if the player went beyond the left side width and switches to tutorial level part 2
@@ -109,6 +80,89 @@ namespace Game_Culminating_MansivA
                 // Shows/Opens the tutorial
                 TutorialPart3.Show();
                 this.Close();
+            }
+        }
+        // Player Movement
+        private void tmrPlayerMovement_Tick(object sender, EventArgs e)
+        {
+            //Console.WriteLine(intGravity + "," + intJumpVelocity + "," + blnGrounded);
+            //Console.WriteLine("Player Position: Left = " + pcbPlayer.Left + ", Right = " + pcbPlayer.Right + ", Top = " + pcbPlayer.Top + ", Bottom = " + pcbPlayer.Bottom + " Is grounded: " + blnGrounded);
+            checkGrounded();
+            //hitboxPlatform1();
+            // Moves the player if they clicked q to dash
+            if (blnIsDashing == true)
+            {
+                playerDash();
+                return;
+            }
+            // moves the player depending on if the player is moving left or right
+            if (blnMovingLeft == true)
+            {
+                this.pcbPlayer.Left -= intPlayerSpeed;
+            }
+            else if (blnMovingRight == true)
+            {
+                this.pcbPlayer.Left += intPlayerSpeed;
+            }
+            // Stops a jump affecting how the player lands on a platform
+            if (blnGrounded == true && intJumpPower < 0)
+            {
+                stopJump();
+                return;
+            }
+            // Moves the player if they pressed the spacebar
+            if (blnIsJumping == true)
+            {
+                playerJump();
+            }
+            // Gravity
+            if (blnGrounded == false && blnIsJumping == false && blnIsDashing == false)
+            {
+                Gravity();
+            }
+        }
+        // Handles the players jump
+        private void playerJump()
+        {
+            // makes the player jump by using a quadratic function for a parabola, Math.Sign for falling down, and a coefficent to have the player "float" near the top of their jump
+            if (intJumpPower >= -18)
+            {
+                calculateJumpVelocity();
+                pcbPlayer.Top -= intJumpVelocity;
+                intJumpPower--;
+            }
+            else
+            {
+                // Resets the jump values after the jump is done
+                intJumpPower = 18;
+                blnIsJumping = false;
+                return;
+            }
+        }
+        // Calculates the jump velocity.
+        private void calculateJumpVelocity()
+        {
+            intJumpVelocity = (int)(0.15 * Math.Pow((double)intJumpPower, 2.0) * Math.Sign(intJumpPower));
+        }
+        // Manages the player dash
+        private void playerDash()
+        {
+            // moves the player with a dash power and decreases it over the intervals to simulate deceleration
+            if (intDashSpeed >= 0 && blnMovingLeft == true)
+            {
+                this.pcbPlayer.Left -= intDashSpeed;
+                intDashSpeed--;
+            }
+            // Works in the other direction as well
+            else if (intDashSpeed >= 0 && blnMovingRight == true)
+            {
+                this.pcbPlayer.Left += intDashSpeed;
+                intDashSpeed--;
+            }
+            else
+            {
+                // Stops the dash and resets its values after the dash is done
+                stopDash();
             }
         }
         // Checks if the player is grounded

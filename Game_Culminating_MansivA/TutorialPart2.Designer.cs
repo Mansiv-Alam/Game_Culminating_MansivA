@@ -36,6 +36,7 @@
             this.lblTutorialPart2Text = new System.Windows.Forms.Label();
             this.tmrGameTick = new System.Windows.Forms.Timer(this.components);
             this.pcbGround = new System.Windows.Forms.PictureBox();
+            this.lblScore = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbGround)).BeginInit();
             this.SuspendLayout();
@@ -84,7 +85,7 @@
             this.lblTutorialPart2Text.Cursor = System.Windows.Forms.Cursors.Default;
             this.lblTutorialPart2Text.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTutorialPart2Text.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblTutorialPart2Text.Location = new System.Drawing.Point(61, 152);
+            this.lblTutorialPart2Text.Location = new System.Drawing.Point(45, 53);
             this.lblTutorialPart2Text.Name = "lblTutorialPart2Text";
             this.lblTutorialPart2Text.Size = new System.Drawing.Size(1046, 55);
             this.lblTutorialPart2Text.TabIndex = 4;
@@ -105,11 +106,22 @@
             this.pcbGround.TabIndex = 6;
             this.pcbGround.TabStop = false;
             // 
+            // lblScore
+            // 
+            this.lblScore.AutoSize = true;
+            this.lblScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblScore.Location = new System.Drawing.Point(12, 9);
+            this.lblScore.Name = "lblScore";
+            this.lblScore.Size = new System.Drawing.Size(118, 39);
+            this.lblScore.TabIndex = 11;
+            this.lblScore.Text = "Score:";
+            // 
             // TutorialPart2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 911);
+            this.Controls.Add(this.lblScore);
             this.Controls.Add(this.pcbGround);
             this.Controls.Add(this.lblTutorialPart2Text);
             this.Controls.Add(this.lblTutorial1Text);
@@ -136,5 +148,6 @@
         private System.Windows.Forms.Label lblTutorialPart2Text;
         private System.Windows.Forms.Timer tmrGameTick;
         private System.Windows.Forms.PictureBox pcbGround;
+        private System.Windows.Forms.Label lblScore;
     }
 }
