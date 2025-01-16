@@ -113,6 +113,7 @@ namespace Game_Culminating_MansivA
             //Console.WriteLine("Player Position: Left = " + pcbPlayer.Left + ", Right = " + pcbPlayer.Right + ", Top = " + pcbPlayer.Top + ", Bottom = " + pcbPlayer.Bottom + " Is grounded: " + blnGrounded);
             // Moves the player if they pressed the spacebar
             checkGrounded();
+            wallHitbox();
             hitboxPlatform1();
             hitboxPlatform2();
             hitboxPlatform3();
@@ -229,6 +230,7 @@ namespace Game_Culminating_MansivA
                     // Location of the platform and the player height
                     pcbPlayer.Top = pcbPlatform1.Location.Y + 1 - pcbPlayer.Height;
                     isGrounded();
+                    return;
                 }
                 // Checks if the player's head is below a the y position of the hitbox
                 if (pcbPlayer.Top > pcbPlatform1.Location.Y)
@@ -237,6 +239,7 @@ namespace Game_Culminating_MansivA
                     pcbPlayer.Top = pcbPlatform1.Bottom + 1;
                     // stops the jump
                     stopJump();
+                    return;
                 }
                 // Stops a dash from clipping into the platform from the left and right side
                 if (blnIsDashing == true && blnGrounded == false)
@@ -275,11 +278,13 @@ namespace Game_Culminating_MansivA
                 {
                     pcbPlayer.Top = pcbPlatform2.Location.Y + 1 - pcbPlayer.Height;
                     isGrounded();
+                    return;
                 }
                 if (pcbPlayer.Top > pcbPlatform2.Location.Y)
                 {
                     pcbPlayer.Top = pcbPlatform2.Bottom + 1;
                     stopJump();
+                    return;
                 }
                 // Stops a dash from clipping into the platform from the left and right side
                 if (blnIsDashing == true && blnGrounded == false) {
@@ -319,11 +324,13 @@ namespace Game_Culminating_MansivA
                     
                     pcbPlayer.Top = pcbPlatform3.Location.Y + 1 - pcbPlayer.Height;
                     isGrounded();
+                    return;
                 }
                 if (pcbPlayer.Top > pcbPlatform3.Location.Y)
                 {
                     pcbPlayer.Top = pcbPlatform3.Bottom + 1;
                     stopJump();
+                    return;
                 }
                 // Stops a dash from clipping into the platform from the left and right side
                 if (blnIsDashing == true && blnGrounded == false)
@@ -351,6 +358,12 @@ namespace Game_Culminating_MansivA
                         }
                     }
                 }
+            }
+        }
+        // hitbox for the bottom wall
+        private void wallHitbox() {
+            if (pcbPlayer.Bounds.IntersectsWith(pcbWall.Bounds)) {
+                pcbPlayer.Left = pcbWall.Left - pcbPlayer.Width;
             }
         }
         // Stops the jump (helps for stopping an active jump)

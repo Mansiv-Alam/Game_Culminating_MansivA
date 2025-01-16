@@ -40,13 +40,13 @@
             this.pcbPlatform1 = new System.Windows.Forms.PictureBox();
             this.pcbPlatform2 = new System.Windows.Forms.PictureBox();
             this.pcbPlatform3 = new System.Windows.Forms.PictureBox();
-            this.pcbPlatform4 = new System.Windows.Forms.PictureBox();
+            this.pcbWall = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbGround)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbWall)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSettings
@@ -151,14 +151,14 @@
             this.pcbPlatform3.TabIndex = 14;
             this.pcbPlatform3.TabStop = false;
             // 
-            // pcbPlatform4
+            // pcbWall
             // 
-            this.pcbPlatform4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pcbPlatform4.Location = new System.Drawing.Point(1134, 454);
-            this.pcbPlatform4.Name = "pcbPlatform4";
-            this.pcbPlatform4.Size = new System.Drawing.Size(50, 381);
-            this.pcbPlatform4.TabIndex = 15;
-            this.pcbPlatform4.TabStop = false;
+            this.pcbWall.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pcbWall.Location = new System.Drawing.Point(1134, 454);
+            this.pcbWall.Name = "pcbWall";
+            this.pcbWall.Size = new System.Drawing.Size(50, 381);
+            this.pcbWall.TabIndex = 15;
+            this.pcbWall.TabStop = false;
             // 
             // TutorialPart2
             // 
@@ -172,9 +172,9 @@
             this.Controls.Add(this.pcbGround);
             this.Controls.Add(this.lblTutorialPart2Text);
             this.Controls.Add(this.lblTutorial1Text);
-            this.Controls.Add(this.pcbPlayer);
             this.Controls.Add(this.btnSettings);
-            this.Controls.Add(this.pcbPlatform4);
+            this.Controls.Add(this.pcbWall);
+            this.Controls.Add(this.pcbPlayer);
             this.KeyPreview = true;
             this.Name = "TutorialPart2";
             this.Text = "TutorialPart2";
@@ -185,7 +185,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbWall)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -204,6 +204,6 @@
         private System.Windows.Forms.PictureBox pcbPlatform1;
         private System.Windows.Forms.PictureBox pcbPlatform2;
         private System.Windows.Forms.PictureBox pcbPlatform3;
-        private System.Windows.Forms.PictureBox pcbPlatform4;
+        private System.Windows.Forms.PictureBox pcbWall;
     }
 }

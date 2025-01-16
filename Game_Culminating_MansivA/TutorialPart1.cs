@@ -226,6 +226,7 @@ namespace Game_Culminating_MansivA
                     // Location of the platform and the player height
                     pcbPlayer.Top = pcbPlatform1.Location.Y + 1 - pcbPlayer.Height;
                     isGrounded();
+                    return;
                 } 
                 else {
                     blnGrounded = false;
@@ -237,6 +238,7 @@ namespace Game_Culminating_MansivA
                     pcbPlayer.Top = pcbPlatform1.Bottom + 1;
                     // stops the jump
                     stopJump();
+                    return;
                 }
                 // Stops a dash from clipping into the platform from the left and right side
                 if (blnIsDashing == true && blnGrounded == false)
