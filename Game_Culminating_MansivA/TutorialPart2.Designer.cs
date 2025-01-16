@@ -37,8 +37,16 @@
             this.tmrGameTick = new System.Windows.Forms.Timer(this.components);
             this.pcbGround = new System.Windows.Forms.PictureBox();
             this.lblScore = new System.Windows.Forms.Label();
+            this.pcbPlatform1 = new System.Windows.Forms.PictureBox();
+            this.pcbPlatform2 = new System.Windows.Forms.PictureBox();
+            this.pcbPlatform3 = new System.Windows.Forms.PictureBox();
+            this.pcbPlatform4 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbGround)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform4)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSettings
@@ -116,17 +124,57 @@
             this.lblScore.TabIndex = 11;
             this.lblScore.Text = "Score:";
             // 
+            // pcbPlatform1
+            // 
+            this.pcbPlatform1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pcbPlatform1.Location = new System.Drawing.Point(162, 627);
+            this.pcbPlatform1.Name = "pcbPlatform1";
+            this.pcbPlatform1.Size = new System.Drawing.Size(163, 50);
+            this.pcbPlatform1.TabIndex = 12;
+            this.pcbPlatform1.TabStop = false;
+            // 
+            // pcbPlatform2
+            // 
+            this.pcbPlatform2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pcbPlatform2.Location = new System.Drawing.Point(392, 528);
+            this.pcbPlatform2.Name = "pcbPlatform2";
+            this.pcbPlatform2.Size = new System.Drawing.Size(166, 50);
+            this.pcbPlatform2.TabIndex = 13;
+            this.pcbPlatform2.TabStop = false;
+            // 
+            // pcbPlatform3
+            // 
+            this.pcbPlatform3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pcbPlatform3.Location = new System.Drawing.Point(622, 407);
+            this.pcbPlatform3.Name = "pcbPlatform3";
+            this.pcbPlatform3.Size = new System.Drawing.Size(562, 50);
+            this.pcbPlatform3.TabIndex = 14;
+            this.pcbPlatform3.TabStop = false;
+            // 
+            // pcbPlatform4
+            // 
+            this.pcbPlatform4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pcbPlatform4.Location = new System.Drawing.Point(1134, 454);
+            this.pcbPlatform4.Name = "pcbPlatform4";
+            this.pcbPlatform4.Size = new System.Drawing.Size(50, 381);
+            this.pcbPlatform4.TabIndex = 15;
+            this.pcbPlatform4.TabStop = false;
+            // 
             // TutorialPart2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 911);
+            this.Controls.Add(this.pcbPlatform3);
+            this.Controls.Add(this.pcbPlatform2);
+            this.Controls.Add(this.pcbPlatform1);
             this.Controls.Add(this.lblScore);
             this.Controls.Add(this.pcbGround);
             this.Controls.Add(this.lblTutorialPart2Text);
             this.Controls.Add(this.lblTutorial1Text);
             this.Controls.Add(this.pcbPlayer);
             this.Controls.Add(this.btnSettings);
+            this.Controls.Add(this.pcbPlatform4);
             this.KeyPreview = true;
             this.Name = "TutorialPart2";
             this.Text = "TutorialPart2";
@@ -134,6 +182,10 @@
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TutorialPart2_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlayer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbGround)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -149,5 +201,9 @@
         private System.Windows.Forms.Timer tmrGameTick;
         private System.Windows.Forms.PictureBox pcbGround;
         private System.Windows.Forms.Label lblScore;
+        private System.Windows.Forms.PictureBox pcbPlatform1;
+        private System.Windows.Forms.PictureBox pcbPlatform2;
+        private System.Windows.Forms.PictureBox pcbPlatform3;
+        private System.Windows.Forms.PictureBox pcbPlatform4;
     }
 }
