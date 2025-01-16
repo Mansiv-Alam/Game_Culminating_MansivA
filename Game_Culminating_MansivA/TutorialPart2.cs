@@ -318,10 +318,8 @@ namespace Game_Culminating_MansivA
         {
             if (pcbPlayer.Bounds.IntersectsWith(pcbPlatform3.Bounds))
             {
-                Console.WriteLine((intJumpVelocity <= 0 || intGravity > 0) + "," + (pcbPlayer.Bottom > pcbPlatform3.Top) + "," + (pcbPlayer.Bottom < pcbPlatform3.Top + 35) + "," + intJumpVelocity);
                 if ((intJumpVelocity <= 0 || intGravity > 0) && (pcbPlayer.Bottom > pcbPlatform3.Top) && (pcbPlayer.Bottom < pcbPlatform3.Top + 30))
                 {
-                    
                     pcbPlayer.Top = pcbPlatform3.Location.Y + 1 - pcbPlayer.Height;
                     isGrounded();
                     return;

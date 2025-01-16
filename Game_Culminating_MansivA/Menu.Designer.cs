@@ -45,6 +45,7 @@
             this.btnGameStart.Name = "btnGameStart";
             this.btnGameStart.Size = new System.Drawing.Size(250, 50);
             this.btnGameStart.TabIndex = 0;
+            this.btnGameStart.TabStop = false;
             this.btnGameStart.Text = "Start Game";
             this.btnGameStart.UseVisualStyleBackColor = true;
             this.btnGameStart.Click += new System.EventHandler(this.btnGameStart_Click);
@@ -57,6 +58,7 @@
             this.btnLoadSave.Name = "btnLoadSave";
             this.btnLoadSave.Size = new System.Drawing.Size(250, 50);
             this.btnLoadSave.TabIndex = 1;
+            this.btnLoadSave.TabStop = false;
             this.btnLoadSave.Text = "Load Save";
             this.btnLoadSave.UseVisualStyleBackColor = true;
             // 
@@ -68,6 +70,7 @@
             this.btnTutorialStart.Name = "btnTutorialStart";
             this.btnTutorialStart.Size = new System.Drawing.Size(250, 50);
             this.btnTutorialStart.TabIndex = 2;
+            this.btnTutorialStart.TabStop = false;
             this.btnTutorialStart.Text = "Tutorial";
             this.btnTutorialStart.UseVisualStyleBackColor = true;
             this.btnTutorialStart.Click += new System.EventHandler(this.btnTutorialStart_Click);
@@ -80,6 +83,7 @@
             this.btnCredits.Name = "btnCredits";
             this.btnCredits.Size = new System.Drawing.Size(250, 50);
             this.btnCredits.TabIndex = 3;
+            this.btnCredits.TabStop = false;
             this.btnCredits.Text = "Credits";
             this.btnCredits.UseVisualStyleBackColor = true;
             this.btnCredits.Click += new System.EventHandler(this.btnCredits_Click);
@@ -92,6 +96,7 @@
             this.btnQuit.Name = "btnQuit";
             this.btnQuit.Size = new System.Drawing.Size(250, 50);
             this.btnQuit.TabIndex = 4;
+            this.btnQuit.TabStop = false;
             this.btnQuit.Text = "Quit";
             this.btnQuit.UseVisualStyleBackColor = true;
             this.btnQuit.Click += new System.EventHandler(this.btnQuit_Click);

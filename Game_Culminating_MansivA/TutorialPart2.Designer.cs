@@ -170,11 +170,11 @@
             this.Controls.Add(this.pcbPlatform1);
             this.Controls.Add(this.lblScore);
             this.Controls.Add(this.pcbGround);
-            this.Controls.Add(this.lblTutorialPart2Text);
             this.Controls.Add(this.lblTutorial1Text);
             this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.pcbWall);
             this.Controls.Add(this.pcbPlayer);
+            this.Controls.Add(this.lblTutorialPart2Text);
             this.KeyPreview = true;
             this.Name = "TutorialPart2";
             this.Text = "TutorialPart2";
