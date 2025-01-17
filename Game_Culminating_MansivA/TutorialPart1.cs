@@ -37,6 +37,7 @@ namespace Game_Culminating_MansivA
         public TutorialPart1()
         {
             InitializeComponent();
+            intInventoryValues[0] = 1;
         }
         // Occurs when the Settings Button is clicked
         private void btnSettings_Click(object sender, MouseEventArgs e)

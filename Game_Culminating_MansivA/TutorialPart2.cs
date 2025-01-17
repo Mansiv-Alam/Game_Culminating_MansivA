@@ -17,6 +17,7 @@ namespace Game_Culminating_MansivA
         bool blnMovingRight = false;
         bool blnIsJumping = false;
         bool blnIsDashing = false;
+        bool blnInteract = false;
         int intPlayerSpeed = 8;
         int intJumpPower = 16;
         int intJumpVelocity = 0;
@@ -26,11 +27,14 @@ namespace Game_Culminating_MansivA
         int intGravity = 1;
         // Player UI
         int[] intInventoryValues = new int[9];
+        string[] intInventoryNames = new string[9];
         int intPlayerHealth = 100;
         int intPlayerScore = 0;
         public TutorialPart2()
         {
             InitializeComponent();
+            intInventoryValues[0] = 1;
+            intInventoryNames[0] = "Sword";
         }
         // Keys getting pressed
         private void TutorialPart2_KeyDown(object sender, KeyEventArgs e)
@@ -43,6 +47,11 @@ namespace Game_Culminating_MansivA
             if (e.KeyCode == Keys.D)
             {
                 blnMovingRight = true;
+            }
+            // Interact Key
+            if (e.KeyCode == Keys.E)
+            {
+                blnInteract = true;
             }
             // Restrict the number of dashes to 2 mid air
             if (e.KeyCode == Keys.Q && intDashCounter < 2)
@@ -69,6 +78,12 @@ namespace Game_Culminating_MansivA
         }
         private void tmrGameTick_Tick(object sender, EventArgs e)
         {
+            // Changes the score/ Updates the score text
+            changeScore();
+            // Checks if the player has interacted with a key game object
+            playerInteract();
+            // updates the inventory text
+            inventoryUpdate();
             // Checks if the player went beyond the left side width and switches to tutorial level part 2
             if (pcbPlayer.Left > 1200)
             {
@@ -390,6 +405,28 @@ namespace Game_Culminating_MansivA
             // resets gravity and the dash counter to 0 because the player is on the ground
             intGravity = 0;
             intDashCounter = 0;
+        }
+        // Changes the score text based on the score variable
+        private void changeScore()
+        {
+            this.lblScore.Text = "Score: " + intPlayerScore;
+        }
+        // Checks if the player interacts with any game object
+        private void playerInteract() {
+            if (blnInteract == true && pcbPlayer.Bounds.IntersectsWith(pcbCyanKey.Bounds) && pcbCyanKey.Visible == true)
+            {
+                pcbCyanKey.Visible = false;
+                intInventoryValues[1] = 2;
+                intInventoryNames[1] = "Cyan Key";
+                blnInteract = false;
+            }
+            else {
+                blnInteract = false;
+            }
+        }
+        // Updates the inventory values
+        private void inventoryUpdate() {
+            this.lblPlayerInventory.Text = "Inventory: " + intInventoryNames[0] + ", " + intInventoryNames[1];
         }
     }
 }
