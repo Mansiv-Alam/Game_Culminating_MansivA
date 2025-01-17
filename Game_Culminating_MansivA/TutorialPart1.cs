@@ -81,7 +81,8 @@ namespace Game_Culminating_MansivA
         // Timer for the Game (Enemy Ai, hitboxes)
         private void tmrGameTick_Tick(object sender, EventArgs e)
         {
-
+            // Changes score per game tick
+            changeScore();
             // Checks if the player went beyond the left side width and switches to tutorial level part 2
             if (pcbPlayer.Left > 1200)
             {
@@ -103,6 +104,7 @@ namespace Game_Culminating_MansivA
         private void tmrPlayerMovementTick(object sender, EventArgs e)
         {
             checkGrounded();
+            extraScoreHitbox();
             hitboxPlatform1();
             // Moves the player if they clicked q to dash
             if (blnIsDashing == true) {
@@ -221,7 +223,7 @@ namespace Game_Culminating_MansivA
             if (pcbPlayer.Bounds.IntersectsWith(pcbPlatform1.Bounds)){
                 // Checks if the player is moving or falling down, and the player's feet is below/touching the platform and if the player's feet is above a certain point to stop clipping onto the top of the platform\
                 // Careful of the falling velocity of the player because thats what determines if the + 30 needs to increase or not
-                if ((intJumpVelocity <= 0 || intGravity > 0) && (pcbPlayer.Bottom > pcbPlatform1.Top && pcbPlayer.Bottom < pcbPlatform1.Top + 30))
+                if ((intJumpVelocity <= 0 || intGravity > 0) && pcbPlayer.Bottom > pcbPlatform1.Top && pcbPlayer.Bottom < pcbPlatform1.Top + 30)
                 {
                     // Location of the platform and the player height
                     pcbPlayer.Top = pcbPlatform1.Location.Y + 1 - pcbPlayer.Height;
@@ -268,6 +270,20 @@ namespace Game_Culminating_MansivA
                 }
             }
         }
+        // Hitbox for the extra score
+        private void extraScoreHitbox() {
+            // Checks if the extra score is visible/on the screem
+            if (pcbExtraScore.Visible == true)
+            {
+                if (pcbPlayer.Bounds.IntersectsWith(pcbExtraScore.Bounds))
+                {
+                    // increases score
+                    intPlayerScore += 5;
+                    // Makes the extra score dissapear
+                    pcbExtraScore.Visible = false;
+                }
+            }
+        }
         // Stops the jump (helps for stopping an active jump)
         private void stopJump() {
             intJumpPower = 16;
@@ -292,6 +308,10 @@ namespace Game_Culminating_MansivA
             // resets gravity and the dash counter to 0 because the player is on the ground
             intGravity = 0;
             intDashCounter = 0;
+        }
+        // Changes the score text based on the score variable
+        private void changeScore() {
+            this.lblScore.Text = "Score: " + intPlayerScore;
         }
     }
 }

@@ -37,9 +37,11 @@
             this.pcbGround = new System.Windows.Forms.PictureBox();
             this.lblScore = new System.Windows.Forms.Label();
             this.pcbPlatform1 = new System.Windows.Forms.PictureBox();
+            this.pcbExtraScore = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbGround)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbExtraScore)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSettings
@@ -115,11 +117,21 @@
             this.pcbPlatform1.TabIndex = 11;
             this.pcbPlatform1.TabStop = false;
             // 
+            // pcbExtraScore
+            // 
+            this.pcbExtraScore.BackColor = System.Drawing.Color.Gold;
+            this.pcbExtraScore.Location = new System.Drawing.Point(563, 428);
+            this.pcbExtraScore.Name = "pcbExtraScore";
+            this.pcbExtraScore.Size = new System.Drawing.Size(58, 54);
+            this.pcbExtraScore.TabIndex = 29;
+            this.pcbExtraScore.TabStop = false;
+            // 
             // TutorialPart1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 911);
+            this.Controls.Add(this.pcbExtraScore);
             this.Controls.Add(this.lblScore);
             this.Controls.Add(this.pcbGround);
             this.Controls.Add(this.btnSettings);
@@ -135,6 +147,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlayer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbGround)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbExtraScore)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -150,5 +163,6 @@
         private System.Windows.Forms.PictureBox pcbGround;
         private System.Windows.Forms.Label lblScore;
         private System.Windows.Forms.PictureBox pcbPlatform1;
+        private System.Windows.Forms.PictureBox pcbExtraScore;
     }
 }
