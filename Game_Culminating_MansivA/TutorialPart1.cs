@@ -86,6 +86,9 @@ namespace Game_Culminating_MansivA
             // Checks if the player went beyond the left side width and switches to tutorial level part 2
             if (pcbPlayer.Left > 1200)
             {
+                // Adds 10 score
+                intPlayerScore += 10;
+                // Saves the score to the settings form
                 Settings.intPlayerScoreSaved = intPlayerScore;
                 TutorialPart2 TutorialPart2 = new TutorialPart2();
                 // Hides this form

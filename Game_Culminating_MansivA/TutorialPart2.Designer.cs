@@ -47,6 +47,8 @@
             this.pcbLever = new System.Windows.Forms.PictureBox();
             this.pcbLockedLeverDoor = new System.Windows.Forms.PictureBox();
             this.pcbMovableBox = new System.Windows.Forms.PictureBox();
+            this.pcbHoldableButton = new System.Windows.Forms.PictureBox();
+            this.pcbLockedButtonDoor = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbGround)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform1)).BeginInit();
@@ -58,6 +60,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbLever)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLockedLeverDoor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbMovableBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbHoldableButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbLockedButtonDoor)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSettings
@@ -228,11 +232,30 @@
             this.pcbMovableBox.TabIndex = 38;
             this.pcbMovableBox.TabStop = false;
             // 
+            // pcbHoldableButton
+            // 
+            this.pcbHoldableButton.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.pcbHoldableButton.Location = new System.Drawing.Point(944, 746);
+            this.pcbHoldableButton.Name = "pcbHoldableButton";
+            this.pcbHoldableButton.Size = new System.Drawing.Size(58, 57);
+            this.pcbHoldableButton.TabIndex = 39;
+            this.pcbHoldableButton.TabStop = false;
+            // 
+            // pcbLockedButtonDoor
+            // 
+            this.pcbLockedButtonDoor.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.pcbLockedButtonDoor.Location = new System.Drawing.Point(1018, 185);
+            this.pcbLockedButtonDoor.Name = "pcbLockedButtonDoor";
+            this.pcbLockedButtonDoor.Size = new System.Drawing.Size(58, 226);
+            this.pcbLockedButtonDoor.TabIndex = 40;
+            this.pcbLockedButtonDoor.TabStop = false;
+            // 
             // TutorialPart2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 911);
+            this.Controls.Add(this.pcbHoldableButton);
             this.Controls.Add(this.pcbCyanKey);
             this.Controls.Add(this.pcbLever);
             this.Controls.Add(this.lblPlayerInventory);
@@ -246,9 +269,10 @@
             this.Controls.Add(this.pcbWall);
             this.Controls.Add(this.pcbLockedCyanDoor);
             this.Controls.Add(this.pcbLockedLeverDoor);
-            this.Controls.Add(this.lblTutorialPart2Text);
             this.Controls.Add(this.pcbMovableBox);
             this.Controls.Add(this.pcbPlayer);
+            this.Controls.Add(this.lblTutorialPart2Text);
+            this.Controls.Add(this.pcbLockedButtonDoor);
             this.KeyPreview = true;
             this.Name = "TutorialPart2";
             this.Text = "TutorialPart2";
@@ -265,6 +289,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbLever)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLockedLeverDoor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbMovableBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbHoldableButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbLockedButtonDoor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -290,5 +316,7 @@
         private System.Windows.Forms.PictureBox pcbLever;
         private System.Windows.Forms.PictureBox pcbLockedLeverDoor;
         private System.Windows.Forms.PictureBox pcbMovableBox;
+        private System.Windows.Forms.PictureBox pcbHoldableButton;
+        private System.Windows.Forms.PictureBox pcbLockedButtonDoor;
     }
 }

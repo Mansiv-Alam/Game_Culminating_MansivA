@@ -13,25 +13,24 @@ namespace Game_Culminating_MansivA
     public partial class TutorialPart2 : Form
     {
         // Player Movement Variables 
-         bool blnMovingLeft = false;
-         bool blnMovingRight = false;
-         bool blnIsJumping = false;
-         bool blnIsDashing = false;
-         bool blnInteract = false;
-         int intPlayerSpeed = 8;
-         int intJumpPower = 16;
-         int intJumpVelocity = 0;
-         int intDashSpeed = 10;
-         int intDashCounter = 0;
-         bool blnGrounded = true;
-         int intGravity = 1;
+        bool blnMovingLeft = false;
+        bool blnMovingRight = false;
+        bool blnIsJumping = false;
+        bool blnIsDashing = false;
+        bool blnInteract = false;
+        int intPlayerSpeed = 8;
+        int intJumpPower = 16;
+        int intJumpVelocity = 0;
+        int intDashSpeed = 10;
+        int intDashCounter = 0;
+        bool blnGrounded = true;
+        int intGravity = 1;
         // Player UI
-         int[] intInventoryValues = new int[9];
-         string[] strInventoryNames = new string[9];
-         int intPlayerHealth = 100;
-         public static int intPlayerScore = Settings.intPlayerScoreSaved;
+        int[] intInventoryValues = new int[9];
+        string[] strInventoryNames = new string[9];
+        int intPlayerHealth = 100;
+        public static int intPlayerScore = Settings.intPlayerScoreSaved;
         // Game Environment Variables
-
 
         public TutorialPart2()
         {
@@ -85,6 +84,8 @@ namespace Game_Culminating_MansivA
             changeScore();
             // Checks if the player has interacted with a key game object
             playerInteract();
+            // holdable button hitbox
+            holdableButtonHitbox();
             // updates the inventory text
             inventoryUpdate();
             // Checks if the player went beyond the left side width and switches to tutorial level part 2
@@ -138,6 +139,7 @@ namespace Game_Culminating_MansivA
             hitboxMovableBox();
             hitboxLockedCyanDoor();
             hitboxLockedLeverDoor();
+            hitboxLockedButtonDoor();
             // Moves the player if they clicked q to dash
             if (blnIsDashing == true)
             {
@@ -466,6 +468,48 @@ namespace Game_Culminating_MansivA
                 }
             }
         }
+        //
+        // hitbox for the Lever door when to unlock or get blocked by it
+        private void hitboxLockedButtonDoor()
+        {
+            if (pcbPlayer.Bounds.IntersectsWith(pcbLockedButtonDoor.Bounds) && pcbLockedButtonDoor.Visible == true)
+            {
+                // also checks if the user has a key in their second slot (will change later)
+                if ((intJumpVelocity <= 0 || intGravity > 0) && (pcbPlayer.Bottom > pcbLockedLeverDoor.Top) && (pcbPlayer.Bottom < pcbLockedLeverDoor.Top + 30))
+                {
+                    pcbPlayer.Top = pcbLockedButtonDoor.Location.Y + 1 - pcbPlayer.Height;
+                    isGrounded();
+                    return;
+                }
+                // Doesnt need the if condition for the bottom of the door
+                // Stops a dash from clipping into the platform from the left and right side
+                if (blnIsDashing == true && blnGrounded == false)
+                {
+                    // Left dash
+                    if (blnMovingLeft == true) { stopDash(); pcbPlayer.Left = pcbLockedButtonDoor.Right; }
+                    // Right dash
+                    else if (blnMovingRight == true) { stopDash(); pcbPlayer.Left = pcbLockedButtonDoor.Left - pcbPlayer.Width; }
+                }
+                // Handles Horizontal Collision (First checks if the players is both above and below the door)
+                if (pcbPlayer.Bottom > pcbLockedButtonDoor.Top + 1 && pcbPlayer.Top < pcbLockedButtonDoor.Bottom)
+                {
+                    // Checks which part is inside of the door (right side or lefts)
+                    if (pcbPlayer.Right > pcbLockedButtonDoor.Left && pcbPlayer.Left < pcbLockedButtonDoor.Right)
+                    {
+                        // Checks if the left side is Outside the door
+                        if (pcbPlayer.Left < pcbLockedButtonDoor.Left)
+                        {
+                            pcbPlayer.Left = pcbLockedButtonDoor.Left - pcbPlayer.Width;
+                        }
+                        // Checks if the right side is Outside the door
+                        else if (pcbPlayer.Right > pcbLockedButtonDoor.Right)
+                        {
+                            pcbPlayer.Left = pcbLockedLeverDoor.Right;
+                        }
+                    }
+                }
+            }
+        }
         // Hitbox and physics for the Movable box
         private void hitboxMovableBox() {
             if (pcbPlayer.Bounds.IntersectsWith(pcbMovableBox.Bounds))
@@ -503,6 +547,20 @@ namespace Game_Culminating_MansivA
                 pcbPlayer.Left = pcbWall.Left - pcbPlayer.Width;
             }
         }
+        // Hitbox for the holdable button
+        private void holdableButtonHitbox()
+        {
+            if (pcbPlayer.Bounds.IntersectsWith(pcbHoldableButton.Bounds) || pcbMovableBox.Bounds.IntersectsWith(pcbHoldableButton.Bounds))
+            {
+                pcbLockedButtonDoor.Visible = false;
+                pcbHoldableButton.BackColor = Color.SpringGreen;
+            }
+            else {
+                pcbLockedButtonDoor.Visible = true;
+                pcbHoldableButton.BackColor = Color.DarkTurquoise;
+            }
+        }
+
         // Stops the jump (helps for stopping an active jump)
         private void stopJump()
         {
