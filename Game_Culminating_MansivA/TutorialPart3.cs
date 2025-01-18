@@ -20,6 +20,7 @@ namespace Game_Culminating_MansivA
         bool blnInteract = false;
         int intPlayerSpeed = 8;
         int intJumpPower = 16;
+        int intJumpPowerMin = -16;
         int intJumpVelocity = 0;
         int intDashSpeed = 10;
         int intDashCounter = 0;
@@ -80,6 +81,8 @@ namespace Game_Culminating_MansivA
         private void tmrGameTick_Tick(object sender, EventArgs e)
         {
             changeScore();
+            changeHealth();
+            playerHealthCheck();
             if (pcbPlayer.Left > 1200)
             {
                 // Resets score for the main game
@@ -124,9 +127,11 @@ namespace Game_Culminating_MansivA
             horizontalPlayerMovement();
             checkGrounded();
             wallHitbox();
+            hitboxLava();
+            hitboxSpike();
             hitboxPlatform1();
             hitboxPlatform2();
-            hitboxPlatform3(); 
+            hitboxPlatform3();
             // Moves the player if they clicked q to dash
             if (blnIsDashing == true)
             {
@@ -159,7 +164,7 @@ namespace Game_Culminating_MansivA
         // Handles the players jump
         private void playerJump()
         {
-            if (intJumpPower >= -16)
+            if (intJumpPower >= intJumpPowerMin)
             {
                 calculateJumpVelocity();
                 pcbPlayer.Top -= intJumpVelocity;
@@ -286,6 +291,10 @@ namespace Game_Culminating_MansivA
         {
             if (pcbPlayer.Bounds.IntersectsWith(pcbPlatform2.Bounds))
             {
+                if (intJumpVelocity != 0)
+                {
+                    Console.WriteLine(intJumpVelocity);
+                }
                 if ((intJumpVelocity <= 0 || intGravity > 0) && (pcbPlayer.Bottom > pcbPlatform2.Top && pcbPlayer.Bottom < pcbPlatform2.Top + 30))
                 {
                     pcbPlayer.Top = pcbPlatform2.Location.Y + 1 - pcbPlayer.Height;
@@ -373,7 +382,27 @@ namespace Game_Culminating_MansivA
         }
         // Hitbox for lava
         private void hitboxLava() {
-        
+            // Checks if the player has touched the lava but also gives the player a bit of leeway
+            if (pcbPlayer.Bounds.IntersectsWith(pcbLava.Bounds) && pcbPlayer.Right > pcbLava.Left + 10 && pcbPlayer.Left < pcbLava.Right - 10)
+            {
+                intPlayerHealth = 0;
+            }
+        }
+        // Hitbox for the Spike
+        private void hitboxSpike()
+        {
+            // Checks if the player has touched the spike with some margin 
+            if (pcbPlayer.Bounds.IntersectsWith(pcbSpike.Bounds) && pcbPlayer.Right > pcbSpike.Left + 5 && pcbPlayer.Left < pcbSpike.Right - 5)
+            {
+                // Decreases health
+                intPlayerHealth -= 10;
+                // Changes the player's Height
+                pcbPlayer.Top = pcbSpike.Top - 1 - pcbPlayer.Height;
+                // Changes the jump variables to make a mini player jump
+                intJumpPower = 10;
+                intJumpPowerMin = -10;
+                blnIsJumping = true;
+            }
         }
         // hitbox for the Right wall
         private void wallHitbox()
@@ -413,6 +442,11 @@ namespace Game_Culminating_MansivA
         {
             this.lblScore.Text = "Score: " + intPlayerScore;
         }
+        // Changes the Health text based on the health variable
+        private void changeHealth()
+        {
+            this.lblPlayerHealth.Text = "Health: " + intPlayerHealth;
+        }
         // Opens the settings form
         private void btnSettings_Click(object sender, EventArgs e)
         {
@@ -420,6 +454,23 @@ namespace Game_Culminating_MansivA
             Settings settings = new Settings();
             settings.Show();
             this.Close();
+        }
+        // Runs every game tick to check if the player has 0 health
+        private void playerHealthCheck() {
+            // Checks if the player is dead
+            if (intPlayerHealth == 0) {
+                // Resets the player to the Position at the beginning of the level
+                pcbPlayer.Location = new Point(25, 701);
+                // Makes the player stop moving after their position got reset
+                blnMovingLeft = false;
+                blnMovingRight = false;
+                // Resets the health
+                intPlayerHealth = 100;
+                // Decreases the score unless the score is already 0
+                if (intPlayerScore > 0) {
+                    intPlayerScore -= 5;
+                }
+            }
         }
     }
 }

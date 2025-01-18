@@ -38,6 +38,7 @@
             this.lblScore = new System.Windows.Forms.Label();
             this.pcbPlatform1 = new System.Windows.Forms.PictureBox();
             this.pcbExtraScore = new System.Windows.Forms.PictureBox();
+            this.lblPlayerHealth = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbGround)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform1)).BeginInit();
@@ -127,11 +128,24 @@
             this.pcbExtraScore.TabIndex = 29;
             this.pcbExtraScore.TabStop = false;
             // 
+            // lblPlayerHealth
+            // 
+            this.lblPlayerHealth.AutoSize = true;
+            this.lblPlayerHealth.BackColor = System.Drawing.Color.Gray;
+            this.lblPlayerHealth.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlayerHealth.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblPlayerHealth.Location = new System.Drawing.Point(12, 854);
+            this.lblPlayerHealth.Name = "lblPlayerHealth";
+            this.lblPlayerHealth.Size = new System.Drawing.Size(127, 39);
+            this.lblPlayerHealth.TabIndex = 32;
+            this.lblPlayerHealth.Text = "Health:";
+            // 
             // TutorialPart1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 911);
+            this.Controls.Add(this.lblPlayerHealth);
             this.Controls.Add(this.pcbExtraScore);
             this.Controls.Add(this.lblScore);
             this.Controls.Add(this.pcbGround);
@@ -165,5 +179,6 @@
         private System.Windows.Forms.Label lblScore;
         private System.Windows.Forms.PictureBox pcbPlatform1;
         private System.Windows.Forms.PictureBox pcbExtraScore;
+        private System.Windows.Forms.Label lblPlayerHealth;
     }
 }

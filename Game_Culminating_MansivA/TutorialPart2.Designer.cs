@@ -49,6 +49,7 @@
             this.pcbMovableBox = new System.Windows.Forms.PictureBox();
             this.pcbHoldableButton = new System.Windows.Forms.PictureBox();
             this.pcbLockedButtonDoor = new System.Windows.Forms.PictureBox();
+            this.lblPlayerHealth = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbGround)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform1)).BeginInit();
@@ -199,7 +200,7 @@
             this.lblPlayerInventory.AutoSize = true;
             this.lblPlayerInventory.BackColor = System.Drawing.Color.Gray;
             this.lblPlayerInventory.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlayerInventory.Location = new System.Drawing.Point(30, 853);
+            this.lblPlayerInventory.Location = new System.Drawing.Point(185, 854);
             this.lblPlayerInventory.Name = "lblPlayerInventory";
             this.lblPlayerInventory.Size = new System.Drawing.Size(170, 39);
             this.lblPlayerInventory.TabIndex = 35;
@@ -250,11 +251,24 @@
             this.pcbLockedButtonDoor.TabIndex = 40;
             this.pcbLockedButtonDoor.TabStop = false;
             // 
+            // lblPlayerHealth
+            // 
+            this.lblPlayerHealth.AutoSize = true;
+            this.lblPlayerHealth.BackColor = System.Drawing.Color.Gray;
+            this.lblPlayerHealth.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlayerHealth.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblPlayerHealth.Location = new System.Drawing.Point(3, 854);
+            this.lblPlayerHealth.Name = "lblPlayerHealth";
+            this.lblPlayerHealth.Size = new System.Drawing.Size(127, 39);
+            this.lblPlayerHealth.TabIndex = 41;
+            this.lblPlayerHealth.Text = "Health:";
+            // 
             // TutorialPart2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 911);
+            this.Controls.Add(this.lblPlayerHealth);
             this.Controls.Add(this.pcbHoldableButton);
             this.Controls.Add(this.pcbCyanKey);
             this.Controls.Add(this.pcbLever);
@@ -318,5 +332,6 @@
         private System.Windows.Forms.PictureBox pcbMovableBox;
         private System.Windows.Forms.PictureBox pcbHoldableButton;
         private System.Windows.Forms.PictureBox pcbLockedButtonDoor;
+        private System.Windows.Forms.Label lblPlayerHealth;
     }
 }

@@ -41,6 +41,8 @@
             this.pcbWall = new System.Windows.Forms.PictureBox();
             this.pcbPlatform3 = new System.Windows.Forms.PictureBox();
             this.pcbLava = new System.Windows.Forms.PictureBox();
+            this.pcbSpike = new System.Windows.Forms.PictureBox();
+            this.lblPlayerHealth = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbGround)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform1)).BeginInit();
@@ -48,6 +50,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbWall)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLava)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbSpike)).BeginInit();
             this.SuspendLayout();
             // 
             // pcbPlayer
@@ -144,9 +147,9 @@
             // pcbPlatform3
             // 
             this.pcbPlatform3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pcbPlatform3.Location = new System.Drawing.Point(256, 242);
+            this.pcbPlatform3.Location = new System.Drawing.Point(742, 168);
             this.pcbPlatform3.Name = "pcbPlatform3";
-            this.pcbPlatform3.Size = new System.Drawing.Size(929, 50);
+            this.pcbPlatform3.Size = new System.Drawing.Size(443, 50);
             this.pcbPlatform3.TabIndex = 17;
             this.pcbPlatform3.TabStop = false;
             // 
@@ -159,11 +162,33 @@
             this.pcbLava.TabIndex = 25;
             this.pcbLava.TabStop = false;
             // 
+            // pcbSpike
+            // 
+            this.pcbSpike.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.pcbSpike.Location = new System.Drawing.Point(335, 465);
+            this.pcbSpike.Name = "pcbSpike";
+            this.pcbSpike.Size = new System.Drawing.Size(58, 54);
+            this.pcbSpike.TabIndex = 30;
+            this.pcbSpike.TabStop = false;
+            // 
+            // lblPlayerHealth
+            // 
+            this.lblPlayerHealth.AutoSize = true;
+            this.lblPlayerHealth.BackColor = System.Drawing.Color.Gray;
+            this.lblPlayerHealth.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlayerHealth.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblPlayerHealth.Location = new System.Drawing.Point(3, 849);
+            this.lblPlayerHealth.Name = "lblPlayerHealth";
+            this.lblPlayerHealth.Size = new System.Drawing.Size(127, 39);
+            this.lblPlayerHealth.TabIndex = 31;
+            this.lblPlayerHealth.Text = "Health:";
+            // 
             // TutorialPart3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 911);
+            this.Controls.Add(this.lblPlayerHealth);
             this.Controls.Add(this.pcbLava);
             this.Controls.Add(this.pcbPlatform3);
             this.Controls.Add(this.pcbWall);
@@ -171,8 +196,9 @@
             this.Controls.Add(this.pcbPlatform1);
             this.Controls.Add(this.pcbGround);
             this.Controls.Add(this.lblScore);
-            this.Controls.Add(this.lblTutorialPt3Text);
             this.Controls.Add(this.btnSettings);
+            this.Controls.Add(this.lblTutorialPt3Text);
+            this.Controls.Add(this.pcbSpike);
             this.Controls.Add(this.pcbPlayer);
             this.KeyPreview = true;
             this.Name = "TutorialPart3";
@@ -186,6 +212,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbWall)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLava)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbSpike)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -205,5 +232,7 @@
         private System.Windows.Forms.PictureBox pcbWall;
         private System.Windows.Forms.PictureBox pcbPlatform3;
         private System.Windows.Forms.PictureBox pcbLava;
+        private System.Windows.Forms.PictureBox pcbSpike;
+        private System.Windows.Forms.Label lblPlayerHealth;
     }
 }
