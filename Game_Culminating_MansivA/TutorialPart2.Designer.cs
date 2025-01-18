@@ -46,6 +46,7 @@
             this.lblPlayerInventory = new System.Windows.Forms.Label();
             this.pcbLever = new System.Windows.Forms.PictureBox();
             this.pcbLockedLeverDoor = new System.Windows.Forms.PictureBox();
+            this.pcbMovableBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbGround)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform1)).BeginInit();
@@ -56,6 +57,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbCyanKey)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLever)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLockedLeverDoor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbMovableBox)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSettings
@@ -67,6 +69,7 @@
             this.btnSettings.TabStop = false;
             this.btnSettings.Text = "Settings";
             this.btnSettings.UseVisualStyleBackColor = true;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
             // pcbPlayer
             // 
@@ -216,6 +219,15 @@
             this.pcbLockedLeverDoor.TabIndex = 37;
             this.pcbLockedLeverDoor.TabStop = false;
             // 
+            // pcbMovableBox
+            // 
+            this.pcbMovableBox.BackColor = System.Drawing.Color.PeachPuff;
+            this.pcbMovableBox.Location = new System.Drawing.Point(576, 723);
+            this.pcbMovableBox.Name = "pcbMovableBox";
+            this.pcbMovableBox.Size = new System.Drawing.Size(103, 102);
+            this.pcbMovableBox.TabIndex = 38;
+            this.pcbMovableBox.TabStop = false;
+            // 
             // TutorialPart2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -234,8 +246,9 @@
             this.Controls.Add(this.pcbWall);
             this.Controls.Add(this.pcbLockedCyanDoor);
             this.Controls.Add(this.pcbLockedLeverDoor);
-            this.Controls.Add(this.pcbPlayer);
             this.Controls.Add(this.lblTutorialPart2Text);
+            this.Controls.Add(this.pcbMovableBox);
+            this.Controls.Add(this.pcbPlayer);
             this.KeyPreview = true;
             this.Name = "TutorialPart2";
             this.Text = "TutorialPart2";
@@ -251,6 +264,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbCyanKey)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLever)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLockedLeverDoor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbMovableBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -275,5 +289,6 @@
         private System.Windows.Forms.Label lblPlayerInventory;
         private System.Windows.Forms.PictureBox pcbLever;
         private System.Windows.Forms.PictureBox pcbLockedLeverDoor;
+        private System.Windows.Forms.PictureBox pcbMovableBox;
     }
 }

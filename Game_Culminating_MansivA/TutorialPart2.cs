@@ -12,24 +12,26 @@ namespace Game_Culminating_MansivA
 {
     public partial class TutorialPart2 : Form
     {
+        // Boolean variable for if the 
+
         // Player Movement Variables 
-        bool blnMovingLeft = false;
-        bool blnMovingRight = false;
-        bool blnIsJumping = false;
-        bool blnIsDashing = false;
-        bool blnInteract = false;
-        int intPlayerSpeed = 8;
-        int intJumpPower = 16;
-        int intJumpVelocity = 0;
-        int intDashSpeed = 10;
-        int intDashCounter = 0;
-        bool blnGrounded = true;
-        int intGravity = 1;
+        public static bool blnMovingLeft = false;
+        public static bool blnMovingRight = false;
+        public static bool blnIsJumping = false;
+        public static bool blnIsDashing = false;
+        public static bool blnInteract = false;
+        public static int intPlayerSpeed = 8;
+        public static int intJumpPower = 16;
+        public static int intJumpVelocity = 0;
+        public static int intDashSpeed = 10;
+        public static int intDashCounter = 0;
+        public static bool blnGrounded = true;
+        public static int intGravity = 1;
         // Player UI
-        int[] intInventoryValues = new int[9];
-        string[] strInventoryNames = new string[9];
-        int intPlayerHealth = 100;
-        int intPlayerScore = 0;
+        public static int[] intInventoryValues = new int[9];
+        public static string[] strInventoryNames = new string[9];
+        public static int intPlayerHealth = 100;
+        public static int intPlayerScore = 0;
         // Game Environment Variables
 
 
@@ -134,6 +136,7 @@ namespace Game_Culminating_MansivA
             hitboxPlatform1();
             hitboxPlatform2();
             hitboxPlatform3();
+            hitboxMovableBox();
             hitboxLockedCyanDoor();
             hitboxLockedLeverDoor();
             // Moves the player if they clicked q to dash
@@ -399,18 +402,18 @@ namespace Game_Culminating_MansivA
                         // Right dash
                         else if (blnMovingRight == true) { stopDash(); pcbPlayer.Left = pcbLockedCyanDoor.Left - pcbPlayer.Width; }
                     }
-                    // Handles Horizontal Collision (First checks if the players is both above and below the platform)
+                    // Handles Horizontal Collision (First checks if the players is both above and below the door)
                     if (pcbPlayer.Bottom > pcbLockedCyanDoor.Top + 1 && pcbPlayer.Top < pcbLockedCyanDoor.Bottom)
                     {
-                        // Checks which part is inside of the platform (right side or lefts)
+                        // Checks which part is inside of the Door (right side or lefts)
                         if (pcbPlayer.Right > pcbLockedCyanDoor.Left && pcbPlayer.Left < pcbLockedCyanDoor.Right)
                         {
-                            // Checks if the left side is Outside the platform
+                            // Checks if the left side is Outside the door
                             if (pcbPlayer.Left < pcbLockedCyanDoor.Left)
                             {
                                 pcbPlayer.Left = pcbLockedCyanDoor.Left - pcbPlayer.Width;
                             }
-                            // Checks if the right side is Outside the platform
+                            // Checks if the right side is Outside the door
                             else if (pcbPlayer.Right > pcbLockedCyanDoor.Right)
                             {
                                 pcbPlayer.Left = pcbLockedCyanDoor.Right;
@@ -444,24 +447,55 @@ namespace Game_Culminating_MansivA
                     // Right dash
                     else if (blnMovingRight == true) { stopDash(); pcbPlayer.Left = pcbLockedLeverDoor.Left - pcbPlayer.Width; }
                 }
-                // Handles Horizontal Collision (First checks if the players is both above and below the platform)
+                // Handles Horizontal Collision (First checks if the players is both above and below the door)
                 if (pcbPlayer.Bottom > pcbLockedLeverDoor.Top + 1 && pcbPlayer.Top < pcbLockedLeverDoor.Bottom)
                 {
-                    // Checks which part is inside of the platform (right side or lefts)
+                    // Checks which part is inside of the door (right side or lefts)
                     if (pcbPlayer.Right > pcbLockedLeverDoor.Left && pcbPlayer.Left < pcbLockedLeverDoor.Right)
                     {
-                        // Checks if the left side is Outside the platform
+                        // Checks if the left side is Outside the door
                         if (pcbPlayer.Left < pcbLockedLeverDoor.Left)
                         {
                             pcbPlayer.Left = pcbLockedLeverDoor.Left - pcbPlayer.Width;
                         }
-                        // Checks if the right side is Outside the platform
+                        // Checks if the right side is Outside the door
                         else if (pcbPlayer.Right > pcbLockedLeverDoor.Right)
                         {
                             pcbPlayer.Left = pcbLockedLeverDoor.Right;
                         }
                     }
                 }
+            }
+        }
+        // Hitbox and physics for the Movable box
+        private void hitboxMovableBox() {
+            if (pcbPlayer.Bounds.IntersectsWith(pcbMovableBox.Bounds))
+            {
+                //Checks if the player is above the box
+                // also checks if the user has a key in their second slot (will change later)
+                if ((intJumpVelocity <= 0 || intGravity > 0) && (pcbPlayer.Bottom > pcbMovableBox.Top) && (pcbPlayer.Bottom < pcbMovableBox.Top + 30))
+                {
+                    pcbPlayer.Top = pcbMovableBox.Location.Y + 1 - pcbPlayer.Height;
+                    isGrounded();
+                    return;
+                }
+                // Checks which direction the box is being pushed and moves the box accordingly
+                if (blnMovingLeft == true)
+                {
+                    pcbMovableBox.Left = pcbPlayer.Left + 1 - pcbMovableBox.Width;
+                }
+                else if (blnMovingRight == true) {
+                    pcbMovableBox.Left = pcbPlayer.Right;
+                }
+            }
+            // Checks if the box is touching either side of the screen or the platform/floor it is suppose to be touching
+            if (pcbMovableBox.Left < 0) {
+                pcbMovableBox.Left = 0;
+                pcbPlayer.Left = pcbMovableBox.Right;
+            }
+            if (pcbMovableBox.Bounds.IntersectsWith(pcbWall.Bounds)) {
+                pcbMovableBox.Left = pcbWall.Left - pcbMovableBox.Width;
+                pcbPlayer.Left = pcbMovableBox.Left - pcbPlayer.Width;
             }
         }
         // hitbox for the Right wall
@@ -507,18 +541,23 @@ namespace Game_Culminating_MansivA
                     strInventoryNames[1] = "Cyan Key";
                     blnInteract = false;
                 }
-                if (pcbPlayer.Bounds.IntersectsWith(pcbLever.Bounds)){
+                if (pcbPlayer.Bounds.IntersectsWith(pcbLever.Bounds))
+                {
                     if (pcbLever.BackColor == Color.SandyBrown)
                     {
                         pcbLever.BackColor = Color.DarkGreen;
                         pcbLockedLeverDoor.Visible = false;
                         blnInteract = false;
                     }
-                    else {
+                    else
+                    {
                         pcbLockedLeverDoor.Visible = true;
                         pcbLever.BackColor = Color.SandyBrown;
                         blnInteract = false;
                     }
+                }
+                else {
+                    blnInteract = false;
                 }
             }
         }
@@ -536,6 +575,12 @@ namespace Game_Culminating_MansivA
             pcbLockedCyanDoor.Visible = false;
             intInventoryValues[1] = -1;
             strInventoryNames[1] = null;
+        }
+        // Shows a form when you click the settings button
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            Settings settings = new Settings();
+            settings.Show();
         }
     }
 }

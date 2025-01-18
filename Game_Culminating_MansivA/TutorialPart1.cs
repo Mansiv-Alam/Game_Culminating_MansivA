@@ -313,5 +313,11 @@ namespace Game_Culminating_MansivA
         private void changeScore() {
             this.lblScore.Text = "Score: " + intPlayerScore;
         }
+
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            Settings settings = new Settings();
+            settings.Show();
+        }
     }
 }
