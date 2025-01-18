@@ -44,6 +44,8 @@
             this.pcbLockedCyanDoor = new System.Windows.Forms.PictureBox();
             this.pcbCyanKey = new System.Windows.Forms.PictureBox();
             this.lblPlayerInventory = new System.Windows.Forms.Label();
+            this.pcbLever = new System.Windows.Forms.PictureBox();
+            this.pcbLockedLeverDoor = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbGround)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform1)).BeginInit();
@@ -52,6 +54,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbWall)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLockedCyanDoor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbCyanKey)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbLever)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbLockedLeverDoor)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSettings
@@ -168,7 +172,7 @@
             // pcbLockedCyanDoor
             // 
             this.pcbLockedCyanDoor.BackColor = System.Drawing.Color.DarkCyan;
-            this.pcbLockedCyanDoor.Location = new System.Drawing.Point(798, 185);
+            this.pcbLockedCyanDoor.Location = new System.Drawing.Point(888, 185);
             this.pcbLockedCyanDoor.Name = "pcbLockedCyanDoor";
             this.pcbLockedCyanDoor.Size = new System.Drawing.Size(58, 226);
             this.pcbLockedCyanDoor.TabIndex = 32;
@@ -194,11 +198,31 @@
             this.lblPlayerInventory.TabIndex = 35;
             this.lblPlayerInventory.Text = "Inventory:";
             // 
+            // pcbLever
+            // 
+            this.pcbLever.BackColor = System.Drawing.Color.SandyBrown;
+            this.pcbLever.Location = new System.Drawing.Point(219, 564);
+            this.pcbLever.Name = "pcbLever";
+            this.pcbLever.Size = new System.Drawing.Size(58, 57);
+            this.pcbLever.TabIndex = 36;
+            this.pcbLever.TabStop = false;
+            // 
+            // pcbLockedLeverDoor
+            // 
+            this.pcbLockedLeverDoor.BackColor = System.Drawing.Color.SandyBrown;
+            this.pcbLockedLeverDoor.Location = new System.Drawing.Point(745, 185);
+            this.pcbLockedLeverDoor.Name = "pcbLockedLeverDoor";
+            this.pcbLockedLeverDoor.Size = new System.Drawing.Size(58, 226);
+            this.pcbLockedLeverDoor.TabIndex = 37;
+            this.pcbLockedLeverDoor.TabStop = false;
+            // 
             // TutorialPart2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 911);
+            this.Controls.Add(this.pcbCyanKey);
+            this.Controls.Add(this.pcbLever);
             this.Controls.Add(this.lblPlayerInventory);
             this.Controls.Add(this.pcbPlatform3);
             this.Controls.Add(this.pcbPlatform2);
@@ -208,10 +232,10 @@
             this.Controls.Add(this.lblTutorial1Text);
             this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.pcbWall);
+            this.Controls.Add(this.pcbLockedCyanDoor);
+            this.Controls.Add(this.pcbLockedLeverDoor);
             this.Controls.Add(this.pcbPlayer);
             this.Controls.Add(this.lblTutorialPart2Text);
-            this.Controls.Add(this.pcbLockedCyanDoor);
-            this.Controls.Add(this.pcbCyanKey);
             this.KeyPreview = true;
             this.Name = "TutorialPart2";
             this.Text = "TutorialPart2";
@@ -225,6 +249,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbWall)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLockedCyanDoor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbCyanKey)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbLever)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbLockedLeverDoor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -247,5 +273,7 @@
         private System.Windows.Forms.PictureBox pcbLockedCyanDoor;
         private System.Windows.Forms.PictureBox pcbCyanKey;
         private System.Windows.Forms.Label lblPlayerInventory;
+        private System.Windows.Forms.PictureBox pcbLever;
+        private System.Windows.Forms.PictureBox pcbLockedLeverDoor;
     }
 }

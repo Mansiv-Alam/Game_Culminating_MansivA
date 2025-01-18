@@ -27,14 +27,17 @@ namespace Game_Culminating_MansivA
         int intGravity = 1;
         // Player UI
         int[] intInventoryValues = new int[9];
-        string[] intInventoryNames = new string[9];
+        string[] strInventoryNames = new string[9];
         int intPlayerHealth = 100;
         int intPlayerScore = 0;
+        // Game Environment Variables
+
+
         public TutorialPart2()
         {
             InitializeComponent();
             intInventoryValues[0] = 1;
-            intInventoryNames[0] = "Sword";
+            strInventoryNames[0] = "Sword";
         }
         // Keys getting pressed
         private void TutorialPart2_KeyDown(object sender, KeyEventArgs e)
@@ -124,7 +127,6 @@ namespace Game_Culminating_MansivA
         {
             horizontalPlayerMovement();
             //Console.WriteLine(intGravity + "," + intJumpVelocity + "," + blnIsJumping + "," + blnGrounded);
-
             //Console.WriteLine("Player Position: Left = " + pcbPlayer.Left + ", Right = " + pcbPlayer.Right + ", Top = " + pcbPlayer.Top + ", Bottom = " + pcbPlayer.Bottom + " Is grounded: " + blnGrounded);
             // Moves the player if they pressed the spacebar
             checkGrounded();
@@ -132,6 +134,8 @@ namespace Game_Culminating_MansivA
             hitboxPlatform1();
             hitboxPlatform2();
             hitboxPlatform3();
+            hitboxLockedCyanDoor();
+            hitboxLockedLeverDoor();
             // Moves the player if they clicked q to dash
             if (blnIsDashing == true)
             {
@@ -157,8 +161,7 @@ namespace Game_Culminating_MansivA
         // Calculates the jump velocity.
         private void calculateJumpVelocity()
         {
-            // makes the player jump by using a quadratic function for a parabola, Math.Sign for falling down, and a coefficent to have the player "float" near the top
-            // of their jump
+            // makes the player jump by using a quadratic function for a parabola, Math.Sign for falling down, and a coefficent to have the player "float" near the top of their jump
             intJumpVelocity = (int)(0.2 * Math.Pow(intJumpPower, 2.0) * Math.Sign(intJumpPower));
         }
         // Handles the players jump
@@ -373,7 +376,95 @@ namespace Game_Culminating_MansivA
                 }
             }
         }
-        // hitbox for the bottom wall
+        // hitbox for the cyan door when its locked
+        private void hitboxLockedCyanDoor()
+        {
+            if (pcbPlayer.Bounds.IntersectsWith(pcbLockedCyanDoor.Bounds))
+            {
+                // also checks if the user has a key in their second slot (will change later)
+                if (intInventoryValues[1] != 2 && pcbLockedCyanDoor.Visible == true)
+                {
+                    if ((intJumpVelocity <= 0 || intGravity > 0) && (pcbPlayer.Bottom > pcbLockedCyanDoor.Top) && (pcbPlayer.Bottom < pcbLockedCyanDoor.Top + 30))
+                    {
+                        pcbPlayer.Top = pcbLockedCyanDoor.Location.Y + 1 - pcbPlayer.Height;
+                        isGrounded();
+                        return;
+                    }
+                    // Doesnt need the if condition for the bottom of the door
+                    // Stops a dash from clipping into the platform from the left and right side
+                    if (blnIsDashing == true && blnGrounded == false)
+                    {
+                        // Left dash
+                        if (blnMovingLeft == true) { stopDash(); pcbPlayer.Left = pcbLockedCyanDoor.Right; }
+                        // Right dash
+                        else if (blnMovingRight == true) { stopDash(); pcbPlayer.Left = pcbLockedCyanDoor.Left - pcbPlayer.Width; }
+                    }
+                    // Handles Horizontal Collision (First checks if the players is both above and below the platform)
+                    if (pcbPlayer.Bottom > pcbLockedCyanDoor.Top + 1 && pcbPlayer.Top < pcbLockedCyanDoor.Bottom)
+                    {
+                        // Checks which part is inside of the platform (right side or lefts)
+                        if (pcbPlayer.Right > pcbLockedCyanDoor.Left && pcbPlayer.Left < pcbLockedCyanDoor.Right)
+                        {
+                            // Checks if the left side is Outside the platform
+                            if (pcbPlayer.Left < pcbLockedCyanDoor.Left)
+                            {
+                                pcbPlayer.Left = pcbLockedCyanDoor.Left - pcbPlayer.Width;
+                            }
+                            // Checks if the right side is Outside the platform
+                            else if (pcbPlayer.Right > pcbLockedCyanDoor.Right)
+                            {
+                                pcbPlayer.Left = pcbLockedCyanDoor.Right;
+                            }
+                        }
+                    }
+                }
+                else {
+                    deleteCyanKey();
+                }
+            }
+        }
+        // hitbox for the Lever door when to unlock or get blocked by it
+        private void hitboxLockedLeverDoor()
+        {
+            if (pcbPlayer.Bounds.IntersectsWith(pcbLockedLeverDoor.Bounds) && pcbLockedLeverDoor.Visible == true)
+            {
+                // also checks if the user has a key in their second slot (will change later)
+                if ((intJumpVelocity <= 0 || intGravity > 0) && (pcbPlayer.Bottom > pcbLockedLeverDoor.Top) && (pcbPlayer.Bottom < pcbLockedLeverDoor.Top + 30))
+                {
+                    pcbPlayer.Top = pcbLockedLeverDoor.Location.Y + 1 - pcbPlayer.Height;
+                    isGrounded();
+                    return;
+                }
+                // Doesnt need the if condition for the bottom of the door
+                // Stops a dash from clipping into the platform from the left and right side
+                if (blnIsDashing == true && blnGrounded == false)
+                {
+                    // Left dash
+                    if (blnMovingLeft == true) { stopDash(); pcbPlayer.Left = pcbLockedLeverDoor.Right; }
+                    // Right dash
+                    else if (blnMovingRight == true) { stopDash(); pcbPlayer.Left = pcbLockedLeverDoor.Left - pcbPlayer.Width; }
+                }
+                // Handles Horizontal Collision (First checks if the players is both above and below the platform)
+                if (pcbPlayer.Bottom > pcbLockedLeverDoor.Top + 1 && pcbPlayer.Top < pcbLockedLeverDoor.Bottom)
+                {
+                    // Checks which part is inside of the platform (right side or lefts)
+                    if (pcbPlayer.Right > pcbLockedLeverDoor.Left && pcbPlayer.Left < pcbLockedLeverDoor.Right)
+                    {
+                        // Checks if the left side is Outside the platform
+                        if (pcbPlayer.Left < pcbLockedLeverDoor.Left)
+                        {
+                            pcbPlayer.Left = pcbLockedLeverDoor.Left - pcbPlayer.Width;
+                        }
+                        // Checks if the right side is Outside the platform
+                        else if (pcbPlayer.Right > pcbLockedLeverDoor.Right)
+                        {
+                            pcbPlayer.Left = pcbLockedLeverDoor.Right;
+                        }
+                    }
+                }
+            }
+        }
+        // hitbox for the Right wall
         private void wallHitbox() {
             if (pcbPlayer.Bounds.IntersectsWith(pcbWall.Bounds)) {
                 pcbPlayer.Left = pcbWall.Left - pcbPlayer.Width;
@@ -406,27 +497,45 @@ namespace Game_Culminating_MansivA
             intGravity = 0;
             intDashCounter = 0;
         }
+        // Checks if the player interacts with any game object
+        private void playerInteract() {
+            if (blnInteract == true) {
+                if (pcbPlayer.Bounds.IntersectsWith(pcbCyanKey.Bounds) && pcbCyanKey.Visible == true)
+                {
+                    pcbCyanKey.Visible = false;
+                    intInventoryValues[1] = 2;
+                    strInventoryNames[1] = "Cyan Key";
+                    blnInteract = false;
+                }
+                if (pcbPlayer.Bounds.IntersectsWith(pcbLever.Bounds)){
+                    if (pcbLever.BackColor == Color.SandyBrown)
+                    {
+                        pcbLever.BackColor = Color.DarkGreen;
+                        pcbLockedLeverDoor.Visible = false;
+                        blnInteract = false;
+                    }
+                    else {
+                        pcbLockedLeverDoor.Visible = true;
+                        pcbLever.BackColor = Color.SandyBrown;
+                        blnInteract = false;
+                    }
+                }
+            }
+        }
         // Changes the score text based on the score variable
         private void changeScore()
         {
             this.lblScore.Text = "Score: " + intPlayerScore;
         }
-        // Checks if the player interacts with any game object
-        private void playerInteract() {
-            if (blnInteract == true && pcbPlayer.Bounds.IntersectsWith(pcbCyanKey.Bounds) && pcbCyanKey.Visible == true)
-            {
-                pcbCyanKey.Visible = false;
-                intInventoryValues[1] = 2;
-                intInventoryNames[1] = "Cyan Key";
-                blnInteract = false;
-            }
-            else {
-                blnInteract = false;
-            }
-        }
         // Updates the inventory values
         private void inventoryUpdate() {
-            this.lblPlayerInventory.Text = "Inventory: " + intInventoryNames[0] + ", " + intInventoryNames[1];
+            this.lblPlayerInventory.Text = "Inventory: " + strInventoryNames[0] + ", " + strInventoryNames[1];
+        }
+        // Gets rid of the key after using it
+        private void deleteCyanKey() {
+            pcbLockedCyanDoor.Visible = false;
+            intInventoryValues[1] = -1;
+            strInventoryNames[1] = null;
         }
     }
 }
