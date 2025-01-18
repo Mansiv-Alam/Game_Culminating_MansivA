@@ -91,6 +91,8 @@ namespace Game_Culminating_MansivA
             // Checks if the player went beyond the left side width and switches to tutorial level part 2
             if (pcbPlayer.Left > 1200)
             {
+                intPlayerScore += 10;
+                Settings.intPlayerScoreSaved = intPlayerScore;
                 TutorialPart3 TutorialPart3 = new TutorialPart3();
                 // Hides this form
                 this.tmrGameTick.Enabled = false;
@@ -126,10 +128,7 @@ namespace Game_Culminating_MansivA
         // Player Movement
         private void tmrPlayerMovement_Tick(object sender, EventArgs e)
         {
-            btnSettings.TabStop = false;
             horizontalPlayerMovement();
-            //Console.WriteLine(intGravity + "," + intJumpVelocity + "," + blnIsJumping + "," + blnGrounded);
-            //Console.WriteLine("Player Position: Left = " + pcbPlayer.Left + ", Right = " + pcbPlayer.Right + ", Top = " + pcbPlayer.Top + ", Bottom = " + pcbPlayer.Bottom + " Is grounded: " + blnGrounded);
             // Moves the player if they pressed the spacebar
             checkGrounded();
             wallHitbox();
