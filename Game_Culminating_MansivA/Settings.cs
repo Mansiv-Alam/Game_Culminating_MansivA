@@ -35,6 +35,11 @@ namespace Game_Culminating_MansivA
                 TutorialPart2 tutorialPart2 = new TutorialPart2();
                 tutorialPart2.Show();
             }
+            if (intLevelOpened == 3)
+            {
+                TutorialPart3 tutorialPart3 = new TutorialPart3();
+                tutorialPart3.Show();
+            }
             Close();
         }
 

@@ -29,7 +29,7 @@ namespace Game_Culminating_MansivA
         int[] intInventoryValues = new int[9];
         string[] strInventoryNames = new string[9];
         int intPlayerHealth = 100;
-        public static int intPlayerScore = Settings.intPlayerScoreSaved;
+        int intPlayerScore = Settings.intPlayerScoreSaved;
         // Game Environment Variables
 
         public TutorialPart2()
@@ -78,6 +78,7 @@ namespace Game_Culminating_MansivA
                 blnMovingRight = false;
             }
         }
+        // Timer for the Game (Enemy Ai, Boundaries)
         private void tmrGameTick_Tick(object sender, EventArgs e)
         {
             // Changes the score/ Updates the score text
@@ -205,6 +206,8 @@ namespace Game_Culminating_MansivA
                 // Stops the dash and resets its values after the dash is done
                 stopDash();
             }
+            // Stops an active jump when there is a dash
+            stopJump();
         }
         // Moves the player using gravity
         private void Gravity()
@@ -238,7 +241,7 @@ namespace Game_Culminating_MansivA
                 blnGrounded = false;
             }
         }
-        // Manages the hitbox for the platform 
+        // Manages the hitbox for platform 1
         private void hitboxPlatform1()
         {
             if (pcbPlayer.Bounds.IntersectsWith(pcbPlatform1.Bounds))
@@ -575,8 +578,6 @@ namespace Game_Culminating_MansivA
             intDashSpeed = 10;
             // Increases the jump counter
             intDashCounter++;
-            // Cuts the jump mid way 
-            stopJump();
         }
         // Changes variables back to as if the player was grounded
         private void isGrounded()

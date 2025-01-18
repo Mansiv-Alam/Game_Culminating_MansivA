@@ -78,7 +78,6 @@ namespace Game_Culminating_MansivA
                 blnMovingRight = false;
             }
         }
-        // Timer for the Game (Enemy Ai, hitboxes)
         private void tmrGameTick_Tick(object sender, EventArgs e)
         {
             // Changes score per game tick
@@ -107,6 +106,10 @@ namespace Game_Culminating_MansivA
         // A player timer for smooth movement of the player, Also controls player physics
         private void tmrPlayerMovementTick(object sender, EventArgs e)
         {
+            if (intJumpVelocity != 0 || intGravity != 0)
+            {
+                Console.WriteLine(intJumpVelocity + "," + intDashSpeed + "," + intGravity);
+            }
             checkGrounded();
             extraScoreHitbox();
             hitboxPlatform1();
@@ -179,6 +182,8 @@ namespace Game_Culminating_MansivA
                 // Stops the dash and resets its values after the dash is done
                 stopDash();
             }
+            // Stops an active jump if there is a dash
+            stopJump();
         }
         // Finds and returns the index value of a specified value in a Array (Helps with inventory searches)
         private int IndexFind(int[] intArrayX, int intValue) {
@@ -301,8 +306,6 @@ namespace Game_Culminating_MansivA
             intDashSpeed = 10;
             // Increases the jump counter
             intDashCounter++;
-            // Cuts the jump mid way 
-            stopJump();
         }
         // Changes variables back to as if the player was grounded
         private void isGrounded()
