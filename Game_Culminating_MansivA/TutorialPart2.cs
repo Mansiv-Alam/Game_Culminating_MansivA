@@ -12,26 +12,24 @@ namespace Game_Culminating_MansivA
 {
     public partial class TutorialPart2 : Form
     {
-        // Boolean variable for if the 
-
         // Player Movement Variables 
-        public static bool blnMovingLeft = false;
-        public static bool blnMovingRight = false;
-        public static bool blnIsJumping = false;
-        public static bool blnIsDashing = false;
-        public static bool blnInteract = false;
-        public static int intPlayerSpeed = 8;
-        public static int intJumpPower = 16;
-        public static int intJumpVelocity = 0;
-        public static int intDashSpeed = 10;
-        public static int intDashCounter = 0;
-        public static bool blnGrounded = true;
-        public static int intGravity = 1;
+         bool blnMovingLeft = false;
+         bool blnMovingRight = false;
+         bool blnIsJumping = false;
+         bool blnIsDashing = false;
+         bool blnInteract = false;
+         int intPlayerSpeed = 8;
+         int intJumpPower = 16;
+         int intJumpVelocity = 0;
+         int intDashSpeed = 10;
+         int intDashCounter = 0;
+         bool blnGrounded = true;
+         int intGravity = 1;
         // Player UI
-        public static int[] intInventoryValues = new int[9];
-        public static string[] strInventoryNames = new string[9];
-        public static int intPlayerHealth = 100;
-        public static int intPlayerScore = 0;
+         int[] intInventoryValues = new int[9];
+         string[] strInventoryNames = new string[9];
+         int intPlayerHealth = 100;
+         public static int intPlayerScore = Settings.intPlayerScoreSaved;
         // Game Environment Variables
 
 
@@ -127,6 +125,7 @@ namespace Game_Culminating_MansivA
         // Player Movement
         private void tmrPlayerMovement_Tick(object sender, EventArgs e)
         {
+            btnSettings.TabStop = false;
             horizontalPlayerMovement();
             //Console.WriteLine(intGravity + "," + intJumpVelocity + "," + blnIsJumping + "," + blnGrounded);
             //Console.WriteLine("Player Position: Left = " + pcbPlayer.Left + ", Right = " + pcbPlayer.Right + ", Top = " + pcbPlayer.Top + ", Bottom = " + pcbPlayer.Bottom + " Is grounded: " + blnGrounded);
@@ -579,8 +578,10 @@ namespace Game_Culminating_MansivA
         // Shows a form when you click the settings button
         private void btnSettings_Click(object sender, EventArgs e)
         {
+            Settings.intLevelOpened = 2;
             Settings settings = new Settings();
             settings.Show();
+            this.Close();
         }
     }
 }

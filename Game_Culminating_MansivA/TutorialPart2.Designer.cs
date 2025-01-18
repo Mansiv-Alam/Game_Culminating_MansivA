@@ -222,7 +222,7 @@
             // pcbMovableBox
             // 
             this.pcbMovableBox.BackColor = System.Drawing.Color.PeachPuff;
-            this.pcbMovableBox.Location = new System.Drawing.Point(576, 723);
+            this.pcbMovableBox.Location = new System.Drawing.Point(574, 733);
             this.pcbMovableBox.Name = "pcbMovableBox";
             this.pcbMovableBox.Size = new System.Drawing.Size(103, 102);
             this.pcbMovableBox.TabIndex = 38;

@@ -86,6 +86,7 @@ namespace Game_Culminating_MansivA
             // Checks if the player went beyond the left side width and switches to tutorial level part 2
             if (pcbPlayer.Left > 1200)
             {
+                Settings.intPlayerScoreSaved = intPlayerScore;
                 TutorialPart2 TutorialPart2 = new TutorialPart2();
                 // Hides this form
                 this.Hide();
@@ -313,11 +314,15 @@ namespace Game_Culminating_MansivA
         private void changeScore() {
             this.lblScore.Text = "Score: " + intPlayerScore;
         }
-
+        // Opens the settings form
         private void btnSettings_Click(object sender, EventArgs e)
         {
+            // Changes the int level opened in the settings form so that we can reopen this level
+            Settings.intLevelOpened = 1;
             Settings settings = new Settings();
             settings.Show();
+            // Closes this form
+            this.Close();
         }
     }
 }

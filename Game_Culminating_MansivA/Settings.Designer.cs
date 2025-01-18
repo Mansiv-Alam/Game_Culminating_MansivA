@@ -43,7 +43,7 @@
             this.btnRestartLevel.Size = new System.Drawing.Size(250, 50);
             this.btnRestartLevel.TabIndex = 1;
             this.btnRestartLevel.TabStop = false;
-            this.btnRestartLevel.Text = "Restart Level";
+            this.btnRestartLevel.Text = "Restart/Back to Level";
             this.btnRestartLevel.UseVisualStyleBackColor = true;
             this.btnRestartLevel.Click += new System.EventHandler(this.btnRestartLevel_Click);
             // 
