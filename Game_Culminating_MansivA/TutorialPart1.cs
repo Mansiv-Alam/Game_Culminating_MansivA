@@ -80,8 +80,10 @@ namespace Game_Culminating_MansivA
         }
         private void tmrGameTick_Tick(object sender, EventArgs e)
         {
-            // Changes score per game tick
-            changeScore();
+            // Updates score per game tick
+            updateScore();
+            // Updates Health
+            updateHealth();
             // Checks if the player went beyond the left side width and switches to tutorial level part 2
             if (pcbPlayer.Left > 1200)
             {
@@ -106,10 +108,6 @@ namespace Game_Culminating_MansivA
         // A player timer for smooth movement of the player, Also controls player physics
         private void tmrPlayerMovementTick(object sender, EventArgs e)
         {
-            if (intJumpVelocity != 0 || intGravity != 0)
-            {
-                Console.WriteLine(intJumpVelocity + "," + intDashSpeed + "," + intGravity);
-            }
             checkGrounded();
             extraScoreHitbox();
             hitboxPlatform1();
@@ -316,9 +314,14 @@ namespace Game_Culminating_MansivA
             intGravity = 0;
             intDashCounter = 0;
         }
-        // Changes the score text based on the score variable
-        private void changeScore() {
+        // Updates the score text based on the score variable
+        private void updateScore() {
             this.lblScore.Text = "Score: " + intPlayerScore;
+        }
+        // Updates the Health text based on the health variable
+        private void updateHealth()
+        {
+            this.lblPlayerHealth.Text = "Health: " + intPlayerHealth;
         }
         // Opens the settings form
         private void btnSettings_Click(object sender, EventArgs e)

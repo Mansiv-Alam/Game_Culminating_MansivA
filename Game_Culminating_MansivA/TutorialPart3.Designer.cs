@@ -43,6 +43,7 @@
             this.pcbLava = new System.Windows.Forms.PictureBox();
             this.pcbSpike = new System.Windows.Forms.PictureBox();
             this.lblPlayerHealth = new System.Windows.Forms.Label();
+            this.pcbFallingTrap = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbGround)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform1)).BeginInit();
@@ -51,6 +52,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLava)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbSpike)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbFallingTrap)).BeginInit();
             this.SuspendLayout();
             // 
             // pcbPlayer
@@ -147,9 +149,9 @@
             // pcbPlatform3
             // 
             this.pcbPlatform3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pcbPlatform3.Location = new System.Drawing.Point(742, 168);
+            this.pcbPlatform3.Location = new System.Drawing.Point(335, 243);
             this.pcbPlatform3.Name = "pcbPlatform3";
-            this.pcbPlatform3.Size = new System.Drawing.Size(443, 50);
+            this.pcbPlatform3.Size = new System.Drawing.Size(850, 50);
             this.pcbPlatform3.TabIndex = 17;
             this.pcbPlatform3.TabStop = false;
             // 
@@ -183,6 +185,15 @@
             this.lblPlayerHealth.TabIndex = 31;
             this.lblPlayerHealth.Text = "Health:";
             // 
+            // pcbFallingTrap
+            // 
+            this.pcbFallingTrap.BackColor = System.Drawing.Color.MediumPurple;
+            this.pcbFallingTrap.Location = new System.Drawing.Point(0, 95);
+            this.pcbFallingTrap.Name = "pcbFallingTrap";
+            this.pcbFallingTrap.Size = new System.Drawing.Size(118, 128);
+            this.pcbFallingTrap.TabIndex = 32;
+            this.pcbFallingTrap.TabStop = false;
+            // 
             // TutorialPart3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -199,6 +210,7 @@
             this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.lblTutorialPt3Text);
             this.Controls.Add(this.pcbSpike);
+            this.Controls.Add(this.pcbFallingTrap);
             this.Controls.Add(this.pcbPlayer);
             this.KeyPreview = true;
             this.Name = "TutorialPart3";
@@ -213,6 +225,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLava)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbSpike)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbFallingTrap)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -234,5 +247,6 @@
         private System.Windows.Forms.PictureBox pcbLava;
         private System.Windows.Forms.PictureBox pcbSpike;
         private System.Windows.Forms.Label lblPlayerHealth;
+        private System.Windows.Forms.PictureBox pcbFallingTrap;
     }
 }

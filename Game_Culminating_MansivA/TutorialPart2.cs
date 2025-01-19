@@ -81,8 +81,10 @@ namespace Game_Culminating_MansivA
         // Timer for the Game (Enemy Ai, Boundaries)
         private void tmrGameTick_Tick(object sender, EventArgs e)
         {
-            // Changes the score/ Updates the score text
-            changeScore();
+            // Updates the score text
+            updateScore();
+            // Updates the Health text
+            updateHealth();
             // Checks if the player has interacted with a key game object
             playerInteract();
             // holdable button hitbox
@@ -618,10 +620,15 @@ namespace Game_Culminating_MansivA
                 }
             }
         }
-        // Changes the score text based on the score variable
-        private void changeScore()
+        // Updates the score text based on the score variable
+        private void updateScore()
         {
             this.lblScore.Text = "Score: " + intPlayerScore;
+        }
+        // Updates the Health text based on the health variable
+        private void updateHealth()
+        {
+            this.lblPlayerHealth.Text = "Health: " + intPlayerHealth;
         }
         // Updates the inventory values
         private void inventoryUpdate() {

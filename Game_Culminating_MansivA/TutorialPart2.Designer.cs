@@ -200,7 +200,7 @@
             this.lblPlayerInventory.AutoSize = true;
             this.lblPlayerInventory.BackColor = System.Drawing.Color.Gray;
             this.lblPlayerInventory.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlayerInventory.Location = new System.Drawing.Point(185, 854);
+            this.lblPlayerInventory.Location = new System.Drawing.Point(197, 854);
             this.lblPlayerInventory.Name = "lblPlayerInventory";
             this.lblPlayerInventory.Size = new System.Drawing.Size(170, 39);
             this.lblPlayerInventory.TabIndex = 35;
@@ -284,9 +284,9 @@
             this.Controls.Add(this.pcbLockedCyanDoor);
             this.Controls.Add(this.pcbLockedLeverDoor);
             this.Controls.Add(this.pcbMovableBox);
-            this.Controls.Add(this.pcbPlayer);
             this.Controls.Add(this.lblTutorialPart2Text);
             this.Controls.Add(this.pcbLockedButtonDoor);
+            this.Controls.Add(this.pcbPlayer);
             this.KeyPreview = true;
             this.Name = "TutorialPart2";
             this.Text = "TutorialPart2";

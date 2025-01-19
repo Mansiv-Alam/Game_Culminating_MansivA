@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,6 +32,8 @@ namespace Game_Culminating_MansivA
         string[] strInventoryNames = new string[9];
         int intPlayerHealth = 100;
         int intPlayerScore = Settings.intPlayerScoreSaved;
+        // Game Environment
+        bool blnTrapIsFalling = false;
         public TutorialPart3()
         {
             InitializeComponent();
@@ -129,6 +132,7 @@ namespace Game_Culminating_MansivA
             wallHitbox();
             hitboxLava();
             hitboxSpike();
+            fallingTrapPhysics();
             hitboxPlatform1();
             hitboxPlatform2();
             hitboxPlatform3();
@@ -291,10 +295,6 @@ namespace Game_Culminating_MansivA
         {
             if (pcbPlayer.Bounds.IntersectsWith(pcbPlatform2.Bounds))
             {
-                if (intJumpVelocity != 0)
-                {
-                    Console.WriteLine(intJumpVelocity);
-                }
                 if ((intJumpVelocity <= 0 || intGravity > 0) && (pcbPlayer.Bottom > pcbPlatform2.Top && pcbPlayer.Bottom < pcbPlatform2.Top + 30))
                 {
                     pcbPlayer.Top = pcbPlatform2.Location.Y + 1 - pcbPlayer.Height;
@@ -412,6 +412,30 @@ namespace Game_Culminating_MansivA
                 pcbPlayer.Left = pcbWall.Left - pcbPlayer.Width;
             }
         }
+        // Hitbox/Physics for the falling trap
+        private void fallingTrapPhysics()
+        {
+            if (pcbFallingTrap.Visible == true) {
+                // Checks if the player is under the trap but also above the platform on which the falling trap will fall onto
+                if (pcbPlayer.Left - 10 < pcbFallingTrap.Right && pcbPlayer.Top < pcbPlatform2.Top) {
+                    blnTrapIsFalling = true;
+                }
+                // Continues to fall until the bottom of the falling trap has reached the platform/ designated end point
+                if (blnTrapIsFalling == true)
+                {
+                    pcbFallingTrap.Top += 5;
+                    if (pcbFallingTrap.Bounds.IntersectsWith(pcbPlatform2.Bounds))
+                    {
+                        pcbFallingTrap.Visible = false;
+                    }
+                }
+                // Checks if the player has touched the falling trap and makes the trap break/dissapear if the player is touching the falling trap
+                if (pcbPlayer.Bounds.IntersectsWith(pcbFallingTrap.Bounds)) {
+                    intPlayerHealth -= 40;
+                    pcbFallingTrap.Visible = false;
+                }
+            }
+        }
         // Stops the jump (helps for stopping an active jump)
         private void stopJump()
         {
@@ -458,7 +482,7 @@ namespace Game_Culminating_MansivA
         // Runs every game tick to check if the player has 0 health
         private void playerHealthCheck() {
             // Checks if the player is dead
-            if (intPlayerHealth == 0) {
+            if (intPlayerHealth <= 0) {
                 // Resets the player to the Position at the beginning of the level
                 pcbPlayer.Location = new Point(25, 701);
                 // Makes the player stop moving after their position got reset
