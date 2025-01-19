@@ -265,11 +265,16 @@ namespace Game_Culminating_MansivA
                 // changes the dash counter back to 0 after landing
                 intDashCounter = 0;
             }
-            else
+            // adds terminal velocity
+            else if (intGravity < 25)
             {
                 // Changes the players position using velocity and changes that velocity by 1 every interval
                 pcbPlayer.Top += intGravity;
                 intGravity++;
+            }
+            else
+            {
+                pcbPlayer.Top += intGravity;
             }
         }
         // Checks if the player is grounded

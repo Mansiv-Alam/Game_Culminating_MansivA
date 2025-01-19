@@ -275,11 +275,16 @@ namespace Game_Culminating_MansivA
                 // changes the dash counter back to 0 after landing
                 intDashCounter = 0;
             }
-            else
+            // adds terminal velocity
+            else if (intGravity < 25)
             {
                 // Changes the players position using velocity and changes that velocity by 1 every interval
                 pcbPlayer.Top += intGravity;
                 intGravity++;
+            }
+            else
+            {
+                pcbPlayer.Top += intGravity;
             }
         }
         // Checks if the player is grounded
@@ -350,6 +355,7 @@ namespace Game_Culminating_MansivA
         // hitbox for platform 2
         private void hitboxPlatform2()
         {
+            Console.WriteLine(intGravity);
             if (pcbPlayer.Bounds.IntersectsWith(pcbPlatform2.Bounds))
             {
                 if ((intJumpVelocity <= 0 || intGravity > 0) && (pcbPlayer.Bottom > pcbPlatform2.Top && pcbPlayer.Bottom < pcbPlatform2.Top + 30))
@@ -616,13 +622,8 @@ namespace Game_Culminating_MansivA
                 // deals damage if the enemy can attack the player
                 if (blnBasicEnemyCanDamagePlayer == true)
                 {
-                    // Checks if the sword is within the range of the player to the left side 
-                    if (pcbBasicEnemySword.Left < pcbPlayer.Right && pcbBasicEnemySword.Left > pcbPlayer.Left)
-                    {
-                        basicEnemyAttackDamage();
-                    }
-                    // Checks if the sword is within the range of the player to the right side 
-                    else if (pcbBasicEnemySword.Right < pcbPlayer.Right && pcbBasicEnemySword.Right > pcbPlayer.Left)
+                    // Checks if the sword is within the range
+                    if (pcbBasicEnemySword.Bounds.IntersectsWith(pcbPlayer.Bounds))
                     {
                         basicEnemyAttackDamage();
                     }
@@ -659,13 +660,8 @@ namespace Game_Culminating_MansivA
                 // deals damage if the enemy can attack the player
                 if (blnStrongEnemyCanDamagePlayer == true)
                 {
-                    // Checks if the sword is within the range of the player to the left side 
-                    if (pcbStrongEnemySword.Left < pcbPlayer.Right && pcbStrongEnemySword.Left > pcbPlayer.Left)
-                    {
-                        strongEnemyAttackDamage();
-                    }
-                    // Checks if the sword is within the range of the player to the right side 
-                    else if (pcbStrongEnemySword.Right < pcbPlayer.Right && pcbStrongEnemySword.Right > pcbPlayer.Left)
+                    // Checks if the sword is within the range
+                    if (pcbStrongEnemySword.Bounds.IntersectsWith(pcbPlayer.Bounds))
                     {
                         strongEnemyAttackDamage();
                     }
@@ -741,6 +737,7 @@ namespace Game_Culminating_MansivA
         // Handles the player's sword attack duration and Visibility
         private void playerSwordVisibility()
         {
+            // 1 second attack
             if (blnSwordAttack == true && intSwordAttackCounter <= 50)
             {
                 if (intMainHandItemValue == 1)
