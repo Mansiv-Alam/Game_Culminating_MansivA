@@ -43,7 +43,7 @@
             this.pcbExtraScore = new System.Windows.Forms.PictureBox();
             this.pcbBasicEnemy = new System.Windows.Forms.PictureBox();
             this.pcbBasicEnemySword = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pcbPlatform4 = new System.Windows.Forms.PictureBox();
             this.pcbWall = new System.Windows.Forms.PictureBox();
             this.pcbLava = new System.Windows.Forms.PictureBox();
             this.pcbSpike = new System.Windows.Forms.PictureBox();
@@ -63,7 +63,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbExtraScore)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbBasicEnemy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbBasicEnemySword)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbWall)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLava)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbSpike)).BeginInit();
@@ -161,9 +161,9 @@
             // pcbPlatform1
             // 
             this.pcbPlatform1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pcbPlatform1.Location = new System.Drawing.Point(511, 576);
+            this.pcbPlatform1.Location = new System.Drawing.Point(466, 557);
             this.pcbPlatform1.Name = "pcbPlatform1";
-            this.pcbPlatform1.Size = new System.Drawing.Size(163, 50);
+            this.pcbPlatform1.Size = new System.Drawing.Size(245, 50);
             this.pcbPlatform1.TabIndex = 52;
             this.pcbPlatform1.TabStop = false;
             // 
@@ -213,14 +213,14 @@
             this.pcbBasicEnemySword.TabStop = false;
             this.pcbBasicEnemySword.Visible = false;
             // 
-            // pictureBox1
+            // pcbPlatform4
             // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pictureBox1.Location = new System.Drawing.Point(328, 175);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(857, 50);
-            this.pictureBox1.TabIndex = 58;
-            this.pictureBox1.TabStop = false;
+            this.pcbPlatform4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pcbPlatform4.Location = new System.Drawing.Point(328, 175);
+            this.pcbPlatform4.Name = "pcbPlatform4";
+            this.pcbPlatform4.Size = new System.Drawing.Size(857, 50);
+            this.pcbPlatform4.TabIndex = 58;
+            this.pcbPlatform4.TabStop = false;
             // 
             // pcbWall
             // 
@@ -261,7 +261,7 @@
             // pcbExtraScore2
             // 
             this.pcbExtraScore2.BackColor = System.Drawing.Color.Gold;
-            this.pcbExtraScore2.Location = new System.Drawing.Point(47, 265);
+            this.pcbExtraScore2.Location = new System.Drawing.Point(25, 300);
             this.pcbExtraScore2.Name = "pcbExtraScore2";
             this.pcbExtraScore2.Size = new System.Drawing.Size(58, 54);
             this.pcbExtraScore2.TabIndex = 63;
@@ -318,7 +318,7 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pcbLava);
             this.Controls.Add(this.pcbWall);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pcbPlatform4);
             this.Controls.Add(this.pcbBasicEnemy);
             this.Controls.Add(this.pcbBasicEnemySword);
             this.Controls.Add(this.pcbExtraScore);
@@ -349,7 +349,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbExtraScore)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbBasicEnemy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbBasicEnemySword)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbWall)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLava)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbSpike)).EndInit();
@@ -379,7 +379,7 @@
         private System.Windows.Forms.PictureBox pcbExtraScore;
         private System.Windows.Forms.PictureBox pcbBasicEnemy;
         private System.Windows.Forms.PictureBox pcbBasicEnemySword;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pcbPlatform4;
         private System.Windows.Forms.PictureBox pcbWall;
         private System.Windows.Forms.PictureBox pcbLava;
         private System.Windows.Forms.PictureBox pcbSpike;

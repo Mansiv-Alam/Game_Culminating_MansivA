@@ -19,8 +19,8 @@ namespace Game_Culminating_MansivA
         bool blnIsDashing = false;
         bool blnInteract = false;
         int intPlayerSpeed = 8;
-        int intJumpPower = 16;
-        int intJumpPowerMin = -16;
+        int intJumpPower = 14;
+        int intJumpPowerMin = -14;
         int intJumpVelocity = 0;
         int intDashSpeed = 10;
         int intDashCounter = 0;
@@ -139,6 +139,10 @@ namespace Game_Culminating_MansivA
             checkGrounded();
             extraScoreHitbox();
             extraScore2Hitbox();
+            hitboxPlatform1();
+            hitboxPlatform2();
+            hitboxPlatform3();
+            hitboxPlatform4();
             // Moves the player if they clicked q to dash
             if (blnIsDashing == true)
             {
@@ -176,6 +180,26 @@ namespace Game_Culminating_MansivA
             playerHealthCheck();
             // Visiblity for the player's sword
             playerSwordVisibility();
+            // Boundaries for the next level
+            if (pcbPlayer.Left > 1200)
+            {
+                // Resets score for the main game
+                Settings.intPlayerScoreSaved = intPlayerScore;
+                Menu menu = new Menu();
+                // Hides this form
+                this.tmrGameTick.Enabled = false;
+                this.tmrPlayerMovement.Enabled = false;
+                this.Hide();
+                // Shows/Opens the tutorial
+                menu.Show();
+                this.Close();
+            }
+            // makes a boundary for the left wall
+            else if (pcbPlayer.Left - 3 <= 0)
+            {
+                pcbPlayer.Left = 0;
+                blnMovingLeft = false;
+            }
         }
         // Calculates the jump velocity.
         private void calculateJumpVelocity()
@@ -259,6 +283,209 @@ namespace Game_Culminating_MansivA
                 pcbPlayer.Top += intGravity;
             }
         }
+        // Hitbox for platform 1
+        private void hitboxPlatform1()
+        {
+            if (pcbPlayer.Bounds.IntersectsWith(pcbPlatform1.Bounds))
+            {
+                // Checks if the player is moving or falling down, and the player's feet is below/touching the platform and if the player's feet is above a certain point to stop clipping onto the top of the platform\
+                if ((intJumpVelocity <= 0 || intGravity > 0) && pcbPlayer.Bottom > pcbPlatform1.Top && pcbPlayer.Bottom < pcbPlatform1.Top + 35)
+                {
+                    // Location of the platform and the player height
+                    pcbPlayer.Top = pcbPlatform1.Location.Y + 1 - pcbPlayer.Height;
+                    isGrounded();
+                    return;
+                }
+                // Checks if the player's head is below a the y position of the hitbox
+                if (pcbPlayer.Top > pcbPlatform1.Location.Y)
+                {
+                    // Makes the player's position right under the platform
+                    pcbPlayer.Top = pcbPlatform1.Bottom + 1;
+                    // stops the jump
+                    stopJump();
+                    return;
+                }
+                // Stops a dash from clipping into the platform from the left and right side
+                if (blnIsDashing == true && blnGrounded == false)
+                {
+                    // Left dash
+                    if (blnMovingLeft == true) { stopDash(); pcbPlayer.Left = pcbPlatform1.Right; }
+                    // Right dash
+                    else if (blnMovingRight == true) { stopDash(); pcbPlayer.Left = pcbPlatform1.Left - pcbPlayer.Width; }
+                }
+                // Handles Horizontal Collision (First checks if the players is both above and below the platform)
+                if (pcbPlayer.Bottom > pcbPlatform1.Top + 1 && pcbPlayer.Top < pcbPlatform1.Bottom)
+                {
+                    // Checks which part is inside of the platform (right side or lefts)
+                    if (pcbPlayer.Right > pcbPlatform1.Left && pcbPlayer.Left < pcbPlatform1.Right)
+                    {
+                        // Checks if the left side is Outside the platform
+                        if (pcbPlayer.Left < pcbPlatform1.Left)
+                        {
+                            pcbPlayer.Left = pcbPlatform1.Left - pcbPlayer.Width;
+                        }
+                        // Checks if the right side is Outside the platform
+                        else if (pcbPlayer.Right > pcbPlatform1.Right)
+                        {
+                            pcbPlayer.Left = pcbPlatform1.Right;
+                        }
+                    }
+                }
+            }
+        }
+        // Hitbox for platform 2
+        private void hitboxPlatform2()
+        {
+            if (pcbPlayer.Bounds.IntersectsWith(pcbPlatform2.Bounds))
+            {
+
+                // Checks if the player is moving or falling down, and the player's feet is below/touching the platform and if the player's feet is above a certain point to stop clipping onto the top of the platform
+                if ((intJumpVelocity <= 0 || intGravity > 0) && (pcbPlayer.Bottom > pcbPlatform2.Top && pcbPlayer.Bottom < pcbPlatform2.Top + 35))
+                {
+                    // Location of the platform and the player height
+                    pcbPlayer.Top = pcbPlatform2.Location.Y + 1 - pcbPlayer.Height;
+                    isGrounded();
+                    return;
+                }
+                // Checks if the player's head is below a the y position of the hitbox
+                if (pcbPlayer.Top > pcbPlatform2.Location.Y)
+                {
+                    // Makes the player's position right under the platform
+                    pcbPlayer.Top = pcbPlatform2.Bottom + 1;
+                    // stops the jump
+                    stopJump();
+                    return;
+                }
+                // Stops a dash from clipping into by dashing the platform from the left and right side
+                if (blnIsDashing == true && blnGrounded == false)
+                {
+                    // Left dash
+                    if (blnMovingLeft == true) { stopDash(); pcbPlayer.Left = pcbPlatform2.Right; }
+                    // Right dash
+                    else if (blnMovingRight == true) { stopDash(); pcbPlayer.Left = pcbPlatform2.Left - pcbPlayer.Width; }
+                }
+                // Handles Horizontal Collision (First checks if the players is both above and below the platform)
+                if (pcbPlayer.Bottom > pcbPlatform2.Top + 1 && pcbPlayer.Top < pcbPlatform2.Bottom)
+                {
+                    // Checks which part is inside of the platform (right side or lefts)
+                    if (pcbPlayer.Right > pcbPlatform2.Left && pcbPlayer.Left < pcbPlatform2.Right)
+                    {
+                        // Checks if the left side is Outside the platform
+                        if (pcbPlayer.Left < pcbPlatform2.Left)
+                        {
+                            pcbPlayer.Left = pcbPlatform2.Left - pcbPlayer.Width;
+                        }
+                        // Checks if the right side is Outside the platform
+                        else if (pcbPlayer.Right > pcbPlatform2.Right)
+                        {
+                            pcbPlayer.Left = pcbPlatform2.Right;
+                        }
+                    }
+                }
+            }
+        }
+        // Hitbox for platform 3
+        private void hitboxPlatform3()
+        {
+            if (pcbPlayer.Bounds.IntersectsWith(pcbPlatform3.Bounds))
+            {
+
+                // Checks if the player is moving or falling down, and the player's feet is below/touching the platform and if the player's feet is above a certain point to stop clipping onto the top of the platform
+                if ((intJumpVelocity <= 0 || intGravity > 0) && (pcbPlayer.Bottom > pcbPlatform3.Top && pcbPlayer.Bottom < pcbPlatform3.Top + 35))
+                {
+                    // Location of the platform and the player height
+                    pcbPlayer.Top = pcbPlatform3.Location.Y + 1 - pcbPlayer.Height;
+                    isGrounded();
+                    return;
+                }
+                // Checks if the player's head is below a the y position of the hitbox
+                if (pcbPlayer.Top > pcbPlatform3.Location.Y)
+                {
+                    // Makes the player's position right under the platform
+                    pcbPlayer.Top = pcbPlatform3.Bottom + 1;
+                    // stops the jump
+                    stopJump();
+                    return;
+                }
+                // Stops a dash from clipping into by dashing the platform from the left and right side
+                if (blnIsDashing == true && blnGrounded == false)
+                {
+                    // Left dash
+                    if (blnMovingLeft == true) { stopDash(); pcbPlayer.Left = pcbPlatform3.Right; }
+                    // Right dash
+                    else if (blnMovingRight == true) { stopDash(); pcbPlayer.Left = pcbPlatform3.Left - pcbPlayer.Width; }
+                }
+                // Handles Horizontal Collision (First checks if the players is both above and below the platform)
+                if (pcbPlayer.Bottom > pcbPlatform3.Top + 1 && pcbPlayer.Top < pcbPlatform3.Bottom)
+                {
+                    // Checks which part is inside of the platform (right side or lefts)
+                    if (pcbPlayer.Right > pcbPlatform3.Left && pcbPlayer.Left < pcbPlatform3.Right)
+                    {
+                        // Checks if the left side is Outside the platform
+                        if (pcbPlayer.Left < pcbPlatform3.Left)
+                        {
+                            pcbPlayer.Left = pcbPlatform3.Left - pcbPlayer.Width;
+                        }
+                        // Checks if the right side is Outside the platform
+                        else if (pcbPlayer.Right > pcbPlatform3.Right)
+                        {
+                            pcbPlayer.Left = pcbPlatform3.Right;
+                        }
+                    }
+                }
+            }
+        }
+        // Hitbox for platform 4
+        private void hitboxPlatform4()
+        {
+            if (pcbPlayer.Bounds.IntersectsWith(pcbPlatform4.Bounds))
+            {
+
+                // Checks if the player is moving or falling down, and the player's feet is below/touching the platform and if the player's feet is above a certain point to stop clipping onto the top of the platform
+                if ((intJumpVelocity <= 0 || intGravity > 0) && (pcbPlayer.Bottom > pcbPlatform4.Top && pcbPlayer.Bottom < pcbPlatform4.Top + 35))
+                {
+                    // Location of the platform and the player height
+                    pcbPlayer.Top = pcbPlatform4.Location.Y + 1 - pcbPlayer.Height;
+                    isGrounded();
+                    return;
+                }
+                // Checks if the player's head is below a the y position of the hitbox
+                if (pcbPlayer.Top > pcbPlatform4.Location.Y)
+                {
+                    // Makes the player's position right under the platform
+                    pcbPlayer.Top = pcbPlatform4.Bottom + 1;
+                    // stops the jump
+                    stopJump();
+                    return;
+                }
+                // Stops a dash from clipping into by dashing the platform from the left and right side
+                if (blnIsDashing == true && blnGrounded == false)
+                {
+                    // Left dash
+                    if (blnMovingLeft == true) { stopDash(); pcbPlayer.Left = pcbPlatform4.Right; }
+                    // Right dash
+                    else if (blnMovingRight == true) { stopDash(); pcbPlayer.Left = pcbPlatform4.Left - pcbPlayer.Width; }
+                }
+                // Handles Horizontal Collision (First checks if the players is both above and below the platform)
+                if (pcbPlayer.Bottom > pcbPlatform4.Top + 1 && pcbPlayer.Top < pcbPlatform4.Bottom)
+                {
+                    // Checks which part is inside of the platform (right side or lefts)
+                    if (pcbPlayer.Right > pcbPlatform4.Left && pcbPlayer.Left < pcbPlatform4.Right)
+                    {
+                        // Checks if the left side is Outside the platform
+                        if (pcbPlayer.Left < pcbPlatform4.Left)
+                        {
+                            pcbPlayer.Left = pcbPlatform4.Left - pcbPlayer.Width;
+                        }
+                        // Checks if the right side is Outside the platform
+                        else if (pcbPlayer.Right > pcbPlatform4.Right)
+                        {
+                            pcbPlayer.Left = pcbPlatform4.Right;
+                        }
+                    }
+                }
+            }
+        }
         // Hitbox for the extra score
         private void extraScoreHitbox()
         {
@@ -278,7 +505,7 @@ namespace Game_Culminating_MansivA
         private void extraScore2Hitbox()
         {
             // Checks if the extra score is visible/on the screem
-            if (pcbExtraScore.Visible == true)
+            if (pcbExtraScore2.Visible == true)
             {
                 if (pcbPlayer.Bounds.IntersectsWith(pcbExtraScore2.Bounds))
                 {

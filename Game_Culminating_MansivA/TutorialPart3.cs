@@ -155,7 +155,7 @@ namespace Game_Culminating_MansivA
                 menu.Show();
                 this.Close();
             }
-            // makes a boundary for the left wall using the speed of the player and how many pixels they could move beyond the window
+            // makes a boundary for the left wall 
             else if (pcbPlayer.Left - 3 <= 0)
             {
                 pcbPlayer.Left = 0;

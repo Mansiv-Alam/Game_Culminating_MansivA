@@ -19,7 +19,8 @@ namespace Game_Culminating_MansivA
         bool blnIsDashing = false;
         bool blnInteract = false;
         int intPlayerSpeed = 8;
-        int intJumpPower = 16;
+        int intJumpPower = 14;
+        int intJumpPowerMin = -14;
         int intJumpVelocity = 0;
         int intDashSpeed = 10;
         int intDashCounter = 0;
@@ -146,7 +147,7 @@ namespace Game_Culminating_MansivA
                 TutorialPart3.Show();
                 this.Close();
             }
-            // makes a boundary for the left wall using the speed of the player and how many pixels they could move beyond the window
+            // makes a boundary for the left wall
             else if (pcbPlayer.Left - 3 <= 0)
             {
                 pcbPlayer.Left = 0;
@@ -215,7 +216,7 @@ namespace Game_Culminating_MansivA
         // Handles the players jump
         private void playerJump()
         {
-            if (intJumpPower >= -16)
+            if (intJumpPower >= intJumpPowerMin)
             {
                 calculateJumpVelocity();
                 pcbPlayer.Top -= intJumpVelocity;
