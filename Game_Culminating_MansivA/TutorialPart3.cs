@@ -39,6 +39,9 @@ namespace Game_Culminating_MansivA
         // Game Environment
         bool blnTrapIsFalling = false;
         bool blnEnemyMovingLeft = true;
+        int intEnemySwordVisiblityCounter = 26;
+        int intEnemyAttackInterval = 0;
+        bool blnEnemyCanDamagePlayer = true;
         public TutorialPart3()
         {
             InitializeComponent();
@@ -130,10 +133,11 @@ namespace Game_Culminating_MansivA
             // Updates the health text
             playerHealthCheck();
             // Handles the players attacks
-            playerSwordAttack();
-            enemyAttack();
-            // Moves the enemy
-            basicEnemyAiMovement();
+            playerSwordVisiblity();
+            // Defeats the enemy if the player is attacking
+            swordDamage();
+            // Enemy ai
+            basicEnemyAi();
             if (pcbPlayer.Left > 1200)
             {
                 // Resets score for the main game
@@ -485,6 +489,18 @@ namespace Game_Culminating_MansivA
                 }
             }
         }
+        // Handles the Basic Enemy Ai
+        private void basicEnemyAi() {
+            if (pcbBasicEnemy.Visible == true)
+            {
+                // Handles the enemies atack
+                enemyAttack();
+                // Moves the enemy
+                basicEnemyAiMovement();
+                // Shows/Hides the sword 
+                enemySwordVisibility();
+            }
+        }
         // Basic Enemy ai movement
         private void basicEnemyAiMovement() {
             // Checks if the Enemy has reached its left or right boundary
@@ -522,16 +538,68 @@ namespace Game_Culminating_MansivA
         }
         // Attacks the player if they are within range
         private void enemyAttack() {
+            // Every 3 seconds the enemy can attack (but the enemy's sword stays up for 1 second so technically every 2 seconds the enemy can deal damage (150 ticks * 20 ms per tick))
+            if (intEnemyAttackInterval < 150)
+            {
+                intEnemyAttackInterval++;
+                blnEnemyCanDamagePlayer = false;
+            }
+            else {
+                blnEnemyCanDamagePlayer = true;
+            }
             // Checks if the player is on the same y level as the enemy (pcbPlayer.Top < pcbPlatform3.Top depends on range of the y level, additional conditions may be added depending on the situation)
-            // Also Checks if the player is within the horizontal range of the enemy
-            if (pcbPlayer.Top < pcbPlatform3.Top && pcbPlayer.Left > pcbPlatform3.Left + 30 && pcbPlayer.Left <= pcbPlatform3.Left + 300) {
-                if (pcbPlayer.Left < pcbBasicEnemy.Left) {
-                    blnEnemyMovingLeft = true;
-                }
-                if (pcbPlayer.Left > pcbBasicEnemy.Left)
+            if (pcbPlayer.Top < pcbPlatform3.Top) {
+                // Checks if the player is within the horizontal range of the enemy
+                if (pcbPlayer.Left > pcbPlatform3.Left + 30 && pcbPlayer.Left <= pcbPlatform3.Left + 300)
                 {
-                    blnEnemyMovingLeft = false;
+                    if (pcbPlayer.Left < pcbBasicEnemy.Left)
+                    {
+                        blnEnemyMovingLeft = true;
+                    }
+                    if (pcbPlayer.Left > pcbBasicEnemy.Left)
+                    {
+                        blnEnemyMovingLeft = false;
+                    }
                 }
+                // deals damage if the enemy can attack the player
+                if (blnEnemyCanDamagePlayer == true)
+                {
+                    // Checks if the sword is within the range of the player to the left side 
+                    if (pcbEnemySword.Left < pcbPlayer.Right && pcbEnemySword.Left > pcbPlayer.Left)
+                    {
+                        basicEnemyAttackDamage();
+                    }
+                    // Checks if the sword is within the range of the player to the right side 
+                    else if (pcbEnemySword.Right < pcbPlayer.Right && pcbEnemySword.Right > pcbPlayer.Left)
+                    {
+                        basicEnemyAttackDamage();
+                    } 
+                }
+            }
+        }
+        // Deals damage to the player when the enemy has hit the player
+        private void basicEnemyAttackDamage(){
+            // Allows the enemy's sword to be visible
+            intEnemySwordVisiblityCounter = 0;
+            // Checks if the enemy sword is visible
+            if (pcbEnemySword.Visible == true)
+            {
+                // Lowers the players health
+                intPlayerHealth -= 20;
+                blnEnemyCanDamagePlayer = false;
+                // Resets the enemy attack interval 
+                intEnemyAttackInterval = 0;
+            }
+        }
+        // Handles the visibility of the enemy sword
+        private void enemySwordVisibility() {
+            // allows the enemy's sword to be visible for 1 second
+            if (intEnemySwordVisiblityCounter < 25) {
+                pcbEnemySword.Visible = true;
+                intEnemySwordVisiblityCounter++;
+            }
+            else {
+                pcbEnemySword.Visible = false;
             }
         }
         // Swaps a inventory slot to the main hand.
@@ -548,7 +616,7 @@ namespace Game_Culminating_MansivA
             strMainHandItemName = strTemp;
         }
         // Handles the player's sword attack duration and visiblity
-        private void playerSwordAttack()
+        private void playerSwordVisiblity()
         {
             if (blnSwordAttack == true && intSwordAttackCounter <= 50)
             {
@@ -575,6 +643,15 @@ namespace Game_Culminating_MansivA
             {
                 pcbSword.Left = pcbPlayer.Right;
                 pcbSword.Top = pcbPlayer.Top + 35;
+            }
+        }
+        // Deals damage to enemy's using the player's sword attack
+        private void swordDamage() {
+            // Checks if the player's sword is visible and touching the basic enemy
+            if (pcbSword.Visible == true && pcbSword.Bounds.IntersectsWith(pcbBasicEnemy.Bounds)) {
+                // makes the enemy and their sword disappear
+                pcbBasicEnemy.Visible = false;
+                pcbEnemySword.Visible = false;
             }
         }
         // Stops the jump (helps for stopping an active jump)
