@@ -139,6 +139,11 @@ namespace Game_Culminating_MansivA
             checkGrounded();
             extraScoreHitbox();
             extraScore2Hitbox();
+            wallHitbox();
+            hitboxLava();
+            hitboxSpike1();
+            hitboxSpike2();
+            fallingTrapPhysics();
             hitboxPlatform1();
             hitboxPlatform2();
             hitboxPlatform3();
@@ -180,6 +185,8 @@ namespace Game_Culminating_MansivA
             playerHealthCheck();
             // Visiblity for the player's sword
             playerSwordVisibility();
+            // Enemy Ai
+            EnemyAi();
             // Boundaries for the next level
             if (pcbPlayer.Left > 1200)
             {
@@ -514,6 +521,203 @@ namespace Game_Culminating_MansivA
                     // Makes the extra score dissapear
                     pcbExtraScore2.Visible = false;
                 }
+            }
+        }
+        // Hitbox for lava
+        private void hitboxLava()
+        {
+            // Checks if the player has touched the lava but also gives the player a bit of leeway
+            if (pcbPlayer.Bounds.IntersectsWith(pcbLava.Bounds) && pcbPlayer.Right > pcbLava.Left + 10 && pcbPlayer.Left < pcbLava.Right - 10)
+            {
+                intPlayerHealth = 0;
+            }
+        }
+        // Hitbox for the Spike 1
+        private void hitboxSpike1()
+        {
+            // Checks if the player has touched the spike with some margin 
+            if (pcbPlayer.Bounds.IntersectsWith(pcbSpike2.Bounds) && pcbPlayer.Right > pcbSpike2.Left + 5 && pcbPlayer.Left < pcbSpike2.Right - 5)
+            {
+                // Decreases health
+                intPlayerHealth -= 10;
+                // Changes the player's Height
+                pcbPlayer.Top = pcbSpike2.Top - 1 - pcbPlayer.Height;
+                // Changes the jump variables to make a mini player jump
+                intJumpPower = 10;
+                intJumpPowerMin = -10;
+                blnIsJumping = true;
+            }
+        }
+        // Hitbox for the Spike 2
+        private void hitboxSpike2()
+        {
+            // Checks if the player has touched the spike with some margin 
+            if (pcbPlayer.Bounds.IntersectsWith(pcbSpike2.Bounds) && pcbPlayer.Right > pcbSpike2.Left + 5 && pcbPlayer.Left < pcbSpike2.Right - 5)
+            {
+                // Decreases health
+                intPlayerHealth -= 10;
+                // Changes the player's Height
+                pcbPlayer.Top = pcbSpike2.Top - 1 - pcbPlayer.Height;
+                // Changes the jump variables to make a mini player jump
+                intJumpPower = 10;
+                intJumpPowerMin = -10;
+                blnIsJumping = true;
+            }
+        }
+        // Hitbox/Physics for the falling trap
+        private void fallingTrapPhysics()
+        {
+            if (pcbFallingTrap.Visible == true)
+            {
+                // Checks if the player is under the trap but also above the platform on which the falling trap will fall onto
+                if (pcbPlayer.Left - 10 < pcbFallingTrap.Right && pcbPlayer.Top < pcbPlatform3.Top)
+                {
+                    blnTrapIsFalling = true;
+                }
+                // Continues to fall until the bottom of the falling trap has reached the platform/ designated end point
+                if (blnTrapIsFalling == true)
+                {
+                    pcbFallingTrap.Top += 5;
+                    if (pcbFallingTrap.Bounds.IntersectsWith(pcbPlatform3.Bounds))
+                    {
+                        pcbFallingTrap.Visible = false;
+                    }
+                }
+                // Checks if the player has touched the falling trap and makes the trap break/dissapear if the player is touching the falling trap
+                if (pcbPlayer.Bounds.IntersectsWith(pcbFallingTrap.Bounds))
+                {
+                    intPlayerHealth -= 40;
+                    pcbFallingTrap.Visible = false;
+                }
+            }
+        }
+        // hitbox for the Right wall
+        private void wallHitbox()
+        {
+            if (pcbPlayer.Bounds.IntersectsWith(pcbWall.Bounds))
+            {
+                pcbPlayer.Left = pcbWall.Left - pcbPlayer.Width;
+            }
+        }
+        // Handles the Basic Enemy Ai
+        private void EnemyAi()
+        {
+            if (pcbBasicEnemy.Visible == true)
+            {
+                // Handles the enemies atack
+                basicEnemyAttack();
+                // Moves the enemy
+                basicEnemyAiMovement();
+                // Shows/Hides the sword 
+                basicEnemySwordVisibility();
+            }
+        }
+        // Basic Enemy ai movement
+        private void basicEnemyAiMovement()
+        {
+            // Checks if the Enemy has reached its left or right boundary
+            if (pcbBasicEnemy.Left <= pcbPlatform3.Left + 30)
+            {
+                blnBasicEnemyMovingLeft = false;
+            }
+            else if (pcbBasicEnemy.Left >= pcbPlatform3.Left + 300)
+            {
+                blnBasicEnemyMovingLeft = true;
+            }
+            // Stops the enemy from glitching out when near the player
+            if (pcbBasicEnemy.Bounds.IntersectsWith(pcbPlayer.Bounds))
+            {
+                return;
+            }
+            // Switches the position of the sword depending on the direction the enemy is travelling
+            if (blnBasicEnemyMovingLeft == false)
+            {
+                pcbBasicEnemySword.Left = pcbBasicEnemy.Right;
+            }
+            else
+            {
+                pcbBasicEnemySword.Left = pcbBasicEnemy.Left - pcbBasicEnemySword.Width;
+            }
+            // Idle Walk
+            // Walks towards the left
+            if (blnBasicEnemyMovingLeft == true)
+            {
+                pcbBasicEnemy.Left -= 3;
+                pcbBasicEnemySword.Left -= 3;
+            }
+            // Walks towards the right
+            if (blnBasicEnemyMovingLeft == false)
+            {
+                pcbBasicEnemy.Left += 3;
+                pcbBasicEnemySword.Left += 3;
+            }
+        }
+        // Attacks the player if they are within range
+        private void basicEnemyAttack()
+        {
+            // Every 3 seconds the enemy can attack (but the enemy's sword stays up for 1 second so technically every 2 seconds the enemy can deal damage (150 ticks * 20 ms per tick))
+            if (intEnemyAttackInterval < 150)
+            {
+                intEnemyAttackInterval++;
+                blnBasicEnemyCanDamagePlayer = false;
+            }
+            else
+            {
+                blnBasicEnemyCanDamagePlayer = true;
+            }
+            // Checks if the player is on the same y level as the enemy (pcbPlayer.Top < pcbPlatform3.Top depends on range of the y level, additional conditions may be added depending on the situation)
+            if (pcbPlayer.Top > pcbGround.Top && pcbPlayer.Top < pcbPlatform1.Bottom)
+            {
+                // Checks if the player is within the horizontal range of the enemy
+                if (pcbPlayer.Left > pcbGround.Right - 350 && pcbPlayer.Left <= pcbGround.Right)
+                {
+                    if (pcbPlayer.Left < pcbBasicEnemy.Left)
+                    {
+                        blnBasicEnemyMovingLeft = true;
+                    }
+                    if (pcbPlayer.Left > pcbBasicEnemy.Left)
+                    {
+                        blnBasicEnemyMovingLeft = false;
+                    }
+                }
+                // deals damage if the enemy can attack the player
+                if (blnBasicEnemyCanDamagePlayer == true)
+                {
+                    // Checks if the sword is within the range
+                    if (pcbBasicEnemySword.Bounds.IntersectsWith(pcbPlayer.Bounds))
+                    {
+                        basicEnemyAttackDamage();
+                    }
+                }
+            }
+        }
+        // Deals damage to the player when the enemy has hit the player
+        private void basicEnemyAttackDamage()
+        {
+            // Allows the enemy's sword to be visible
+            intEnemySwordVisibilityCounter = 0;
+            // Checks if the enemy sword is visible
+            if (pcbBasicEnemySword.Visible == true)
+            {
+                // Lowers the players health
+                intPlayerHealth -= 20;
+                blnBasicEnemyCanDamagePlayer = false;
+                // Resets the enemy attack interval 
+                intEnemyAttackInterval = 0;
+            }
+        }
+        // Handles the visibility of the enemy sword
+        private void basicEnemySwordVisibility()
+        {
+            // allows the enemy's sword to be visible for 1 second
+            if (intEnemySwordVisibilityCounter < 25)
+            {
+                pcbBasicEnemySword.Visible = true;
+                intEnemySwordVisibilityCounter++;
+            }
+            else
+            {
+                pcbBasicEnemySword.Visible = false;
             }
         }
         // Swaps a inventory slot to the main hand.

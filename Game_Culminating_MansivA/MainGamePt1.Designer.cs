@@ -46,8 +46,8 @@
             this.pcbPlatform4 = new System.Windows.Forms.PictureBox();
             this.pcbWall = new System.Windows.Forms.PictureBox();
             this.pcbLava = new System.Windows.Forms.PictureBox();
+            this.pcbSpike2 = new System.Windows.Forms.PictureBox();
             this.pcbSpike = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pcbExtraScore2 = new System.Windows.Forms.PictureBox();
             this.pcbLockedCyanDoor = new System.Windows.Forms.PictureBox();
             this.pcbCyanKey = new System.Windows.Forms.PictureBox();
@@ -66,8 +66,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbWall)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLava)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbSpike2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbSpike)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbExtraScore2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLockedCyanDoor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbCyanKey)).BeginInit();
@@ -240,23 +240,23 @@
             this.pcbLava.TabIndex = 60;
             this.pcbLava.TabStop = false;
             // 
+            // pcbSpike2
+            // 
+            this.pcbSpike2.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.pcbSpike2.Location = new System.Drawing.Point(788, 122);
+            this.pcbSpike2.Name = "pcbSpike2";
+            this.pcbSpike2.Size = new System.Drawing.Size(58, 54);
+            this.pcbSpike2.TabIndex = 61;
+            this.pcbSpike2.TabStop = false;
+            // 
             // pcbSpike
             // 
             this.pcbSpike.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.pcbSpike.Location = new System.Drawing.Point(788, 122);
+            this.pcbSpike.Location = new System.Drawing.Point(477, -1);
             this.pcbSpike.Name = "pcbSpike";
             this.pcbSpike.Size = new System.Drawing.Size(58, 54);
-            this.pcbSpike.TabIndex = 61;
+            this.pcbSpike.TabIndex = 62;
             this.pcbSpike.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.pictureBox2.Location = new System.Drawing.Point(477, -1);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(58, 54);
-            this.pictureBox2.TabIndex = 62;
-            this.pictureBox2.TabStop = false;
             // 
             // pcbExtraScore2
             // 
@@ -315,7 +315,7 @@
             this.Controls.Add(this.pcbCyanKey);
             this.Controls.Add(this.pcbLockedCyanDoor);
             this.Controls.Add(this.pcbExtraScore2);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pcbSpike);
             this.Controls.Add(this.pcbLava);
             this.Controls.Add(this.pcbWall);
             this.Controls.Add(this.pcbPlatform4);
@@ -333,7 +333,7 @@
             this.Controls.Add(this.pcbPlayer);
             this.Controls.Add(this.lblScore);
             this.Controls.Add(this.btnSettings);
-            this.Controls.Add(this.pcbSpike);
+            this.Controls.Add(this.pcbSpike2);
             this.KeyPreview = true;
             this.Name = "MainGamePt1";
             this.Text = "MainGamePt1";
@@ -352,8 +352,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbWall)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLava)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbSpike2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbSpike)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbExtraScore2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLockedCyanDoor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbCyanKey)).EndInit();
@@ -382,8 +382,8 @@
         private System.Windows.Forms.PictureBox pcbPlatform4;
         private System.Windows.Forms.PictureBox pcbWall;
         private System.Windows.Forms.PictureBox pcbLava;
+        private System.Windows.Forms.PictureBox pcbSpike2;
         private System.Windows.Forms.PictureBox pcbSpike;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pcbExtraScore2;
         private System.Windows.Forms.PictureBox pcbLockedCyanDoor;
         private System.Windows.Forms.PictureBox pcbCyanKey;
