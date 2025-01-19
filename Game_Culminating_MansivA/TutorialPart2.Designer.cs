@@ -50,6 +50,8 @@
             this.pcbHoldableButton = new System.Windows.Forms.PictureBox();
             this.pcbLockedButtonDoor = new System.Windows.Forms.PictureBox();
             this.lblPlayerHealth = new System.Windows.Forms.Label();
+            this.lblMainHand = new System.Windows.Forms.Label();
+            this.pcbSword = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbGround)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform1)).BeginInit();
@@ -63,6 +65,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbMovableBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbHoldableButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLockedButtonDoor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbSword)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSettings
@@ -200,7 +203,7 @@
             this.lblPlayerInventory.AutoSize = true;
             this.lblPlayerInventory.BackColor = System.Drawing.Color.Gray;
             this.lblPlayerInventory.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlayerInventory.Location = new System.Drawing.Point(197, 854);
+            this.lblPlayerInventory.Location = new System.Drawing.Point(588, 854);
             this.lblPlayerInventory.Name = "lblPlayerInventory";
             this.lblPlayerInventory.Size = new System.Drawing.Size(170, 39);
             this.lblPlayerInventory.TabIndex = 35;
@@ -257,17 +260,40 @@
             this.lblPlayerHealth.BackColor = System.Drawing.Color.Gray;
             this.lblPlayerHealth.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlayerHealth.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblPlayerHealth.Location = new System.Drawing.Point(3, 854);
+            this.lblPlayerHealth.Location = new System.Drawing.Point(12, 854);
             this.lblPlayerHealth.Name = "lblPlayerHealth";
             this.lblPlayerHealth.Size = new System.Drawing.Size(127, 39);
             this.lblPlayerHealth.TabIndex = 41;
             this.lblPlayerHealth.Text = "Health:";
+            // 
+            // lblMainHand
+            // 
+            this.lblMainHand.AutoSize = true;
+            this.lblMainHand.BackColor = System.Drawing.Color.Gray;
+            this.lblMainHand.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMainHand.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblMainHand.Location = new System.Drawing.Point(253, 854);
+            this.lblMainHand.Name = "lblMainHand";
+            this.lblMainHand.Size = new System.Drawing.Size(193, 39);
+            this.lblMainHand.TabIndex = 42;
+            this.lblMainHand.Text = "Main Hand:";
+            // 
+            // pcbSword
+            // 
+            this.pcbSword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.pcbSword.Location = new System.Drawing.Point(124, 746);
+            this.pcbSword.Name = "pcbSword";
+            this.pcbSword.Size = new System.Drawing.Size(58, 54);
+            this.pcbSword.TabIndex = 45;
+            this.pcbSword.TabStop = false;
             // 
             // TutorialPart2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 911);
+            this.Controls.Add(this.pcbSword);
+            this.Controls.Add(this.lblMainHand);
             this.Controls.Add(this.lblPlayerHealth);
             this.Controls.Add(this.pcbHoldableButton);
             this.Controls.Add(this.pcbCyanKey);
@@ -284,9 +310,9 @@
             this.Controls.Add(this.pcbLockedCyanDoor);
             this.Controls.Add(this.pcbLockedLeverDoor);
             this.Controls.Add(this.pcbMovableBox);
-            this.Controls.Add(this.lblTutorialPart2Text);
             this.Controls.Add(this.pcbLockedButtonDoor);
             this.Controls.Add(this.pcbPlayer);
+            this.Controls.Add(this.lblTutorialPart2Text);
             this.KeyPreview = true;
             this.Name = "TutorialPart2";
             this.Text = "TutorialPart2";
@@ -305,6 +331,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbMovableBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbHoldableButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLockedButtonDoor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbSword)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -333,5 +360,7 @@
         private System.Windows.Forms.PictureBox pcbHoldableButton;
         private System.Windows.Forms.PictureBox pcbLockedButtonDoor;
         private System.Windows.Forms.Label lblPlayerHealth;
+        private System.Windows.Forms.Label lblMainHand;
+        private System.Windows.Forms.PictureBox pcbSword;
     }
 }

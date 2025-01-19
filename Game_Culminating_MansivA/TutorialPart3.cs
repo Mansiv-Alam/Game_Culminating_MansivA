@@ -28,21 +28,50 @@ namespace Game_Culminating_MansivA
         bool blnGrounded = true;
         int intGravity = 1;
         // Player UI
-        int[] intInventoryValues = new int[9];
-        string[] strInventoryNames = new string[9];
+        int[] intInventoryValues = new int[6];
+        string[] strInventoryNames = new string[6];
         int intPlayerHealth = 100;
+        string strMainHandItemName = "";
+        int intMainHandItemValue;
         int intPlayerScore = Settings.intPlayerScoreSaved;
         // Game Environment
         bool blnTrapIsFalling = false;
         public TutorialPart3()
         {
             InitializeComponent();
-            intInventoryValues[0] = 1;
-            strInventoryNames[0] = "Sword";
+            strMainHandItemName = "Sword";
+            intMainHandItemValue = 1;
+            lblMainHand.Text = "Main Hand:" + strMainHandItemName;
         }
         // Keys getting released
         private void TutorialPart3_KeyDown(object sender, KeyEventArgs e)
         {
+            // Inventory keys for the main hand
+            if (e.KeyCode == Keys.D1)
+            {
+                swapToMainHand(1);
+                lblMainHand.Text = "Main Hand:" + strMainHandItemName;
+            }
+            else if (e.KeyCode == Keys.D2)
+            {
+                swapToMainHand(2);
+                lblMainHand.Text = "Main Hand:" + strMainHandItemName;
+            }
+            else if (e.KeyCode == Keys.D3)
+            {
+                swapToMainHand(3);
+                lblMainHand.Text = "Main Hand:" + strMainHandItemName;
+            }
+            else if (e.KeyCode == Keys.D4)
+            {
+                swapToMainHand(4);
+                lblMainHand.Text = "Main Hand:" + strMainHandItemName;
+            }
+            else if (e.KeyCode == Keys.D5)
+            {
+                swapToMainHand(5);
+                lblMainHand.Text = "Main Hand:" + strMainHandItemName;
+            }
             // Movement Keys for the player
             if (e.KeyCode == Keys.A)
             {
@@ -83,8 +112,10 @@ namespace Game_Culminating_MansivA
         // Timer for the Game (Enemy Ai, Boundaries)
         private void tmrGameTick_Tick(object sender, EventArgs e)
         {
-            changeScore();
-            changeHealth();
+            //
+            updateScore();
+            updateHealth();
+            inventoryUpdate();
             playerHealthCheck();
             if (pcbPlayer.Left > 1200)
             {
@@ -436,6 +467,19 @@ namespace Game_Culminating_MansivA
                 }
             }
         }
+        // Swaps a inventory slot to the main hand.
+        private void swapToMainHand(int intValue)
+        {
+            int intTemp; string strTemp;
+            // Swaps the int values for the Item in the inventory and the item in the main hand
+            intTemp = intInventoryValues[intValue - 1];
+            intInventoryValues[intValue - 1] = intMainHandItemValue;
+            intMainHandItemValue = intTemp;
+            // Swaps the string values for the Item in the inventory and the item in the main hand
+            strTemp = strInventoryNames[intValue - 1];
+            strInventoryNames[intValue - 1] = strMainHandItemName;
+            strMainHandItemName = strTemp;
+        }
         // Stops the jump (helps for stopping an active jump)
         private void stopJump()
         {
@@ -461,15 +505,20 @@ namespace Game_Culminating_MansivA
             intGravity = 0;
             intDashCounter = 0;
         }
-        // Changes the score text based on the score variable
-        private void changeScore()
+        // Updates the score text based on the score variable
+        private void updateScore()
         {
             this.lblScore.Text = "Score: " + intPlayerScore;
         }
-        // Changes the Health text based on the health variable
-        private void changeHealth()
+        // Updates the Health text based on the health variable
+        private void updateHealth()
         {
             this.lblPlayerHealth.Text = "Health: " + intPlayerHealth;
+        }
+        // Updates the inventory text
+        private void inventoryUpdate()
+        {
+            this.lblPlayerInventory.Text = "Inventory: " + strInventoryNames[0] + " | " + strInventoryNames[1] + " | " + strInventoryNames[2] + " | " + strInventoryNames[3] + " | " + strInventoryNames[4];
         }
         // Opens the settings form
         private void btnSettings_Click(object sender, EventArgs e)

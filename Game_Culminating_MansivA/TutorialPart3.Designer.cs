@@ -44,6 +44,9 @@
             this.pcbSpike = new System.Windows.Forms.PictureBox();
             this.lblPlayerHealth = new System.Windows.Forms.Label();
             this.pcbFallingTrap = new System.Windows.Forms.PictureBox();
+            this.lblPlayerInventory = new System.Windows.Forms.Label();
+            this.lblMainHand = new System.Windows.Forms.Label();
+            this.pcbSword = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbGround)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform1)).BeginInit();
@@ -53,6 +56,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbLava)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbSpike)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbFallingTrap)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbSword)).BeginInit();
             this.SuspendLayout();
             // 
             // pcbPlayer
@@ -179,7 +183,7 @@
             this.lblPlayerHealth.BackColor = System.Drawing.Color.Gray;
             this.lblPlayerHealth.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlayerHealth.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblPlayerHealth.Location = new System.Drawing.Point(3, 849);
+            this.lblPlayerHealth.Location = new System.Drawing.Point(18, 849);
             this.lblPlayerHealth.Name = "lblPlayerHealth";
             this.lblPlayerHealth.Size = new System.Drawing.Size(127, 39);
             this.lblPlayerHealth.TabIndex = 31;
@@ -194,11 +198,46 @@
             this.pcbFallingTrap.TabIndex = 32;
             this.pcbFallingTrap.TabStop = false;
             // 
+            // lblPlayerInventory
+            // 
+            this.lblPlayerInventory.AutoSize = true;
+            this.lblPlayerInventory.BackColor = System.Drawing.Color.Gray;
+            this.lblPlayerInventory.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlayerInventory.Location = new System.Drawing.Point(585, 849);
+            this.lblPlayerInventory.Name = "lblPlayerInventory";
+            this.lblPlayerInventory.Size = new System.Drawing.Size(170, 39);
+            this.lblPlayerInventory.TabIndex = 36;
+            this.lblPlayerInventory.Text = "Inventory:";
+            // 
+            // lblMainHand
+            // 
+            this.lblMainHand.AutoSize = true;
+            this.lblMainHand.BackColor = System.Drawing.Color.Gray;
+            this.lblMainHand.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMainHand.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblMainHand.Location = new System.Drawing.Point(246, 849);
+            this.lblMainHand.Name = "lblMainHand";
+            this.lblMainHand.Size = new System.Drawing.Size(193, 39);
+            this.lblMainHand.TabIndex = 43;
+            this.lblMainHand.Text = "Main Hand:";
+            // 
+            // pcbSword
+            // 
+            this.pcbSword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.pcbSword.Location = new System.Drawing.Point(124, 749);
+            this.pcbSword.Name = "pcbSword";
+            this.pcbSword.Size = new System.Drawing.Size(58, 54);
+            this.pcbSword.TabIndex = 44;
+            this.pcbSword.TabStop = false;
+            // 
             // TutorialPart3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 911);
+            this.Controls.Add(this.pcbSword);
+            this.Controls.Add(this.lblMainHand);
+            this.Controls.Add(this.lblPlayerInventory);
             this.Controls.Add(this.lblPlayerHealth);
             this.Controls.Add(this.pcbLava);
             this.Controls.Add(this.pcbPlatform3);
@@ -208,10 +247,10 @@
             this.Controls.Add(this.pcbGround);
             this.Controls.Add(this.lblScore);
             this.Controls.Add(this.btnSettings);
-            this.Controls.Add(this.lblTutorialPt3Text);
             this.Controls.Add(this.pcbSpike);
             this.Controls.Add(this.pcbFallingTrap);
             this.Controls.Add(this.pcbPlayer);
+            this.Controls.Add(this.lblTutorialPt3Text);
             this.KeyPreview = true;
             this.Name = "TutorialPart3";
             this.Text = "TutorialPart3";
@@ -226,6 +265,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbLava)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbSpike)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbFallingTrap)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbSword)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -248,5 +288,8 @@
         private System.Windows.Forms.PictureBox pcbSpike;
         private System.Windows.Forms.Label lblPlayerHealth;
         private System.Windows.Forms.PictureBox pcbFallingTrap;
+        private System.Windows.Forms.Label lblPlayerInventory;
+        private System.Windows.Forms.Label lblMainHand;
+        private System.Windows.Forms.PictureBox pcbSword;
     }
 }

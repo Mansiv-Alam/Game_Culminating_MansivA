@@ -30,22 +30,48 @@ namespace Game_Culminating_MansivA
         bool blnGrounded = true;
         int intGravity = 1;
         // Player UI
-        int[] intInventoryValues = new int[9];
+        int[] intInventoryValues = new int[6];
+        string[] strInventoryNames = new string[6];
         int intPlayerHealth = 100;
         int intPlayerScore = 0;
-
+        string strMainHandItemName = "";
+        int intMainHandItemValue;
         public TutorialPart1()
         {
             InitializeComponent();
-        }
-        // Occurs when the Settings Button is clicked
-        private void btnSettings_Click(object sender, MouseEventArgs e)
-        {
-
+            strMainHandItemName = "Sword";
+            intMainHandItemValue = 1;
+            lblMainHand.Text = "Main Hand:" + strMainHandItemName;
         }
         // Gets the keys that are pressed
         private void TutorialPart1_KeyDown(object sender, KeyEventArgs e)
         {
+            // Inventory key for the main hand
+            if (e.KeyCode == Keys.D1)
+            {
+                swapToMainHand(1);
+                lblMainHand.Text = "Main Hand:" + strMainHandItemName;
+            }
+            else if (e.KeyCode == Keys.D2)
+            {
+                swapToMainHand(2);
+                lblMainHand.Text = "Main Hand:" + strMainHandItemName;
+            }
+            else if (e.KeyCode == Keys.D3)
+            {
+                swapToMainHand(3);
+                lblMainHand.Text = "Main Hand:" + strMainHandItemName;
+            }
+            else if (e.KeyCode == Keys.D4)
+            {
+                swapToMainHand(4);
+                lblMainHand.Text = "Main Hand:" + strMainHandItemName;
+            }
+            else if (e.KeyCode == Keys.D5)
+            {
+                swapToMainHand(5);
+                lblMainHand.Text = "Main Hand:" + strMainHandItemName;
+            }
             // Movement Keys for the player
             if (e.KeyCode == Keys.A)
             {
@@ -84,6 +110,10 @@ namespace Game_Culminating_MansivA
             updateScore();
             // Updates Health
             updateHealth();
+            // updates Inventory Text
+            inventoryUpdate();
+            // Updates the main hand text
+            mainHandUpdate();
             // Checks if the player went beyond the left side width and switches to tutorial level part 2
             if (pcbPlayer.Left > 1200)
             {
@@ -183,17 +213,6 @@ namespace Game_Culminating_MansivA
             // Stops an active jump if there is a dash
             stopJump();
         }
-        // Finds and returns the index value of a specified value in a Array (Helps with inventory searches)
-        private int IndexFind(int[] intArrayX, int intValue) {
-            for (int i = 0; i < intArrayX.Length; i++)
-            {
-                if (intValue == intArrayX[i])
-                {
-                    return i;
-                }
-            }
-            return -1;
-        }
         // Moves the player using gravity
         private void Gravity()
         {
@@ -278,7 +297,8 @@ namespace Game_Culminating_MansivA
             }
         }
         // Hitbox for the extra score
-        private void extraScoreHitbox() {
+        private void extraScoreHitbox()
+        {
             // Checks if the extra score is visible/on the screem
             if (pcbExtraScore.Visible == true)
             {
@@ -290,6 +310,29 @@ namespace Game_Culminating_MansivA
                     pcbExtraScore.Visible = false;
                 }
             }
+        }
+        // Swaps a inventory slot to the main hand.
+        private void swapToMainHand(int intValue)
+        {
+            int intTemp; string strTemp;
+            // Swaps the int values for the Item in the inventory and the item in the main hand
+            intTemp = intInventoryValues[intValue - 1];
+            intInventoryValues[intValue - 1] = intMainHandItemValue;
+            intMainHandItemValue = intTemp;
+            // Swaps the string values for the Item in the inventory and the item in the main hand
+            strTemp = strInventoryNames[intValue - 1];
+            strInventoryNames[intValue - 1] = strMainHandItemName;
+            strMainHandItemName = strTemp;
+        }
+        // Updates the inventory values
+        private void inventoryUpdate()
+        {
+            this.lblPlayerInventory.Text = "Inventory: " + strInventoryNames[0] + " | " + strInventoryNames[1] + " | " + strInventoryNames[2] + " | " + strInventoryNames[3] + " | " + strInventoryNames[4];
+        }
+        // Updates Main hand text
+        private void mainHandUpdate()
+        {
+            this.lblMainHand.Text = lblMainHand.Text = "Main Hand:" + strMainHandItemName;
         }
         // Stops the jump (helps for stopping an active jump)
         private void stopJump() {
