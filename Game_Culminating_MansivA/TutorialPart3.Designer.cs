@@ -47,6 +47,8 @@
             this.lblPlayerInventory = new System.Windows.Forms.Label();
             this.lblMainHand = new System.Windows.Forms.Label();
             this.pcbSword = new System.Windows.Forms.PictureBox();
+            this.pcbBasicEnemy = new System.Windows.Forms.PictureBox();
+            this.pcbEnemySword = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbGround)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform1)).BeginInit();
@@ -57,6 +59,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbSpike)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbFallingTrap)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbSword)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbBasicEnemy)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbEnemySword)).BeginInit();
             this.SuspendLayout();
             // 
             // pcbPlayer
@@ -224,19 +228,37 @@
             // pcbSword
             // 
             this.pcbSword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.pcbSword.Location = new System.Drawing.Point(124, 749);
+            this.pcbSword.Location = new System.Drawing.Point(114, 750);
             this.pcbSword.Name = "pcbSword";
             this.pcbSword.Size = new System.Drawing.Size(58, 54);
             this.pcbSword.TabIndex = 44;
             this.pcbSword.TabStop = false;
             this.pcbSword.Visible = false;
             // 
+            // pcbBasicEnemy
+            // 
+            this.pcbBasicEnemy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.pcbBasicEnemy.Location = new System.Drawing.Point(479, 159);
+            this.pcbBasicEnemy.Name = "pcbBasicEnemy";
+            this.pcbBasicEnemy.Size = new System.Drawing.Size(57, 87);
+            this.pcbBasicEnemy.TabIndex = 45;
+            this.pcbBasicEnemy.TabStop = false;
+            // 
+            // pcbEnemySword
+            // 
+            this.pcbEnemySword.BackColor = System.Drawing.Color.Gold;
+            this.pcbEnemySword.Location = new System.Drawing.Point(445, 185);
+            this.pcbEnemySword.Name = "pcbEnemySword";
+            this.pcbEnemySword.Size = new System.Drawing.Size(36, 36);
+            this.pcbEnemySword.TabIndex = 46;
+            this.pcbEnemySword.TabStop = false;
+            this.pcbEnemySword.Visible = false;
+            // 
             // TutorialPart3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 911);
-            this.Controls.Add(this.pcbSword);
             this.Controls.Add(this.lblMainHand);
             this.Controls.Add(this.lblPlayerInventory);
             this.Controls.Add(this.lblPlayerHealth);
@@ -250,8 +272,11 @@
             this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.pcbSpike);
             this.Controls.Add(this.pcbFallingTrap);
-            this.Controls.Add(this.pcbPlayer);
             this.Controls.Add(this.lblTutorialPt3Text);
+            this.Controls.Add(this.pcbBasicEnemy);
+            this.Controls.Add(this.pcbEnemySword);
+            this.Controls.Add(this.pcbPlayer);
+            this.Controls.Add(this.pcbSword);
             this.KeyPreview = true;
             this.Name = "TutorialPart3";
             this.Text = "TutorialPart3";
@@ -268,6 +293,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbSpike)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbFallingTrap)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbSword)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbBasicEnemy)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbEnemySword)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -293,5 +320,7 @@
         private System.Windows.Forms.Label lblPlayerInventory;
         private System.Windows.Forms.Label lblMainHand;
         private System.Windows.Forms.PictureBox pcbSword;
+        private System.Windows.Forms.PictureBox pcbBasicEnemy;
+        private System.Windows.Forms.PictureBox pcbEnemySword;
     }
 }

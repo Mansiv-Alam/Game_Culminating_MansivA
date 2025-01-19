@@ -169,7 +169,7 @@
             // pcbSword
             // 
             this.pcbSword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.pcbSword.Location = new System.Drawing.Point(124, 745);
+            this.pcbSword.Location = new System.Drawing.Point(114, 746);
             this.pcbSword.Name = "pcbSword";
             this.pcbSword.Size = new System.Drawing.Size(58, 54);
             this.pcbSword.TabIndex = 45;

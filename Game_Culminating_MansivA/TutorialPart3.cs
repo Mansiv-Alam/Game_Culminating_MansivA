@@ -38,6 +38,7 @@ namespace Game_Culminating_MansivA
         int intPlayerScore = Settings.intPlayerScoreSaved;
         // Game Environment
         bool blnTrapIsFalling = false;
+        bool blnEnemyMovingLeft = true;
         public TutorialPart3()
         {
             InitializeComponent();
@@ -130,6 +131,9 @@ namespace Game_Culminating_MansivA
             playerHealthCheck();
             // Handles the players attacks
             playerSwordAttack();
+            enemyAttack();
+            // Moves the enemy
+            basicEnemyAiMovement();
             if (pcbPlayer.Left > 1200)
             {
                 // Resets score for the main game
@@ -481,6 +485,55 @@ namespace Game_Culminating_MansivA
                 }
             }
         }
+        // Basic Enemy ai movement
+        private void basicEnemyAiMovement() {
+            // Checks if the Enemy has reached its left or right boundary
+            if (pcbBasicEnemy.Left <= pcbPlatform3.Left + 30)
+            {
+                blnEnemyMovingLeft = false;
+            }
+            else if (pcbBasicEnemy.Left >= pcbPlatform3.Left + 300) {
+                blnEnemyMovingLeft = true;
+            }
+            // Stops the enemy from glitching out when near the player
+            if (pcbBasicEnemy.Bounds.IntersectsWith(pcbPlayer.Bounds)) {
+                return;
+            }
+            // Switches the position of the sword depending on the direction the enemy is travelling
+            if (blnEnemyMovingLeft == false)
+            {
+                pcbEnemySword.Left = pcbBasicEnemy.Right;
+            }
+            else {
+                pcbEnemySword.Left = pcbBasicEnemy.Left - pcbEnemySword.Width;
+            }
+            // Idle Walk
+            // Walks towards the left
+            if (blnEnemyMovingLeft == true) {
+                pcbBasicEnemy.Left -= 3;
+                pcbEnemySword.Left -= 3;
+            }
+            // Walks towards the right
+            if (blnEnemyMovingLeft == false)
+            {
+                pcbBasicEnemy.Left += 3;
+                pcbEnemySword.Left += 3;
+            }
+        }
+        // Attacks the player if they are within range
+        private void enemyAttack() {
+            // Checks if the player is on the same y level as the enemy (pcbPlayer.Top < pcbPlatform3.Top depends on range of the y level, additional conditions may be added depending on the situation)
+            // Also Checks if the player is within the horizontal range of the enemy
+            if (pcbPlayer.Top < pcbPlatform3.Top && pcbPlayer.Left > pcbPlatform3.Left + 30 && pcbPlayer.Left <= pcbPlatform3.Left + 300) {
+                if (pcbPlayer.Left < pcbBasicEnemy.Left) {
+                    blnEnemyMovingLeft = true;
+                }
+                if (pcbPlayer.Left > pcbBasicEnemy.Left)
+                {
+                    blnEnemyMovingLeft = false;
+                }
+            }
+        }
         // Swaps a inventory slot to the main hand.
         private void swapToMainHand(int intValue)
         {
@@ -540,6 +593,11 @@ namespace Game_Culminating_MansivA
             // Increases the jump counter
             intDashCounter++;
         }
+        // Stops Sword Attack
+        private void stopSwordAttack() {
+            blnSwordAttack = false;
+            intSwordAttackCounter = 51;
+        }
         // Changes variables back to as if the player was grounded
         private void isGrounded()
         {
@@ -583,6 +641,8 @@ namespace Game_Culminating_MansivA
                 blnMovingRight = false;
                 // Resets the health
                 intPlayerHealth = 100;
+                // Stops the sword attacking
+                stopSwordAttack();
                 // Decreases the score unless the score is already 0
                 if (intPlayerScore > 0) {
                     intPlayerScore -= 5;
