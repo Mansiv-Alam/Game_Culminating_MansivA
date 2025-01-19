@@ -54,6 +54,7 @@
             this.pcbFallingTrap = new System.Windows.Forms.PictureBox();
             this.tmrPlayerMovement = new System.Windows.Forms.Timer(this.components);
             this.tmrGameTick = new System.Windows.Forms.Timer(this.components);
+            this.pcbWall2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pcbSword)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbGround)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlayer)).BeginInit();
@@ -72,6 +73,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbLockedCyanDoor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbCyanKey)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbFallingTrap)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbWall2)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSettings
@@ -161,7 +163,7 @@
             // pcbPlatform1
             // 
             this.pcbPlatform1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pcbPlatform1.Location = new System.Drawing.Point(466, 557);
+            this.pcbPlatform1.Location = new System.Drawing.Point(467, 607);
             this.pcbPlatform1.Name = "pcbPlatform1";
             this.pcbPlatform1.Size = new System.Drawing.Size(245, 50);
             this.pcbPlatform1.TabIndex = 52;
@@ -179,7 +181,7 @@
             // pcbPlatform3
             // 
             this.pcbPlatform3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pcbPlatform3.Location = new System.Drawing.Point(0, 409);
+            this.pcbPlatform3.Location = new System.Drawing.Point(0, 435);
             this.pcbPlatform3.Name = "pcbPlatform3";
             this.pcbPlatform3.Size = new System.Drawing.Size(333, 50);
             this.pcbPlatform3.TabIndex = 54;
@@ -216,7 +218,7 @@
             // pcbPlatform4
             // 
             this.pcbPlatform4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pcbPlatform4.Location = new System.Drawing.Point(328, 175);
+            this.pcbPlatform4.Location = new System.Drawing.Point(328, 219);
             this.pcbPlatform4.Name = "pcbPlatform4";
             this.pcbPlatform4.Size = new System.Drawing.Size(857, 50);
             this.pcbPlatform4.TabIndex = 58;
@@ -234,7 +236,7 @@
             // pcbLava
             // 
             this.pcbLava.BackColor = System.Drawing.Color.Firebrick;
-            this.pcbLava.Location = new System.Drawing.Point(579, 175);
+            this.pcbLava.Location = new System.Drawing.Point(651, 219);
             this.pcbLava.Name = "pcbLava";
             this.pcbLava.Size = new System.Drawing.Size(95, 36);
             this.pcbLava.TabIndex = 60;
@@ -243,7 +245,7 @@
             // pcbSpike2
             // 
             this.pcbSpike2.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.pcbSpike2.Location = new System.Drawing.Point(788, 122);
+            this.pcbSpike2.Location = new System.Drawing.Point(842, 170);
             this.pcbSpike2.Name = "pcbSpike2";
             this.pcbSpike2.Size = new System.Drawing.Size(58, 54);
             this.pcbSpike2.TabIndex = 61;
@@ -252,7 +254,7 @@
             // pcbSpike
             // 
             this.pcbSpike.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.pcbSpike.Location = new System.Drawing.Point(477, -1);
+            this.pcbSpike.Location = new System.Drawing.Point(477, 0);
             this.pcbSpike.Name = "pcbSpike";
             this.pcbSpike.Size = new System.Drawing.Size(58, 54);
             this.pcbSpike.TabIndex = 62;
@@ -261,7 +263,7 @@
             // pcbExtraScore2
             // 
             this.pcbExtraScore2.BackColor = System.Drawing.Color.Gold;
-            this.pcbExtraScore2.Location = new System.Drawing.Point(25, 300);
+            this.pcbExtraScore2.Location = new System.Drawing.Point(19, 342);
             this.pcbExtraScore2.Name = "pcbExtraScore2";
             this.pcbExtraScore2.Size = new System.Drawing.Size(58, 54);
             this.pcbExtraScore2.TabIndex = 63;
@@ -270,16 +272,16 @@
             // pcbLockedCyanDoor
             // 
             this.pcbLockedCyanDoor.BackColor = System.Drawing.Color.DarkCyan;
-            this.pcbLockedCyanDoor.Location = new System.Drawing.Point(952, 225);
+            this.pcbLockedCyanDoor.Location = new System.Drawing.Point(952, 266);
             this.pcbLockedCyanDoor.Name = "pcbLockedCyanDoor";
-            this.pcbLockedCyanDoor.Size = new System.Drawing.Size(58, 226);
+            this.pcbLockedCyanDoor.Size = new System.Drawing.Size(58, 185);
             this.pcbLockedCyanDoor.TabIndex = 64;
             this.pcbLockedCyanDoor.TabStop = false;
             // 
             // pcbCyanKey
             // 
             this.pcbCyanKey.BackColor = System.Drawing.Color.DarkCyan;
-            this.pcbCyanKey.Location = new System.Drawing.Point(1011, 65);
+            this.pcbCyanKey.Location = new System.Drawing.Point(1031, 140);
             this.pcbCyanKey.Name = "pcbCyanKey";
             this.pcbCyanKey.Size = new System.Drawing.Size(58, 57);
             this.pcbCyanKey.TabIndex = 65;
@@ -306,6 +308,15 @@
             this.tmrGameTick.Interval = 10;
             this.tmrGameTick.Tick += new System.EventHandler(this.tmrGameTick_Tick);
             // 
+            // pcbWall2
+            // 
+            this.pcbWall2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pcbWall2.Location = new System.Drawing.Point(1164, 0);
+            this.pcbWall2.Name = "pcbWall2";
+            this.pcbWall2.Size = new System.Drawing.Size(21, 224);
+            this.pcbWall2.TabIndex = 67;
+            this.pcbWall2.TabStop = false;
+            // 
             // MainGamePt1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -330,10 +341,11 @@
             this.Controls.Add(this.lblPlayerInventory);
             this.Controls.Add(this.lblPlayerHealth);
             this.Controls.Add(this.pcbGround);
-            this.Controls.Add(this.pcbPlayer);
             this.Controls.Add(this.lblScore);
             this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.pcbSpike2);
+            this.Controls.Add(this.pcbWall2);
+            this.Controls.Add(this.pcbPlayer);
             this.KeyPreview = true;
             this.Name = "MainGamePt1";
             this.Text = "MainGamePt1";
@@ -358,6 +370,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbLockedCyanDoor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbCyanKey)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbFallingTrap)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbWall2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -390,5 +403,6 @@
         private System.Windows.Forms.PictureBox pcbFallingTrap;
         private System.Windows.Forms.Timer tmrPlayerMovement;
         private System.Windows.Forms.Timer tmrGameTick;
+        private System.Windows.Forms.PictureBox pcbWall2;
     }
 }

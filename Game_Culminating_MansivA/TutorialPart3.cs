@@ -736,19 +736,24 @@ namespace Game_Culminating_MansivA
         // Handles the player's sword attack duration and Visibility
         private void playerSwordVisibility()
         {
-            // 1 second attack
-            if (blnSwordAttack == true && intSwordAttackCounter <= 50)
+            // Check if the player is attacking
+            if (blnSwordAttack == true)
             {
-                if (intMainHandItemValue == 1)
+                // Checks if the sword is in the main hand 
+                if (intMainHandItemValue == 1 && intSwordAttackCounter <= 50)
                 {
+                    // 1 second attack
                     pcbSword.Visible = true;
+                    intSwordAttackCounter++;
+                }
+                else
+                {
+                    // If the duration is over or the sword isnt in the main hand makes the sword disapear
+                    blnSwordAttack = false;
+                    pcbSword.Visible = false;
+                    intSwordAttackCounter = 0;
                 }
             }
-            else
-            {
-                pcbSword.Visible = false;
-            }
-            intSwordAttackCounter++;
         }
         // Updates the position of the sword relative to the player
         private void swordPositionUpdate()

@@ -38,7 +38,6 @@ namespace Game_Culminating_MansivA
         // Game Environment
         bool blnTrapIsFalling = false;
         bool blnBasicEnemyMovingLeft = true;
-        bool blnStrongEnemyMovingLeft = false;
         int intEnemySwordVisibilityCounter = 26;
         int intEnemyAttackInterval = 0;
         bool blnBasicEnemyCanDamagePlayer = true;
@@ -46,6 +45,9 @@ namespace Game_Culminating_MansivA
         public MainGamePt1()
         {
             InitializeComponent();
+            strMainHandItemName = "Sword";
+            intMainHandItemValue = 1;
+            lblMainHand.Text = "Main Hand:" + strMainHandItemName;
         }
         // Detects when the player presses a key down
         private void MainGamePt1_KeyDown(object sender, KeyEventArgs e)
@@ -84,6 +86,11 @@ namespace Game_Culminating_MansivA
             if (e.KeyCode == Keys.D)
             {
                 blnMovingRight = true;
+            }
+            // Interact Key
+            if (e.KeyCode == Keys.E)
+            {
+                blnInteract = true;
             }
             // Restrict the number of dashes to 2 mid air
             if (e.KeyCode == Keys.Q && intDashCounter < 2)
@@ -140,6 +147,7 @@ namespace Game_Culminating_MansivA
             extraScoreHitbox();
             extraScore2Hitbox();
             wallHitbox();
+            wall2Hitbox();
             hitboxLava();
             hitboxSpike1();
             hitboxSpike2();
@@ -148,6 +156,7 @@ namespace Game_Culminating_MansivA
             hitboxPlatform2();
             hitboxPlatform3();
             hitboxPlatform4();
+            hitboxLockedCyanDoor();
             // Moves the player if they clicked q to dash
             if (blnIsDashing == true)
             {
@@ -183,8 +192,12 @@ namespace Game_Culminating_MansivA
             mainHandUpdate();
             // Updates the health text
             playerHealthCheck();
+            // Checks if the player has interacted with a key game object
+            playerInteract();
             // Visiblity for the player's sword
             playerSwordVisibility();
+            // Defeats the enemy if the player is attacking
+            swordDamage();
             // Enemy Ai
             EnemyAi();
             // Boundaries for the next level
@@ -192,13 +205,13 @@ namespace Game_Culminating_MansivA
             {
                 // Resets score for the main game
                 Settings.intPlayerScoreSaved = intPlayerScore;
-                Menu menu = new Menu();
+                MainGamePt2 mainGamePt2 = new MainGamePt2();
                 // Hides this form
                 this.tmrGameTick.Enabled = false;
                 this.tmrPlayerMovement.Enabled = false;
                 this.Hide();
                 // Shows/Opens the tutorial
-                menu.Show();
+                mainGamePt2.Show();
                 this.Close();
             }
             // makes a boundary for the left wall
@@ -493,6 +506,22 @@ namespace Game_Culminating_MansivA
                 }
             }
         }
+        // hitbox for the cyan door when its locked
+        private void hitboxLockedCyanDoor()
+        {
+            if (pcbPlayer.Bounds.IntersectsWith(pcbLockedCyanDoor.Bounds))
+            {
+                // checks if the user has the cyan key in their main hand
+                if (intMainHandItemValue != 2 && pcbLockedCyanDoor.Visible == true)
+                {
+                    pcbPlayer.Left = pcbLockedCyanDoor.Left - pcbPlayer.Width;
+                }
+                else
+                {
+                    deleteCyanKey();
+                }
+            }
+        }
         // Hitbox for the extra score
         private void extraScoreHitbox()
         {
@@ -503,7 +532,7 @@ namespace Game_Culminating_MansivA
                 {
                     // increases score
                     intPlayerScore += 5;
-                    // Makes the extra score dissapear
+                    // Makes the extra score disappear
                     pcbExtraScore.Visible = false;
                 }
             }
@@ -518,7 +547,7 @@ namespace Game_Culminating_MansivA
                 {
                     // increases score
                     intPlayerScore += 5;
-                    // Makes the extra score dissapear
+                    // Makes the extra score disappear
                     pcbExtraScore2.Visible = false;
                 }
             }
@@ -536,16 +565,13 @@ namespace Game_Culminating_MansivA
         private void hitboxSpike1()
         {
             // Checks if the player has touched the spike with some margin 
-            if (pcbPlayer.Bounds.IntersectsWith(pcbSpike2.Bounds) && pcbPlayer.Right > pcbSpike2.Left + 5 && pcbPlayer.Left < pcbSpike2.Right - 5)
+            if (pcbPlayer.Bounds.IntersectsWith(pcbSpike.Bounds))
             {
                 // Decreases health
                 intPlayerHealth -= 10;
-                // Changes the player's Height
-                pcbPlayer.Top = pcbSpike2.Top - 1 - pcbPlayer.Height;
-                // Changes the jump variables to make a mini player jump
-                intJumpPower = 10;
-                intJumpPowerMin = -10;
-                blnIsJumping = true;
+                // Changes the player's Y position
+                pcbPlayer.Top = pcbSpike.Bottom + 1;
+                stopJump();
             }
         }
         // Hitbox for the Spike 2
@@ -591,12 +617,20 @@ namespace Game_Culminating_MansivA
                 }
             }
         }
-        // hitbox for the Right wall
+        // hitbox for the Top Right wall
         private void wallHitbox()
         {
             if (pcbPlayer.Bounds.IntersectsWith(pcbWall.Bounds))
             {
                 pcbPlayer.Left = pcbWall.Left - pcbPlayer.Width;
+            }
+        }
+        // hitbox for the Bottom Right wall
+        private void wall2Hitbox()
+        {
+            if (pcbPlayer.Bounds.IntersectsWith(pcbWall2.Bounds))
+            {
+                pcbPlayer.Left = pcbWall2.Left - pcbPlayer.Width;
             }
         }
         // Handles the Basic Enemy Ai
@@ -616,11 +650,11 @@ namespace Game_Culminating_MansivA
         private void basicEnemyAiMovement()
         {
             // Checks if the Enemy has reached its left or right boundary
-            if (pcbBasicEnemy.Left <= pcbPlatform3.Left + 30)
+            if (pcbBasicEnemy.Left <= pcbGround.Right - 480)
             {
                 blnBasicEnemyMovingLeft = false;
             }
-            else if (pcbBasicEnemy.Left >= pcbPlatform3.Left + 300)
+            else if (pcbBasicEnemy.Left >= pcbGround.Right - 70)
             {
                 blnBasicEnemyMovingLeft = true;
             }
@@ -666,10 +700,10 @@ namespace Game_Culminating_MansivA
                 blnBasicEnemyCanDamagePlayer = true;
             }
             // Checks if the player is on the same y level as the enemy (pcbPlayer.Top < pcbPlatform3.Top depends on range of the y level, additional conditions may be added depending on the situation)
-            if (pcbPlayer.Top > pcbGround.Top && pcbPlayer.Top < pcbPlatform1.Bottom)
+            if (pcbPlayer.Top < pcbGround.Top && pcbPlayer.Top > pcbPlatform2.Bottom)
             {
                 // Checks if the player is within the horizontal range of the enemy
-                if (pcbPlayer.Left > pcbGround.Right - 350 && pcbPlayer.Left <= pcbGround.Right)
+                if (pcbPlayer.Left > pcbGround.Right - 480 && pcbPlayer.Left <= pcbGround.Right - 50)
                 {
                     if (pcbPlayer.Left < pcbBasicEnemy.Left)
                     {
@@ -733,22 +767,44 @@ namespace Game_Culminating_MansivA
             strInventoryNames[intValue - 1] = strMainHandItemName;
             strMainHandItemName = strTemp;
         }
+        // Checks if the player interacts with any game object
+        private void playerInteract()
+        {
+            if (blnInteract == true)
+            {
+                if (pcbPlayer.Bounds.IntersectsWith(pcbCyanKey.Bounds) && pcbCyanKey.Visible == true)
+                {
+                    pcbCyanKey.Visible = false;
+                    intInventoryValues[0] = 2;
+                    strInventoryNames[0] = "Cyan Key";
+                    blnInteract = false;
+                }
+                else
+                {
+                    blnInteract = false;
+                }
+            }
+        }
         // Handles the player's sword attack duration and Visibility
         private void playerSwordVisibility()
         {
-            // 1 second attack
-            if (blnSwordAttack == true && intSwordAttackCounter <= 50)
+            // Check if the player is attacking
+            if (blnSwordAttack == true)
             {
-                if (intMainHandItemValue == 1)
+                // Checks if the sword is in the main hand 
+                if (intMainHandItemValue == 1 && intSwordAttackCounter <= 50)
                 {
-                    pcbSword.Visible = true;
+                    // 1 second attack
+                        pcbSword.Visible = true;
+                        intSwordAttackCounter++;
+                }
+                else
+                {
+                    blnSwordAttack = false;
+                    pcbSword.Visible = false;
+                    intSwordAttackCounter = 0;
                 }
             }
-            else
-            {
-                pcbSword.Visible = false;
-            }
-            intSwordAttackCounter++;
         }
         // Updates the position of the sword relative to the player
         private void swordPositionUpdate()
@@ -764,16 +820,40 @@ namespace Game_Culminating_MansivA
                 pcbSword.Top = pcbPlayer.Top + 25;
             }
         }
+        // Deals damage to enemy's using the player's sword attack
+        private void swordDamage()
+        {
+            // Checks if the player's sword is visible and touching the basic enemy
+            if (pcbSword.Visible == true)
+            {
+                if (pcbSword.Bounds.IntersectsWith(pcbBasicEnemy.Bounds))
+                {
+                    // makes the enemy and their sword disappear
+                    pcbBasicEnemy.Visible = false;
+                    pcbBasicEnemySword.Visible = false;
+                }
+            }
+        }
         // Stops Sword Attack
         private void stopSwordAttack()
         {
             blnSwordAttack = false;
             intSwordAttackCounter = 51;
         }
+        // Gets rid of the key after using it
+        private void deleteCyanKey()
+        {
+            if (intMainHandItemValue == 2)
+            {
+                pcbLockedCyanDoor.Visible = false;
+                intMainHandItemValue = 0;
+                strMainHandItemName = "";
+            }
+        }
         // Stops the jump (helps for stopping an active jump)
         private void stopJump()
         {
-            intJumpPower = 16;
+            intJumpPower = 14;
             intJumpVelocity = 0;
             blnIsJumping = false;
         }
@@ -822,7 +902,7 @@ namespace Game_Culminating_MansivA
             // Checks if the player is dead and resets the player to the Position at the beginning of the level, the player's health, and decreases the players score
             if (intPlayerHealth <= 0)
             {
-                pcbPlayer.Location = new Point(25, 701);
+                pcbPlayer.Location = new Point(25, 722);
                 blnMovingLeft = false;
                 blnMovingRight = false;
                 intPlayerHealth = 100;

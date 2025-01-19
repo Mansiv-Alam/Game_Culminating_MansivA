@@ -141,7 +141,7 @@ namespace Game_Culminating_MansivA
             // Updates the main hand text
             mainHandUpdate();
             // Handles Sword Attack
-            playerSwordAttack();
+            playerSwordVisibility();
             // Checks if the player went beyond the left side width and switches to tutorial level part 2
             if (pcbPlayer.Left > 1200)
             {
@@ -333,7 +333,7 @@ namespace Game_Culminating_MansivA
                 {
                     // increases score
                     intPlayerScore += 5;
-                    // Makes the extra score dissapear
+                    // Makes the extra score disappear
                     pcbExtraScore.Visible = false;
                 }
             }
@@ -361,20 +361,34 @@ namespace Game_Culminating_MansivA
         {
             this.lblMainHand.Text = lblMainHand.Text = "Main Hand:" + strMainHandItemName;
         }
-        // Handles the player's sword attack duration and visiblity
-        private void playerSwordAttack() {
-            if (blnSwordAttack == true && intSwordAttackCounter <= 50)
+        // Handles the player's sword attack duration and Visibility
+        private void playerSwordVisibility()
+        {
+            // 1 second attack
+            if (blnSwordAttack == true)
             {
+                // Checks if the sword is in the main hand 
                 if (intMainHandItemValue == 1)
                 {
-                    pcbSword.Visible = true;
+                    // shows how long the sword should appear onto the screen
+                    if (intSwordAttackCounter <= 50)
+                    {
+                        pcbSword.Visible = true;
+                        intSwordAttackCounter++;
+                    }
+                }
+                else
+                {
+                    blnSwordAttack = false;
+                    pcbSword.Visible = false;
+                    // resets counter for when the sword is in the main hand
+                    intSwordAttackCounter = 0;
                 }
             }
             else
             {
                 pcbSword.Visible = false;
             }
-            intSwordAttackCounter++;
         }
         // Updates the position of the sword relative to the player
         private void swordPositionUpdate() {
