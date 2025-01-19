@@ -174,6 +174,7 @@
             this.pcbSword.Size = new System.Drawing.Size(58, 54);
             this.pcbSword.TabIndex = 45;
             this.pcbSword.TabStop = false;
+            this.pcbSword.Visible = false;
             // 
             // TutorialPart1
             // 
@@ -197,6 +198,7 @@
             this.Text = "TutorialPart1";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TutorialPart1_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TutorialPart1_KeyUp);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PlayerMouseClick);
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlayer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbGround)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform1)).EndInit();

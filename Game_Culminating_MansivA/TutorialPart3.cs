@@ -27,6 +27,8 @@ namespace Game_Culminating_MansivA
         int intDashCounter = 0;
         bool blnGrounded = true;
         int intGravity = 1;
+        bool blnSwordAttack = false;
+        int intSwordAttackCounter = 0;
         // Player UI
         int[] intInventoryValues = new int[6];
         string[] strInventoryNames = new string[6];
@@ -109,14 +111,25 @@ namespace Game_Culminating_MansivA
                 blnMovingRight = false;
             }
         }
+        // Runs when the player wants to Attack with the sword using a click
+        private void PlayerMouseClick(object sender, MouseEventArgs e)
+        {
+            blnSwordAttack = true;
+            intSwordAttackCounter = 0;
+        }
         // Timer for the Game (Enemy Ai, Boundaries)
         private void tmrGameTick_Tick(object sender, EventArgs e)
         {
-            //
+            // Updates the score text
             updateScore();
+            // Updates the health text
             updateHealth();
+            // Updates the inventory text
             inventoryUpdate();
+            // Updates the health text
             playerHealthCheck();
+            // Handles the players attacks
+            playerSwordAttack();
             if (pcbPlayer.Left > 1200)
             {
                 // Resets score for the main game
@@ -131,7 +144,7 @@ namespace Game_Culminating_MansivA
                 this.Close();
             }
             // makes a boundary for the left wall using the speed of the player and how many pixels they could move beyond the window
-            else if (pcbPlayer.Left - intPlayerSpeed <= 0)
+            else if (pcbPlayer.Left - 3 <= 0)
             {
                 pcbPlayer.Left = 0;
                 blnMovingLeft = false;
@@ -159,6 +172,7 @@ namespace Game_Culminating_MansivA
         private void tmrPlayerMovement_Tick(object sender, EventArgs e)
         {
             horizontalPlayerMovement();
+            swordPositionUpdate();
             checkGrounded();
             wallHitbox();
             hitboxLava();
@@ -479,6 +493,36 @@ namespace Game_Culminating_MansivA
             strTemp = strInventoryNames[intValue - 1];
             strInventoryNames[intValue - 1] = strMainHandItemName;
             strMainHandItemName = strTemp;
+        }
+        // Handles the player's sword attack duration and visiblity
+        private void playerSwordAttack()
+        {
+            if (blnSwordAttack == true && intSwordAttackCounter <= 50)
+            {
+                if (intMainHandItemValue == 1)
+                {
+                    pcbSword.Visible = true;
+                }
+            }
+            else
+            {
+                pcbSword.Visible = false;
+            }
+            intSwordAttackCounter++;
+        }
+        // Updates the position of the sword relative to the player
+        private void swordPositionUpdate()
+        {
+            if (blnMovingLeft == true)
+            {
+                pcbSword.Left = pcbPlayer.Left - pcbSword.Width;
+                pcbSword.Top = pcbPlayer.Top + 35;
+            }
+            else
+            {
+                pcbSword.Left = pcbPlayer.Right;
+                pcbSword.Top = pcbPlayer.Top + 35;
+            }
         }
         // Stops the jump (helps for stopping an active jump)
         private void stopJump()

@@ -71,7 +71,7 @@
             // tmrPlayerMovement
             // 
             this.tmrPlayerMovement.Enabled = true;
-            this.tmrPlayerMovement.Interval = 10;
+            this.tmrPlayerMovement.Interval = 5;
             this.tmrPlayerMovement.Tick += new System.EventHandler(this.tmrPlayerMovement_Tick);
             // 
             // btnSettings
@@ -111,7 +111,7 @@
             // tmrGameTick
             // 
             this.tmrGameTick.Enabled = true;
-            this.tmrGameTick.Interval = 20;
+            this.tmrGameTick.Interval = 10;
             this.tmrGameTick.Tick += new System.EventHandler(this.tmrGameTick_Tick);
             // 
             // pcbGround
@@ -229,6 +229,7 @@
             this.pcbSword.Size = new System.Drawing.Size(58, 54);
             this.pcbSword.TabIndex = 44;
             this.pcbSword.TabStop = false;
+            this.pcbSword.Visible = false;
             // 
             // TutorialPart3
             // 
@@ -256,6 +257,7 @@
             this.Text = "TutorialPart3";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TutorialPart3_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TutorialPart3_KeyUp);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PlayerMouseClick);
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlayer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbGround)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform1)).EndInit();

@@ -29,6 +29,8 @@ namespace Game_Culminating_MansivA
         int intDashCounter = 0;
         bool blnGrounded = true;
         int intGravity = 1;
+        bool blnSwordAttack = false;
+        int intSwordAttackCounter = 0;
         // Player UI
         int[] intInventoryValues = new int[6];
         string[] strInventoryNames = new string[6];
@@ -104,6 +106,29 @@ namespace Game_Culminating_MansivA
                 blnMovingRight = false;
             }
         }
+        // Finds when the player clicks to use the sword
+        private void PlayerMouseClick(object sender, MouseEventArgs e)
+        {
+            blnSwordAttack = true;
+            intSwordAttackCounter = 0;
+        }
+        // Handles Basic Horizontal Movement
+        private void horizontalPlayerMovement()
+        {
+            if (blnMovingLeft == false && blnMovingRight == false)
+            {
+                return;
+            }
+            // moves the player depending on if the player is moving left or right
+            if (blnMovingLeft == true)
+            {
+                this.pcbPlayer.Left -= intPlayerSpeed;
+            }
+            else if (blnMovingRight == true)
+            {
+                this.pcbPlayer.Left += intPlayerSpeed;
+            }
+        }
         private void tmrGameTick_Tick(object sender, EventArgs e)
         {
             // Updates score per game tick
@@ -114,6 +139,8 @@ namespace Game_Culminating_MansivA
             inventoryUpdate();
             // Updates the main hand text
             mainHandUpdate();
+            // Handles Sword Attack
+            playerSwordAttack();
             // Checks if the player went beyond the left side width and switches to tutorial level part 2
             if (pcbPlayer.Left > 1200)
             {
@@ -138,20 +165,14 @@ namespace Game_Culminating_MansivA
         // A player timer for smooth movement of the player, Also controls player physics
         private void tmrPlayerMovementTick(object sender, EventArgs e)
         {
+            horizontalPlayerMovement();
+            swordPositionUpdate();
             checkGrounded();
             extraScoreHitbox();
             hitboxPlatform1();
             // Moves the player if they clicked q to dash
             if (blnIsDashing == true) {
                 playerDash();
-            }
-            // moves the player depending on if the player is moving left or right
-            if (blnMovingLeft == true)
-            {
-                this.pcbPlayer.Left -= intPlayerSpeed;
-            }
-            else if (blnMovingRight == true) {
-                this.pcbPlayer.Left += intPlayerSpeed;
             }
             // Stops a jump affecting how the player lands on a platform
             if (blnGrounded == true && intJumpPower < 0) {
@@ -333,6 +354,33 @@ namespace Game_Culminating_MansivA
         private void mainHandUpdate()
         {
             this.lblMainHand.Text = lblMainHand.Text = "Main Hand:" + strMainHandItemName;
+        }
+        // Handles the player's sword attack duration and visiblity
+        private void playerSwordAttack() {
+            if (blnSwordAttack == true && intSwordAttackCounter <= 50)
+            {
+                if (intMainHandItemValue == 1)
+                {
+                    pcbSword.Visible = true;
+                }
+            }
+            else
+            {
+                pcbSword.Visible = false;
+            }
+            intSwordAttackCounter++;
+        }
+        // Updates the position of the sword relative to the player
+        private void swordPositionUpdate() {
+            if (blnMovingLeft == true)
+            {
+                pcbSword.Left = pcbPlayer.Left - pcbSword.Width;
+                pcbSword.Top = pcbPlayer.Top + 30;
+            }
+            else {
+                pcbSword.Left = pcbPlayer.Right;
+                pcbSword.Top = pcbPlayer.Top + 30;
+            }
         }
         // Stops the jump (helps for stopping an active jump)
         private void stopJump() {
