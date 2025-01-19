@@ -751,6 +751,7 @@ namespace Game_Culminating_MansivA
                     // If the duration is over or the sword isnt in the main hand makes the sword disapear
                     blnSwordAttack = false;
                     pcbSword.Visible = false;
+                    // resets the duration for another sword attack
                     intSwordAttackCounter = 0;
                 }
             }

@@ -26,8 +26,6 @@ namespace Game_Culminating_MansivA
         int intDashCounter = 0;
         bool blnGrounded = true;
         int intGravity = 1;
-        bool blnSwordAttack = false;
-        int intSwordAttackCounter = 0;
         // Player UI
         int[] intInventoryValues = new int[6];
         string[] strInventoryNames = new string[6];
@@ -35,6 +33,8 @@ namespace Game_Culminating_MansivA
         string strMainHandItemName = "";
         int intMainHandItemValue;
         int intPlayerScore = 0;
+        bool blnSwordAttack = false;
+        int intSwordAttackCounter = 0;
         // Game Environment
         bool blnTrapIsFalling = false;
         bool blnBasicEnemyMovingLeft = true;
@@ -204,7 +204,7 @@ namespace Game_Culminating_MansivA
             if (pcbPlayer.Left > 1200)
             {
                 // Resets score for the main game
-                Settings.intPlayerScoreSaved = intPlayerScore;
+                Settings.intPlayerScoreSaved = intPlayerScore + 10;
                 MainGamePt2 mainGamePt2 = new MainGamePt2();
                 // Hides this form
                 this.tmrGameTick.Enabled = false;
@@ -526,15 +526,12 @@ namespace Game_Culminating_MansivA
         private void extraScoreHitbox()
         {
             // Checks if the extra score is visible/on the screem
-            if (pcbExtraScore.Visible == true)
+            if (pcbExtraScore.Visible == true && pcbPlayer.Bounds.IntersectsWith(pcbExtraScore.Bounds))
             {
-                if (pcbPlayer.Bounds.IntersectsWith(pcbExtraScore.Bounds))
-                {
-                    // increases score
-                    intPlayerScore += 5;
-                    // Makes the extra score disappear
-                    pcbExtraScore.Visible = false;
-                }
+                // increases score
+                intPlayerScore += 5;
+                // Makes the extra score disappear
+                pcbExtraScore.Visible = false;
             }
         }
         // Hitbox for the second extra score
@@ -609,7 +606,7 @@ namespace Game_Culminating_MansivA
                         pcbFallingTrap.Visible = false;
                     }
                 }
-                // Checks if the player has touched the falling trap and makes the trap break/dissapear if the player is touching the falling trap
+                // Checks if the player has touched the falling trap and makes the trap break/disappear if the player is touching the falling trap
                 if (pcbPlayer.Bounds.IntersectsWith(pcbFallingTrap.Bounds))
                 {
                     intPlayerHealth -= 40;
@@ -617,7 +614,7 @@ namespace Game_Culminating_MansivA
                 }
             }
         }
-        // hitbox for the Top Right wall
+        // hitbox for the Bottom Right wall
         private void wallHitbox()
         {
             if (pcbPlayer.Bounds.IntersectsWith(pcbWall.Bounds))
@@ -625,7 +622,7 @@ namespace Game_Culminating_MansivA
                 pcbPlayer.Left = pcbWall.Left - pcbPlayer.Width;
             }
         }
-        // hitbox for the Bottom Right wall
+        // hitbox for the Top Right wall
         private void wall2Hitbox()
         {
             if (pcbPlayer.Bounds.IntersectsWith(pcbWall2.Bounds))

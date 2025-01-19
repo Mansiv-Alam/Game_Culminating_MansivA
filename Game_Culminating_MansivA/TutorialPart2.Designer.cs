@@ -147,7 +147,7 @@
             // pcbPlatform1
             // 
             this.pcbPlatform1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pcbPlatform1.Location = new System.Drawing.Point(162, 627);
+            this.pcbPlatform1.Location = new System.Drawing.Point(196, 627);
             this.pcbPlatform1.Name = "pcbPlatform1";
             this.pcbPlatform1.Size = new System.Drawing.Size(163, 50);
             this.pcbPlatform1.TabIndex = 12;
@@ -156,7 +156,7 @@
             // pcbPlatform2
             // 
             this.pcbPlatform2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pcbPlatform2.Location = new System.Drawing.Point(392, 528);
+            this.pcbPlatform2.Location = new System.Drawing.Point(416, 528);
             this.pcbPlatform2.Name = "pcbPlatform2";
             this.pcbPlatform2.Size = new System.Drawing.Size(166, 50);
             this.pcbPlatform2.TabIndex = 13;
@@ -192,7 +192,7 @@
             // pcbCyanKey
             // 
             this.pcbCyanKey.BackColor = System.Drawing.Color.DarkCyan;
-            this.pcbCyanKey.Location = new System.Drawing.Point(447, 442);
+            this.pcbCyanKey.Location = new System.Drawing.Point(472, 443);
             this.pcbCyanKey.Name = "pcbCyanKey";
             this.pcbCyanKey.Size = new System.Drawing.Size(58, 57);
             this.pcbCyanKey.TabIndex = 34;
@@ -212,7 +212,7 @@
             // pcbLever
             // 
             this.pcbLever.BackColor = System.Drawing.Color.SandyBrown;
-            this.pcbLever.Location = new System.Drawing.Point(219, 564);
+            this.pcbLever.Location = new System.Drawing.Point(250, 564);
             this.pcbLever.Name = "pcbLever";
             this.pcbLever.Size = new System.Drawing.Size(58, 57);
             this.pcbLever.TabIndex = 36;
