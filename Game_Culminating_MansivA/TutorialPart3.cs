@@ -266,10 +266,10 @@ namespace Game_Culminating_MansivA
         // Moves the player using gravity
         private void Gravity()
         {
-            // Sets the player's location to 700 if in the next interval they will hit the ground so they dont glitch through the floor
-            if (pcbPlayer.Location.Y + intGravity > 701)
+            // Sets the player's location to 722 (based on the players height) if in the next interval they will hit the ground so they dont glitch through the floor
+            if (pcbPlayer.Location.Y + intGravity > 722)
             {
-                pcbPlayer.Top = 701;
+                pcbPlayer.Top = 722;
                 // changes the gravity back to 1 so the gravity doesnt keep constantly increase
                 intGravity = 1;
                 // changes the dash counter back to 0 after landing
@@ -355,7 +355,6 @@ namespace Game_Culminating_MansivA
         // hitbox for platform 2
         private void hitboxPlatform2()
         {
-            Console.WriteLine(intGravity);
             if (pcbPlayer.Bounds.IntersectsWith(pcbPlatform2.Bounds))
             {
                 if ((intJumpVelocity <= 0 || intGravity > 0) && (pcbPlayer.Bottom > pcbPlatform2.Top && pcbPlayer.Bottom < pcbPlatform2.Top + 30))
@@ -757,12 +756,12 @@ namespace Game_Culminating_MansivA
             if (blnMovingLeft == true)
             {
                 pcbSword.Left = pcbPlayer.Left - pcbSword.Width;
-                pcbSword.Top = pcbPlayer.Top + 35;
+                pcbSword.Top = pcbPlayer.Top + 25;
             }
             else
             {
                 pcbSword.Left = pcbPlayer.Right;
-                pcbSword.Top = pcbPlayer.Top + 35;
+                pcbSword.Top = pcbPlayer.Top + 25;
             }
         }
         // Deals damage to enemy's using the player's sword attack

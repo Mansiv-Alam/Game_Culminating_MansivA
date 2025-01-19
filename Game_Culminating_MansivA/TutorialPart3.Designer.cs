@@ -70,9 +70,9 @@
             // pcbPlayer
             // 
             this.pcbPlayer.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pcbPlayer.Location = new System.Drawing.Point(25, 701);
+            this.pcbPlayer.Location = new System.Drawing.Point(25, 722);
             this.pcbPlayer.Name = "pcbPlayer";
-            this.pcbPlayer.Size = new System.Drawing.Size(93, 134);
+            this.pcbPlayer.Size = new System.Drawing.Size(80, 110);
             this.pcbPlayer.TabIndex = 3;
             this.pcbPlayer.TabStop = false;
             // 
@@ -125,7 +125,7 @@
             // pcbGround
             // 
             this.pcbGround.BackColor = System.Drawing.Color.Gray;
-            this.pcbGround.Location = new System.Drawing.Point(0, 832);
+            this.pcbGround.Location = new System.Drawing.Point(0, 831);
             this.pcbGround.Name = "pcbGround";
             this.pcbGround.Size = new System.Drawing.Size(1185, 80);
             this.pcbGround.TabIndex = 13;
@@ -232,7 +232,7 @@
             // pcbSword
             // 
             this.pcbSword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.pcbSword.Location = new System.Drawing.Point(114, 750);
+            this.pcbSword.Location = new System.Drawing.Point(102, 752);
             this.pcbSword.Name = "pcbSword";
             this.pcbSword.Size = new System.Drawing.Size(58, 54);
             this.pcbSword.TabIndex = 44;

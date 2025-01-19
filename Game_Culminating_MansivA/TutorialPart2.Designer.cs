@@ -82,9 +82,9 @@
             // pcbPlayer
             // 
             this.pcbPlayer.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pcbPlayer.Location = new System.Drawing.Point(25, 701);
+            this.pcbPlayer.Location = new System.Drawing.Point(25, 722);
             this.pcbPlayer.Name = "pcbPlayer";
-            this.pcbPlayer.Size = new System.Drawing.Size(93, 134);
+            this.pcbPlayer.Size = new System.Drawing.Size(80, 110);
             this.pcbPlayer.TabIndex = 2;
             this.pcbPlayer.TabStop = false;
             // 
@@ -128,7 +128,7 @@
             // pcbGround
             // 
             this.pcbGround.BackColor = System.Drawing.Color.Gray;
-            this.pcbGround.Location = new System.Drawing.Point(-1, 831);
+            this.pcbGround.Location = new System.Drawing.Point(0, 831);
             this.pcbGround.Name = "pcbGround";
             this.pcbGround.Size = new System.Drawing.Size(1185, 80);
             this.pcbGround.TabIndex = 6;

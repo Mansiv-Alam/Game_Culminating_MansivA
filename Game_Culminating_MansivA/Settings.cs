@@ -27,6 +27,7 @@ namespace Game_Culminating_MansivA
         // Runs if the Player wants Restarts the level
         private void btnRestartLevel_Click(object sender, EventArgs e)
         {
+            // If conditions for each tutorial level and main level
             if (intLevelOpened == 1) { 
                 TutorialPart1 tutorialPart1 = new TutorialPart1();
                 tutorialPart1.Show();
@@ -39,6 +40,36 @@ namespace Game_Culminating_MansivA
             {
                 TutorialPart3 tutorialPart3 = new TutorialPart3();
                 tutorialPart3.Show();
+            }
+            if (intLevelOpened == 4)
+            {
+                MainGamePt1 mainGamePt1 = new MainGamePt1();
+                mainGamePt1.Show();
+            }
+            if (intLevelOpened == 5)
+            {
+                MainGamePt2 mainGamePt2 = new MainGamePt2();
+                mainGamePt2.Show();
+            }
+            if (intLevelOpened == 6)
+            {
+                MainGamePt3 mainGamePt3 = new MainGamePt3();
+                mainGamePt3.Show();
+            }
+            if (intLevelOpened == 7)
+            {
+                MainGamePt4 mainGamePt4 = new MainGamePt4();
+                mainGamePt4.Show();
+            }
+            if (intLevelOpened == 8)
+            {
+                MainGamePt5 mainGamePt5 = new MainGamePt5();
+                mainGamePt5.Show();
+            }
+            if (intLevelOpened == 9)
+            {
+                MainGamePt6 mainGamePt6 = new MainGamePt6();
+                mainGamePt6.Show();
             }
             Close();
         }
