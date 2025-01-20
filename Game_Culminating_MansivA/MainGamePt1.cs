@@ -783,14 +783,28 @@ namespace Game_Culminating_MansivA
             {
                 if (pcbPlayer.Bounds.IntersectsWith(pcbCyanKey.Bounds) && pcbCyanKey.Visible == true)
                 {
-                    pcbCyanKey.Visible = false;
-                    intInventoryValues[0] = 2;
-                    strInventoryNames[0] = "Cyan Key";
-                    blnInteract = false;
-                }
-                else
-                {
-                    blnInteract = false;
+                    if (intInventoryValues[0] == 0)
+                    {
+                        pcbCyanKey.Visible = false;
+                        intInventoryValues[0] = 5;
+                        strInventoryNames[0] = "Crimson Key";
+                        blnInteract = false;
+                    }
+                    else
+                    {
+                        // Runs a for loop to find a slot where the game can put the item into
+                        for (int i = 0; i < 5; i++)
+                        {
+                            if (intInventoryValues[i] == 0)
+                            {
+                                pcbCyanKey.Visible = false;
+                                intInventoryValues[i] = 5;
+                                strInventoryNames[i] = "Crimson Key";
+                                blnInteract = false;
+                                break;
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -938,7 +952,6 @@ namespace Game_Culminating_MansivA
         // Opens the settings form
         private void btnSettings_Click(object sender, EventArgs e)
         {
-            SaveInventory();
             // Changes the int level opened in the settings form so that we can reopen this level
             Settings.intLevelOpened = 4;
             Settings settings = new Settings();

@@ -87,11 +87,11 @@ namespace Game_Culminating_MansivA
         private void btnGameStart_Click(object sender, EventArgs e)
         {
             // Makes a instance of the Main Game 1 Form
-            MainGamePt3 MainGamePt3 = new MainGamePt3();
+            MainGamePt1 MainGamePt1 = new MainGamePt1();
             // Hides this form
             this.Hide();
             // Shows/Opens the Main Game
-            MainGamePt3.Show();
+            MainGamePt1.Show();
         }
 
         private void btnCredits_Click(object sender, EventArgs e)

@@ -835,7 +835,7 @@ namespace Game_Culminating_MansivA
                     if (intInventoryValues[1] == 0)
                     {
                         pcbRedKey.Visible = false;
-                        intInventoryValues[1] = 3;
+                        intInventoryValues[1] = 4;
                         strInventoryNames[1] = "Red Key";
                         blnInteract = false;
                     }
@@ -847,7 +847,7 @@ namespace Game_Culminating_MansivA
                             if (intInventoryValues[i] == 0)
                             {
                                 pcbRedKey.Visible = false;
-                                intInventoryValues[i] = 3;
+                                intInventoryValues[i] = 4;
                                 strInventoryNames[i] = "Red Key";
                                 blnInteract = false;
                                 break;
@@ -1186,7 +1186,6 @@ namespace Game_Culminating_MansivA
         // Opens the settings form
         private void btnSettings_Click_1(object sender, EventArgs e)
         {
-            SaveInventory();
             // Changes the int level opened in the settings form so that we can reopen this level
             Settings.intLevelOpened = 5;
             Settings settings = new Settings();

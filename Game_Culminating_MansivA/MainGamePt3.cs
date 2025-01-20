@@ -808,7 +808,7 @@ namespace Game_Culminating_MansivA
                 if ((intJumpVelocity <= 0 || intGravity > 0))
                 {
                     // checks if the user has the cyan key in their main hand
-                    if (intMainHandItemValue != 4 && pcbLockedCrimsonDoor.Visible == true)
+                    if (intMainHandItemValue != 5 && pcbLockedCrimsonDoor.Visible == true)
                     {
                         // Location of the platform and the player height
                         pcbPlayer.Top = pcbLockedCrimsonDoor.Location.Y + 1 - pcbPlayer.Height;
@@ -1184,7 +1184,7 @@ namespace Game_Culminating_MansivA
                     if (intInventoryValues[0] == 0)
                     {
                         pcbCrimsonKey.Visible = false;
-                        intInventoryValues[0] = 4;
+                        intInventoryValues[0] = 5;
                         strInventoryNames[0] = "Crimson Key";
                         blnInteract = false;
                     }
@@ -1196,7 +1196,7 @@ namespace Game_Culminating_MansivA
                             if (intInventoryValues[i] == 0)
                             {
                                 pcbCrimsonKey.Visible = false;
-                                intInventoryValues[i] = 4;
+                                intInventoryValues[i] = 5;
                                 strInventoryNames[i] = "Crimson Key";
                                 blnInteract = false;
                                 break;
@@ -1258,7 +1258,7 @@ namespace Game_Culminating_MansivA
         // Gets rid of the key after using it
         private void deleteKey()
         {
-            if (intMainHandItemValue == 4)
+            if (intMainHandItemValue == 5)
             {
                 pcbLockedCrimsonDoor.Visible = false;
                 intMainHandItemValue = 0;
@@ -1330,7 +1330,6 @@ namespace Game_Culminating_MansivA
         // Opens the settings form
         private void btnSettings_Click(object sender, EventArgs e)
         {
-            SaveInventory();
             // Changes the int level opened in the settings form so that we can reopen this level
             Settings.intLevelOpened = 6;
             Settings settings = new Settings();
