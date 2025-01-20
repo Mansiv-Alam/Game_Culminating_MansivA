@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+// Adds File IO library
+using System.IO;
 
 namespace Game_Culminating_MansivA
 {
@@ -89,7 +91,23 @@ namespace Game_Culminating_MansivA
 
         private void btnSaveGame_Click(object sender, EventArgs e)
         {
-
+            // Makes File
+            FileInfo FileX = new FileInfo("RuinsSaveLoad.txt");
+            // Opens file /Writes Data into
+            StreamWriter Text = FileX.CreateText();
+            // Writes the level opened, Score saved, main hand item values, and the inventory array
+            Text.WriteLine(intLevelOpened);
+            Text.WriteLine(intPlayerScoreSaved);
+            Text.WriteLine(intMainHandValue);
+            Text.WriteLine(strMainHandItemName);
+            for (int i = 0; i < intInventoryValuesSaved.Length; i++) {
+                Text.WriteLine(intInventoryValuesSaved[i]);
+            }
+            for (int i = 0; i < strInventoryNamesSaved.Length; i++)
+            {
+                Text.WriteLine(strInventoryNamesSaved[i]);
+            }
+            Text.Close();
         }
     }
 }

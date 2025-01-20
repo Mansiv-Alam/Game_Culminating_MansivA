@@ -61,6 +61,7 @@
             this.btnLoadSave.TabStop = false;
             this.btnLoadSave.Text = "Load Save";
             this.btnLoadSave.UseVisualStyleBackColor = true;
+            this.btnLoadSave.Click += new System.EventHandler(this.btnLoadSave_Click);
             // 
             // btnTutorialStart
             // 
