@@ -44,6 +44,11 @@ namespace Game_Culminating_MansivA
         {
             InitializeComponent();
             LoadInventory();
+            // Renders another screen not on the screen and then changes the rendered screen not on the screen onto the screen
+            // helps with smoother animation and less lag
+            this.DoubleBuffered = true;
+            // Makes the background the ruins bg
+            this.BackgroundImage = Resource1.RuinsBg;
         }
         // Detects when the player presses a key down
         private void MainGamePt2_KeyDown(object sender, KeyEventArgs e)

@@ -39,74 +39,81 @@
             // 
             // btnGameStart
             // 
+            this.btnGameStart.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnGameStart.FlatAppearance.BorderSize = 0;
             this.btnGameStart.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGameStart.ForeColor = System.Drawing.Color.Black;
+            this.btnGameStart.ForeColor = System.Drawing.Color.Transparent;
             this.btnGameStart.Location = new System.Drawing.Point(465, 260);
             this.btnGameStart.Name = "btnGameStart";
             this.btnGameStart.Size = new System.Drawing.Size(250, 50);
             this.btnGameStart.TabIndex = 0;
             this.btnGameStart.TabStop = false;
             this.btnGameStart.Text = "Start Game";
-            this.btnGameStart.UseVisualStyleBackColor = true;
+            this.btnGameStart.UseVisualStyleBackColor = false;
             this.btnGameStart.Click += new System.EventHandler(this.btnGameStart_Click);
             // 
             // btnLoadSave
             // 
+            this.btnLoadSave.BackColor = System.Drawing.SystemColors.ControlDark;
             this.btnLoadSave.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLoadSave.ForeColor = System.Drawing.Color.Black;
+            this.btnLoadSave.ForeColor = System.Drawing.Color.Transparent;
             this.btnLoadSave.Location = new System.Drawing.Point(465, 338);
             this.btnLoadSave.Name = "btnLoadSave";
             this.btnLoadSave.Size = new System.Drawing.Size(250, 50);
             this.btnLoadSave.TabIndex = 1;
             this.btnLoadSave.TabStop = false;
             this.btnLoadSave.Text = "Load Save";
-            this.btnLoadSave.UseVisualStyleBackColor = true;
+            this.btnLoadSave.UseVisualStyleBackColor = false;
             this.btnLoadSave.Click += new System.EventHandler(this.btnLoadSave_Click);
             // 
             // btnTutorialStart
             // 
+            this.btnTutorialStart.BackColor = System.Drawing.SystemColors.ControlDark;
             this.btnTutorialStart.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTutorialStart.ForeColor = System.Drawing.Color.Black;
+            this.btnTutorialStart.ForeColor = System.Drawing.Color.Transparent;
             this.btnTutorialStart.Location = new System.Drawing.Point(465, 415);
             this.btnTutorialStart.Name = "btnTutorialStart";
             this.btnTutorialStart.Size = new System.Drawing.Size(250, 50);
             this.btnTutorialStart.TabIndex = 2;
             this.btnTutorialStart.TabStop = false;
             this.btnTutorialStart.Text = "Tutorial";
-            this.btnTutorialStart.UseVisualStyleBackColor = true;
+            this.btnTutorialStart.UseVisualStyleBackColor = false;
             this.btnTutorialStart.Click += new System.EventHandler(this.btnTutorialStart_Click);
             // 
             // btnCredits
             // 
+            this.btnCredits.BackColor = System.Drawing.SystemColors.ControlDark;
             this.btnCredits.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCredits.ForeColor = System.Drawing.Color.Black;
+            this.btnCredits.ForeColor = System.Drawing.Color.Transparent;
             this.btnCredits.Location = new System.Drawing.Point(465, 489);
             this.btnCredits.Name = "btnCredits";
             this.btnCredits.Size = new System.Drawing.Size(250, 50);
             this.btnCredits.TabIndex = 3;
             this.btnCredits.TabStop = false;
             this.btnCredits.Text = "Credits";
-            this.btnCredits.UseVisualStyleBackColor = true;
+            this.btnCredits.UseVisualStyleBackColor = false;
             this.btnCredits.Click += new System.EventHandler(this.btnCredits_Click);
             // 
             // btnQuit
             // 
+            this.btnQuit.BackColor = System.Drawing.SystemColors.ControlDark;
             this.btnQuit.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQuit.ForeColor = System.Drawing.Color.Black;
+            this.btnQuit.ForeColor = System.Drawing.Color.Transparent;
             this.btnQuit.Location = new System.Drawing.Point(465, 561);
             this.btnQuit.Name = "btnQuit";
             this.btnQuit.Size = new System.Drawing.Size(250, 50);
             this.btnQuit.TabIndex = 4;
             this.btnQuit.TabStop = false;
             this.btnQuit.Text = "Quit";
-            this.btnQuit.UseVisualStyleBackColor = true;
+            this.btnQuit.UseVisualStyleBackColor = false;
             this.btnQuit.Click += new System.EventHandler(this.btnQuit_Click);
             // 
             // lblGameText
             // 
             this.lblGameText.AutoSize = true;
+            this.lblGameText.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.lblGameText.Font = new System.Drawing.Font("Courier New", 72F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGameText.ForeColor = System.Drawing.Color.SlateGray;
+            this.lblGameText.ForeColor = System.Drawing.Color.LightCyan;
             this.lblGameText.Location = new System.Drawing.Point(318, 55);
             this.lblGameText.Name = "lblGameText";
             this.lblGameText.Size = new System.Drawing.Size(569, 111);
@@ -129,6 +136,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Game_Culminating_MansivA.Resource1.RuinsBg;
             this.ClientSize = new System.Drawing.Size(1184, 911);
             this.Controls.Add(this.lblTutorial1Text);
             this.Controls.Add(this.lblGameText);

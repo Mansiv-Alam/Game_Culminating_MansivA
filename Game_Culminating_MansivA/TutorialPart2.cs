@@ -40,6 +40,11 @@ namespace Game_Culminating_MansivA
         public TutorialPart2()
         {
             InitializeComponent();
+            // Renders another screen not on the screen and then changes the rendered screen not on the screen onto the screen
+            // helps with smoother animation and less lag
+            this.DoubleBuffered = true;
+            // Makes the background the ruins bg
+            this.BackgroundImage = Resource1.RuinsBg;
             strMainHandItemName = "Sword";
             intMainHandItemValue = 1;
             lblMainHand.Text = "Main Hand:" + strMainHandItemName;

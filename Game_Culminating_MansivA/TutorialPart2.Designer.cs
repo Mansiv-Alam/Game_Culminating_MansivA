@@ -303,6 +303,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Game_Culminating_MansivA.Resource1.RuinsBg;
             this.ClientSize = new System.Drawing.Size(1184, 911);
             this.Controls.Add(this.pcbHealthPotion);
             this.Controls.Add(this.pcbSword);

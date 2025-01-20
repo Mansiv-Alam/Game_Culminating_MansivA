@@ -45,6 +45,11 @@ namespace Game_Culminating_MansivA
         public MainGamePt1()
         {
             InitializeComponent();
+            // Renders another screen not on the screen and then changes the rendered screen not on the screen onto the screen
+            // helps with smoother animation and less lag
+            this.DoubleBuffered = true;
+            // Makes the background the ruins bg
+            this.BackgroundImage = Resource1.RuinsBg;
             strMainHandItemName = "Sword";
             intMainHandItemValue = 1;
             lblMainHand.Text = "Main Hand:" + strMainHandItemName;
@@ -786,8 +791,8 @@ namespace Game_Culminating_MansivA
                     if (intInventoryValues[0] == 0)
                     {
                         pcbCyanKey.Visible = false;
-                        intInventoryValues[0] = 5;
-                        strInventoryNames[0] = "Crimson Key";
+                        intInventoryValues[0] = 2;
+                        strInventoryNames[0] = "Cyan Key";
                         blnInteract = false;
                     }
                     else
@@ -798,8 +803,8 @@ namespace Game_Culminating_MansivA
                             if (intInventoryValues[i] == 0)
                             {
                                 pcbCyanKey.Visible = false;
-                                intInventoryValues[i] = 5;
-                                strInventoryNames[i] = "Crimson Key";
+                                intInventoryValues[i] = 2;
+                                strInventoryNames[i] = "Cyan Key";
                                 blnInteract = false;
                                 break;
                             }

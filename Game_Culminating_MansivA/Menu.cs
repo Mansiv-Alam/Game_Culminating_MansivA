@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 // Addes File IO
 using System.IO;
+using System.Diagnostics;
 
 namespace Game_Culminating_MansivA
 {
@@ -37,61 +38,46 @@ namespace Game_Culminating_MansivA
             TutorialPart1.Show();
         }
 
+        // pictureboxname.Image = resoucefilename.image.imagename 
+
         private void btnGameStart_Click(object sender, EventArgs e)
         {
             // If conditions for each tutorial level and main level
-            if (Settings.intLevelOpened == 1)
-            {
-                TutorialPart1 tutorialPart1 = new TutorialPart1();
-                tutorialPart1.Show();
+            if (Settings.intLevelOpened == 0) {
+                MainGamePt1 mainGamePt1 = new MainGamePt1();
+                mainGamePt1.Show();
             }
-            if (Settings.intLevelOpened == 2)
-            {
-                TutorialPart2 tutorialPart2 = new TutorialPart2();
-                tutorialPart2.Show();
-            }
-            if (Settings.intLevelOpened == 3)
-            {
-                TutorialPart3 tutorialPart3 = new TutorialPart3();
-                tutorialPart3.Show();
-            }
-            if (Settings.intLevelOpened == 4)
+            else if (Settings.intLevelOpened == 4)
             {
                 MainGamePt1 mainGamePt1 = new MainGamePt1();
                 mainGamePt1.Show();
             }
-            if (Settings.intLevelOpened == 5)
+            else if (Settings.intLevelOpened == 5)
             {
                 MainGamePt2 mainGamePt2 = new MainGamePt2();
                 mainGamePt2.Show();
             }
-            if (Settings.intLevelOpened == 6)
+            else if (Settings.intLevelOpened == 6)
             {
                 MainGamePt3 mainGamePt3 = new MainGamePt3();
                 mainGamePt3.Show();
             }
-            if (Settings.intLevelOpened == 7)
+            else if (Settings.intLevelOpened == 7)
             {
                 MainGamePt4 mainGamePt4 = new MainGamePt4();
                 mainGamePt4.Show();
             }
-            if (Settings.intLevelOpened == 8)
+            else if (Settings.intLevelOpened == 8)
             {
                 MainGamePt5 mainGamePt5 = new MainGamePt5();
                 mainGamePt5.Show();
             }
-            if (Settings.intLevelOpened == 9)
+            else if (Settings.intLevelOpened == 9)
             {
                 MainGamePt6 mainGamePt6 = new MainGamePt6();
                 mainGamePt6.Show();
             }
-            // Runs the first level if there is nothing in the Settings.intLevelOpened
-            else
-            {
-                MainGamePt1 mainGamePt1 = new MainGamePt1();
-                mainGamePt1.Show();
-            }
-            Close();
+            this.Hide();
         }
 
         private void btnCredits_Click(object sender, EventArgs e)
