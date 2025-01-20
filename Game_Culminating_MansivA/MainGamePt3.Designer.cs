@@ -57,16 +57,17 @@
             this.pcbBasicEnemySword = new System.Windows.Forms.PictureBox();
             this.pcbLever = new System.Windows.Forms.PictureBox();
             this.pcbLockedLeverDoor = new System.Windows.Forms.PictureBox();
-            this.pcbRedKey = new System.Windows.Forms.PictureBox();
-            this.pcbLockedRedDoor = new System.Windows.Forms.PictureBox();
+            this.pcbCrimsonKey = new System.Windows.Forms.PictureBox();
+            this.pcbLockedCrimsonDoor = new System.Windows.Forms.PictureBox();
             this.pcbExtraScore = new System.Windows.Forms.PictureBox();
             this.pcbLava = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pcbLever2 = new System.Windows.Forms.PictureBox();
+            this.pcbLockedLeverDoor2 = new System.Windows.Forms.PictureBox();
+            this.pcbSpike = new System.Windows.Forms.PictureBox();
             this.pcbSpike2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pcbSpike4 = new System.Windows.Forms.PictureBox();
+            this.pcbSpike3 = new System.Windows.Forms.PictureBox();
+            this.pcbExtraScore2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pcbSword)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbGround)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlayer)).BeginInit();
@@ -88,16 +89,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbBasicEnemySword)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLever)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLockedLeverDoor)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbRedKey)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbLockedRedDoor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbCrimsonKey)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbLockedCrimsonDoor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbExtraScore)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLava)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbLever2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbLockedLeverDoor2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbSpike)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbSpike2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbSpike4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbSpike3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbExtraScore2)).BeginInit();
             this.SuspendLayout();
             // 
             // lblScore
@@ -198,7 +200,7 @@
             this.pcbBottomLeftPlatform.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.pcbBottomLeftPlatform.Location = new System.Drawing.Point(0, 590);
             this.pcbBottomLeftPlatform.Name = "pcbBottomLeftPlatform";
-            this.pcbBottomLeftPlatform.Size = new System.Drawing.Size(784, 40);
+            this.pcbBottomLeftPlatform.Size = new System.Drawing.Size(741, 40);
             this.pcbBottomLeftPlatform.TabIndex = 62;
             this.pcbBottomLeftPlatform.TabStop = false;
             // 
@@ -207,16 +209,16 @@
             this.pcbLeftColumnWall.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.pcbLeftColumnWall.Location = new System.Drawing.Point(738, 205);
             this.pcbLeftColumnWall.Name = "pcbLeftColumnWall";
-            this.pcbLeftColumnWall.Size = new System.Drawing.Size(46, 389);
+            this.pcbLeftColumnWall.Size = new System.Drawing.Size(46, 425);
             this.pcbLeftColumnWall.TabIndex = 63;
             this.pcbLeftColumnWall.TabStop = false;
             // 
             // pcbBottomRightPlatform
             // 
             this.pcbBottomRightPlatform.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pcbBottomRightPlatform.Location = new System.Drawing.Point(981, 574);
+            this.pcbBottomRightPlatform.Location = new System.Drawing.Point(1020, 574);
             this.pcbBottomRightPlatform.Name = "pcbBottomRightPlatform";
-            this.pcbBottomRightPlatform.Size = new System.Drawing.Size(204, 40);
+            this.pcbBottomRightPlatform.Size = new System.Drawing.Size(165, 40);
             this.pcbBottomRightPlatform.TabIndex = 64;
             this.pcbBottomRightPlatform.TabStop = false;
             // 
@@ -289,16 +291,16 @@
             // pcbPlatform1
             // 
             this.pcbPlatform1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pcbPlatform1.Location = new System.Drawing.Point(0, 359);
+            this.pcbPlatform1.Location = new System.Drawing.Point(0, 335);
             this.pcbPlatform1.Name = "pcbPlatform1";
-            this.pcbPlatform1.Size = new System.Drawing.Size(255, 40);
+            this.pcbPlatform1.Size = new System.Drawing.Size(202, 40);
             this.pcbPlatform1.TabIndex = 72;
             this.pcbPlatform1.TabStop = false;
             // 
             // pcbPlatform2
             // 
             this.pcbPlatform2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pcbPlatform2.Location = new System.Drawing.Point(452, 359);
+            this.pcbPlatform2.Location = new System.Drawing.Point(452, 398);
             this.pcbPlatform2.Name = "pcbPlatform2";
             this.pcbPlatform2.Size = new System.Drawing.Size(289, 40);
             this.pcbPlatform2.TabIndex = 73;
@@ -307,7 +309,7 @@
             // pcbStrongEnemy
             // 
             this.pcbStrongEnemy.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.pcbStrongEnemy.Location = new System.Drawing.Point(595, 503);
+            this.pcbStrongEnemy.Location = new System.Drawing.Point(133, 503);
             this.pcbStrongEnemy.Name = "pcbStrongEnemy";
             this.pcbStrongEnemy.Size = new System.Drawing.Size(57, 87);
             this.pcbStrongEnemy.TabIndex = 74;
@@ -316,7 +318,7 @@
             // pcbStrongEnemySword
             // 
             this.pcbStrongEnemySword.BackColor = System.Drawing.Color.Goldenrod;
-            this.pcbStrongEnemySword.Location = new System.Drawing.Point(563, 533);
+            this.pcbStrongEnemySword.Location = new System.Drawing.Point(101, 533);
             this.pcbStrongEnemySword.Name = "pcbStrongEnemySword";
             this.pcbStrongEnemySword.Size = new System.Drawing.Size(36, 36);
             this.pcbStrongEnemySword.TabIndex = 75;
@@ -326,7 +328,7 @@
             // pcbBasicEnemy
             // 
             this.pcbBasicEnemy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.pcbBasicEnemy.Location = new System.Drawing.Point(563, 272);
+            this.pcbBasicEnemy.Location = new System.Drawing.Point(563, 311);
             this.pcbBasicEnemy.Name = "pcbBasicEnemy";
             this.pcbBasicEnemy.Size = new System.Drawing.Size(57, 87);
             this.pcbBasicEnemy.TabIndex = 76;
@@ -335,7 +337,7 @@
             // pcbBasicEnemySword
             // 
             this.pcbBasicEnemySword.BackColor = System.Drawing.Color.Gold;
-            this.pcbBasicEnemySword.Location = new System.Drawing.Point(529, 298);
+            this.pcbBasicEnemySword.Location = new System.Drawing.Point(529, 337);
             this.pcbBasicEnemySword.Name = "pcbBasicEnemySword";
             this.pcbBasicEnemySword.Size = new System.Drawing.Size(36, 36);
             this.pcbBasicEnemySword.TabIndex = 77;
@@ -345,7 +347,7 @@
             // pcbLever
             // 
             this.pcbLever.BackColor = System.Drawing.Color.SandyBrown;
-            this.pcbLever.Location = new System.Drawing.Point(680, 272);
+            this.pcbLever.Location = new System.Drawing.Point(680, 311);
             this.pcbLever.Name = "pcbLever";
             this.pcbLever.Size = new System.Drawing.Size(58, 57);
             this.pcbLever.TabIndex = 79;
@@ -360,23 +362,23 @@
             this.pcbLockedLeverDoor.TabIndex = 78;
             this.pcbLockedLeverDoor.TabStop = false;
             // 
-            // pcbRedKey
+            // pcbCrimsonKey
             // 
-            this.pcbRedKey.BackColor = System.Drawing.Color.Crimson;
-            this.pcbRedKey.Location = new System.Drawing.Point(19, 482);
-            this.pcbRedKey.Name = "pcbRedKey";
-            this.pcbRedKey.Size = new System.Drawing.Size(58, 57);
-            this.pcbRedKey.TabIndex = 81;
-            this.pcbRedKey.TabStop = false;
+            this.pcbCrimsonKey.BackColor = System.Drawing.Color.Crimson;
+            this.pcbCrimsonKey.Location = new System.Drawing.Point(12, 483);
+            this.pcbCrimsonKey.Name = "pcbCrimsonKey";
+            this.pcbCrimsonKey.Size = new System.Drawing.Size(58, 57);
+            this.pcbCrimsonKey.TabIndex = 81;
+            this.pcbCrimsonKey.TabStop = false;
             // 
-            // pcbLockedRedDoor
+            // pcbLockedCrimsonDoor
             // 
-            this.pcbLockedRedDoor.BackColor = System.Drawing.Color.Crimson;
-            this.pcbLockedRedDoor.Location = new System.Drawing.Point(1020, 289);
-            this.pcbLockedRedDoor.Name = "pcbLockedRedDoor";
-            this.pcbLockedRedDoor.Size = new System.Drawing.Size(146, 30);
-            this.pcbLockedRedDoor.TabIndex = 80;
-            this.pcbLockedRedDoor.TabStop = false;
+            this.pcbLockedCrimsonDoor.BackColor = System.Drawing.Color.Crimson;
+            this.pcbLockedCrimsonDoor.Location = new System.Drawing.Point(1020, 289);
+            this.pcbLockedCrimsonDoor.Name = "pcbLockedCrimsonDoor";
+            this.pcbLockedCrimsonDoor.Size = new System.Drawing.Size(146, 30);
+            this.pcbLockedCrimsonDoor.TabIndex = 80;
+            this.pcbLockedCrimsonDoor.TabStop = false;
             // 
             // pcbExtraScore
             // 
@@ -390,78 +392,87 @@
             // pcbLava
             // 
             this.pcbLava.BackColor = System.Drawing.Color.Firebrick;
-            this.pcbLava.Location = new System.Drawing.Point(219, 590);
+            this.pcbLava.Location = new System.Drawing.Point(257, 590);
             this.pcbLava.Name = "pcbLava";
-            this.pcbLava.Size = new System.Drawing.Size(282, 24);
+            this.pcbLava.Size = new System.Drawing.Size(193, 24);
             this.pcbLava.TabIndex = 83;
             this.pcbLava.TabStop = false;
             // 
-            // pictureBox1
+            // pcbLever2
             // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBox1.Location = new System.Drawing.Point(1094, 32);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(58, 57);
-            this.pictureBox1.TabIndex = 84;
-            this.pictureBox1.TabStop = false;
+            this.pcbLever2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pcbLever2.Location = new System.Drawing.Point(1094, 32);
+            this.pcbLever2.Name = "pcbLever2";
+            this.pcbLever2.Size = new System.Drawing.Size(58, 57);
+            this.pcbLever2.TabIndex = 84;
+            this.pcbLever2.TabStop = false;
             // 
-            // pictureBox2
+            // pcbLockedLeverDoor2
             // 
-            this.pictureBox2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBox2.Location = new System.Drawing.Point(1020, 369);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(144, 30);
-            this.pictureBox2.TabIndex = 85;
-            this.pictureBox2.TabStop = false;
+            this.pcbLockedLeverDoor2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pcbLockedLeverDoor2.Location = new System.Drawing.Point(1020, 369);
+            this.pcbLockedLeverDoor2.Name = "pcbLockedLeverDoor2";
+            this.pcbLockedLeverDoor2.Size = new System.Drawing.Size(144, 30);
+            this.pcbLockedLeverDoor2.TabIndex = 85;
+            this.pcbLockedLeverDoor2.TabStop = false;
+            // 
+            // pcbSpike
+            // 
+            this.pcbSpike.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.pcbSpike.Location = new System.Drawing.Point(549, 129);
+            this.pcbSpike.Name = "pcbSpike";
+            this.pcbSpike.Size = new System.Drawing.Size(39, 37);
+            this.pcbSpike.TabIndex = 86;
+            this.pcbSpike.TabStop = false;
             // 
             // pcbSpike2
             // 
             this.pcbSpike2.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.pcbSpike2.Location = new System.Drawing.Point(549, 129);
+            this.pcbSpike2.Location = new System.Drawing.Point(510, 129);
             this.pcbSpike2.Name = "pcbSpike2";
             this.pcbSpike2.Size = new System.Drawing.Size(39, 37);
-            this.pcbSpike2.TabIndex = 86;
+            this.pcbSpike2.TabIndex = 87;
             this.pcbSpike2.TabStop = false;
             // 
-            // pictureBox3
+            // pcbSpike4
             // 
-            this.pictureBox3.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.pictureBox3.Location = new System.Drawing.Point(510, 129);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(39, 37);
-            this.pictureBox3.TabIndex = 87;
-            this.pictureBox3.TabStop = false;
+            this.pcbSpike4.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.pcbSpike4.Location = new System.Drawing.Point(301, 129);
+            this.pcbSpike4.Name = "pcbSpike4";
+            this.pcbSpike4.Size = new System.Drawing.Size(39, 37);
+            this.pcbSpike4.TabIndex = 89;
+            this.pcbSpike4.TabStop = false;
             // 
-            // pictureBox4
+            // pcbSpike3
             // 
-            this.pictureBox4.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.pictureBox4.Location = new System.Drawing.Point(301, 129);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(39, 37);
-            this.pictureBox4.TabIndex = 89;
-            this.pictureBox4.TabStop = false;
+            this.pcbSpike3.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.pcbSpike3.Location = new System.Drawing.Point(340, 129);
+            this.pcbSpike3.Name = "pcbSpike3";
+            this.pcbSpike3.Size = new System.Drawing.Size(39, 37);
+            this.pcbSpike3.TabIndex = 88;
+            this.pcbSpike3.TabStop = false;
             // 
-            // pictureBox5
+            // pcbExtraScore2
             // 
-            this.pictureBox5.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.pictureBox5.Location = new System.Drawing.Point(340, 129);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(39, 37);
-            this.pictureBox5.TabIndex = 88;
-            this.pictureBox5.TabStop = false;
+            this.pcbExtraScore2.BackColor = System.Drawing.Color.Gold;
+            this.pcbExtraScore2.Location = new System.Drawing.Point(595, 503);
+            this.pcbExtraScore2.Name = "pcbExtraScore2";
+            this.pcbExtraScore2.Size = new System.Drawing.Size(60, 57);
+            this.pcbExtraScore2.TabIndex = 90;
+            this.pcbExtraScore2.TabStop = false;
             // 
             // MainGamePt3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 911);
-            this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.pcbExtraScore2);
+            this.Controls.Add(this.pcbSpike4);
+            this.Controls.Add(this.pcbSpike3);
             this.Controls.Add(this.pcbSpike2);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pcbSpike);
             this.Controls.Add(this.pcbLava);
-            this.Controls.Add(this.pcbRedKey);
+            this.Controls.Add(this.pcbCrimsonKey);
             this.Controls.Add(this.pcbLever);
             this.Controls.Add(this.pcbBasicEnemy);
             this.Controls.Add(this.pcbBasicEnemySword);
@@ -485,12 +496,13 @@
             this.Controls.Add(this.lblScore);
             this.Controls.Add(this.pcbTopWall);
             this.Controls.Add(this.pcbLockedLeverDoor);
-            this.Controls.Add(this.pcbLockedRedDoor);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pcbLockedCrimsonDoor);
+            this.Controls.Add(this.pcbLever2);
             this.Controls.Add(this.pcbExtraScore);
             this.Controls.Add(this.pcbStrongEnemy);
             this.Controls.Add(this.pcbStrongEnemySword);
             this.Controls.Add(this.pcbPlayer);
+            this.Controls.Add(this.pcbLockedLeverDoor2);
             this.KeyPreview = true;
             this.Name = "MainGamePt3";
             this.Text = " ";
@@ -518,16 +530,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbBasicEnemySword)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLever)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLockedLeverDoor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbRedKey)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbLockedRedDoor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbCrimsonKey)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbLockedCrimsonDoor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbExtraScore)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLava)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbLever2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbLockedLeverDoor2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbSpike)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbSpike2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbSpike4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbSpike3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbExtraScore2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -563,15 +576,16 @@
         private System.Windows.Forms.PictureBox pcbBasicEnemySword;
         private System.Windows.Forms.PictureBox pcbLever;
         private System.Windows.Forms.PictureBox pcbLockedLeverDoor;
-        private System.Windows.Forms.PictureBox pcbRedKey;
-        private System.Windows.Forms.PictureBox pcbLockedRedDoor;
+        private System.Windows.Forms.PictureBox pcbCrimsonKey;
+        private System.Windows.Forms.PictureBox pcbLockedCrimsonDoor;
         private System.Windows.Forms.PictureBox pcbExtraScore;
         private System.Windows.Forms.PictureBox pcbLava;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pcbLever2;
+        private System.Windows.Forms.PictureBox pcbLockedLeverDoor2;
+        private System.Windows.Forms.PictureBox pcbSpike;
         private System.Windows.Forms.PictureBox pcbSpike2;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox pcbSpike4;
+        private System.Windows.Forms.PictureBox pcbSpike3;
+        private System.Windows.Forms.PictureBox pcbExtraScore2;
     }
 }

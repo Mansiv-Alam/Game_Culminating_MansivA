@@ -40,6 +40,10 @@ namespace Game_Culminating_MansivA
         int intStrongEnemyAttackInterval = 0;
         int intStrongEnemySwordVisibilityCounter = 26;
         bool blnStrongEnemyMovingLeft = false;
+        bool blnBasicEnemyMovingLeft = true;
+        int intEnemySwordVisibilityCounter = 26;
+        int intEnemyAttackInterval = 0;
+        bool blnBasicEnemyCanDamagePlayer = true;
         public MainGamePt3()
         {
             InitializeComponent();
@@ -149,6 +153,7 @@ namespace Game_Culminating_MansivA
             verticalBoundary();
             swordPositionUpdate();
             checkGrounded();
+            extraScoreHitboxes();
             // Hitboxes for platforms
             hitboxLeftPlatformFloor();
             hitboxRightPlatformFloor();
@@ -159,10 +164,17 @@ namespace Game_Culminating_MansivA
             hitboxTopPlatform();
             hitboxPlatform1();
             hitboxPlatform2();
+            // hitbox for Locked doors
+            hitboxLockedLeverDoor();
+            hitboxLockedLeverDoor2();
+            hitboxLockedKeydoor();
             // hitboxes for the steps
             hitboxStep1();
             hitboxStep2();
             hitboxStep3();
+            // Environmental Hazards Hitboxes
+            hitboxLava();
+            hitboxSpikes();
 
             // Moves the player if they clicked q to dash
             if (blnIsDashing == true)
@@ -199,15 +211,13 @@ namespace Game_Culminating_MansivA
             // Updates the health text
             playerHealthCheck();
             // Checks if the player has interacted with a key game object
-            //playerInteract();
+            playerInteract();
             // Visiblity for the player's sword
             playerSwordVisibility();
             // Defeats the enemy if the player is attacking
             swordDamage();
             // Enemy ai
-            //EnemyAi();
-            // Holdable button check 
-            //holdableButtonHitbox();
+            EnemyAi();
             // Boundaries for the next level
             if (pcbPlayer.Left > 1200)
             {
@@ -406,6 +416,13 @@ namespace Game_Culminating_MansivA
         {
             if (pcbPlayer.Bounds.IntersectsWith(pcbRightColumnWall.Bounds))
             {
+                if ((intJumpVelocity <= 0 || intGravity > 0) && pcbPlayer.Bottom < pcbRightColumnWall.Top + 30)
+                {
+                    // Location of the platform and the player height
+                    pcbPlayer.Top = pcbRightColumnWall.Location.Y + 1 - pcbPlayer.Height;
+                    isGrounded();
+                    return;
+                }
                 // Stops a dash from clipping into the platform from the left and right side
                 if (blnIsDashing == true && blnGrounded == false)
                 {
@@ -722,6 +739,114 @@ namespace Game_Culminating_MansivA
                 pcbPlayer.Left = pcbBottomWall.Left - pcbPlayer.Width;
             }
         }
+        // Hitboxes for both Extra Scores
+        private void extraScoreHitboxes()
+        {
+            // Checks if the extra score is visible/on the screem
+            if (pcbExtraScore.Visible == true && pcbPlayer.Bounds.IntersectsWith(pcbExtraScore.Bounds))
+            {
+                // increases score
+                intPlayerScore += 5;
+                // Makes the extra score disappear
+                pcbExtraScore.Visible = false;
+            }
+            // Checks if the extra score is visible/on the screem
+            if (pcbExtraScore2.Visible == true && pcbPlayer.Bounds.IntersectsWith(pcbExtraScore2.Bounds))
+            {
+                // increases score
+                intPlayerScore += 5;
+                // Makes the extra score disappear
+                pcbExtraScore2.Visible = false;
+            }
+        }
+        // Hitbox for locked lever door 1
+        private void hitboxLockedLeverDoor()
+        {
+            if (pcbPlayer.Bounds.IntersectsWith(pcbLockedLeverDoor.Bounds) && pcbLockedLeverDoor.Visible == true)
+            {
+                // Checks if the player is moving or falling down, and the player's feet is below/touching the platform and if the player's feet is above a certain point to stop clipping onto the top of the platform\
+                if (intJumpVelocity <= 0 || intGravity > 0)
+                {
+                    // Location of the platform and the player height
+                    pcbPlayer.Top = pcbLockedLeverDoor.Location.Y + 1 - pcbPlayer.Height;
+                    isGrounded();
+                    return;
+                }
+            }
+        }
+        // Hitbox for locked lever door 2
+        private void hitboxLockedLeverDoor2()
+        {
+            if (pcbPlayer.Bounds.IntersectsWith(pcbLockedLeverDoor2.Bounds) && pcbLockedLeverDoor2.Visible == true)
+            {
+                // Checks if the player is moving or falling down, and the player's feet is below/touching the platform and if the player's feet is above a certain point to stop clipping onto the top of the platform\
+                if (intJumpVelocity <= 0 || intGravity > 0)
+                {
+                    // Location of the platform and the player height
+                    pcbPlayer.Top = pcbLockedLeverDoor2.Location.Y + 1 - pcbPlayer.Height;
+                    isGrounded();
+                    return;
+                }
+            }
+        }
+        // Hitbox for locked Key door
+        private void hitboxLockedKeydoor()
+        {
+            if (pcbPlayer.Bounds.IntersectsWith(pcbLockedCrimsonDoor.Bounds) && pcbLockedCrimsonDoor.Visible == true)
+            {
+                // Checks if the player is moving or falling down, and the player's feet is below/touching the platform and if the player's feet is above a certain point to stop clipping onto the top of the platform\
+                if ((intJumpVelocity <= 0 || intGravity > 0))
+                {
+                    // checks if the user has the cyan key in their main hand
+                    if (intMainHandItemValue != 4 && pcbLockedCrimsonDoor.Visible == true)
+                    {
+                        // Location of the platform and the player height
+                        pcbPlayer.Top = pcbLockedCrimsonDoor.Location.Y + 1 - pcbPlayer.Height;
+                        isGrounded();
+                        return;
+                    }
+                    else
+                    {
+                        deleteKey();
+                    }
+                }
+            }
+        }
+        // Hitbox for lava
+        private void hitboxLava()
+        {
+            // Checks if the player has touched the lava but also gives the player a bit of leeway
+            if (pcbPlayer.Bounds.IntersectsWith(pcbLava.Bounds) && pcbPlayer.Right > pcbLava.Left + 10 && pcbPlayer.Left < pcbLava.Right - 10)
+            {
+                intPlayerHealth = 0;
+            }
+        }
+        // Hitboxes for all spikes
+        private void hitboxSpikes()
+        {
+            // Checks if the player has touched the spike with some margin 
+            if ((pcbPlayer.Bounds.IntersectsWith(pcbSpike.Bounds) || pcbPlayer.Bounds.IntersectsWith(pcbSpike2.Bounds)) && pcbPlayer.Right > pcbSpike2.Left + 5 && pcbPlayer.Left < pcbSpike.Right - 5)
+            {
+                // Decreases health
+                intPlayerHealth -= 10;
+                // Changes the player's Height
+                pcbPlayer.Top = pcbSpike.Top - 1 - pcbPlayer.Height;
+                // Changes the jump variables to make a mini player jump
+                intJumpPower = 4;
+                intJumpPowerMin = -4;
+                blnIsJumping = true;
+            }
+            else if ((pcbPlayer.Bounds.IntersectsWith(pcbSpike3.Bounds) || pcbPlayer.Bounds.IntersectsWith(pcbSpike4.Bounds)) && pcbPlayer.Right > pcbSpike4.Left + 5 && pcbPlayer.Left < pcbSpike3.Right - 5) {
+                // Decreases health
+                intPlayerHealth -= 10;
+                // Changes the player's Height
+                pcbPlayer.Top = pcbSpike.Top - 1 - pcbPlayer.Height;
+                // Changes the jump variables to make a mini player jump
+                intJumpPower = 4;
+                intJumpPowerMin = -4;
+                blnIsJumping = true;
+            }
+        }
         // Swaps a inventory slot to the main hand.
         private void swapToMainHand(int intValue)
         {
@@ -734,6 +859,244 @@ namespace Game_Culminating_MansivA
             strTemp = strInventoryNames[intValue - 1];
             strInventoryNames[intValue - 1] = strMainHandItemName;
             strMainHandItemName = strTemp;
+        }
+        // Enemy Ai
+        private void EnemyAi()
+        {
+            if (pcbBasicEnemy.Visible == true)
+            {
+                // Handles strong enemy attacks
+                basicEnemyAttack();
+                // Strong Enemy movement
+                basicEnemyAiMovement();
+                // Shows the strong enemy's sword
+                basicEnemySwordVisibility();
+            }
+            if (pcbStrongEnemy.Visible == true)
+            {
+                // Handles strong enemy attacks
+                strongEnemyAttack();
+                // Strong Enemy movement
+                strongEnemyAiMovement();
+                // Shows the strong enemy's sword
+                strongEnemySwordVisibility();
+            }
+        }
+        // Strong Enemy ai movement
+        private void strongEnemyAiMovement()
+        {
+            // Checks if the Enemy has reached its left or right boundary
+            if (pcbStrongEnemy.Left <= pcbBottomLeftPlatform.Left)
+            {
+                blnStrongEnemyMovingLeft = false;
+            }
+            else if (pcbStrongEnemy.Left >= pcbBottomLeftPlatform.Left + 200)
+            {
+                blnStrongEnemyMovingLeft = true;
+            }
+            // Stops the enemy from glitching out when near the player
+            if (pcbStrongEnemy.Bounds.IntersectsWith(pcbPlayer.Bounds))
+            {
+                return;
+            }
+            // Switches the position of the sword depending on the direction the enemy is travelling
+            if (blnStrongEnemyMovingLeft == false)
+            {
+                pcbStrongEnemySword.Left = pcbStrongEnemy.Right;
+            }
+            else
+            {
+                pcbStrongEnemySword.Left = pcbStrongEnemy.Left - pcbStrongEnemySword.Width;
+            }
+            // Idle Walk
+            // Walks towards the left
+            if (blnStrongEnemyMovingLeft == true)
+            {
+                pcbStrongEnemy.Left -= 3;
+                pcbStrongEnemySword.Left -= 3;
+            }
+            // Walks towards the right
+            if (blnStrongEnemyMovingLeft == false)
+            {
+                pcbStrongEnemy.Left += 3;
+                pcbStrongEnemySword.Left += 3;
+            }
+        }
+        // strong enemy attacks
+        private void strongEnemyAttack()
+        {
+            // Handles the strong enemy's attack interval (every 4 seconds)
+            if (intStrongEnemyAttackInterval < 200)
+            {
+                intStrongEnemyAttackInterval++;
+                blnStrongEnemyCanDamagePlayer = false;
+            }
+            else
+            {
+                blnStrongEnemyCanDamagePlayer = true;
+            }
+            // Checks if the player is on the same y level as the enemy
+            if (pcbPlayer.Top < pcbBottomLeftPlatform.Top && pcbPlayer.Top > pcbPlatform1.Bottom)
+            {
+                // Checks if the player is within the horizontal range of the enemy
+                if (pcbPlayer.Left > pcbBottomLeftPlatform.Left && pcbPlayer.Left <= pcbBottomLeftPlatform.Left + 200)
+                {
+                    if (pcbPlayer.Left < pcbStrongEnemy.Left)
+                    {
+                        blnStrongEnemyMovingLeft = true;
+                    }
+                    if (pcbPlayer.Left > pcbStrongEnemy.Left)
+                    {
+                        blnStrongEnemyMovingLeft = false;
+                    }
+                }
+                // deals damage if the enemy can attack the player
+                if (blnStrongEnemyCanDamagePlayer == true)
+                {
+                    // Checks if the sword is within the range
+                    if (pcbStrongEnemySword.Bounds.IntersectsWith(pcbPlayer.Bounds))
+                    {
+                        strongEnemyAttackDamage();
+                    }
+                }
+            }
+        }
+        // Deals damage to the player when the enemy has hit the player
+        private void strongEnemyAttackDamage()
+        {
+            // Allows the enemy's sword to be visible
+            intStrongEnemySwordVisibilityCounter = 0;
+            // Checks if the enemy sword is visible
+            if (pcbStrongEnemySword.Visible == true)
+            {
+                // Lowers the players health
+                intPlayerHealth -= 45;
+                blnStrongEnemyCanDamagePlayer = false;
+                // Resets the enemy attack interval 
+                intStrongEnemyAttackInterval = 0;
+            }
+        }
+        // Handles the visibility of the strong enemy's sword
+        private void strongEnemySwordVisibility()
+        {
+            // Handles the strong enemy's visiblity/timer
+            if (intStrongEnemySwordVisibilityCounter < 25)
+            {
+                pcbStrongEnemySword.Visible = true;
+                intStrongEnemySwordVisibilityCounter++;
+            }
+            else
+            {
+                pcbStrongEnemySword.Visible = false;
+            }
+        }
+        // Basic Enemy ai movement
+        private void basicEnemyAiMovement()
+        {
+            // Checks if the Enemy has reached its left or right boundary
+            if (pcbBasicEnemy.Left <= pcbPlatform2.Left)
+            {
+                blnBasicEnemyMovingLeft = false;
+            }
+            else if (pcbBasicEnemy.Left >= pcbPlatform2.Right - 70)
+            {
+                blnBasicEnemyMovingLeft = true;
+            }
+            // Stops the enemy from glitching out when near the player
+            if (pcbBasicEnemy.Bounds.IntersectsWith(pcbPlayer.Bounds))
+            {
+                return;
+            }
+            // Switches the position of the sword depending on the direction the enemy is travelling
+            if (blnBasicEnemyMovingLeft == false)
+            {
+                pcbBasicEnemySword.Left = pcbBasicEnemy.Right;
+            }
+            else
+            {
+                pcbBasicEnemySword.Left = pcbBasicEnemy.Left - pcbBasicEnemySword.Width;
+            }
+            // Idle Walk
+            // Walks towards the left
+            if (blnBasicEnemyMovingLeft == true)
+            {
+                pcbBasicEnemy.Left -= 3;
+                pcbBasicEnemySword.Left -= 3;
+            }
+            // Walks towards the right
+            if (blnBasicEnemyMovingLeft == false)
+            {
+                pcbBasicEnemy.Left += 3;
+                pcbBasicEnemySword.Left += 3;
+            }
+        }
+        // Attacks the player if they are within range
+        private void basicEnemyAttack()
+        {
+            // Every 3 seconds the enemy can attack (but the enemy's sword stays up for 1 second so technically every 2 seconds the enemy can deal damage (150 ticks * 20 ms per tick))
+            if (intEnemyAttackInterval < 150)
+            {
+                intEnemyAttackInterval++;
+                blnBasicEnemyCanDamagePlayer = false;
+            }
+            else
+            {
+                blnBasicEnemyCanDamagePlayer = true;
+            }
+            // Checks if the player is on the same y level as the enemy 
+            if (pcbPlayer.Top > pcbTopPlatform.Top && pcbPlayer.Top < pcbPlatform2.Top)
+            {
+                // Checks if the player is within the horizontal range of the enemy
+                if (pcbPlayer.Left > pcbPlatform2.Right - 70 && pcbPlayer.Left <= pcbPlatform2.Left)
+                {
+                    if (pcbPlayer.Left < pcbBasicEnemy.Left)
+                    {
+                        blnBasicEnemyMovingLeft = true;
+                    }
+                    if (pcbPlayer.Left > pcbBasicEnemy.Left)
+                    {
+                        blnBasicEnemyMovingLeft = false;
+                    }
+                }
+                // deals damage if the enemy can attack the player
+                if (blnBasicEnemyCanDamagePlayer == true)
+                {
+                    // Checks if the sword is within the range
+                    if (pcbBasicEnemySword.Bounds.IntersectsWith(pcbPlayer.Bounds))
+                    {
+                        basicEnemyAttackDamage();
+                    }
+                }
+            }
+        }
+        // Deals damage to the player when the enemy has hit the player
+        private void basicEnemyAttackDamage()
+        {
+            // Allows the enemy's sword to be visible
+            intEnemySwordVisibilityCounter = 0;
+            // Checks if the enemy sword is visible
+            if (pcbBasicEnemySword.Visible == true)
+            {
+                // Lowers the players health
+                intPlayerHealth -= 20;
+                blnBasicEnemyCanDamagePlayer = false;
+                // Resets the enemy attack interval 
+                intEnemyAttackInterval = 0;
+            }
+        }
+        // Handles the visibility of the enemy sword
+        private void basicEnemySwordVisibility()
+        {
+            // allows the enemy's sword to be visible for 1 second
+            if (intEnemySwordVisibilityCounter < 25)
+            {
+                pcbBasicEnemySword.Visible = true;
+                intEnemySwordVisibilityCounter++;
+            }
+            else
+            {
+                pcbBasicEnemySword.Visible = false;
+            }
         }
         // Handles the player's sword attack duration and Visibility
         private void playerSwordVisibility()
@@ -776,12 +1139,68 @@ namespace Game_Culminating_MansivA
             // Checks if the player's sword is visible and touching the basic enemy
             if (pcbSword.Visible == true)
             {
-                
+                if (pcbSword.Bounds.IntersectsWith(pcbStrongEnemy.Bounds))
+                {
+                    // makes the enemy and their sword disappear
+                    pcbStrongEnemy.Visible = false;
+                    pcbStrongEnemySword.Visible = false;
+                }
+                if (pcbSword.Bounds.IntersectsWith(pcbBasicEnemy.Bounds))
+                {
+                    // makes the enemy and their sword disappear
+                    pcbBasicEnemy.Visible = false;
+                    pcbBasicEnemySword.Visible = false;
+                }
             }
+        }
+        // Checks if the player interacts with any game object
+        private void playerInteract()
+        {
+            if (blnInteract == true)
+            {
+                if (pcbPlayer.Bounds.IntersectsWith(pcbLever.Bounds))
+                {
+                    pcbLever.BackColor = Color.DarkGreen;
+                    pcbLockedLeverDoor.Visible = false;
+                    blnInteract = false;
+                }
+                else if (pcbPlayer.Bounds.IntersectsWith(pcbLever2.Bounds)) {
+                    pcbLever2.BackColor = Color.DarkGreen;
+                    pcbLockedLeverDoor2.Visible = false;
+                    blnInteract = false;
+                }
+                if (pcbPlayer.Bounds.IntersectsWith(pcbCrimsonKey.Bounds) && pcbCrimsonKey.Visible == true)
+                {
+                    if (intInventoryValues[0] == 0)
+                    {
+                        pcbCrimsonKey.Visible = false;
+                        intInventoryValues[0] = 4;
+                        strInventoryNames[0] = "Crimson Key";
+                        blnInteract = false;
+                    }
+                    else
+                    {
+                        // Runs a for loop to find a slot where the game can put the item into
+                        for (int i = 0; i < 5; i++)
+                        {
+                            if (intInventoryValues[i] == 0)
+                            {
+                                pcbCrimsonKey.Visible = false;
+                                intInventoryValues[i] = 4;
+                                strInventoryNames[i] = "Crimson Key";
+                                blnInteract = false;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            else { blnInteract = false; }
         }
         // Stops Sword Attack
         private void stopSwordAttack()
         {
+            pcbSword.Visible = false;
             blnSwordAttack = false;
             intSwordAttackCounter = 51;
         }
@@ -800,6 +1219,16 @@ namespace Game_Culminating_MansivA
             intDashSpeed = 10;
             // Increases the jump counter
             intDashCounter++;
+        }
+        // Gets rid of the key after using it
+        private void deleteKey()
+        {
+            if (intMainHandItemValue == 4)
+            {
+                pcbLockedCrimsonDoor.Visible = false;
+                intMainHandItemValue = 0;
+                strMainHandItemName = "";
+            }
         }
         // Updates the score text based on the score variable
         private void updateScore()

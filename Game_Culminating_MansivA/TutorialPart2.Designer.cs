@@ -156,7 +156,7 @@
             // pcbPlatform2
             // 
             this.pcbPlatform2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pcbPlatform2.Location = new System.Drawing.Point(416, 528);
+            this.pcbPlatform2.Location = new System.Drawing.Point(422, 485);
             this.pcbPlatform2.Name = "pcbPlatform2";
             this.pcbPlatform2.Size = new System.Drawing.Size(166, 50);
             this.pcbPlatform2.TabIndex = 13;
@@ -192,7 +192,7 @@
             // pcbCyanKey
             // 
             this.pcbCyanKey.BackColor = System.Drawing.Color.DarkCyan;
-            this.pcbCyanKey.Location = new System.Drawing.Point(472, 443);
+            this.pcbCyanKey.Location = new System.Drawing.Point(478, 400);
             this.pcbCyanKey.Name = "pcbCyanKey";
             this.pcbCyanKey.Size = new System.Drawing.Size(58, 57);
             this.pcbCyanKey.TabIndex = 34;
