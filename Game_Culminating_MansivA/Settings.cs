@@ -15,9 +15,10 @@ namespace Game_Culminating_MansivA
         // Holds which form opened the settings form
         public static int intLevelOpened;
         // Player UI
-        public static int[] intInventoryValuesSaved = new int[6];
-        public static string[] strInventoryNamesSaved = new string[6];
-        public static int intPlayerHealthReset = 100;
+        public static int intMainHandValue;
+        public static string strMainHandItemName;
+        public static int[] intInventoryValuesSaved = new int[5];
+        public static string[] strInventoryNamesSaved = new string[5];
         public static int intPlayerScoreSaved = 0;
         // Game Environment Variables
         public Settings()

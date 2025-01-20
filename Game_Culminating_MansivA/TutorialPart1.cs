@@ -33,8 +33,8 @@ namespace Game_Culminating_MansivA
         bool blnSwordAttack = false;
         int intSwordAttackCounter = 0;
         // Player UI
-        int[] intInventoryValues = new int[6];
-        string[] strInventoryNames = new string[6];
+        int[] intInventoryValues = new int[5];
+        string[] strInventoryNames = new string[5];
         int intPlayerHealth = 100;
         int intPlayerScore = 0;
         string strMainHandItemName = "";

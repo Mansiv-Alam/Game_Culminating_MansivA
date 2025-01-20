@@ -52,6 +52,7 @@
             this.lblPlayerHealth = new System.Windows.Forms.Label();
             this.lblMainHand = new System.Windows.Forms.Label();
             this.pcbSword = new System.Windows.Forms.PictureBox();
+            this.pcbHealthPotion = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbGround)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform1)).BeginInit();
@@ -66,6 +67,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbHoldableButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLockedButtonDoor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbSword)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbHealthPotion)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSettings
@@ -202,10 +204,10 @@
             // 
             this.lblPlayerInventory.AutoSize = true;
             this.lblPlayerInventory.BackColor = System.Drawing.Color.Gray;
-            this.lblPlayerInventory.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlayerInventory.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlayerInventory.Location = new System.Drawing.Point(588, 854);
             this.lblPlayerInventory.Name = "lblPlayerInventory";
-            this.lblPlayerInventory.Size = new System.Drawing.Size(170, 39);
+            this.lblPlayerInventory.Size = new System.Drawing.Size(106, 25);
             this.lblPlayerInventory.TabIndex = 35;
             this.lblPlayerInventory.Text = "Inventory:";
             // 
@@ -288,11 +290,21 @@
             this.pcbSword.TabStop = false;
             this.pcbSword.Visible = false;
             // 
+            // pcbHealthPotion
+            // 
+            this.pcbHealthPotion.BackColor = System.Drawing.Color.Plum;
+            this.pcbHealthPotion.Location = new System.Drawing.Point(81, 407);
+            this.pcbHealthPotion.Name = "pcbHealthPotion";
+            this.pcbHealthPotion.Size = new System.Drawing.Size(58, 54);
+            this.pcbHealthPotion.TabIndex = 46;
+            this.pcbHealthPotion.TabStop = false;
+            // 
             // TutorialPart2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 911);
+            this.Controls.Add(this.pcbHealthPotion);
             this.Controls.Add(this.pcbSword);
             this.Controls.Add(this.lblMainHand);
             this.Controls.Add(this.lblPlayerHealth);
@@ -334,6 +346,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbHoldableButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLockedButtonDoor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbSword)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbHealthPotion)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -364,5 +377,6 @@
         private System.Windows.Forms.Label lblPlayerHealth;
         private System.Windows.Forms.Label lblMainHand;
         private System.Windows.Forms.PictureBox pcbSword;
+        private System.Windows.Forms.PictureBox pcbHealthPotion;
     }
 }

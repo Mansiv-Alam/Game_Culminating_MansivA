@@ -68,6 +68,7 @@
             this.pcbSpike4 = new System.Windows.Forms.PictureBox();
             this.pcbSpike3 = new System.Windows.Forms.PictureBox();
             this.pcbExtraScore2 = new System.Windows.Forms.PictureBox();
+            this.pcbHealthPotion = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pcbSword)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbGround)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlayer)).BeginInit();
@@ -100,6 +101,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbSpike4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbSpike3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbExtraScore2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbHealthPotion)).BeginInit();
             this.SuspendLayout();
             // 
             // lblScore
@@ -149,10 +151,10 @@
             // 
             this.lblPlayerInventory.AutoSize = true;
             this.lblPlayerInventory.BackColor = System.Drawing.Color.Gray;
-            this.lblPlayerInventory.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlayerInventory.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlayerInventory.Location = new System.Drawing.Point(588, 852);
             this.lblPlayerInventory.Name = "lblPlayerInventory";
-            this.lblPlayerInventory.Size = new System.Drawing.Size(170, 39);
+            this.lblPlayerInventory.Size = new System.Drawing.Size(106, 25);
             this.lblPlayerInventory.TabIndex = 55;
             this.lblPlayerInventory.Text = "Inventory:";
             // 
@@ -455,17 +457,27 @@
             // pcbExtraScore2
             // 
             this.pcbExtraScore2.BackColor = System.Drawing.Color.Gold;
-            this.pcbExtraScore2.Location = new System.Drawing.Point(595, 503);
+            this.pcbExtraScore2.Location = new System.Drawing.Point(549, 503);
             this.pcbExtraScore2.Name = "pcbExtraScore2";
             this.pcbExtraScore2.Size = new System.Drawing.Size(60, 57);
             this.pcbExtraScore2.TabIndex = 90;
             this.pcbExtraScore2.TabStop = false;
+            // 
+            // pcbHealthPotion
+            // 
+            this.pcbHealthPotion.BackColor = System.Drawing.Color.Plum;
+            this.pcbHealthPotion.Location = new System.Drawing.Point(647, 503);
+            this.pcbHealthPotion.Name = "pcbHealthPotion";
+            this.pcbHealthPotion.Size = new System.Drawing.Size(58, 54);
+            this.pcbHealthPotion.TabIndex = 91;
+            this.pcbHealthPotion.TabStop = false;
             // 
             // MainGamePt3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 911);
+            this.Controls.Add(this.pcbHealthPotion);
             this.Controls.Add(this.pcbExtraScore2);
             this.Controls.Add(this.pcbSpike4);
             this.Controls.Add(this.pcbSpike3);
@@ -541,6 +553,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbSpike4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbSpike3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbExtraScore2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbHealthPotion)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -587,5 +600,6 @@
         private System.Windows.Forms.PictureBox pcbSpike4;
         private System.Windows.Forms.PictureBox pcbSpike3;
         private System.Windows.Forms.PictureBox pcbExtraScore2;
+        private System.Windows.Forms.PictureBox pcbHealthPotion;
     }
 }

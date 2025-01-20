@@ -62,6 +62,7 @@
             this.pcbBlueKey = new System.Windows.Forms.PictureBox();
             this.pcbLockedBlueDoor = new System.Windows.Forms.PictureBox();
             this.pcbMovableBox2 = new System.Windows.Forms.PictureBox();
+            this.pcbHealthPotion = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform3)).BeginInit();
@@ -88,6 +89,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbBlueKey)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLockedBlueDoor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbMovableBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbHealthPotion)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSettings
@@ -173,10 +175,10 @@
             // 
             this.lblPlayerInventory.AutoSize = true;
             this.lblPlayerInventory.BackColor = System.Drawing.Color.Gray;
-            this.lblPlayerInventory.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlayerInventory.Location = new System.Drawing.Point(588, 852);
+            this.lblPlayerInventory.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlayerInventory.Location = new System.Drawing.Point(580, 852);
             this.lblPlayerInventory.Name = "lblPlayerInventory";
-            this.lblPlayerInventory.Size = new System.Drawing.Size(170, 39);
+            this.lblPlayerInventory.Size = new System.Drawing.Size(106, 25);
             this.lblPlayerInventory.TabIndex = 55;
             this.lblPlayerInventory.Text = "Inventory:";
             // 
@@ -396,11 +398,21 @@
             this.pcbMovableBox2.TabStop = false;
             this.pcbMovableBox2.Visible = false;
             // 
+            // pcbHealthPotion
+            // 
+            this.pcbHealthPotion.BackColor = System.Drawing.Color.Plum;
+            this.pcbHealthPotion.Location = new System.Drawing.Point(402, 433);
+            this.pcbHealthPotion.Name = "pcbHealthPotion";
+            this.pcbHealthPotion.Size = new System.Drawing.Size(58, 54);
+            this.pcbHealthPotion.TabIndex = 78;
+            this.pcbHealthPotion.TabStop = false;
+            // 
             // MainGamePt2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 911);
+            this.Controls.Add(this.pcbHealthPotion);
             this.Controls.Add(this.pcbBlueKey);
             this.Controls.Add(this.pcbSpike);
             this.Controls.Add(this.pcbLava);
@@ -464,6 +476,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbBlueKey)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLockedBlueDoor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbMovableBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbHealthPotion)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -504,5 +517,6 @@
         private System.Windows.Forms.PictureBox pcbBlueKey;
         private System.Windows.Forms.PictureBox pcbLockedBlueDoor;
         private System.Windows.Forms.PictureBox pcbMovableBox2;
+        private System.Windows.Forms.PictureBox pcbHealthPotion;
     }
 }

@@ -30,8 +30,8 @@ namespace Game_Culminating_MansivA
         bool blnSwordAttack = false;
         int intSwordAttackCounter = 0;
         // Player UI
-        int[] intInventoryValues = new int[6];
-        string[] strInventoryNames = new string[6];
+        int[] intInventoryValues = new int[5];
+        string[] strInventoryNames = new string[5];
         int intPlayerHealth = 100;
         string strMainHandItemName = "";
         int intMainHandItemValue;
@@ -49,9 +49,7 @@ namespace Game_Culminating_MansivA
         public TutorialPart3()
         {
             InitializeComponent();
-            strMainHandItemName = "Sword";
-            intMainHandItemValue = 1;
-            lblMainHand.Text = "Main Hand:" + strMainHandItemName;
+            LoadInventory();
         }
         // Keys getting released
         private void TutorialPart3_KeyDown(object sender, KeyEventArgs e)
@@ -119,11 +117,21 @@ namespace Game_Culminating_MansivA
                 blnMovingRight = false;
             }
         }
-        // Runs when the player wants to Attack with the sword using a click
+        // Runs when the player wants to Attack with the sword using a click or use a health poition
         private void PlayerMouseClick(object sender, MouseEventArgs e)
         {
-            blnSwordAttack = true;
-            intSwordAttackCounter = 0;
+            // Heals the player
+            if (intMainHandItemValue == 99)
+            {
+                intMainHandItemValue = 0;
+                strMainHandItemName = "";
+                intPlayerHealth += 40;
+            }
+            else {
+                // Starts a sword attack
+                blnSwordAttack = true;
+                intSwordAttackCounter = 0;
+            }
         }
         // Timer for the Game (Enemy Ai, Boundaries)
         private void tmrGameTick_Tick(object sender, EventArgs e)
@@ -140,12 +148,15 @@ namespace Game_Culminating_MansivA
             playerSwordVisibility();
             // Defeats the enemy if the player is attacking
             swordDamage();
+            // Updates main hand text
+            mainHandUpdate();
             // Enemy ai
             EnemyAi();
             if (pcbPlayer.Left > 1200)
             {
                 // Resets score for the main game
                 Settings.intPlayerScoreSaved = intPlayerScore;
+
                 Menu menu = new Menu();
                 // Hides this form
                 this.tmrGameTick.Enabled = false;
@@ -879,6 +890,11 @@ namespace Game_Culminating_MansivA
         {
             this.lblPlayerHealth.Text = "Health: " + intPlayerHealth;
         }
+        // Updates Main hand text
+        private void mainHandUpdate()
+        {
+            this.lblMainHand.Text = lblMainHand.Text = "Main Hand:" + strMainHandItemName;
+        }
         // Updates the inventory text
         private void inventoryUpdate()
         {
@@ -891,6 +907,29 @@ namespace Game_Culminating_MansivA
             Settings settings = new Settings();
             settings.Show();
             this.Close();
+        }
+        // Saves inventory for the next level
+        private void SaveInventory()
+        {
+            // Saves main hand values for the next level
+            Settings.intMainHandValue = intMainHandItemValue;
+            Settings.strMainHandItemName = strMainHandItemName;
+            for (int i = 0; i < intInventoryValues.Length; i++)
+            {
+                Settings.intInventoryValuesSaved[i] = intInventoryValues[i];
+                Settings.strInventoryNamesSaved[i] = strInventoryNames[i];
+            }
+        }
+        // Load Previous Inventory
+        private void LoadInventory()
+        {
+            intMainHandItemValue = Settings.intMainHandValue;
+            strMainHandItemName = Settings.strMainHandItemName;
+            for (int i = 0; i < intInventoryValues.Length; i++)
+            {
+                intInventoryValues[i] = Settings.intInventoryValuesSaved[i];
+                strInventoryNames[i] = Settings.strInventoryNamesSaved[i];
+            }
         }
         // Runs every game tick to check if the player has 0 health
         private void playerHealthCheck() {

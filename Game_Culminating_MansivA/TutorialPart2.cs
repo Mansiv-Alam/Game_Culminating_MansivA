@@ -29,8 +29,8 @@ namespace Game_Culminating_MansivA
         bool blnSwordAttack = false;
         int intSwordAttackCounter = 0;
         // Player UI
-        int[] intInventoryValues = new int[6];
-        string[] strInventoryNames = new string[6];
+        int[] intInventoryValues = new int[5];
+        string[] strInventoryNames = new string[5];
         int intPlayerHealth = 100;
         string strMainHandItemName = "";
         int intMainHandItemValue;
@@ -138,6 +138,7 @@ namespace Game_Culminating_MansivA
             {
                 intPlayerScore += 10;
                 Settings.intPlayerScoreSaved = intPlayerScore;
+                SaveInventory();
                 TutorialPart3 TutorialPart3 = new TutorialPart3();
                 // Hides this form
                 this.tmrGameTick.Enabled = false;
@@ -657,8 +658,33 @@ namespace Game_Culminating_MansivA
                             if (intInventoryValues[i] == 0)
                             {
                                 pcbCyanKey.Visible = false;
-                                intInventoryValues[i] = 3;
+                                intInventoryValues[i] = 2;
                                 strInventoryNames[i] = "Cyan Key";
+                                blnInteract = false;
+                                break;
+                            }
+                        }
+                    }
+                }
+                if (pcbPlayer.Bounds.IntersectsWith(pcbHealthPotion.Bounds) && pcbHealthPotion.Visible == true)
+                {
+                    if (intInventoryValues[1] == 0)
+                    {
+                        pcbHealthPotion.Visible = false;
+                        intInventoryValues[1] = 99;
+                        strInventoryNames[1] = "Health Pot";
+                        blnInteract = false;
+                    }
+                    else
+                    {
+                        // Runs a for loop to find a slot where the game can put the item into
+                        for (int i = 0; i < 5; i++)
+                        {
+                            if (intInventoryValues[i] == 0)
+                            {
+                                pcbHealthPotion.Visible = false;
+                                intInventoryValues[i] = 99;
+                                strInventoryNames[i] = "Health Pot";
                                 blnInteract = false;
                                 break;
                             }
@@ -761,6 +787,18 @@ namespace Game_Culminating_MansivA
                 pcbLockedCyanDoor.Visible = false;
                 intMainHandItemValue = 0;
                 strMainHandItemName = "";
+            }
+        }
+        // Saves inventory for the next level
+        private void SaveInventory()
+        {
+            // Saves main hand values for the next level
+            Settings.intMainHandValue = intMainHandItemValue;
+            Settings.strMainHandItemName = strMainHandItemName;
+            for (int i = 0; i < intInventoryValues.Length; i++)
+            {
+                Settings.intInventoryValuesSaved[i] = intInventoryValues[i];
+                Settings.strInventoryNamesSaved[i] = strInventoryNames[i];
             }
         }
         // Shows a form when you click the settings button

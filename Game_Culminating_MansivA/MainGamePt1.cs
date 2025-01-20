@@ -27,8 +27,8 @@ namespace Game_Culminating_MansivA
         bool blnGrounded = true;
         int intGravity = 1;
         // Player UI
-        int[] intInventoryValues = new int[6];
-        string[] strInventoryNames = new string[6];
+        int[] intInventoryValues = new int[5];
+        string[] strInventoryNames = new string[5];
         int intPlayerHealth = 100;
         string strMainHandItemName = "";
         int intMainHandItemValue;
@@ -115,11 +115,22 @@ namespace Game_Culminating_MansivA
                 blnMovingRight = false;
             }
         }
-        // Detects when the player clicks for a sword attack
+        // Detects when the player wants to Attack with the sword using a click or use a health poition
         private void PlayerMouseClick(object sender, MouseEventArgs e)
         {
-            blnSwordAttack = true;
-            intSwordAttackCounter = 0;
+            // Heals the player
+            if (intMainHandItemValue == 99)
+            {
+                intMainHandItemValue = 0;
+                strMainHandItemName = "";
+                intPlayerHealth += 40;
+            }
+            else
+            {
+                // Starts a sword attack
+                blnSwordAttack = true;
+                intSwordAttackCounter = 0;
+            }
         }
         // Handles Basic Horizontal Movement
         private void horizontalPlayerMovement()
@@ -205,6 +216,7 @@ namespace Game_Culminating_MansivA
             {
                 // Resets score for the main game
                 Settings.intPlayerScoreSaved = intPlayerScore + 10;
+                SaveInventory();
                 MainGamePt2 mainGamePt2 = new MainGamePt2();
                 // Hides this form
                 this.tmrGameTick.Enabled = false;
@@ -911,9 +923,22 @@ namespace Game_Culminating_MansivA
                 }
             }
         }
+        // Saves inventory for the next level
+        private void SaveInventory()
+        {
+            // Saves main hand values for the next level
+            Settings.intMainHandValue = intMainHandItemValue;
+            Settings.strMainHandItemName = strMainHandItemName;
+            for (int i = 0; i < intInventoryValues.Length; i++)
+            {
+                Settings.intInventoryValuesSaved[i] = intInventoryValues[i];
+                Settings.strInventoryNamesSaved[i] = strInventoryNames[i];
+            }
+        }
         // Opens the settings form
         private void btnSettings_Click(object sender, EventArgs e)
         {
+            SaveInventory();
             // Changes the int level opened in the settings form so that we can reopen this level
             Settings.intLevelOpened = 4;
             Settings settings = new Settings();

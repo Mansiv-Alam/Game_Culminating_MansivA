@@ -212,10 +212,10 @@
             // 
             this.lblPlayerInventory.AutoSize = true;
             this.lblPlayerInventory.BackColor = System.Drawing.Color.Gray;
-            this.lblPlayerInventory.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlayerInventory.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlayerInventory.Location = new System.Drawing.Point(585, 849);
             this.lblPlayerInventory.Name = "lblPlayerInventory";
-            this.lblPlayerInventory.Size = new System.Drawing.Size(170, 39);
+            this.lblPlayerInventory.Size = new System.Drawing.Size(106, 25);
             this.lblPlayerInventory.TabIndex = 36;
             this.lblPlayerInventory.Text = "Inventory:";
             // 
