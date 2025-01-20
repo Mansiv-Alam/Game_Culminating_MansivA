@@ -46,7 +46,7 @@ namespace Game_Culminating_MansivA
             intMainHandItemValue = 1;
             lblMainHand.Text = "Main Hand:" + strMainHandItemName;
             // Renders another screen not on the screen and then changes the rendered screen not on the screen onto the screen
-            // helps with smoother animation and less lag
+            // helps with smoother animation and less lag (increases ram usage)
             this.DoubleBuffered = true;
             // Makes the background the ruins bg
             this.BackgroundImage = Resource1.RuinsBg;

@@ -48,10 +48,14 @@ namespace Game_Culminating_MansivA
         {
             InitializeComponent();
             // Renders another screen not on the screen and then changes the rendered screen not on the screen onto the screen
-            // helps with smoother animation and less lag
+            // helps with smoother animation and less lag (increases ram usage)
             this.DoubleBuffered = true;
             // Makes the background the ruins bg
             this.BackgroundImage = Resource1.RuinsBg;
+            // Adds all the images for the game
+            pcbBottomLeftPlatform.Image = Resource1.LightRuinStone;
+            pcbBottomRightPlatform.Image = Resource1.LightRuinStone;
+            
             LoadInventory();
         }
         // Detects when the player presses a key down
