@@ -84,7 +84,7 @@
             // lblTutorial1Text
             // 
             this.lblTutorial1Text.AutoSize = true;
-            this.lblTutorial1Text.BackColor = System.Drawing.SystemColors.Control;
+            this.lblTutorial1Text.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.lblTutorial1Text.Cursor = System.Windows.Forms.Cursors.Default;
             this.lblTutorial1Text.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTutorial1Text.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -106,6 +106,7 @@
             // lblScore
             // 
             this.lblScore.AutoSize = true;
+            this.lblScore.BackColor = System.Drawing.SystemColors.ControlDark;
             this.lblScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblScore.Location = new System.Drawing.Point(12, 9);
             this.lblScore.Name = "lblScore";
@@ -116,8 +117,7 @@
             // pcbPlatform1
             // 
             this.pcbPlatform1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pcbPlatform1.BackgroundImage = global::Game_Culminating_MansivA.Resource1.LightStonePlatform;
-            this.pcbPlatform1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pcbPlatform1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pcbPlatform1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pcbPlatform1.Location = new System.Drawing.Point(421, 611);
             this.pcbPlatform1.Name = "pcbPlatform1";
@@ -183,7 +183,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Game_Culminating_MansivA.Resource1.RuinsBg;
             this.ClientSize = new System.Drawing.Size(1184, 911);
             this.Controls.Add(this.pcbSword);
             this.Controls.Add(this.lblMainHand);

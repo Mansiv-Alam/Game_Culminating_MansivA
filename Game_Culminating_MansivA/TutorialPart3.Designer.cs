@@ -29,54 +29,45 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.pcbPlayer = new System.Windows.Forms.PictureBox();
             this.tmrPlayerMovement = new System.Windows.Forms.Timer(this.components);
             this.btnSettings = new System.Windows.Forms.Button();
             this.lblTutorialPt3Text = new System.Windows.Forms.Label();
             this.lblScore = new System.Windows.Forms.Label();
             this.tmrGameTick = new System.Windows.Forms.Timer(this.components);
-            this.pcbGround = new System.Windows.Forms.PictureBox();
-            this.pcbPlatform1 = new System.Windows.Forms.PictureBox();
-            this.pcbPlatform2 = new System.Windows.Forms.PictureBox();
-            this.pcbWall = new System.Windows.Forms.PictureBox();
-            this.pcbPlatform3 = new System.Windows.Forms.PictureBox();
-            this.pcbLava = new System.Windows.Forms.PictureBox();
-            this.pcbSpike = new System.Windows.Forms.PictureBox();
             this.lblPlayerHealth = new System.Windows.Forms.Label();
-            this.pcbFallingTrap = new System.Windows.Forms.PictureBox();
             this.lblPlayerInventory = new System.Windows.Forms.Label();
             this.lblMainHand = new System.Windows.Forms.Label();
-            this.pcbSword = new System.Windows.Forms.PictureBox();
+            this.pcbPlatform4 = new System.Windows.Forms.PictureBox();
+            this.pcbLava = new System.Windows.Forms.PictureBox();
+            this.pcbPlatform3 = new System.Windows.Forms.PictureBox();
+            this.pcbWall = new System.Windows.Forms.PictureBox();
+            this.pcbPlatform2 = new System.Windows.Forms.PictureBox();
+            this.pcbPlatform1 = new System.Windows.Forms.PictureBox();
+            this.pcbGround = new System.Windows.Forms.PictureBox();
+            this.pcbSpike = new System.Windows.Forms.PictureBox();
+            this.pcbFallingTrap = new System.Windows.Forms.PictureBox();
             this.pcbBasicEnemy = new System.Windows.Forms.PictureBox();
             this.pcbBasicEnemySword = new System.Windows.Forms.PictureBox();
             this.pcbStrongEnemy = new System.Windows.Forms.PictureBox();
             this.pcbStrongEnemySword = new System.Windows.Forms.PictureBox();
-            this.pcbPlatform4 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbPlayer)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbGround)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbWall)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform3)).BeginInit();
+            this.pcbPlayer = new System.Windows.Forms.PictureBox();
+            this.pcbSword = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLava)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbWall)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbGround)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbSpike)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbFallingTrap)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbSword)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbBasicEnemy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbBasicEnemySword)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbStrongEnemy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbStrongEnemySword)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbPlayer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbSword)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pcbPlayer
-            // 
-            this.pcbPlayer.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pcbPlayer.Location = new System.Drawing.Point(25, 722);
-            this.pcbPlayer.Name = "pcbPlayer";
-            this.pcbPlayer.Size = new System.Drawing.Size(80, 110);
-            this.pcbPlayer.TabIndex = 3;
-            this.pcbPlayer.TabStop = false;
             // 
             // tmrPlayerMovement
             // 
@@ -98,19 +89,20 @@
             // lblTutorialPt3Text
             // 
             this.lblTutorialPt3Text.AutoSize = true;
-            this.lblTutorialPt3Text.BackColor = System.Drawing.SystemColors.Control;
+            this.lblTutorialPt3Text.BackColor = System.Drawing.SystemColors.ControlDark;
             this.lblTutorialPt3Text.Cursor = System.Windows.Forms.Cursors.Default;
-            this.lblTutorialPt3Text.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTutorialPt3Text.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTutorialPt3Text.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblTutorialPt3Text.Location = new System.Drawing.Point(478, 32);
+            this.lblTutorialPt3Text.Location = new System.Drawing.Point(498, 27);
             this.lblTutorialPt3Text.Name = "lblTutorialPt3Text";
-            this.lblTutorialPt3Text.Size = new System.Drawing.Size(218, 55);
+            this.lblTutorialPt3Text.Size = new System.Drawing.Size(129, 33);
             this.lblTutorialPt3Text.TabIndex = 5;
             this.lblTutorialPt3Text.Text = "Enemies";
             // 
             // lblScore
             // 
             this.lblScore.AutoSize = true;
+            this.lblScore.BackColor = System.Drawing.SystemColors.ControlDark;
             this.lblScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblScore.Location = new System.Drawing.Point(12, 9);
             this.lblScore.Name = "lblScore";
@@ -124,69 +116,6 @@
             this.tmrGameTick.Interval = 10;
             this.tmrGameTick.Tick += new System.EventHandler(this.tmrGameTick_Tick);
             // 
-            // pcbGround
-            // 
-            this.pcbGround.BackColor = System.Drawing.Color.Gray;
-            this.pcbGround.Location = new System.Drawing.Point(0, 831);
-            this.pcbGround.Name = "pcbGround";
-            this.pcbGround.Size = new System.Drawing.Size(1185, 80);
-            this.pcbGround.TabIndex = 13;
-            this.pcbGround.TabStop = false;
-            // 
-            // pcbPlatform1
-            // 
-            this.pcbPlatform1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pcbPlatform1.Location = new System.Drawing.Point(921, 634);
-            this.pcbPlatform1.Name = "pcbPlatform1";
-            this.pcbPlatform1.Size = new System.Drawing.Size(163, 50);
-            this.pcbPlatform1.TabIndex = 14;
-            this.pcbPlatform1.TabStop = false;
-            // 
-            // pcbPlatform2
-            // 
-            this.pcbPlatform2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pcbPlatform2.Location = new System.Drawing.Point(0, 516);
-            this.pcbPlatform2.Name = "pcbPlatform2";
-            this.pcbPlatform2.Size = new System.Drawing.Size(783, 50);
-            this.pcbPlatform2.TabIndex = 15;
-            this.pcbPlatform2.TabStop = false;
-            // 
-            // pcbWall
-            // 
-            this.pcbWall.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pcbWall.Location = new System.Drawing.Point(1135, 290);
-            this.pcbWall.Name = "pcbWall";
-            this.pcbWall.Size = new System.Drawing.Size(50, 545);
-            this.pcbWall.TabIndex = 16;
-            this.pcbWall.TabStop = false;
-            // 
-            // pcbPlatform3
-            // 
-            this.pcbPlatform3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pcbPlatform3.Location = new System.Drawing.Point(335, 243);
-            this.pcbPlatform3.Name = "pcbPlatform3";
-            this.pcbPlatform3.Size = new System.Drawing.Size(850, 50);
-            this.pcbPlatform3.TabIndex = 17;
-            this.pcbPlatform3.TabStop = false;
-            // 
-            // pcbLava
-            // 
-            this.pcbLava.BackColor = System.Drawing.Color.Firebrick;
-            this.pcbLava.Location = new System.Drawing.Point(523, 516);
-            this.pcbLava.Name = "pcbLava";
-            this.pcbLava.Size = new System.Drawing.Size(137, 50);
-            this.pcbLava.TabIndex = 25;
-            this.pcbLava.TabStop = false;
-            // 
-            // pcbSpike
-            // 
-            this.pcbSpike.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.pcbSpike.Location = new System.Drawing.Point(335, 465);
-            this.pcbSpike.Name = "pcbSpike";
-            this.pcbSpike.Size = new System.Drawing.Size(58, 54);
-            this.pcbSpike.TabIndex = 30;
-            this.pcbSpike.TabStop = false;
-            // 
             // lblPlayerHealth
             // 
             this.lblPlayerHealth.AutoSize = true;
@@ -198,15 +127,6 @@
             this.lblPlayerHealth.Size = new System.Drawing.Size(127, 39);
             this.lblPlayerHealth.TabIndex = 31;
             this.lblPlayerHealth.Text = "Health:";
-            // 
-            // pcbFallingTrap
-            // 
-            this.pcbFallingTrap.BackColor = System.Drawing.Color.MediumPurple;
-            this.pcbFallingTrap.Location = new System.Drawing.Point(0, 95);
-            this.pcbFallingTrap.Name = "pcbFallingTrap";
-            this.pcbFallingTrap.Size = new System.Drawing.Size(118, 128);
-            this.pcbFallingTrap.TabIndex = 32;
-            this.pcbFallingTrap.TabStop = false;
             // 
             // lblPlayerInventory
             // 
@@ -231,15 +151,86 @@
             this.lblMainHand.TabIndex = 43;
             this.lblMainHand.Text = "Main Hand:";
             // 
-            // pcbSword
+            // pcbPlatform4
             // 
-            this.pcbSword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.pcbSword.Location = new System.Drawing.Point(102, 752);
-            this.pcbSword.Name = "pcbSword";
-            this.pcbSword.Size = new System.Drawing.Size(58, 54);
-            this.pcbSword.TabIndex = 44;
-            this.pcbSword.TabStop = false;
-            this.pcbSword.Visible = false;
+            this.pcbPlatform4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pcbPlatform4.Location = new System.Drawing.Point(124, 308);
+            this.pcbPlatform4.Name = "pcbPlatform4";
+            this.pcbPlatform4.Size = new System.Drawing.Size(121, 54);
+            this.pcbPlatform4.TabIndex = 49;
+            this.pcbPlatform4.TabStop = false;
+            // 
+            // pcbLava
+            // 
+            this.pcbLava.BackColor = System.Drawing.Color.Firebrick;
+            this.pcbLava.Location = new System.Drawing.Point(523, 516);
+            this.pcbLava.Name = "pcbLava";
+            this.pcbLava.Size = new System.Drawing.Size(137, 50);
+            this.pcbLava.TabIndex = 25;
+            this.pcbLava.TabStop = false;
+            // 
+            // pcbPlatform3
+            // 
+            this.pcbPlatform3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pcbPlatform3.Location = new System.Drawing.Point(335, 243);
+            this.pcbPlatform3.Name = "pcbPlatform3";
+            this.pcbPlatform3.Size = new System.Drawing.Size(850, 50);
+            this.pcbPlatform3.TabIndex = 17;
+            this.pcbPlatform3.TabStop = false;
+            // 
+            // pcbWall
+            // 
+            this.pcbWall.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pcbWall.Location = new System.Drawing.Point(1135, 293);
+            this.pcbWall.Name = "pcbWall";
+            this.pcbWall.Size = new System.Drawing.Size(50, 542);
+            this.pcbWall.TabIndex = 16;
+            this.pcbWall.TabStop = false;
+            // 
+            // pcbPlatform2
+            // 
+            this.pcbPlatform2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pcbPlatform2.Location = new System.Drawing.Point(0, 516);
+            this.pcbPlatform2.Name = "pcbPlatform2";
+            this.pcbPlatform2.Size = new System.Drawing.Size(783, 50);
+            this.pcbPlatform2.TabIndex = 15;
+            this.pcbPlatform2.TabStop = false;
+            // 
+            // pcbPlatform1
+            // 
+            this.pcbPlatform1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pcbPlatform1.Location = new System.Drawing.Point(921, 634);
+            this.pcbPlatform1.Name = "pcbPlatform1";
+            this.pcbPlatform1.Size = new System.Drawing.Size(163, 50);
+            this.pcbPlatform1.TabIndex = 14;
+            this.pcbPlatform1.TabStop = false;
+            // 
+            // pcbGround
+            // 
+            this.pcbGround.BackColor = System.Drawing.Color.Gray;
+            this.pcbGround.Location = new System.Drawing.Point(0, 831);
+            this.pcbGround.Name = "pcbGround";
+            this.pcbGround.Size = new System.Drawing.Size(1185, 80);
+            this.pcbGround.TabIndex = 13;
+            this.pcbGround.TabStop = false;
+            // 
+            // pcbSpike
+            // 
+            this.pcbSpike.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.pcbSpike.Location = new System.Drawing.Point(335, 465);
+            this.pcbSpike.Name = "pcbSpike";
+            this.pcbSpike.Size = new System.Drawing.Size(58, 54);
+            this.pcbSpike.TabIndex = 30;
+            this.pcbSpike.TabStop = false;
+            // 
+            // pcbFallingTrap
+            // 
+            this.pcbFallingTrap.BackColor = System.Drawing.Color.MediumPurple;
+            this.pcbFallingTrap.Location = new System.Drawing.Point(0, 95);
+            this.pcbFallingTrap.Name = "pcbFallingTrap";
+            this.pcbFallingTrap.Size = new System.Drawing.Size(118, 128);
+            this.pcbFallingTrap.TabIndex = 32;
+            this.pcbFallingTrap.TabStop = false;
             // 
             // pcbBasicEnemy
             // 
@@ -279,26 +270,36 @@
             this.pcbStrongEnemySword.TabStop = false;
             this.pcbStrongEnemySword.Visible = false;
             // 
-            // pcbPlatform4
+            // pcbPlayer
             // 
-            this.pcbPlatform4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pcbPlatform4.Location = new System.Drawing.Point(124, 308);
-            this.pcbPlatform4.Name = "pcbPlatform4";
-            this.pcbPlatform4.Size = new System.Drawing.Size(121, 54);
-            this.pcbPlatform4.TabIndex = 49;
-            this.pcbPlatform4.TabStop = false;
+            this.pcbPlayer.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pcbPlayer.Location = new System.Drawing.Point(25, 722);
+            this.pcbPlayer.Name = "pcbPlayer";
+            this.pcbPlayer.Size = new System.Drawing.Size(80, 110);
+            this.pcbPlayer.TabIndex = 3;
+            this.pcbPlayer.TabStop = false;
+            // 
+            // pcbSword
+            // 
+            this.pcbSword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.pcbSword.Location = new System.Drawing.Point(102, 752);
+            this.pcbSword.Name = "pcbSword";
+            this.pcbSword.Size = new System.Drawing.Size(58, 54);
+            this.pcbSword.TabIndex = 44;
+            this.pcbSword.TabStop = false;
+            this.pcbSword.Visible = false;
             // 
             // TutorialPart3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 911);
+            this.Controls.Add(this.pcbPlatform3);
             this.Controls.Add(this.pcbPlatform4);
             this.Controls.Add(this.lblMainHand);
             this.Controls.Add(this.lblPlayerInventory);
             this.Controls.Add(this.lblPlayerHealth);
             this.Controls.Add(this.pcbLava);
-            this.Controls.Add(this.pcbPlatform3);
             this.Controls.Add(this.pcbWall);
             this.Controls.Add(this.pcbPlatform2);
             this.Controls.Add(this.pcbPlatform1);
@@ -320,21 +321,21 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TutorialPart3_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TutorialPart3_KeyUp);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PlayerMouseClick);
-            ((System.ComponentModel.ISupportInitialize)(this.pcbPlayer)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbGround)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbWall)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLava)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbWall)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbGround)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbSpike)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbFallingTrap)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbSword)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbBasicEnemy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbBasicEnemySword)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbStrongEnemy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbStrongEnemySword)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbPlayer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbSword)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

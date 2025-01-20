@@ -50,6 +50,17 @@ namespace Game_Culminating_MansivA
             this.DoubleBuffered = true;
             // Makes the background the ruins bg
             this.BackgroundImage = Resource1.RuinsBg;
+            // Images for all platforms and stretchs out them so they look more natural
+            pcbPlatform1.BackgroundImage = Resource1.LightStonePlatformImproved;
+            pcbPlatform1.BackgroundImageLayout = ImageLayout.None;
+            pcbPlatform2.BackgroundImage = Resource1.LightStonePlatformLong;
+            pcbPlatform2.BackgroundImageLayout = ImageLayout.None;
+            pcbPlatform3.BackgroundImage = Resource1.LightStonePlatformLong;
+            pcbPlatform3.BackgroundImageLayout = ImageLayout.Stretch;
+            pcbPlatform4.BackgroundImage = Resource1.LightStonePlatformImproved;
+            pcbPlatform4.BackgroundImageLayout = ImageLayout.Stretch;
+            pcbWall.BackgroundImage = Resource1.LightStoneWall;
+            pcbWall.BackgroundImageLayout = ImageLayout.Stretch;
             strMainHandItemName = "Sword";
             intMainHandItemValue = 1;
             lblMainHand.Text = "Main Hand:" + strMainHandItemName;

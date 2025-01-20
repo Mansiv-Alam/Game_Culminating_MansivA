@@ -111,13 +111,13 @@
             // lblTutorialPart2Text
             // 
             this.lblTutorialPart2Text.AutoSize = true;
-            this.lblTutorialPart2Text.BackColor = System.Drawing.SystemColors.Control;
+            this.lblTutorialPart2Text.BackColor = System.Drawing.SystemColors.ControlDark;
             this.lblTutorialPart2Text.Cursor = System.Windows.Forms.Cursors.Default;
-            this.lblTutorialPart2Text.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTutorialPart2Text.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTutorialPart2Text.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblTutorialPart2Text.Location = new System.Drawing.Point(45, 53);
+            this.lblTutorialPart2Text.Location = new System.Drawing.Point(289, 27);
             this.lblTutorialPart2Text.Name = "lblTutorialPart2Text";
-            this.lblTutorialPart2Text.Size = new System.Drawing.Size(1046, 55);
+            this.lblTutorialPart2Text.Size = new System.Drawing.Size(612, 33);
             this.lblTutorialPart2Text.TabIndex = 4;
             this.lblTutorialPart2Text.Text = "This is where you will learn about Key Objects";
             // 
@@ -139,6 +139,7 @@
             // lblScore
             // 
             this.lblScore.AutoSize = true;
+            this.lblScore.BackColor = System.Drawing.SystemColors.ControlDark;
             this.lblScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblScore.Location = new System.Drawing.Point(12, 9);
             this.lblScore.Name = "lblScore";
@@ -149,7 +150,7 @@
             // pcbPlatform1
             // 
             this.pcbPlatform1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pcbPlatform1.Location = new System.Drawing.Point(196, 627);
+            this.pcbPlatform1.Location = new System.Drawing.Point(152, 615);
             this.pcbPlatform1.Name = "pcbPlatform1";
             this.pcbPlatform1.Size = new System.Drawing.Size(163, 50);
             this.pcbPlatform1.TabIndex = 12;
@@ -214,7 +215,7 @@
             // pcbLever
             // 
             this.pcbLever.BackColor = System.Drawing.Color.SandyBrown;
-            this.pcbLever.Location = new System.Drawing.Point(250, 564);
+            this.pcbLever.Location = new System.Drawing.Point(206, 552);
             this.pcbLever.Name = "pcbLever";
             this.pcbLever.Size = new System.Drawing.Size(58, 57);
             this.pcbLever.TabIndex = 36;
@@ -303,7 +304,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Game_Culminating_MansivA.Resource1.RuinsBg;
             this.ClientSize = new System.Drawing.Size(1184, 911);
             this.Controls.Add(this.pcbHealthPotion);
             this.Controls.Add(this.pcbSword);

@@ -51,7 +51,7 @@ namespace Game_Culminating_MansivA
             // helps with smoother animation and less lag (increases ram usage)
             this.DoubleBuffered = true;
             // Makes the background the ruins bg
-            //this.BackgroundImage = Resource1.RuinsBg;
+            this.BackgroundImage = Resource1.RuinsBg;
             // Adds all the images for the game
             LoadInventory();
         }
