@@ -50,6 +50,8 @@ namespace Game_Culminating_MansivA
             this.DoubleBuffered = true;
             // Makes the background the ruins bg
             this.BackgroundImage = Resource1.RuinsBg;
+            // Adds Images to the game
+            pcbPlatform1.Image = Resource1.;
         }
         // Gets the keys that are pressed
         private void TutorialPart1_KeyDown(object sender, KeyEventArgs e)

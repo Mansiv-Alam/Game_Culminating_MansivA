@@ -116,6 +116,9 @@
             // pcbPlatform1
             // 
             this.pcbPlatform1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pcbPlatform1.BackgroundImage = global::Game_Culminating_MansivA.Resource1.LightStonePlatform;
+            this.pcbPlatform1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pcbPlatform1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pcbPlatform1.Location = new System.Drawing.Point(421, 611);
             this.pcbPlatform1.Name = "pcbPlatform1";
             this.pcbPlatform1.Size = new System.Drawing.Size(325, 50);
