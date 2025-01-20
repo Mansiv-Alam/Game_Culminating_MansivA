@@ -116,7 +116,7 @@
             // pcbPlatform1
             // 
             this.pcbPlatform1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pcbPlatform1.Location = new System.Drawing.Point(420, 536);
+            this.pcbPlatform1.Location = new System.Drawing.Point(421, 611);
             this.pcbPlatform1.Name = "pcbPlatform1";
             this.pcbPlatform1.Size = new System.Drawing.Size(325, 50);
             this.pcbPlatform1.TabIndex = 11;
@@ -125,7 +125,7 @@
             // pcbExtraScore
             // 
             this.pcbExtraScore.BackColor = System.Drawing.Color.Gold;
-            this.pcbExtraScore.Location = new System.Drawing.Point(563, 428);
+            this.pcbExtraScore.Location = new System.Drawing.Point(554, 504);
             this.pcbExtraScore.Name = "pcbExtraScore";
             this.pcbExtraScore.Size = new System.Drawing.Size(58, 54);
             this.pcbExtraScore.TabIndex = 29;

@@ -398,7 +398,7 @@ namespace Game_Culminating_MansivA
         }
         // Stops the jump (helps for stopping an active jump)
         private void stopJump() {
-            intJumpPower = 16;
+            intJumpPower = 14;
             intJumpVelocity = 0;
             blnIsJumping = false;
         }
