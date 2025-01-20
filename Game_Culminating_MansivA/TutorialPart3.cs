@@ -498,7 +498,7 @@ namespace Game_Culminating_MansivA
                 }
             }
         }
-        // Handles the Basic Enemy Ai
+        // Handles the Enemy Ai
         private void EnemyAi() {
             if (pcbBasicEnemy.Visible == true)
             {

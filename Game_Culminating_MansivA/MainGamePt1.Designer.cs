@@ -113,7 +113,7 @@
             this.lblMainHand.BackColor = System.Drawing.Color.Gray;
             this.lblMainHand.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMainHand.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblMainHand.Location = new System.Drawing.Point(257, 852);
+            this.lblMainHand.Location = new System.Drawing.Point(246, 852);
             this.lblMainHand.Name = "lblMainHand";
             this.lblMainHand.Size = new System.Drawing.Size(193, 39);
             this.lblMainHand.TabIndex = 50;
@@ -124,7 +124,7 @@
             this.lblPlayerInventory.AutoSize = true;
             this.lblPlayerInventory.BackColor = System.Drawing.Color.Gray;
             this.lblPlayerInventory.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlayerInventory.Location = new System.Drawing.Point(588, 852);
+            this.lblPlayerInventory.Location = new System.Drawing.Point(592, 852);
             this.lblPlayerInventory.Name = "lblPlayerInventory";
             this.lblPlayerInventory.Size = new System.Drawing.Size(170, 39);
             this.lblPlayerInventory.TabIndex = 49;
@@ -272,9 +272,9 @@
             // pcbLockedCyanDoor
             // 
             this.pcbLockedCyanDoor.BackColor = System.Drawing.Color.DarkCyan;
-            this.pcbLockedCyanDoor.Location = new System.Drawing.Point(952, 266);
+            this.pcbLockedCyanDoor.Location = new System.Drawing.Point(952, 268);
             this.pcbLockedCyanDoor.Name = "pcbLockedCyanDoor";
-            this.pcbLockedCyanDoor.Size = new System.Drawing.Size(58, 185);
+            this.pcbLockedCyanDoor.Size = new System.Drawing.Size(58, 183);
             this.pcbLockedCyanDoor.TabIndex = 64;
             this.pcbLockedCyanDoor.TabStop = false;
             // 
@@ -324,7 +324,6 @@
             this.ClientSize = new System.Drawing.Size(1184, 911);
             this.Controls.Add(this.pcbFallingTrap);
             this.Controls.Add(this.pcbCyanKey);
-            this.Controls.Add(this.pcbLockedCyanDoor);
             this.Controls.Add(this.pcbExtraScore2);
             this.Controls.Add(this.pcbSpike);
             this.Controls.Add(this.pcbLava);
@@ -345,6 +344,7 @@
             this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.pcbSpike2);
             this.Controls.Add(this.pcbWall2);
+            this.Controls.Add(this.pcbLockedCyanDoor);
             this.Controls.Add(this.pcbPlayer);
             this.KeyPreview = true;
             this.Name = "MainGamePt1";

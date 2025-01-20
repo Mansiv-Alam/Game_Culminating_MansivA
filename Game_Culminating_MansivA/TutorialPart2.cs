@@ -520,7 +520,6 @@ namespace Game_Culminating_MansivA
                 }
             }
         }
-        //
         // hitbox for the Lever door when to unlock or get blocked by it
         private void hitboxLockedButtonDoor()
         {
@@ -643,10 +642,28 @@ namespace Game_Culminating_MansivA
             if (blnInteract == true) {
                 if (pcbPlayer.Bounds.IntersectsWith(pcbCyanKey.Bounds) && pcbCyanKey.Visible == true)
                 {
-                    pcbCyanKey.Visible = false;
-                    intInventoryValues[0] = 2;
-                    strInventoryNames[0] = "Cyan Key";
-                    blnInteract = false;
+                    if (intInventoryValues[0] == 0)
+                    {
+                        pcbCyanKey.Visible = false;
+                        intInventoryValues[0] = 2;
+                        strInventoryNames[0] = "Cyan Key";
+                        blnInteract = false;
+                    }
+                    else
+                    {
+                        // Runs a for loop to find a slot where the game can put the item into
+                        for (int i = 0; i < 5; i++)
+                        {
+                            if (intInventoryValues[i] == 0)
+                            {
+                                pcbCyanKey.Visible = false;
+                                intInventoryValues[i] = 3;
+                                strInventoryNames[i] = "Cyan Key";
+                                blnInteract = false;
+                                break;
+                            }
+                        }
+                    }
                 }
                 if (pcbPlayer.Bounds.IntersectsWith(pcbLever.Bounds))
                 {

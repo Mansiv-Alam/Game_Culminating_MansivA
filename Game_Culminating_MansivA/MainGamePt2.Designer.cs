@@ -61,6 +61,7 @@
             this.tmrGameTick = new System.Windows.Forms.Timer(this.components);
             this.pcbBlueKey = new System.Windows.Forms.PictureBox();
             this.pcbLockedBlueDoor = new System.Windows.Forms.PictureBox();
+            this.pcbMovableBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform3)).BeginInit();
@@ -86,6 +87,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbSpike)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbBlueKey)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLockedBlueDoor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbMovableBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSettings
@@ -97,6 +99,7 @@
             this.btnSettings.TabStop = false;
             this.btnSettings.Text = "Settings";
             this.btnSettings.UseVisualStyleBackColor = true;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click_1);
             // 
             // lblScore
             // 
@@ -111,7 +114,7 @@
             // pcbPlatform1
             // 
             this.pcbPlatform1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pcbPlatform1.Location = new System.Drawing.Point(468, 303);
+            this.pcbPlatform1.Location = new System.Drawing.Point(500, 320);
             this.pcbPlatform1.Name = "pcbPlatform1";
             this.pcbPlatform1.Size = new System.Drawing.Size(132, 54);
             this.pcbPlatform1.TabIndex = 11;
@@ -160,7 +163,7 @@
             this.lblMainHand.BackColor = System.Drawing.Color.Gray;
             this.lblMainHand.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMainHand.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblMainHand.Location = new System.Drawing.Point(257, 852);
+            this.lblMainHand.Location = new System.Drawing.Point(250, 852);
             this.lblMainHand.Name = "lblMainHand";
             this.lblMainHand.Size = new System.Drawing.Size(193, 39);
             this.lblMainHand.TabIndex = 56;
@@ -265,7 +268,7 @@
             // pcbMovableBox
             // 
             this.pcbMovableBox.BackColor = System.Drawing.Color.PeachPuff;
-            this.pcbMovableBox.Location = new System.Drawing.Point(329, 730);
+            this.pcbMovableBox.Location = new System.Drawing.Point(329, 729);
             this.pcbMovableBox.Name = "pcbMovableBox";
             this.pcbMovableBox.Size = new System.Drawing.Size(103, 102);
             this.pcbMovableBox.TabIndex = 64;
@@ -292,9 +295,9 @@
             // pcbLockedRedDoor
             // 
             this.pcbLockedRedDoor.BackColor = System.Drawing.Color.Red;
-            this.pcbLockedRedDoor.Location = new System.Drawing.Point(974, 124);
+            this.pcbLockedRedDoor.Location = new System.Drawing.Point(974, 85);
             this.pcbLockedRedDoor.Name = "pcbLockedRedDoor";
-            this.pcbLockedRedDoor.Size = new System.Drawing.Size(58, 180);
+            this.pcbLockedRedDoor.Size = new System.Drawing.Size(58, 219);
             this.pcbLockedRedDoor.TabIndex = 67;
             this.pcbLockedRedDoor.TabStop = false;
             // 
@@ -306,13 +309,14 @@
             this.pcbNegativeLockedLeverDoor.Size = new System.Drawing.Size(58, 169);
             this.pcbNegativeLockedLeverDoor.TabIndex = 69;
             this.pcbNegativeLockedLeverDoor.TabStop = false;
+            this.pcbNegativeLockedLeverDoor.Visible = false;
             // 
             // pcbLockedButtonDoor
             // 
             this.pcbLockedButtonDoor.BackColor = System.Drawing.Color.DarkTurquoise;
-            this.pcbLockedButtonDoor.Location = new System.Drawing.Point(1097, 123);
+            this.pcbLockedButtonDoor.Location = new System.Drawing.Point(1097, 85);
             this.pcbLockedButtonDoor.Name = "pcbLockedButtonDoor";
-            this.pcbLockedButtonDoor.Size = new System.Drawing.Size(58, 181);
+            this.pcbLockedButtonDoor.Size = new System.Drawing.Size(58, 219);
             this.pcbLockedButtonDoor.TabIndex = 70;
             this.pcbLockedButtonDoor.TabStop = false;
             // 
@@ -328,7 +332,7 @@
             // pcbLava
             // 
             this.pcbLava.BackColor = System.Drawing.Color.Firebrick;
-            this.pcbLava.Location = new System.Drawing.Point(797, 523);
+            this.pcbLava.Location = new System.Drawing.Point(774, 523);
             this.pcbLava.Name = "pcbLava";
             this.pcbLava.Size = new System.Drawing.Size(92, 36);
             this.pcbLava.TabIndex = 72;
@@ -337,18 +341,18 @@
             // pcbSpike2
             // 
             this.pcbSpike2.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.pcbSpike2.Location = new System.Drawing.Point(1036, 250);
+            this.pcbSpike2.Location = new System.Drawing.Point(1047, 267);
             this.pcbSpike2.Name = "pcbSpike2";
-            this.pcbSpike2.Size = new System.Drawing.Size(58, 54);
+            this.pcbSpike2.Size = new System.Drawing.Size(35, 36);
             this.pcbSpike2.TabIndex = 73;
             this.pcbSpike2.TabStop = false;
             // 
             // pcbSpike
             // 
             this.pcbSpike.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.pcbSpike.Location = new System.Drawing.Point(245, 416);
+            this.pcbSpike.Location = new System.Drawing.Point(245, 433);
             this.pcbSpike.Name = "pcbSpike";
-            this.pcbSpike.Size = new System.Drawing.Size(38, 54);
+            this.pcbSpike.Size = new System.Drawing.Size(38, 37);
             this.pcbSpike.TabIndex = 74;
             this.pcbSpike.TabStop = false;
             // 
@@ -382,24 +386,27 @@
             this.pcbLockedBlueDoor.TabIndex = 76;
             this.pcbLockedBlueDoor.TabStop = false;
             // 
+            // pcbMovableBox2
+            // 
+            this.pcbMovableBox2.BackColor = System.Drawing.Color.PeachPuff;
+            this.pcbMovableBox2.Location = new System.Drawing.Point(175, 523);
+            this.pcbMovableBox2.Name = "pcbMovableBox2";
+            this.pcbMovableBox2.Size = new System.Drawing.Size(173, 36);
+            this.pcbMovableBox2.TabIndex = 77;
+            this.pcbMovableBox2.TabStop = false;
+            this.pcbMovableBox2.Visible = false;
+            // 
             // MainGamePt2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 911);
-            this.Controls.Add(this.pcbLockedBlueDoor);
             this.Controls.Add(this.pcbBlueKey);
             this.Controls.Add(this.pcbSpike);
-            this.Controls.Add(this.pcbSpike2);
             this.Controls.Add(this.pcbLava);
             this.Controls.Add(this.pcbLever);
-            this.Controls.Add(this.pcbLockedButtonDoor);
-            this.Controls.Add(this.pcbNegativeLockedLeverDoor);
             this.Controls.Add(this.pcbRedKey);
-            this.Controls.Add(this.pcbLockedRedDoor);
-            this.Controls.Add(this.pcbLockedLeverDoor);
             this.Controls.Add(this.pcbHoldableButton);
-            this.Controls.Add(this.pcbMovableBox);
             this.Controls.Add(this.pcbStrongEnemy);
             this.Controls.Add(this.pcbStrongEnemySword);
             this.Controls.Add(this.pcbExtraScore);
@@ -410,13 +417,21 @@
             this.Controls.Add(this.lblPlayerInventory);
             this.Controls.Add(this.lblPlayerHealth);
             this.Controls.Add(this.pcbGround);
-            this.Controls.Add(this.pcbPlayer);
             this.Controls.Add(this.pcbPlatform4);
             this.Controls.Add(this.pcbPlatform3);
             this.Controls.Add(this.pcbPlatform2);
             this.Controls.Add(this.pcbPlatform1);
             this.Controls.Add(this.lblScore);
             this.Controls.Add(this.btnSettings);
+            this.Controls.Add(this.pcbNegativeLockedLeverDoor);
+            this.Controls.Add(this.pcbLockedBlueDoor);
+            this.Controls.Add(this.pcbLockedButtonDoor);
+            this.Controls.Add(this.pcbLockedRedDoor);
+            this.Controls.Add(this.pcbLockedLeverDoor);
+            this.Controls.Add(this.pcbMovableBox);
+            this.Controls.Add(this.pcbSpike2);
+            this.Controls.Add(this.pcbMovableBox2);
+            this.Controls.Add(this.pcbPlayer);
             this.KeyPreview = true;
             this.Name = "MainGamePt2";
             this.Text = "MainGamePt2";
@@ -448,6 +463,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbSpike)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbBlueKey)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLockedBlueDoor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbMovableBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -487,5 +503,6 @@
         private System.Windows.Forms.Timer tmrGameTick;
         private System.Windows.Forms.PictureBox pcbBlueKey;
         private System.Windows.Forms.PictureBox pcbLockedBlueDoor;
+        private System.Windows.Forms.PictureBox pcbMovableBox2;
     }
 }
