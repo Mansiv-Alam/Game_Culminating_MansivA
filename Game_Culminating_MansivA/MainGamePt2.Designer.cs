@@ -37,11 +37,9 @@
             this.tmrPlayerMovement = new System.Windows.Forms.Timer(this.components);
             this.tmrGameTick = new System.Windows.Forms.Timer(this.components);
             this.pcbHealthPotion = new System.Windows.Forms.PictureBox();
-            this.pcbBlueKey = new System.Windows.Forms.PictureBox();
             this.pcbSpike = new System.Windows.Forms.PictureBox();
             this.pcbLava = new System.Windows.Forms.PictureBox();
             this.pcbLever = new System.Windows.Forms.PictureBox();
-            this.pcbRedKey = new System.Windows.Forms.PictureBox();
             this.pcbHoldableButton = new System.Windows.Forms.PictureBox();
             this.pcbStrongEnemy = new System.Windows.Forms.PictureBox();
             this.pcbStrongEnemySword = new System.Windows.Forms.PictureBox();
@@ -63,12 +61,12 @@
             this.pcbSpike2 = new System.Windows.Forms.PictureBox();
             this.pcbMovableBox2 = new System.Windows.Forms.PictureBox();
             this.pcbPlayer = new System.Windows.Forms.PictureBox();
+            this.pcbBlueKey = new System.Windows.Forms.PictureBox();
+            this.pcbRedKey = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pcbHealthPotion)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbBlueKey)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbSpike)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLava)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLever)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbRedKey)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbHoldableButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbStrongEnemy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbStrongEnemySword)).BeginInit();
@@ -90,6 +88,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbSpike2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbMovableBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlayer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbBlueKey)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbRedKey)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSettings
@@ -170,15 +170,6 @@
             this.pcbHealthPotion.TabIndex = 78;
             this.pcbHealthPotion.TabStop = false;
             // 
-            // pcbBlueKey
-            // 
-            this.pcbBlueKey.BackColor = System.Drawing.Color.Transparent;
-            this.pcbBlueKey.Location = new System.Drawing.Point(47, 355);
-            this.pcbBlueKey.Name = "pcbBlueKey";
-            this.pcbBlueKey.Size = new System.Drawing.Size(58, 58);
-            this.pcbBlueKey.TabIndex = 75;
-            this.pcbBlueKey.TabStop = false;
-            // 
             // pcbSpike
             // 
             this.pcbSpike.BackColor = System.Drawing.Color.Transparent;
@@ -205,15 +196,6 @@
             this.pcbLever.Size = new System.Drawing.Size(58, 57);
             this.pcbLever.TabIndex = 71;
             this.pcbLever.TabStop = false;
-            // 
-            // pcbRedKey
-            // 
-            this.pcbRedKey.BackColor = System.Drawing.Color.Transparent;
-            this.pcbRedKey.Location = new System.Drawing.Point(1068, 416);
-            this.pcbRedKey.Name = "pcbRedKey";
-            this.pcbRedKey.Size = new System.Drawing.Size(58, 57);
-            this.pcbRedKey.TabIndex = 68;
-            this.pcbRedKey.TabStop = false;
             // 
             // pcbHoldableButton
             // 
@@ -408,6 +390,24 @@
             this.pcbPlayer.TabIndex = 52;
             this.pcbPlayer.TabStop = false;
             // 
+            // pcbBlueKey
+            // 
+            this.pcbBlueKey.BackColor = System.Drawing.Color.Transparent;
+            this.pcbBlueKey.Location = new System.Drawing.Point(47, 355);
+            this.pcbBlueKey.Name = "pcbBlueKey";
+            this.pcbBlueKey.Size = new System.Drawing.Size(58, 58);
+            this.pcbBlueKey.TabIndex = 75;
+            this.pcbBlueKey.TabStop = false;
+            // 
+            // pcbRedKey
+            // 
+            this.pcbRedKey.BackColor = System.Drawing.Color.Transparent;
+            this.pcbRedKey.Location = new System.Drawing.Point(1068, 416);
+            this.pcbRedKey.Name = "pcbRedKey";
+            this.pcbRedKey.Size = new System.Drawing.Size(58, 57);
+            this.pcbRedKey.TabIndex = 68;
+            this.pcbRedKey.TabStop = false;
+            // 
             // MainGamePt2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -452,11 +452,9 @@
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.MainGamePt2_KeyUp);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PlayerMouseClick);
             ((System.ComponentModel.ISupportInitialize)(this.pcbHealthPotion)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbBlueKey)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbSpike)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLava)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLever)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbRedKey)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbHoldableButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbStrongEnemy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbStrongEnemySword)).EndInit();
@@ -478,6 +476,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbSpike2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbMovableBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlayer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbBlueKey)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbRedKey)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

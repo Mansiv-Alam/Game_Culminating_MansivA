@@ -244,5 +244,20 @@
   <ItemGroup>
     <None Include="Resources\CyanKey.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FallingTrap.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lava.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HealthPotion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WoodenCrate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lever.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

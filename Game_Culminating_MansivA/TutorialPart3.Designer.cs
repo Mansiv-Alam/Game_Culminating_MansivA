@@ -216,7 +216,7 @@
             // 
             // pcbSpike
             // 
-            this.pcbSpike.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.pcbSpike.BackColor = System.Drawing.Color.Transparent;
             this.pcbSpike.Location = new System.Drawing.Point(335, 465);
             this.pcbSpike.Name = "pcbSpike";
             this.pcbSpike.Size = new System.Drawing.Size(58, 54);
@@ -225,7 +225,7 @@
             // 
             // pcbFallingTrap
             // 
-            this.pcbFallingTrap.BackColor = System.Drawing.Color.MediumPurple;
+            this.pcbFallingTrap.BackColor = System.Drawing.Color.Transparent;
             this.pcbFallingTrap.Location = new System.Drawing.Point(0, 95);
             this.pcbFallingTrap.Name = "pcbFallingTrap";
             this.pcbFallingTrap.Size = new System.Drawing.Size(118, 128);

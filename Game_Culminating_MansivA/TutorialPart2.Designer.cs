@@ -194,7 +194,7 @@
             // 
             // pcbCyanKey
             // 
-            this.pcbCyanKey.BackColor = System.Drawing.Color.DarkCyan;
+            this.pcbCyanKey.BackColor = System.Drawing.Color.Transparent;
             this.pcbCyanKey.Location = new System.Drawing.Point(478, 400);
             this.pcbCyanKey.Name = "pcbCyanKey";
             this.pcbCyanKey.Size = new System.Drawing.Size(58, 57);
@@ -310,8 +310,6 @@
             this.Controls.Add(this.lblMainHand);
             this.Controls.Add(this.lblPlayerHealth);
             this.Controls.Add(this.pcbHoldableButton);
-            this.Controls.Add(this.pcbCyanKey);
-            this.Controls.Add(this.pcbLever);
             this.Controls.Add(this.lblPlayerInventory);
             this.Controls.Add(this.pcbPlatform3);
             this.Controls.Add(this.pcbPlatform2);
@@ -327,6 +325,8 @@
             this.Controls.Add(this.pcbLockedButtonDoor);
             this.Controls.Add(this.pcbPlayer);
             this.Controls.Add(this.lblTutorialPart2Text);
+            this.Controls.Add(this.pcbCyanKey);
+            this.Controls.Add(this.pcbLever);
             this.KeyPreview = true;
             this.Name = "TutorialPart2";
             this.Text = "TutorialPart2";

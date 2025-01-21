@@ -53,7 +53,9 @@ namespace Game_Culminating_MansivA
             // Adds Images to the platform
             pcbPlatform1.BackgroundImage = Resource1.LightStonePlatformImproved;
             pcbPlatform1.BackgroundImageLayout = ImageLayout.Stretch;
-            // Image for the extra orbs
+            // Image for the extra score
+            pcbExtraScore.BackgroundImage = Resource1.ExtraScore;
+            pcbExtraScore.BackgroundImageLayout = ImageLayout.Stretch;
         }
         // Gets the keys that are pressed
         private void TutorialPart1_KeyDown(object sender, KeyEventArgs e)
@@ -158,6 +160,7 @@ namespace Game_Culminating_MansivA
                 intPlayerScore += 10;
                 // Saves the score to the settings form
                 Settings.intPlayerScoreSaved = intPlayerScore;
+                SaveInventory();
                 TutorialPart2 TutorialPart2 = new TutorialPart2();
                 // Hides this form
                 this.Hide();
@@ -436,6 +439,18 @@ namespace Game_Culminating_MansivA
         private void updateHealth()
         {
             this.lblPlayerHealth.Text = "Health: " + intPlayerHealth;
+        }
+        // Saves inventory for the next level
+        private void SaveInventory()
+        {
+            // Saves main hand values for the next level
+            Settings.intMainHandValue = intMainHandItemValue;
+            Settings.strMainHandItemName = strMainHandItemName;
+            for (int i = 0; i < intInventoryValues.Length; i++)
+            {
+                Settings.intInventoryValuesSaved[i] = intInventoryValues[i];
+                Settings.strInventoryNamesSaved[i] = strInventoryNames[i];
+            }
         }
         // Opens the settings form
         private void btnSettings_Click(object sender, EventArgs e)

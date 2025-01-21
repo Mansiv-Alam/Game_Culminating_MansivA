@@ -68,11 +68,16 @@ namespace Game_Culminating_MansivA
             pcbExtraScore.BackgroundImageLayout = ImageLayout.Stretch;
             pcbExtraScore2.BackgroundImage = Resource1.ExtraScore;
             pcbExtraScore2.BackgroundImageLayout = ImageLayout.Stretch;
+            pcbCyanKey.BackgroundImage = Resource1.CyanKey;
+            pcbCyanKey.BackgroundImageLayout = ImageLayout.Stretch;
             // Spike, Lava, Falling Trap Pngs
             pcbSpike.BackgroundImage = Resource1.Spike;
             pcbSpike.BackgroundImageLayout = ImageLayout.Stretch;
             pcbSpike2.BackgroundImage = Resource1.Spike;
             pcbSpike2.BackgroundImageLayout = ImageLayout.Stretch;
+            pcbFallingTrap.BackgroundImage = Resource1.FallingTrap;
+            pcbFallingTrap.BackgroundImageLayout = ImageLayout.Stretch;
+
             strMainHandItemName = "Sword";
             intMainHandItemValue = 1;
             lblMainHand.Text = "Main Hand:" + strMainHandItemName;

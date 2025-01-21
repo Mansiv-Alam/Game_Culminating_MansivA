@@ -65,6 +65,13 @@ namespace Game_Culminating_MansivA
             pcbPlatform4.BackgroundImageLayout = ImageLayout.Stretch;
             pcbWall.BackgroundImage = Resource1.LightStoneWall;
             pcbWall.BackgroundImageLayout = ImageLayout.Stretch;
+            // Environmental Hazards 
+            pcbSpike.BackgroundImage = Resource1.Spike;
+            pcbSpike.BackgroundImageLayout = ImageLayout.Stretch;
+            pcbFallingTrap.BackgroundImage = Resource1.FallingTrap;
+            pcbFallingTrap.BackgroundImageLayout = ImageLayout.Stretch;
+            pcbLava.BackgroundImage = Resource1.Lava;
+            pcbLava.BackgroundImageLayout = ImageLayout.Stretch;
             LoadInventory();
         }
         // Keys getting released

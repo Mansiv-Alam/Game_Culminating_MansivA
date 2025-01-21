@@ -175,7 +175,7 @@
             // 
             // pcbHealthPotion
             // 
-            this.pcbHealthPotion.BackColor = System.Drawing.Color.Plum;
+            this.pcbHealthPotion.BackColor = System.Drawing.Color.Transparent;
             this.pcbHealthPotion.Location = new System.Drawing.Point(647, 503);
             this.pcbHealthPotion.Name = "pcbHealthPotion";
             this.pcbHealthPotion.Size = new System.Drawing.Size(58, 54);
@@ -238,7 +238,7 @@
             // 
             // pcbCrimsonKey
             // 
-            this.pcbCrimsonKey.BackColor = System.Drawing.Color.Crimson;
+            this.pcbCrimsonKey.BackColor = System.Drawing.Color.Transparent;
             this.pcbCrimsonKey.Location = new System.Drawing.Point(12, 483);
             this.pcbCrimsonKey.Name = "pcbCrimsonKey";
             this.pcbCrimsonKey.Size = new System.Drawing.Size(58, 57);

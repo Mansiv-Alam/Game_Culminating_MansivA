@@ -127,7 +127,7 @@
             // 
             // pcbExtraScore
             // 
-            this.pcbExtraScore.BackColor = System.Drawing.Color.Gold;
+            this.pcbExtraScore.BackColor = System.Drawing.Color.Transparent;
             this.pcbExtraScore.Location = new System.Drawing.Point(554, 504);
             this.pcbExtraScore.Name = "pcbExtraScore";
             this.pcbExtraScore.Size = new System.Drawing.Size(58, 54);

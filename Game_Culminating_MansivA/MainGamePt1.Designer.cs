@@ -147,7 +147,7 @@
             // 
             // pcbFallingTrap
             // 
-            this.pcbFallingTrap.BackColor = System.Drawing.Color.MediumPurple;
+            this.pcbFallingTrap.BackColor = System.Drawing.Color.Transparent;
             this.pcbFallingTrap.Location = new System.Drawing.Point(205, -1);
             this.pcbFallingTrap.Name = "pcbFallingTrap";
             this.pcbFallingTrap.Size = new System.Drawing.Size(118, 128);
@@ -156,7 +156,7 @@
             // 
             // pcbCyanKey
             // 
-            this.pcbCyanKey.BackColor = System.Drawing.Color.DarkCyan;
+            this.pcbCyanKey.BackColor = System.Drawing.Color.Transparent;
             this.pcbCyanKey.Location = new System.Drawing.Point(1031, 140);
             this.pcbCyanKey.Name = "pcbCyanKey";
             this.pcbCyanKey.Size = new System.Drawing.Size(58, 57);
@@ -325,7 +325,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 911);
             this.Controls.Add(this.pcbFallingTrap);
-            this.Controls.Add(this.pcbCyanKey);
             this.Controls.Add(this.pcbExtraScore2);
             this.Controls.Add(this.pcbSpike);
             this.Controls.Add(this.pcbLava);
@@ -348,6 +347,7 @@
             this.Controls.Add(this.pcbWall2);
             this.Controls.Add(this.pcbLockedCyanDoor);
             this.Controls.Add(this.pcbPlayer);
+            this.Controls.Add(this.pcbCyanKey);
             this.KeyPreview = true;
             this.Name = "MainGamePt1";
             this.Text = "MainGamePt1";

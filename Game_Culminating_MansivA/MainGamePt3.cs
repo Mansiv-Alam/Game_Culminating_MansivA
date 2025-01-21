@@ -83,6 +83,8 @@ namespace Game_Culminating_MansivA
             pcbExtraScore.BackgroundImageLayout = ImageLayout.Stretch;
             pcbExtraScore2.BackgroundImage = Resource1.ExtraScore;
             pcbExtraScore2.BackgroundImageLayout = ImageLayout.Stretch;
+            pcbCrimsonKey.BackgroundImage = Resource1.RedKey;
+            pcbCrimsonKey.BackgroundImageLayout = ImageLayout.Stretch;
             // Spike, Lava, Falling Trap Pngs
             pcbSpike.BackgroundImage = Resource1.Spike;
             pcbSpike.BackgroundImageLayout = ImageLayout.Stretch;
@@ -92,6 +94,11 @@ namespace Game_Culminating_MansivA
             pcbSpike3.BackgroundImageLayout = ImageLayout.Stretch;
             pcbSpike4.BackgroundImage = Resource1.Spike;
             pcbSpike4.BackgroundImageLayout = ImageLayout.Stretch;
+            pcbLava.BackgroundImage = Resource1.Lava;
+            pcbLava.BackgroundImageLayout = ImageLayout.Stretch;
+            // Health potion
+            pcbHealthPotion.BackgroundImage = Resource1.HealthPotion;
+            pcbHealthPotion.BackgroundImageLayout = ImageLayout.Stretch;
             LoadInventory();
         }
         // Detects when the player presses a key down

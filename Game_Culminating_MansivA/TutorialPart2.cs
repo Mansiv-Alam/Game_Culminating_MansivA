@@ -54,11 +54,16 @@ namespace Game_Culminating_MansivA
             pcbPlatform3.BackgroundImageLayout = ImageLayout.Stretch;
             pcbWall.BackgroundImage = Resource1.LightStoneWall;
             pcbWall.BackgroundImageLayout = ImageLayout.Stretch;
-
-            // Stats for the inventory
-            strMainHandItemName = "Sword";
-            intMainHandItemValue = 1;
-            lblMainHand.Text = "Main Hand:" + strMainHandItemName;
+            // Score, Keys, Moveable Box Lever pngs
+            pcbCyanKey.BackgroundImage = Resource1.CyanKey;
+            pcbCyanKey.BackgroundImageLayout = ImageLayout.Stretch;
+            pcbMovableBox.BackgroundImage = Resource1.WoodenCrate;
+            pcbMovableBox.BackgroundImageLayout = ImageLayout.Stretch;
+            // Health potion
+            pcbHealthPotion.BackgroundImage = Resource1.HealthPotion;
+            pcbHealthPotion.BackgroundImageLayout = ImageLayout.Stretch;
+            // Loads Inventory
+            LoadInventory();
         }
         // Keys getting pressed
         private void TutorialPart2_KeyDown(object sender, KeyEventArgs e)
@@ -815,6 +820,17 @@ namespace Game_Culminating_MansivA
             {
                 Settings.intInventoryValuesSaved[i] = intInventoryValues[i];
                 Settings.strInventoryNamesSaved[i] = strInventoryNames[i];
+            }
+        }
+        // Load Previous Inventory
+        private void LoadInventory()
+        {
+            intMainHandItemValue = Settings.intMainHandValue;
+            strMainHandItemName = Settings.strMainHandItemName;
+            for (int i = 0; i < intInventoryValues.Length; i++)
+            {
+                intInventoryValues[i] = Settings.intInventoryValuesSaved[i];
+                strInventoryNames[i] = Settings.strInventoryNamesSaved[i];
             }
         }
         // Shows a form when you click the settings button

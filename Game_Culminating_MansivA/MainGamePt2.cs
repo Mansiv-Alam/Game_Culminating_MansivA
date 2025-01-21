@@ -69,12 +69,20 @@ namespace Game_Culminating_MansivA
             pcbRedKey.BackgroundImageLayout = ImageLayout.Stretch;
             pcbBlueKey.BackgroundImage = Resource1.BlueKey;
             pcbBlueKey.BackgroundImageLayout = ImageLayout.Stretch;
+            pcbMovableBox.BackgroundImage = Resource1.WoodenCrate;
+            pcbMovableBox.BackgroundImageLayout = ImageLayout.Stretch;
+            pcbMovableBox2.BackgroundImage = Resource1.WoodenCrate;
+            pcbMovableBox2.BackgroundImageLayout = ImageLayout.Stretch;
             // Spike, Lava, Falling Trap Pngs
             pcbSpike.BackgroundImage = Resource1.Spike;
             pcbSpike.BackgroundImageLayout = ImageLayout.Stretch;
             pcbSpike2.BackgroundImage = Resource1.Spike;
             pcbSpike2.BackgroundImageLayout = ImageLayout.Stretch;
-
+            pcbLava.BackgroundImage = Resource1.Lava;
+            pcbLava.BackgroundImageLayout = ImageLayout.Stretch;
+            // Health potion
+            pcbHealthPotion.BackgroundImage = Resource1.HealthPotion;
+            pcbHealthPotion.BackgroundImageLayout = ImageLayout.Stretch;
         }
         // Detects when the player presses a key down
         private void MainGamePt2_KeyDown(object sender, KeyEventArgs e)
@@ -653,11 +661,11 @@ namespace Game_Culminating_MansivA
                     return;
                 }
                 // Checks which direction the box is being pushed and moves the box accordingly
-                if (blnMovingLeft == true)
+                if (blnMovingLeft == true && pcbPlayer.Left > pcbMovableBox2.Left)
                 {
                     pcbMovableBox2.Left = pcbPlayer.Left + 1 - pcbMovableBox2.Width;
                 }
-                else if (blnMovingRight == true)
+                else if (blnMovingRight == true && pcbPlayer.Left < pcbMovableBox2.Right)
                 {
                     pcbMovableBox2.Left = pcbPlayer.Right;
                 }
