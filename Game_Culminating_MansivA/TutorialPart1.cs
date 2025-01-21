@@ -541,6 +541,9 @@ namespace Game_Culminating_MansivA
             else if (intTutorialText == 8)
             {
                 lblTutorial1Text.Text = "Your Health Reset back to 100 after completing a level. To\ncomplete a level, go to the left side of your page (Click to Close)";
+                intTutorialText++;
+            }
+            else if (intTutorialText == 9) {
                 lblTutorial1Text.Visible = false;
                 lblTutorial1Text.Enabled = false;
             }

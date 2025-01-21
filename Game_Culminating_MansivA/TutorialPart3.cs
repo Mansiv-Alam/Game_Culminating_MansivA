@@ -46,6 +46,7 @@ namespace Game_Culminating_MansivA
         int intStrongEnemyAttackInterval = 0;
         bool blnBasicEnemyCanDamagePlayer = true;
         bool blnStrongEnemyCanDamagePlayer = true;
+        int intTutorialText = 0;
         public TutorialPart3()
         {
             InitializeComponent();
@@ -1000,6 +1001,55 @@ namespace Game_Culminating_MansivA
                 if (intPlayerScore > 0) {
                     intPlayerScore -= 5;
                 }
+            }
+        }
+
+        private void lblTutorialPt3Text_Click(object sender, EventArgs e)
+        {
+            if (intTutorialText == 0)
+            {
+                lblTutorialPt3Text.Text = "The Red Lava Depletes your health to 0 so don't touch\n it (Click to Continue...)";
+                intTutorialText++;
+            }
+            else if (intTutorialText == 1)
+            {
+                lblTutorialPt3Text.Text = "The Spike takes away 10 hp and it makes you do a little jump when\n you touch it(Click to Continue...)";
+                intTutorialText++;
+            }
+            else if (intTutorialText == 2)
+            {
+                lblTutorialPt3Text.Text = "Some Spikes are Upside down in that case, they Push you downwards\n (Click to Continue...)";
+                intTutorialText++;
+            }
+            else if (intTutorialText == 3)
+            {
+                lblTutorialPt3Text.Text = "The Boulder is a falling object that gets triggered once you are under it.\n it does 40 damage to you (Click To Continue...)";
+                intTutorialText++;
+            }
+            else if (intTutorialText == 4)
+            {
+                lblTutorialPt3Text.Text = "The Red Enemy is a basic enemy that does 20 damage per sword \nattack You can defeat him by using your sword(Click To Continue...)";
+                intTutorialText++;
+            }
+            else if (intTutorialText == 5)
+            {
+                lblTutorialPt3Text.Text = "The Dark Cyan Enemy is a Strong Enemy that does 45 damage \n You can also defeat him by using your sword (Click To Continue...)";
+                intTutorialText++;
+            }
+            else if (intTutorialText == 6)
+            {
+                lblTutorialPt3Text.Text = "If your score goes down to 0 it won't go down anymore.\n (Click To Continue...)";
+                intTutorialText++;
+            }
+            else if (intTutorialText == 7)
+            {
+                lblTutorialPt3Text.Text = "Every Time you die, you start back at the beginning, but you keep the\n progress you have made so far (Click To Close)";
+                intTutorialText++;
+            }
+            else if (intTutorialText == 8)
+            {
+                lblTutorialPt3Text.Visible = false;
+                lblTutorialPt3Text.Enabled = false;
             }
         }
     }

@@ -93,11 +93,12 @@
             this.lblTutorialPt3Text.Cursor = System.Windows.Forms.Cursors.Default;
             this.lblTutorialPt3Text.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTutorialPt3Text.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblTutorialPt3Text.Location = new System.Drawing.Point(498, 27);
+            this.lblTutorialPt3Text.Location = new System.Drawing.Point(171, 15);
             this.lblTutorialPt3Text.Name = "lblTutorialPt3Text";
-            this.lblTutorialPt3Text.Size = new System.Drawing.Size(129, 33);
+            this.lblTutorialPt3Text.Size = new System.Drawing.Size(758, 33);
             this.lblTutorialPt3Text.TabIndex = 5;
-            this.lblTutorialPt3Text.Text = "Enemies";
+            this.lblTutorialPt3Text.Text = "Here You will Learn About Enemies (Click To Continue...)";
+            this.lblTutorialPt3Text.Click += new System.EventHandler(this.lblTutorialPt3Text_Click);
             // 
             // lblScore
             // 

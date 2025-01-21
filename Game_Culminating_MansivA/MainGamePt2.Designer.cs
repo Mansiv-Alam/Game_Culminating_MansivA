@@ -376,7 +376,7 @@
             this.pcbMovableBox2.BackColor = System.Drawing.Color.Transparent;
             this.pcbMovableBox2.Location = new System.Drawing.Point(175, 523);
             this.pcbMovableBox2.Name = "pcbMovableBox2";
-            this.pcbMovableBox2.Size = new System.Drawing.Size(173, 43);
+            this.pcbMovableBox2.Size = new System.Drawing.Size(173, 71);
             this.pcbMovableBox2.TabIndex = 77;
             this.pcbMovableBox2.TabStop = false;
             this.pcbMovableBox2.Visible = false;
@@ -413,7 +413,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 911);
-            this.Controls.Add(this.pcbHealthPotion);
             this.Controls.Add(this.pcbSpike);
             this.Controls.Add(this.pcbLava);
             this.Controls.Add(this.pcbHoldableButton);
@@ -445,6 +444,7 @@
             this.Controls.Add(this.pcbBlueKey);
             this.Controls.Add(this.pcbRedKey);
             this.Controls.Add(this.pcbLever);
+            this.Controls.Add(this.pcbHealthPotion);
             this.KeyPreview = true;
             this.Name = "MainGamePt2";
             this.Text = "MainGamePt2";

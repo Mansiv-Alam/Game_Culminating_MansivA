@@ -889,22 +889,22 @@ namespace Game_Culminating_MansivA
             }
             else if (intTutorialText == 1)
             {
-                lblTutorialPart2Text.Text = "Click E on the Cyan Key to Pick it up then Put it\n in your main hand and walk into the cyan door (Click to Continue...)";
+                lblTutorialPart2Text.Text = "Click E on the Cyan Key to Pick it up then Put it in your main\n hand and walk into the cyan to unlock it door (Click to Continue...)";
                 intTutorialText++;
             }
             else if (intTutorialText == 2)
             {
-                lblTutorialPart2Text.Text = "This will delete the cyan key from your inventory \n push the box towards the turqouise button (Click to Continue...)";
+                lblTutorialPart2Text.Text = "This will delete the cyan key from your inventory \n push the crate towards the turqouise button (Click to Continue...)";
                 intTutorialText++;
             }
             else if (intTutorialText == 3)
             {
-                lblTutorialPart2Text.Text = "You can interact with the button using yourself or a box (Click To Continue...)";
+                lblTutorialPart2Text.Text = "You can interact with the button using yourself or a box \n (Click To Continue...)";
                 intTutorialText++;
             }
             else if (intTutorialText == 4)
             {
-                lblTutorialPart2Text.Text = "Click E on the health potion to get it into your inventory (Click To Continue...)";
+                lblTutorialPart2Text.Text = "Click E on the health potion to get it into your inventory \n(Click To Continue...)";
                 intTutorialText++;
             }
             else if (intTutorialText == 5)
@@ -920,6 +920,10 @@ namespace Game_Culminating_MansivA
             else if (intTutorialText == 7)
             {
                 lblTutorialPart2Text.Text = "Every Health Potion gives +40 health use it or save it up\n for later, the choice is on you (Click to Close)";
+                intTutorialText++;
+            }
+            else if (intTutorialText == 8)
+            {
                 lblTutorialPart2Text.Visible = false;
                 lblTutorialPart2Text.Enabled = false;
             }

@@ -658,7 +658,7 @@ namespace Game_Culminating_MansivA
             {
                 //Checks if the player is above the box
                 // also checks if the user has a key in their second slot (will change later)
-                if ((intJumpVelocity <= 0 || intGravity > 0))
+                if ((intJumpVelocity <= 0 || intGravity > 0) && (pcbPlayer.Bottom > pcbMovableBox2.Top) && (pcbPlayer.Bottom < pcbMovableBox2.Top + 30))
                 {
                     pcbPlayer.Top = pcbMovableBox2.Location.Y + 1 - pcbPlayer.Height;
                     isGrounded();
