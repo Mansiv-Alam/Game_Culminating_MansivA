@@ -39,6 +39,8 @@ namespace Game_Culminating_MansivA
         int intPlayerScore = 0;
         string strMainHandItemName = "";
         int intMainHandItemValue;
+        // Tutorial Text 
+        int intTutorialText = 0;
         public TutorialPart1()
         {
             InitializeComponent();
@@ -160,6 +162,7 @@ namespace Game_Culminating_MansivA
                 intPlayerScore += 10;
                 // Saves the score to the settings form
                 Settings.intPlayerScoreSaved = intPlayerScore;
+                sortInventory();
                 SaveInventory();
                 TutorialPart2 TutorialPart2 = new TutorialPart2();
                 // Hides this form
@@ -440,6 +443,35 @@ namespace Game_Culminating_MansivA
         {
             this.lblPlayerHealth.Text = "Health: " + intPlayerHealth;
         }
+        // Sorts Inventory So that the sword is always in the first slot when entering a new level
+        private void sortInventory()
+        {
+            int intTemp;
+            string strTemp;
+            for (int i = 0; i < intInventoryValues.Length; i++)
+            {
+                for (int j = 0; j < intInventoryValues.Length - 1; j++)
+                {
+                    // Skips Swapping with zeros
+                    if (intInventoryValues[j + 1] == 0 || intInventoryValues[i] == 0)
+                    {
+                        continue;
+                    }
+                    // Ascending Order
+                    if (intInventoryValues[i] > intInventoryValues[j + 1])
+                    {
+                        // Swaps the int values 
+                        intTemp = intInventoryValues[j + 1];
+                        intInventoryValues[j + 1] = intInventoryValues[i];
+                        intInventoryValues[i] = intTemp;
+                        // Swaps the string values 
+                        strTemp = strInventoryNames[j + 1];
+                        strInventoryNames[j + 1] = strInventoryNames[i];
+                        strInventoryNames[i] = strTemp; ;
+                    }
+                }
+            }
+        }
         // Saves inventory for the next level
         private void SaveInventory()
         {
@@ -461,6 +493,57 @@ namespace Game_Culminating_MansivA
             settings.Show();
             // Closes this form
             this.Close();
+        }
+
+        private void lblTutorial1Text_Click(object sender, EventArgs e)
+        {
+            if (intTutorialText == 0)
+            {
+                lblTutorial1Text.Text = "To move use the A and D keys to go left or right\n and use space bar to jump (Click to Continue...)";
+                intTutorialText++;
+            }
+            else if (intTutorialText == 1)
+            {
+                lblTutorial1Text.Text = "Press Q and the A or D keys to dash and E to \n Interact (Click to Continue...)";
+                intTutorialText++;
+            }
+            else if (intTutorialText == 2)
+            {
+                lblTutorial1Text.Text = "You get score by either collecting the golden orbs (+5 Score) \n or by completing the level (+10 Score)(Click to Continue...)";
+                intTutorialText++;
+            }
+            else if (intTutorialText == 3)
+            {
+                lblTutorial1Text.Text = "You Lose Score by dying (-5 Score). In the bottom left you have\n a health bar, an inventory, and a main hand (Click To Continue...)";
+                intTutorialText++;
+            }
+            else if (intTutorialText == 4)
+            {
+                lblTutorial1Text.Text = "To Swap from your main hand to your inventory, \n Press 1,2,3,4, or 5 (Click To Continue...)";
+                intTutorialText++;
+            }
+            else if (intTutorialText == 5)
+            {
+                lblTutorial1Text.Text = "You Can also use a Sword Attack when you have your sword in your\n main hand and click on the screen (Make sure to click the \n background and not anything else)" +
+                    "(Click To Continue...)";
+                intTutorialText++;
+            }
+            else if (intTutorialText == 6)
+            {
+                lblTutorial1Text.Text = "Your inventory saves and sorts itself when you go to the next \n level however your game does not auto save so make sure\n you save in the settings. (Click To Continue...)";
+                intTutorialText++;
+            }
+            else if (intTutorialText == 7)
+            {
+                lblTutorial1Text.Text = "Your Save load contains your score, your current level, \n and your inventory. It does not save any progress you have made\n in a current level (Click To Continue...)";
+                intTutorialText++;
+            }
+            else if (intTutorialText == 8)
+            {
+                lblTutorial1Text.Text = "Your Health Reset back to 100 after completing a level. To\ncomplete a level, go to the left side of your page (Click to Close)";
+                lblTutorial1Text.Visible = false;
+                lblTutorial1Text.Enabled = false;
+            }
         }
     }
 }

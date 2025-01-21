@@ -103,6 +103,16 @@ namespace Game_Culminating_MansivA {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap FlippedLever {
+            get {
+                object obj = ResourceManager.GetObject("FlippedLever", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap HealthPotion {
             get {
                 object obj = ResourceManager.GetObject("HealthPotion", resourceCulture);
@@ -186,6 +196,16 @@ namespace Game_Culminating_MansivA {
         internal static System.Drawing.Bitmap Spike {
             get {
                 object obj = ResourceManager.GetObject("Spike", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UpsideDownSpike {
+            get {
+                object obj = ResourceManager.GetObject("UpsideDownSpike", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

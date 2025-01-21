@@ -115,11 +115,12 @@
             this.lblTutorialPart2Text.Cursor = System.Windows.Forms.Cursors.Default;
             this.lblTutorialPart2Text.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTutorialPart2Text.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblTutorialPart2Text.Location = new System.Drawing.Point(289, 27);
+            this.lblTutorialPart2Text.Location = new System.Drawing.Point(202, 12);
             this.lblTutorialPart2Text.Name = "lblTutorialPart2Text";
-            this.lblTutorialPart2Text.Size = new System.Drawing.Size(612, 33);
+            this.lblTutorialPart2Text.Size = new System.Drawing.Size(885, 33);
             this.lblTutorialPart2Text.TabIndex = 4;
-            this.lblTutorialPart2Text.Text = "This is where you will learn about Key Objects";
+            this.lblTutorialPart2Text.Text = "This is where you will learn about Key Objects (Click to Continue...)";
+            this.lblTutorialPart2Text.Click += new System.EventHandler(this.lblTutorialPart2Text_Click);
             // 
             // tmrGameTick
             // 
@@ -214,8 +215,8 @@
             // 
             // pcbLever
             // 
-            this.pcbLever.BackColor = System.Drawing.Color.SandyBrown;
-            this.pcbLever.Location = new System.Drawing.Point(206, 552);
+            this.pcbLever.BackColor = System.Drawing.Color.Transparent;
+            this.pcbLever.Location = new System.Drawing.Point(208, 561);
             this.pcbLever.Name = "pcbLever";
             this.pcbLever.Size = new System.Drawing.Size(58, 57);
             this.pcbLever.TabIndex = 36;
@@ -293,7 +294,7 @@
             // 
             // pcbHealthPotion
             // 
-            this.pcbHealthPotion.BackColor = System.Drawing.Color.Plum;
+            this.pcbHealthPotion.BackColor = System.Drawing.Color.Transparent;
             this.pcbHealthPotion.Location = new System.Drawing.Point(81, 407);
             this.pcbHealthPotion.Name = "pcbHealthPotion";
             this.pcbHealthPotion.Size = new System.Drawing.Size(58, 54);
@@ -305,7 +306,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 911);
-            this.Controls.Add(this.pcbHealthPotion);
             this.Controls.Add(this.pcbSword);
             this.Controls.Add(this.lblMainHand);
             this.Controls.Add(this.lblPlayerHealth);
@@ -326,6 +326,7 @@
             this.Controls.Add(this.pcbPlayer);
             this.Controls.Add(this.lblTutorialPart2Text);
             this.Controls.Add(this.pcbCyanKey);
+            this.Controls.Add(this.pcbHealthPotion);
             this.Controls.Add(this.pcbLever);
             this.KeyPreview = true;
             this.Name = "TutorialPart2";

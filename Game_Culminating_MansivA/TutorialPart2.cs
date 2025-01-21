@@ -36,6 +36,8 @@ namespace Game_Culminating_MansivA
         int intMainHandItemValue;
         int intPlayerScore = Settings.intPlayerScoreSaved;
         // Game Environment Variables
+        bool blnLeverOn = false;
+        int intTutorialText = 0;
 
         public TutorialPart2()
         {
@@ -59,6 +61,8 @@ namespace Game_Culminating_MansivA
             pcbCyanKey.BackgroundImageLayout = ImageLayout.Stretch;
             pcbMovableBox.BackgroundImage = Resource1.WoodenCrate;
             pcbMovableBox.BackgroundImageLayout = ImageLayout.Stretch;
+            pcbLever.BackgroundImage = Resource1.Lever;
+            pcbLever.BackgroundImageLayout = ImageLayout.Stretch;
             // Health potion
             pcbHealthPotion.BackgroundImage = Resource1.HealthPotion;
             pcbHealthPotion.BackgroundImageLayout = ImageLayout.Stretch;
@@ -159,6 +163,7 @@ namespace Game_Culminating_MansivA
             {
                 intPlayerScore += 10;
                 Settings.intPlayerScoreSaved = intPlayerScore;
+                sortInventory();
                 SaveInventory();
                 TutorialPart3 TutorialPart3 = new TutorialPart3();
                 // Hides this form
@@ -714,16 +719,20 @@ namespace Game_Culminating_MansivA
                 }
                 if (pcbPlayer.Bounds.IntersectsWith(pcbLever.Bounds))
                 {
-                    if (pcbLever.BackColor == Color.SandyBrown)
+                    if (blnLeverOn == false)
                     {
-                        pcbLever.BackColor = Color.DarkGreen;
+                        pcbLever.BackgroundImage = Resource1.FlippedLever;
+                        pcbLever.BackgroundImageLayout = ImageLayout.Stretch;
                         pcbLockedLeverDoor.Visible = false;
+                        blnLeverOn = true;
                         blnInteract = false;
                     }
                     else
                     {
                         pcbLockedLeverDoor.Visible = true;
-                        pcbLever.BackColor = Color.SandyBrown;
+                        pcbLever.BackgroundImage = Resource1.Lever;
+                        pcbLever.BackgroundImageLayout = ImageLayout.Stretch;
+                        blnLeverOn = false;
                         blnInteract = false;
                     }
                 }
@@ -810,6 +819,35 @@ namespace Game_Culminating_MansivA
                 strMainHandItemName = "";
             }
         }
+        // Sorts Inventory So that the sword is always in the first slot when entering a new level
+        private void sortInventory()
+        {
+            int intTemp;
+            string strTemp;
+            for (int i = 0; i < intInventoryValues.Length; i++)
+            {
+                for (int j = 0; j < intInventoryValues.Length - 1; j++)
+                {
+                    // Skips Swapping with zeros
+                    if (intInventoryValues[j + 1] == 0 || intInventoryValues[i] == 0)
+                    {
+                        continue;
+                    }
+                    // Ascending Order
+                    if (intInventoryValues[i] > intInventoryValues[j + 1])
+                    {
+                        // Swaps the int values 
+                        intTemp = intInventoryValues[j + 1];
+                        intInventoryValues[j + 1] = intInventoryValues[i];
+                        intInventoryValues[i] = intTemp;
+                        // Swaps the string values 
+                        strTemp = strInventoryNames[j + 1];
+                        strInventoryNames[j + 1] = strInventoryNames[i];
+                        strInventoryNames[i] = strTemp; ;
+                    }
+                }
+            }
+        }
         // Saves inventory for the next level
         private void SaveInventory()
         {
@@ -840,6 +878,51 @@ namespace Game_Culminating_MansivA
             Settings settings = new Settings();
             settings.Show();
             this.Close();
+        }
+
+        private void lblTutorialPart2Text_Click(object sender, EventArgs e)
+        {
+            if (intTutorialText == 0)
+            {
+                lblTutorialPart2Text.Text = "Click E on the Lever to turn it from Off to On (Click to Continue...)";
+                intTutorialText++;
+            }
+            else if (intTutorialText == 1)
+            {
+                lblTutorialPart2Text.Text = "Click E on the Cyan Key to Pick it up then Put it\n in your main hand and walk into the cyan door (Click to Continue...)";
+                intTutorialText++;
+            }
+            else if (intTutorialText == 2)
+            {
+                lblTutorialPart2Text.Text = "This will delete the cyan key from your inventory \n push the box towards the turqouise button (Click to Continue...)";
+                intTutorialText++;
+            }
+            else if (intTutorialText == 3)
+            {
+                lblTutorialPart2Text.Text = "You can interact with the button using yourself or a box (Click To Continue...)";
+                intTutorialText++;
+            }
+            else if (intTutorialText == 4)
+            {
+                lblTutorialPart2Text.Text = "Click E on the health potion to get it into your inventory (Click To Continue...)";
+                intTutorialText++;
+            }
+            else if (intTutorialText == 5)
+            {
+                lblTutorialPart2Text.Text = "When you gain items, they automatically go into an \n open slot in your inventory (Click To Continue...)";
+                intTutorialText++;
+            }
+            else if (intTutorialText == 6)
+            {
+                lblTutorialPart2Text.Text = "To use the Health Potion have it in your main hand and \n Click on the screen/background (Click To Continue...)";
+                intTutorialText++;
+            }
+            else if (intTutorialText == 7)
+            {
+                lblTutorialPart2Text.Text = "Every Health Potion gives +40 health use it or save it up\n for later, the choice is on you (Click to Close)";
+                lblTutorialPart2Text.Visible = false;
+                lblTutorialPart2Text.Enabled = false;
+            }
         }
     }
 }

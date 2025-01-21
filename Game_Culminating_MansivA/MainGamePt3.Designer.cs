@@ -247,8 +247,8 @@
             // 
             // pcbLever
             // 
-            this.pcbLever.BackColor = System.Drawing.Color.SandyBrown;
-            this.pcbLever.Location = new System.Drawing.Point(680, 311);
+            this.pcbLever.BackColor = System.Drawing.Color.Transparent;
+            this.pcbLever.Location = new System.Drawing.Point(647, 341);
             this.pcbLever.Name = "pcbLever";
             this.pcbLever.Size = new System.Drawing.Size(58, 57);
             this.pcbLever.TabIndex = 79;
@@ -485,8 +485,6 @@
             this.Controls.Add(this.pcbHealthPotion);
             this.Controls.Add(this.pcbExtraScore2);
             this.Controls.Add(this.pcbLava);
-            this.Controls.Add(this.pcbCrimsonKey);
-            this.Controls.Add(this.pcbLever);
             this.Controls.Add(this.pcbBasicEnemy);
             this.Controls.Add(this.pcbBasicEnemySword);
             this.Controls.Add(this.pcbPlatform1);
@@ -516,6 +514,8 @@
             this.Controls.Add(this.pcbLockedLeverDoor2);
             this.Controls.Add(this.pcbPlatform2);
             this.Controls.Add(this.pcbStep2);
+            this.Controls.Add(this.pcbCrimsonKey);
+            this.Controls.Add(this.pcbLever);
             this.KeyPreview = true;
             this.Name = "MainGamePt3";
             this.Text = " MainGamePt3";

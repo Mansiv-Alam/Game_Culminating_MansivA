@@ -259,5 +259,17 @@
   <ItemGroup>
     <None Include="Resources\Lever.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Spike1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Spike2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lever1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FlippedLever.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -931,6 +931,35 @@ namespace Game_Culminating_MansivA
             settings.Show();
             this.Close();
         }
+        // Sorts Inventory So that the sword is always in the first slot when entering a new level
+        private void sortInventory()
+        {
+            int intTemp;
+            string strTemp;
+            for (int i = 0; i < intInventoryValues.Length; i++)
+            {
+                for (int j = 0; j < intInventoryValues.Length - 1; j++)
+                {
+                    // Skips Swapping with zeros
+                    if (intInventoryValues[j + 1] == 0 || intInventoryValues[i] == 0)
+                    {
+                        continue;
+                    }
+                    // Ascending Order
+                    if (intInventoryValues[i] > intInventoryValues[j + 1])
+                    {
+                        // Swaps the int values 
+                        intTemp = intInventoryValues[j + 1];
+                        intInventoryValues[j + 1] = intInventoryValues[i];
+                        intInventoryValues[i] = intTemp;
+                        // Swaps the string values 
+                        strTemp = strInventoryNames[j + 1];
+                        strInventoryNames[j + 1] = strInventoryNames[i];
+                        strInventoryNames[i] = strTemp; ;
+                    }
+                }
+            }
+        }
         // Saves inventory for the next level
         private void SaveInventory()
         {

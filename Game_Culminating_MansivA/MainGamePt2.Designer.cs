@@ -190,8 +190,8 @@
             // 
             // pcbLever
             // 
-            this.pcbLever.BackColor = System.Drawing.Color.SandyBrown;
-            this.pcbLever.Location = new System.Drawing.Point(25, 117);
+            this.pcbLever.BackColor = System.Drawing.Color.Transparent;
+            this.pcbLever.Location = new System.Drawing.Point(47, 147);
             this.pcbLever.Name = "pcbLever";
             this.pcbLever.Size = new System.Drawing.Size(58, 57);
             this.pcbLever.TabIndex = 71;
@@ -355,7 +355,7 @@
             // 
             // pcbMovableBox
             // 
-            this.pcbMovableBox.BackColor = System.Drawing.Color.PeachPuff;
+            this.pcbMovableBox.BackColor = System.Drawing.Color.Transparent;
             this.pcbMovableBox.Location = new System.Drawing.Point(329, 729);
             this.pcbMovableBox.Name = "pcbMovableBox";
             this.pcbMovableBox.Size = new System.Drawing.Size(103, 102);
@@ -373,10 +373,10 @@
             // 
             // pcbMovableBox2
             // 
-            this.pcbMovableBox2.BackColor = System.Drawing.Color.PeachPuff;
+            this.pcbMovableBox2.BackColor = System.Drawing.Color.Transparent;
             this.pcbMovableBox2.Location = new System.Drawing.Point(175, 523);
             this.pcbMovableBox2.Name = "pcbMovableBox2";
-            this.pcbMovableBox2.Size = new System.Drawing.Size(173, 36);
+            this.pcbMovableBox2.Size = new System.Drawing.Size(173, 43);
             this.pcbMovableBox2.TabIndex = 77;
             this.pcbMovableBox2.TabStop = false;
             this.pcbMovableBox2.Visible = false;
@@ -416,7 +416,6 @@
             this.Controls.Add(this.pcbHealthPotion);
             this.Controls.Add(this.pcbSpike);
             this.Controls.Add(this.pcbLava);
-            this.Controls.Add(this.pcbLever);
             this.Controls.Add(this.pcbHoldableButton);
             this.Controls.Add(this.pcbStrongEnemy);
             this.Controls.Add(this.pcbStrongEnemySword);
@@ -445,6 +444,7 @@
             this.Controls.Add(this.pcbPlayer);
             this.Controls.Add(this.pcbBlueKey);
             this.Controls.Add(this.pcbRedKey);
+            this.Controls.Add(this.pcbLever);
             this.KeyPreview = true;
             this.Name = "MainGamePt2";
             this.Text = "MainGamePt2";

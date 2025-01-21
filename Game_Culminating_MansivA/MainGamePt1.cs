@@ -71,12 +71,14 @@ namespace Game_Culminating_MansivA
             pcbCyanKey.BackgroundImage = Resource1.CyanKey;
             pcbCyanKey.BackgroundImageLayout = ImageLayout.Stretch;
             // Spike, Lava, Falling Trap Pngs
-            pcbSpike.BackgroundImage = Resource1.Spike;
+            pcbSpike.BackgroundImage = Resource1.UpsideDownSpike;
             pcbSpike.BackgroundImageLayout = ImageLayout.Stretch;
             pcbSpike2.BackgroundImage = Resource1.Spike;
             pcbSpike2.BackgroundImageLayout = ImageLayout.Stretch;
             pcbFallingTrap.BackgroundImage = Resource1.FallingTrap;
             pcbFallingTrap.BackgroundImageLayout = ImageLayout.Stretch;
+            pcbLava.BackgroundImage = Resource1.Lava;
+            pcbLava.BackgroundImageLayout = ImageLayout.None;
 
             strMainHandItemName = "Sword";
             intMainHandItemValue = 1;
@@ -249,6 +251,7 @@ namespace Game_Culminating_MansivA
             {
                 // Resets score for the main game
                 Settings.intPlayerScoreSaved = intPlayerScore + 10;
+                sortInventory();
                 SaveInventory();
                 MainGamePt2 mainGamePt2 = new MainGamePt2();
                 // Hides this form
@@ -967,6 +970,35 @@ namespace Game_Culminating_MansivA
                 if (intPlayerScore > 0)
                 {
                     intPlayerScore -= 5;
+                }
+            }
+        }
+        // Sorts Inventory So that the sword is always in the first slot when entering a new level
+        private void sortInventory()
+        {
+            int intTemp;
+            string strTemp;
+            for (int i = 0; i < intInventoryValues.Length; i++)
+            {
+                for (int j = 0; j < intInventoryValues.Length - 1; j++)
+                {
+                    // Skips Swapping with zeros
+                    if (intInventoryValues[j + 1] == 0 || intInventoryValues[i] == 0)
+                    {
+                        continue;
+                    }
+                    // Ascending Order
+                    if (intInventoryValues[i] > intInventoryValues[j + 1])
+                    {
+                        // Swaps the int values 
+                        intTemp = intInventoryValues[j + 1];
+                        intInventoryValues[j + 1] = intInventoryValues[i];
+                        intInventoryValues[i] = intTemp;
+                        // Swaps the string values 
+                        strTemp = strInventoryNames[j + 1];
+                        strInventoryNames[j + 1] = strInventoryNames[i];
+                        strInventoryNames[i] = strTemp; ;
+                    }
                 }
             }
         }

@@ -36,6 +36,7 @@ namespace Game_Culminating_MansivA
         int intSwordAttackCounter = 0;
         int intPlayerScore = Settings.intPlayerScoreSaved;
         // Game Environment
+        bool blnLeverOn = false;
         bool blnStrongEnemyCanDamagePlayer = true;
         int intStrongEnemyAttackInterval = 0;
         int intStrongEnemySwordVisibilityCounter = 26;
@@ -73,13 +74,15 @@ namespace Game_Culminating_MansivA
             pcbMovableBox.BackgroundImageLayout = ImageLayout.Stretch;
             pcbMovableBox2.BackgroundImage = Resource1.WoodenCrate;
             pcbMovableBox2.BackgroundImageLayout = ImageLayout.Stretch;
+            pcbLever.BackgroundImage = Resource1.Lever;
+            pcbLever.BackgroundImageLayout = ImageLayout.Stretch;
             // Spike, Lava, Falling Trap Pngs
             pcbSpike.BackgroundImage = Resource1.Spike;
             pcbSpike.BackgroundImageLayout = ImageLayout.Stretch;
             pcbSpike2.BackgroundImage = Resource1.Spike;
             pcbSpike2.BackgroundImageLayout = ImageLayout.Stretch;
             pcbLava.BackgroundImage = Resource1.Lava;
-            pcbLava.BackgroundImageLayout = ImageLayout.Stretch;
+            pcbLava.BackgroundImageLayout = ImageLayout.None;
             // Health potion
             pcbHealthPotion.BackgroundImage = Resource1.HealthPotion;
             pcbHealthPotion.BackgroundImageLayout = ImageLayout.Stretch;
@@ -259,6 +262,7 @@ namespace Game_Culminating_MansivA
             {
                 // Resets score for the main game
                 Settings.intPlayerScoreSaved = intPlayerScore + 10;
+                sortInventory();
                 SaveInventory();
                 MainGamePt3 mainGamePt3 = new MainGamePt3();
                 // Hides this form
@@ -654,18 +658,18 @@ namespace Game_Culminating_MansivA
             {
                 //Checks if the player is above the box
                 // also checks if the user has a key in their second slot (will change later)
-                if ((intJumpVelocity <= 0 || intGravity > 0) && (pcbPlayer.Bottom > pcbMovableBox2.Top) && (pcbPlayer.Bottom < pcbMovableBox2.Top))
+                if ((intJumpVelocity <= 0 || intGravity > 0))
                 {
                     pcbPlayer.Top = pcbMovableBox2.Location.Y + 1 - pcbPlayer.Height;
                     isGrounded();
                     return;
                 }
                 // Checks which direction the box is being pushed and moves the box accordingly
-                if (blnMovingLeft == true && pcbPlayer.Left > pcbMovableBox2.Left)
+                if (blnMovingLeft == true && pcbPlayer.Left > pcbMovableBox2.Right)
                 {
                     pcbMovableBox2.Left = pcbPlayer.Left + 1 - pcbMovableBox2.Width;
                 }
-                else if (blnMovingRight == true && pcbPlayer.Left < pcbMovableBox2.Right)
+                else if (blnMovingRight == true && pcbPlayer.Left < pcbMovableBox2.Left)
                 {
                     pcbMovableBox2.Left = pcbPlayer.Right;
                 }
@@ -922,18 +926,22 @@ namespace Game_Culminating_MansivA
                 if (pcbPlayer.Bounds.IntersectsWith(pcbLever.Bounds))
                 {
                     pcbMovableBox2.Visible = true;
-                    if (pcbLever.BackColor == Color.SandyBrown)
+                    if (blnLeverOn == false)
                     {
-                        pcbLever.BackColor = Color.DarkGreen;
+                        pcbLever.BackgroundImage = Resource1.FlippedLever;
+                        pcbLever.BackgroundImageLayout = ImageLayout.Stretch;
                         pcbLockedLeverDoor.Visible = false;
                         pcbNegativeLockedLeverDoor.Visible = true;
+                        blnLeverOn = true;
                         blnInteract = false;
                     }
                     else
                     {
+                        pcbLever.BackgroundImage = Resource1.Lever;
+                        pcbLever.BackgroundImageLayout = ImageLayout.Stretch;
                         pcbLockedLeverDoor.Visible = true;
                         pcbNegativeLockedLeverDoor.Visible = false;
-                        pcbLever.BackColor = Color.SandyBrown;
+                        blnLeverOn = false;
                         blnInteract = false;
                     }
                 }
@@ -1196,6 +1204,35 @@ namespace Game_Culminating_MansivA
                 if (intPlayerScore > 0)
                 {
                     intPlayerScore -= 5;
+                }
+            }
+        }
+        // Sorts Inventory So that the sword is always in the first slot when entering a new level
+        private void sortInventory()
+        {
+            int intTemp;
+            string strTemp;
+            for (int i = 0; i < intInventoryValues.Length; i++)
+            {
+                for (int j = 0; j < intInventoryValues.Length - 1; j++)
+                {
+                    // Skips Swapping with zeros
+                    if (intInventoryValues[j + 1] == 0 || intInventoryValues[i] == 0)
+                    {
+                        continue;
+                    }
+                    // Ascending Order
+                    if (intInventoryValues[i] > intInventoryValues[j + 1])
+                    {
+                        // Swaps the int values 
+                        intTemp = intInventoryValues[j + 1];
+                        intInventoryValues[j + 1] = intInventoryValues[i];
+                        intInventoryValues[i] = intTemp;
+                        // Swaps the string values 
+                        strTemp = strInventoryNames[j + 1];
+                        strInventoryNames[j + 1] = strInventoryNames[i];
+                        strInventoryNames[i] = strTemp; ;
+                    }
                 }
             }
         }

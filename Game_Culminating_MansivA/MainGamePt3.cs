@@ -85,6 +85,7 @@ namespace Game_Culminating_MansivA
             pcbExtraScore2.BackgroundImageLayout = ImageLayout.Stretch;
             pcbCrimsonKey.BackgroundImage = Resource1.RedKey;
             pcbCrimsonKey.BackgroundImageLayout = ImageLayout.Stretch;
+            pcbLever.BackgroundImage = Resource1.Lever;
             // Spike, Lava, Falling Trap Pngs
             pcbSpike.BackgroundImage = Resource1.Spike;
             pcbSpike.BackgroundImageLayout = ImageLayout.Stretch;
@@ -95,7 +96,7 @@ namespace Game_Culminating_MansivA
             pcbSpike4.BackgroundImage = Resource1.Spike;
             pcbSpike4.BackgroundImageLayout = ImageLayout.Stretch;
             pcbLava.BackgroundImage = Resource1.Lava;
-            pcbLava.BackgroundImageLayout = ImageLayout.Stretch;
+            pcbLava.BackgroundImageLayout = ImageLayout.None;
             // Health potion
             pcbHealthPotion.BackgroundImage = Resource1.HealthPotion;
             pcbHealthPotion.BackgroundImageLayout = ImageLayout.Stretch;
@@ -284,6 +285,7 @@ namespace Game_Culminating_MansivA
             {
                 // Resets score for the main game
                 Settings.intPlayerScoreSaved = intPlayerScore + 10;
+                sortInventory();
                 SaveInventory();
                 MainGamePt4 mainGamePt4 = new MainGamePt4();
                 // Hides this form
@@ -1222,13 +1224,28 @@ namespace Game_Culminating_MansivA
             {
                 if (pcbPlayer.Bounds.IntersectsWith(pcbLever.Bounds))
                 {
-                    pcbLever.BackColor = Color.DarkGreen;
+                    pcbLever.BackgroundImage = Resource1.FlippedLever;
+                    pcbLever.BackgroundImageLayout = ImageLayout.Stretch;
                     pcbLockedLeverDoor.Visible = false;
                     blnInteract = false;
                 }
-                else if (pcbPlayer.Bounds.IntersectsWith(pcbLever2.Bounds)) {
-                    pcbLever2.BackColor = Color.DarkGreen;
+                else {
+                    pcbLever.BackgroundImage = Resource1.Lever;
+                    pcbLever.BackgroundImageLayout = ImageLayout.Stretch;
+                    pcbLockedLeverDoor.Visible = true;
+                    blnInteract = false;
+                }
+                if (pcbPlayer.Bounds.IntersectsWith(pcbLever2.Bounds)) {
+                    pcbLever2.BackgroundImage = Resource1.FlippedLever;
+                    pcbLever.BackgroundImageLayout = ImageLayout.Stretch;
                     pcbLockedLeverDoor2.Visible = false;
+                    blnInteract = false;
+                }
+                else
+                {
+                    pcbLever.BackgroundImage = Resource1.Lever;
+                    pcbLever.BackgroundImageLayout = ImageLayout.Stretch;
+                    pcbLockedLeverDoor2.Visible = true;
                     blnInteract = false;
                 }
                 if (pcbPlayer.Bounds.IntersectsWith(pcbCrimsonKey.Bounds) && pcbCrimsonKey.Visible == true)
@@ -1353,6 +1370,35 @@ namespace Game_Culminating_MansivA
                 if (intPlayerScore > 0)
                 {
                     intPlayerScore -= 5;
+                }
+            }
+        }
+        // Sorts Inventory So that the sword is always in the first slot when entering a new level
+        private void sortInventory()
+        {
+            int intTemp;
+            string strTemp;
+            for (int i = 0; i < intInventoryValues.Length; i++)
+            {
+                for (int j = 0; j < intInventoryValues.Length - 1; j++)
+                {
+                    // Skips Swapping with zeros
+                    if (intInventoryValues[j + 1] == 0 || intInventoryValues[i] == 0)
+                    {
+                        continue;
+                    }
+                    // Ascending Order
+                    if (intInventoryValues[i] > intInventoryValues[j + 1])
+                    {
+                        // Swaps the int values 
+                        intTemp = intInventoryValues[j + 1];
+                        intInventoryValues[j + 1] = intInventoryValues[i];
+                        intInventoryValues[i] = intTemp;
+                        // Swaps the string values 
+                        strTemp = strInventoryNames[j + 1];
+                        strInventoryNames[j + 1] = strInventoryNames[i];
+                        strInventoryNames[i] = strTemp; ;
+                    }
                 }
             }
         }

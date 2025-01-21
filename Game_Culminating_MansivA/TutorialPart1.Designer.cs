@@ -86,13 +86,14 @@
             this.lblTutorial1Text.AutoSize = true;
             this.lblTutorial1Text.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.lblTutorial1Text.Cursor = System.Windows.Forms.Cursors.Default;
-            this.lblTutorial1Text.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTutorial1Text.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTutorial1Text.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblTutorial1Text.Location = new System.Drawing.Point(299, 91);
+            this.lblTutorial1Text.Location = new System.Drawing.Point(207, 96);
             this.lblTutorial1Text.Name = "lblTutorial1Text";
-            this.lblTutorial1Text.Size = new System.Drawing.Size(568, 55);
+            this.lblTutorial1Text.Size = new System.Drawing.Size(405, 66);
             this.lblTutorial1Text.TabIndex = 2;
-            this.lblTutorial1Text.Text = "Welcome To the Tutorial";
+            this.lblTutorial1Text.Text = "Welcome To the Tutorial\r\n   (Click Here to Continue...)";
+            this.lblTutorial1Text.Click += new System.EventHandler(this.lblTutorial1Text_Click);
             // 
             // pcbGround
             // 
