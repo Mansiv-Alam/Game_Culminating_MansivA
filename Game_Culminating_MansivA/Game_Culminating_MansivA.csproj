@@ -229,5 +229,20 @@
   <ItemGroup>
     <None Include="Resources\LightStonePlatformLong.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ExtraScore.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Spike.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RedKey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BlueKey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CyanKey.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

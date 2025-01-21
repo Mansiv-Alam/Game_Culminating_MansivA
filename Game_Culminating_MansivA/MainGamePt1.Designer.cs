@@ -90,6 +90,7 @@
             // lblScore
             // 
             this.lblScore.AutoSize = true;
+            this.lblScore.BackColor = System.Drawing.SystemColors.ControlDark;
             this.lblScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblScore.Location = new System.Drawing.Point(12, 9);
             this.lblScore.Name = "lblScore";
@@ -164,7 +165,7 @@
             // 
             // pcbExtraScore2
             // 
-            this.pcbExtraScore2.BackColor = System.Drawing.Color.Gold;
+            this.pcbExtraScore2.BackColor = System.Drawing.Color.Transparent;
             this.pcbExtraScore2.Location = new System.Drawing.Point(19, 342);
             this.pcbExtraScore2.Name = "pcbExtraScore2";
             this.pcbExtraScore2.Size = new System.Drawing.Size(58, 54);
@@ -173,7 +174,7 @@
             // 
             // pcbSpike
             // 
-            this.pcbSpike.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.pcbSpike.BackColor = System.Drawing.Color.Transparent;
             this.pcbSpike.Location = new System.Drawing.Point(477, 0);
             this.pcbSpike.Name = "pcbSpike";
             this.pcbSpike.Size = new System.Drawing.Size(58, 54);
@@ -228,7 +229,7 @@
             // 
             // pcbExtraScore
             // 
-            this.pcbExtraScore.BackColor = System.Drawing.Color.Gold;
+            this.pcbExtraScore.BackColor = System.Drawing.Color.Transparent;
             this.pcbExtraScore.Location = new System.Drawing.Point(1090, 745);
             this.pcbExtraScore.Name = "pcbExtraScore";
             this.pcbExtraScore.Size = new System.Drawing.Size(58, 54);
@@ -284,7 +285,7 @@
             // 
             // pcbSpike2
             // 
-            this.pcbSpike2.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.pcbSpike2.BackColor = System.Drawing.Color.Transparent;
             this.pcbSpike2.Location = new System.Drawing.Point(842, 170);
             this.pcbSpike2.Name = "pcbSpike2";
             this.pcbSpike2.Size = new System.Drawing.Size(58, 54);

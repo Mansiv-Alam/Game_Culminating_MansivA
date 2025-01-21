@@ -63,6 +63,36 @@ namespace Game_Culminating_MansivA {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BlueKey {
+            get {
+                object obj = ResourceManager.GetObject("BlueKey", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CyanKey {
+            get {
+                object obj = ResourceManager.GetObject("CyanKey", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ExtraScore {
+            get {
+                object obj = ResourceManager.GetObject("ExtraScore", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap LightStonePlatformImproved {
             get {
                 object obj = ResourceManager.GetObject("LightStonePlatformImproved", resourceCulture);
@@ -93,9 +123,29 @@ namespace Game_Culminating_MansivA {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap RedKey {
+            get {
+                object obj = ResourceManager.GetObject("RedKey", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap RuinsBg {
             get {
                 object obj = ResourceManager.GetObject("RuinsBg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Spike {
+            get {
+                object obj = ResourceManager.GetObject("Spike", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

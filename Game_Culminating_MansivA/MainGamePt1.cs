@@ -52,15 +52,27 @@ namespace Game_Culminating_MansivA
             this.BackgroundImage = Resource1.RuinsBg;
             // Images for all platforms and stretchs out them so they look more natural
             pcbPlatform1.BackgroundImage = Resource1.LightStonePlatformImproved;
-            pcbPlatform1.BackgroundImageLayout = ImageLayout.None;
+            pcbPlatform1.BackgroundImageLayout = ImageLayout.Stretch;
             pcbPlatform2.BackgroundImage = Resource1.LightStonePlatformLong;
-            pcbPlatform2.BackgroundImageLayout = ImageLayout.None;
+            pcbPlatform2.BackgroundImageLayout = ImageLayout.Stretch;
             pcbPlatform3.BackgroundImage = Resource1.LightStonePlatformLong;
             pcbPlatform3.BackgroundImageLayout = ImageLayout.Stretch;
-            pcbPlatform4.BackgroundImage = Resource1.LightStonePlatformImproved;
+            pcbPlatform4.BackgroundImage = Resource1.LightStonePlatformLong;
             pcbPlatform4.BackgroundImageLayout = ImageLayout.Stretch;
             pcbWall.BackgroundImage = Resource1.LightStoneWall;
-            pcbWall.BackgroundImageLayout = ImageLayout.Stretch;
+            pcbWall.BackgroundImageLayout = ImageLayout.None;
+            pcbWall2.BackgroundImage = Resource1.LightStoneWall;
+            pcbWall2.BackgroundImageLayout = ImageLayout.None;
+            // Score, Keys, and Lever pngs
+            pcbExtraScore.BackgroundImage = Resource1.ExtraScore;
+            pcbExtraScore.BackgroundImageLayout = ImageLayout.Stretch;
+            pcbExtraScore2.BackgroundImage = Resource1.ExtraScore;
+            pcbExtraScore2.BackgroundImageLayout = ImageLayout.Stretch;
+            // Spike, Lava, Falling Trap Pngs
+            pcbSpike.BackgroundImage = Resource1.Spike;
+            pcbSpike.BackgroundImageLayout = ImageLayout.Stretch;
+            pcbSpike2.BackgroundImage = Resource1.Spike;
+            pcbSpike2.BackgroundImageLayout = ImageLayout.Stretch;
             strMainHandItemName = "Sword";
             intMainHandItemValue = 1;
             lblMainHand.Text = "Main Hand:" + strMainHandItemName;

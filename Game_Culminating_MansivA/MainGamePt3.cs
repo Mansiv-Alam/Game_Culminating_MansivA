@@ -53,6 +53,45 @@ namespace Game_Culminating_MansivA
             // Makes the background the ruins bg
             this.BackgroundImage = Resource1.RuinsBg;
             // Adds all the images for the game
+            // Images for all platforms and stretchs out them so they look more natural
+            pcbBottomLeftPlatform.BackgroundImage = Resource1.LightStonePlatformLong;
+            pcbBottomLeftPlatform.BackgroundImageLayout = ImageLayout.None;
+            pcbBottomRightPlatform.BackgroundImage = Resource1.LightStonePlatformImproved;
+            pcbBottomRightPlatform.BackgroundImageLayout = ImageLayout.Stretch;
+            pcbTopPlatform.BackgroundImage = Resource1.LightStonePlatformLong;
+            pcbTopPlatform.BackgroundImageLayout = ImageLayout.None;
+            pcbPlatform1.BackgroundImage = Resource1.LightStonePlatformImproved;
+            pcbPlatform1.BackgroundImageLayout = ImageLayout.Stretch;
+            pcbPlatform2.BackgroundImage = Resource1.LightStonePlatformLong;
+            pcbPlatform2.BackgroundImageLayout = ImageLayout.Stretch;
+            pcbLeftColumnWall.BackgroundImage = Resource1.LightStoneWall;
+            pcbLeftColumnWall.BackgroundImageLayout = ImageLayout.Stretch;
+            pcbRightColumnWall.BackgroundImage = Resource1.LightStoneWall;
+            pcbRightColumnWall.BackgroundImageLayout = ImageLayout.Stretch;
+            pcbTopWall.BackgroundImage = Resource1.LightStoneWall;
+            pcbTopWall.BackgroundImageLayout = ImageLayout.Stretch;
+            pcbBottomWall.BackgroundImage = Resource1.LightStoneWall;
+            pcbBottomWall.BackgroundImageLayout = ImageLayout.Stretch;
+            pcbStep1.BackgroundImage = Resource1.LightStonePlatformImproved;
+            pcbStep1.BackgroundImageLayout = ImageLayout.Stretch;
+            pcbStep2.BackgroundImage = Resource1.LightStonePlatformImproved;
+            pcbStep2.BackgroundImageLayout = ImageLayout.Stretch;
+            pcbStep3.BackgroundImage = Resource1.LightStonePlatformImproved;
+            pcbStep3.BackgroundImageLayout = ImageLayout.Stretch;
+            // Score, Keys, and Lever pngs
+            pcbExtraScore.BackgroundImage = Resource1.ExtraScore;
+            pcbExtraScore.BackgroundImageLayout = ImageLayout.Stretch;
+            pcbExtraScore2.BackgroundImage = Resource1.ExtraScore;
+            pcbExtraScore2.BackgroundImageLayout = ImageLayout.Stretch;
+            // Spike, Lava, Falling Trap Pngs
+            pcbSpike.BackgroundImage = Resource1.Spike;
+            pcbSpike.BackgroundImageLayout = ImageLayout.Stretch;
+            pcbSpike2.BackgroundImage = Resource1.Spike;
+            pcbSpike2.BackgroundImageLayout = ImageLayout.Stretch;
+            pcbSpike3.BackgroundImage = Resource1.Spike;
+            pcbSpike3.BackgroundImageLayout = ImageLayout.Stretch;
+            pcbSpike4.BackgroundImage = Resource1.Spike;
+            pcbSpike4.BackgroundImageLayout = ImageLayout.Stretch;
             LoadInventory();
         }
         // Detects when the player presses a key down

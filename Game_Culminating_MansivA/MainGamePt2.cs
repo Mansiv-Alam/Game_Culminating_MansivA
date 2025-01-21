@@ -49,6 +49,32 @@ namespace Game_Culminating_MansivA
             this.DoubleBuffered = true;
             // Makes the background the ruins bg
             this.BackgroundImage = Resource1.RuinsBg;
+            // Images for all platforms and stretchs out them so they look more natural
+            pcbPlatform1.BackgroundImage = Resource1.LightStonePlatformImproved;
+            pcbPlatform1.BackgroundImageLayout = ImageLayout.Stretch;
+            pcbPlatform2.BackgroundImage = Resource1.LightStonePlatformLong;
+            pcbPlatform2.BackgroundImageLayout = ImageLayout.Stretch;
+            pcbPlatform3.BackgroundImage = Resource1.LightStonePlatformImproved;
+            pcbPlatform3.BackgroundImageLayout = ImageLayout.Stretch;
+            pcbPlatform4.BackgroundImage = Resource1.LightStonePlatformImproved;
+            pcbPlatform4.BackgroundImageLayout = ImageLayout.Stretch;
+            pcbPlatform5.BackgroundImage = Resource1.LightStonePlatformLong;
+            pcbPlatform5.BackgroundImageLayout = ImageLayout.Stretch;
+            pcbWall.BackgroundImage = Resource1.LightStoneWall;
+            pcbWall.BackgroundImageLayout = ImageLayout.Stretch;
+            // Score, Keys, and Lever pngs
+            pcbExtraScore.BackgroundImage = Resource1.ExtraScore;
+            pcbExtraScore.BackgroundImageLayout = ImageLayout.Stretch;
+            pcbRedKey.BackgroundImage = Resource1.RedKey;
+            pcbRedKey.BackgroundImageLayout = ImageLayout.Stretch;
+            pcbBlueKey.BackgroundImage = Resource1.BlueKey;
+            pcbBlueKey.BackgroundImageLayout = ImageLayout.Stretch;
+            // Spike, Lava, Falling Trap Pngs
+            pcbSpike.BackgroundImage = Resource1.Spike;
+            pcbSpike.BackgroundImageLayout = ImageLayout.Stretch;
+            pcbSpike2.BackgroundImage = Resource1.Spike;
+            pcbSpike2.BackgroundImageLayout = ImageLayout.Stretch;
+
         }
         // Detects when the player presses a key down
         private void MainGamePt2_KeyDown(object sender, KeyEventArgs e)
@@ -620,7 +646,7 @@ namespace Game_Culminating_MansivA
             {
                 //Checks if the player is above the box
                 // also checks if the user has a key in their second slot (will change later)
-                if ((intJumpVelocity <= 0 || intGravity > 0) && (pcbPlayer.Bottom > pcbMovableBox2.Top) && (pcbPlayer.Bottom < pcbMovableBox2.Top + 30))
+                if ((intJumpVelocity <= 0 || intGravity > 0) && (pcbPlayer.Bottom > pcbMovableBox2.Top) && (pcbPlayer.Bottom < pcbMovableBox2.Top))
                 {
                     pcbPlayer.Top = pcbMovableBox2.Location.Y + 1 - pcbPlayer.Height;
                     isGrounded();
@@ -976,7 +1002,7 @@ namespace Game_Culminating_MansivA
                 blnStrongEnemyCanDamagePlayer = true;
             }
             // Checks if the player is on the same y level as the enemy
-            if (pcbPlayer.Top < pcbPlatform3.Top)
+            if (pcbPlayer.Top < pcbPlatform5.Top)
             {
                 // Checks if the player is within the horizontal range of the enemy
                 if (pcbPlayer.Left > pcbPlatform5.Left + 60 && pcbPlayer.Left <= pcbPlatform5.Right - pcbStrongEnemy.Width)

@@ -106,8 +106,9 @@
             // lblScore
             // 
             this.lblScore.AutoSize = true;
+            this.lblScore.BackColor = System.Drawing.SystemColors.ControlDark;
             this.lblScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblScore.Location = new System.Drawing.Point(29, 22);
+            this.lblScore.Location = new System.Drawing.Point(12, 7);
             this.lblScore.Name = "lblScore";
             this.lblScore.Size = new System.Drawing.Size(118, 39);
             this.lblScore.TabIndex = 10;
@@ -162,7 +163,7 @@
             // 
             // pcbHealthPotion
             // 
-            this.pcbHealthPotion.BackColor = System.Drawing.Color.Plum;
+            this.pcbHealthPotion.BackColor = System.Drawing.Color.Transparent;
             this.pcbHealthPotion.Location = new System.Drawing.Point(402, 433);
             this.pcbHealthPotion.Name = "pcbHealthPotion";
             this.pcbHealthPotion.Size = new System.Drawing.Size(58, 54);
@@ -171,7 +172,7 @@
             // 
             // pcbBlueKey
             // 
-            this.pcbBlueKey.BackColor = System.Drawing.Color.SteelBlue;
+            this.pcbBlueKey.BackColor = System.Drawing.Color.Transparent;
             this.pcbBlueKey.Location = new System.Drawing.Point(47, 355);
             this.pcbBlueKey.Name = "pcbBlueKey";
             this.pcbBlueKey.Size = new System.Drawing.Size(58, 58);
@@ -180,7 +181,7 @@
             // 
             // pcbSpike
             // 
-            this.pcbSpike.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.pcbSpike.BackColor = System.Drawing.Color.Transparent;
             this.pcbSpike.Location = new System.Drawing.Point(245, 433);
             this.pcbSpike.Name = "pcbSpike";
             this.pcbSpike.Size = new System.Drawing.Size(38, 37);
@@ -207,7 +208,7 @@
             // 
             // pcbRedKey
             // 
-            this.pcbRedKey.BackColor = System.Drawing.Color.Red;
+            this.pcbRedKey.BackColor = System.Drawing.Color.Transparent;
             this.pcbRedKey.Location = new System.Drawing.Point(1068, 416);
             this.pcbRedKey.Name = "pcbRedKey";
             this.pcbRedKey.Size = new System.Drawing.Size(58, 57);
@@ -244,7 +245,7 @@
             // 
             // pcbExtraScore
             // 
-            this.pcbExtraScore.BackColor = System.Drawing.Color.Gold;
+            this.pcbExtraScore.BackColor = System.Drawing.Color.Transparent;
             this.pcbExtraScore.Location = new System.Drawing.Point(512, 7);
             this.pcbExtraScore.Name = "pcbExtraScore";
             this.pcbExtraScore.Size = new System.Drawing.Size(58, 54);
@@ -381,7 +382,7 @@
             // 
             // pcbSpike2
             // 
-            this.pcbSpike2.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.pcbSpike2.BackColor = System.Drawing.Color.Transparent;
             this.pcbSpike2.Location = new System.Drawing.Point(1047, 267);
             this.pcbSpike2.Name = "pcbSpike2";
             this.pcbSpike2.Size = new System.Drawing.Size(35, 36);
@@ -413,11 +414,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 911);
             this.Controls.Add(this.pcbHealthPotion);
-            this.Controls.Add(this.pcbBlueKey);
             this.Controls.Add(this.pcbSpike);
             this.Controls.Add(this.pcbLava);
             this.Controls.Add(this.pcbLever);
-            this.Controls.Add(this.pcbRedKey);
             this.Controls.Add(this.pcbHoldableButton);
             this.Controls.Add(this.pcbStrongEnemy);
             this.Controls.Add(this.pcbStrongEnemySword);
@@ -444,6 +443,8 @@
             this.Controls.Add(this.pcbSpike2);
             this.Controls.Add(this.pcbMovableBox2);
             this.Controls.Add(this.pcbPlayer);
+            this.Controls.Add(this.pcbBlueKey);
+            this.Controls.Add(this.pcbRedKey);
             this.KeyPreview = true;
             this.Name = "MainGamePt2";
             this.Text = "MainGamePt2";
