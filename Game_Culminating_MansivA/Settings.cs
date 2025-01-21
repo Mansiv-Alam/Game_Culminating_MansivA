@@ -108,6 +108,7 @@ namespace Game_Culminating_MansivA
                 Text.WriteLine(strInventoryNamesSaved[i]);
             }
             Text.Close();
+            MessageBox.Show("Saved Game");
         }
     }
 }

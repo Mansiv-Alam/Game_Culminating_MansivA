@@ -132,7 +132,7 @@
             this.lblMainHand.BackColor = System.Drawing.Color.Gray;
             this.lblMainHand.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMainHand.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblMainHand.Location = new System.Drawing.Point(250, 852);
+            this.lblMainHand.Location = new System.Drawing.Point(231, 852);
             this.lblMainHand.Name = "lblMainHand";
             this.lblMainHand.Size = new System.Drawing.Size(193, 39);
             this.lblMainHand.TabIndex = 56;
@@ -402,7 +402,7 @@
             // 
             // pcbLever2
             // 
-            this.pcbLever2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pcbLever2.BackColor = System.Drawing.Color.Transparent;
             this.pcbLever2.Location = new System.Drawing.Point(1094, 32);
             this.pcbLever2.Name = "pcbLever2";
             this.pcbLever2.Size = new System.Drawing.Size(58, 57);

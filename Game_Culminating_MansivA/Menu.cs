@@ -97,23 +97,33 @@ namespace Game_Culminating_MansivA
         // Reads Save File
         private void btnLoadSave_Click(object sender, EventArgs e)
         {
-            // Opens File
-            StreamReader Read = File.OpenText("RuinsSaveLoad.txt");
-            // Gets the level opened, players score, and main hand values
-            Settings.intLevelOpened = Int32.Parse(Read.ReadLine());
-            Settings.intPlayerScoreSaved = Int32.Parse(Read.ReadLine());
-            Settings.intMainHandValue = Int32.Parse(Read.ReadLine());
-            Settings.strMainHandItemName = Read.ReadLine();
-            // Gets the inventory values
-            for (int i = 0; i < Settings.intInventoryValuesSaved.Length; i++) {
-                Settings.intInventoryValuesSaved[i] = Int32.Parse(Read.ReadLine());
-            }
-            for (int i = 0; i < Settings.strInventoryNamesSaved.Length; i++)
+            // does a try catch error to see if there is a save file
+            try
             {
-                Settings.strInventoryNamesSaved[i] = Read.ReadLine();
+                // Opens File
+                StreamReader Read = File.OpenText("RuinsSaveLoad.txt");
+                // Gets the level opened, players score, and main hand values
+                Settings.intLevelOpened = Int32.Parse(Read.ReadLine());
+                Settings.intPlayerScoreSaved = Int32.Parse(Read.ReadLine());
+                Settings.intMainHandValue = Int32.Parse(Read.ReadLine());
+                Settings.strMainHandItemName = Read.ReadLine();
+                // Gets the inventory values
+                for (int i = 0; i < Settings.intInventoryValuesSaved.Length; i++)
+                {
+                    Settings.intInventoryValuesSaved[i] = Int32.Parse(Read.ReadLine());
+                }
+                for (int i = 0; i < Settings.strInventoryNamesSaved.Length; i++)
+                {
+                    Settings.strInventoryNamesSaved[i] = Read.ReadLine();
+                }
+                // Closes the file
+                Read.Close();
+                MessageBox.Show("Save Has been Loaded");
             }
-            // Closes the file
-            Read.Close();
+            // uses exFileNotFound because e is already in use for the EventArgs
+            catch (Exception exFileNotFound) {
+                MessageBox.Show(exFileNotFound.Message);
+            }
         }
     }
 }

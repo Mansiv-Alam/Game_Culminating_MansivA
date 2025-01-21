@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -622,7 +623,6 @@ namespace Game_Culminating_MansivA
             if (pcbPlayer.Bounds.IntersectsWith(pcbMovableBox.Bounds))
             {
                 //Checks if the player is above the box
-                // also checks if the user has a key in their second slot (will change later)
                 if ((intJumpVelocity <= 0 || intGravity > 0) && (pcbPlayer.Bottom > pcbMovableBox.Top) && (pcbPlayer.Bottom < pcbMovableBox.Top + 30))
                 {
                     pcbPlayer.Top = pcbMovableBox.Location.Y + 1 - pcbPlayer.Height;
@@ -651,36 +651,37 @@ namespace Game_Culminating_MansivA
                 pcbPlayer.Left = pcbMovableBox.Left - pcbPlayer.Width;
             }
         }
-        // Hitbox and physics for the second Movable box
+        // Hitbox and physics for the Movable box
         private void hitboxMovableBox2()
         {
-            if (pcbPlayer.Bounds.IntersectsWith(pcbMovableBox2.Bounds) && pcbMovableBox2.Visible == true)
+            if (pcbPlayer.Bounds.IntersectsWith(pcbMovableBox2.Bounds))
             {
                 //Checks if the player is above the box
-                // also checks if the user has a key in their second slot (will change later)
-                if ((intJumpVelocity <= 0 || intGravity > 0) && (pcbPlayer.Bottom > pcbMovableBox2.Top) && (pcbPlayer.Bottom < pcbMovableBox2.Top + 30))
+                if ((intJumpVelocity <= 0 || intGravity > 0) && (pcbPlayer.Bottom > pcbMovableBox2.Top) && (pcbPlayer.Bottom < pcbMovableBox2.Top + 40))
                 {
                     pcbPlayer.Top = pcbMovableBox2.Location.Y + 1 - pcbPlayer.Height;
                     isGrounded();
                     return;
                 }
                 // Checks which direction the box is being pushed and moves the box accordingly
-                if (blnMovingLeft == true && pcbPlayer.Left > pcbMovableBox2.Right)
+                if (blnMovingLeft == true)
                 {
                     pcbMovableBox2.Left = pcbPlayer.Left + 1 - pcbMovableBox2.Width;
                 }
-                else if (blnMovingRight == true && pcbPlayer.Left < pcbMovableBox2.Left)
+                else if (blnMovingRight == true)
                 {
                     pcbMovableBox2.Left = pcbPlayer.Right;
                 }
             }
             // Makes the small box fall
-            if (pcbMovableBox2.Visible == true) {
+            if (pcbMovableBox2.Visible == true)
+            {
                 if (pcbMovableBox2.Bounds.IntersectsWith(pcbGround.Bounds) == false)
                 {
                     pcbMovableBox2.Top += 8;
                 }
-                else {
+                else
+                {
                     pcbMovableBox2.Top = pcbGround.Top + 1 - pcbMovableBox2.Height;
                 }
             }

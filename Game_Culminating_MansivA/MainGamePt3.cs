@@ -44,6 +44,8 @@ namespace Game_Culminating_MansivA
         int intEnemySwordVisibilityCounter = 26;
         int intEnemyAttackInterval = 0;
         bool blnBasicEnemyCanDamagePlayer = true;
+        bool blnLeverOn = false;
+        bool blnLever2On = false;
         public MainGamePt3()
         {
             InitializeComponent();
@@ -86,6 +88,9 @@ namespace Game_Culminating_MansivA
             pcbCrimsonKey.BackgroundImage = Resource1.RedKey;
             pcbCrimsonKey.BackgroundImageLayout = ImageLayout.Stretch;
             pcbLever.BackgroundImage = Resource1.Lever;
+            pcbLever.BackgroundImageLayout = ImageLayout.Stretch;
+            pcbLever2.BackgroundImage = Resource1.Lever;
+            pcbLever2.BackgroundImageLayout = ImageLayout.Stretch;
             // Spike, Lava, Falling Trap Pngs
             pcbSpike.BackgroundImage = Resource1.Spike;
             pcbSpike.BackgroundImageLayout = ImageLayout.Stretch;
@@ -1222,23 +1227,26 @@ namespace Game_Culminating_MansivA
         {
             if (blnInteract == true)
             {
-                if (pcbPlayer.Bounds.IntersectsWith(pcbLever.Bounds))
+                if (pcbPlayer.Bounds.IntersectsWith(pcbLever.Bounds) && blnLeverOn == false)
                 {
                     pcbLever.BackgroundImage = Resource1.FlippedLever;
                     pcbLever.BackgroundImageLayout = ImageLayout.Stretch;
                     pcbLockedLeverDoor.Visible = false;
+                    blnLeverOn = true;
                     blnInteract = false;
                 }
                 else {
                     pcbLever.BackgroundImage = Resource1.Lever;
                     pcbLever.BackgroundImageLayout = ImageLayout.Stretch;
                     pcbLockedLeverDoor.Visible = true;
+                    blnLeverOn = false;
                     blnInteract = false;
                 }
-                if (pcbPlayer.Bounds.IntersectsWith(pcbLever2.Bounds)) {
+                if (pcbPlayer.Bounds.IntersectsWith(pcbLever2.Bounds) && blnLever2On == false) {
                     pcbLever2.BackgroundImage = Resource1.FlippedLever;
                     pcbLever.BackgroundImageLayout = ImageLayout.Stretch;
                     pcbLockedLeverDoor2.Visible = false;
+                    blnLever2On = true;
                     blnInteract = false;
                 }
                 else
@@ -1246,6 +1254,7 @@ namespace Game_Culminating_MansivA
                     pcbLever.BackgroundImage = Resource1.Lever;
                     pcbLever.BackgroundImageLayout = ImageLayout.Stretch;
                     pcbLockedLeverDoor2.Visible = true;
+                    blnLever2On = false;
                     blnInteract = false;
                 }
                 if (pcbPlayer.Bounds.IntersectsWith(pcbCrimsonKey.Bounds) && pcbCrimsonKey.Visible == true)

@@ -120,7 +120,7 @@
             this.lblMainHand.BackColor = System.Drawing.Color.Gray;
             this.lblMainHand.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMainHand.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblMainHand.Location = new System.Drawing.Point(250, 852);
+            this.lblMainHand.Location = new System.Drawing.Point(214, 852);
             this.lblMainHand.Name = "lblMainHand";
             this.lblMainHand.Size = new System.Drawing.Size(193, 39);
             this.lblMainHand.TabIndex = 56;
@@ -413,6 +413,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 911);
+            this.Controls.Add(this.pcbMovableBox2);
             this.Controls.Add(this.pcbSpike);
             this.Controls.Add(this.pcbLava);
             this.Controls.Add(this.pcbHoldableButton);
@@ -439,7 +440,6 @@
             this.Controls.Add(this.pcbLockedLeverDoor);
             this.Controls.Add(this.pcbMovableBox);
             this.Controls.Add(this.pcbSpike2);
-            this.Controls.Add(this.pcbMovableBox2);
             this.Controls.Add(this.pcbPlayer);
             this.Controls.Add(this.pcbBlueKey);
             this.Controls.Add(this.pcbRedKey);

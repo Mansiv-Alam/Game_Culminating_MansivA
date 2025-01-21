@@ -49,7 +49,7 @@
             // lblLeadProgrammer
             // 
             this.lblLeadProgrammer.AutoSize = true;
-            this.lblLeadProgrammer.BackColor = System.Drawing.SystemColors.Control;
+            this.lblLeadProgrammer.BackColor = System.Drawing.SystemColors.ControlDark;
             this.lblLeadProgrammer.Cursor = System.Windows.Forms.Cursors.Default;
             this.lblLeadProgrammer.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLeadProgrammer.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -62,7 +62,7 @@
             // lblSoundDesign
             // 
             this.lblSoundDesign.AutoSize = true;
-            this.lblSoundDesign.BackColor = System.Drawing.SystemColors.Control;
+            this.lblSoundDesign.BackColor = System.Drawing.SystemColors.ControlDark;
             this.lblSoundDesign.Cursor = System.Windows.Forms.Cursors.Default;
             this.lblSoundDesign.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSoundDesign.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -75,7 +75,7 @@
             // lblDirector
             // 
             this.lblDirector.AutoSize = true;
-            this.lblDirector.BackColor = System.Drawing.SystemColors.Control;
+            this.lblDirector.BackColor = System.Drawing.SystemColors.ControlDark;
             this.lblDirector.Cursor = System.Windows.Forms.Cursors.Default;
             this.lblDirector.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDirector.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -88,7 +88,7 @@
             // lblCredits
             // 
             this.lblCredits.AutoSize = true;
-            this.lblCredits.BackColor = System.Drawing.SystemColors.Control;
+            this.lblCredits.BackColor = System.Drawing.SystemColors.ControlDark;
             this.lblCredits.Cursor = System.Windows.Forms.Cursors.Default;
             this.lblCredits.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCredits.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
